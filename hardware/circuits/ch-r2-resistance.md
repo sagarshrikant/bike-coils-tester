@@ -5,6 +5,8 @@ coil from ~20 Ω to 200 kΩ. Ignition **primary** (< 5 Ω) needs CH-R4 (Phase 2)
 
 Wiring diagram: [`../diagrams/ch-r2-resistance.drawio.svg`](../diagrams/ch-r2-resistance.drawio.svg)
 
+Schematic (component symbols): [`../diagrams/ch-r2-schematic.drawio.svg`](../diagrams/ch-r2-schematic.drawio.svg)
+
 ## Principle
 
 A reference resistor R_REF and the DUT form a divider, driven by a GPIO pin set high.

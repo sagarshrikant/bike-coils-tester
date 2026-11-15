@@ -27,11 +27,11 @@ soldering station, general-purpose PCB. The phase order uses these first. Their 
 - [x] Firmware: Wi-Fi AP/STA, HTTP server, resistance meter, lead-zero calibration
 - [x] Host tests for the resistance maths and API
 - [x] Flutter app: connect screen, resistance screen, spec presets, PASS/FAIL, session list
-- [ ] **User:** confirm the Pico boards are **Pico W** (Wi-Fi chip under a metal shield, near
+- [x] **User:** confirm the Pico boards are **Pico W** (confirmed: **Pico 2 W**, RP2350, RPI_PICO2_W UF2) (Wi-Fi chip under a metal shield, near
       the antenna end). A plain Pico has no Wi-Fi and would need an ESP module or a USB link.
-- [ ] **User:** install the MicroPython UF2 on the Pico W, deploy the firmware, open `http://192.168.4.1/`
+- [x] **User:** install the MicroPython UF2 on the Pico W, deploy the firmware, open `http://192.168.4.1/` (done 2026-11-15, page loads over the CoilTester AP)
 - [ ] **User:** build CH-R2 on perfboard (`hardware/circuits/ch-r2-resistance.md`)
-- [ ] **User:** `flutter create` the platform folders, run the app, connect
+- [x] **User:** `flutter create` the platform folders, run the app, connect (done 2026-11-15: web build served from the laptop, iPhone Safari connected to the Pico in STA mode at its home-network IP)
 - [ ] Bench test with known resistors + the golden pickup coil → record in `docs/test-results/phase1.md`
 - [ ] App: save a measurement as a part's baseline (golden reference)
 - [ ] Write skill `.claude/skills/resistance-meter/` once Phase 1 is confirmed working
