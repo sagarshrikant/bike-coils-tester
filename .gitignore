@@ -1,0 +1,18 @@
+# Firmware
+firmware/src/wifi_config.py
+__pycache__/
+*.pyc
+
+# Flutter
+app/.dart_tool/
+app/build/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
+app/*.iml
+app/.idea/
+
+# OS / editors
+.DS_Store
+.vscode/
+*.swp
