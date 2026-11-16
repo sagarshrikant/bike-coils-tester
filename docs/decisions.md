@@ -87,3 +87,16 @@ Two MCP23017 (I²C, 0x20 / 0x21) carry range, load, enable and relay lines, beca
 free pins for the whole product (about 36 lines needed, about 21 free). Fast and timing-critical lines stay
 on Pico GPIO. Every expander line has a pull resistor that sets the safe state, since the expander resets to
 inputs. Details: `docs/pin-budget.md`.
+
+### D14 · 2026-11-16 · accepted · Two power domains and the ARM stage
+The 12 V power domain (CDI supply, trigger drivers, coil driver later) has its own ground (GND_P) and is
+isolated from the logic domain (Pico, ADC, expanders, measurement side) by optocouplers. A P-channel
+MOSFET (Q2) switches `12V_ARMED`. It turns on only when firmware `PWR_EN` (GP22), the physical ARM
+switch (SW1) and the E-STOP loop (SW2) all agree. `ARM_SENSE` (GP13) reads the real rail through a
+second optocoupler. The Pico watchdog is enabled while armed, and `PWR_EN` has a pull-down, so a hang
+or reset turns the rail off. The Pico runs from USB, or from an optional isolated 12 V → 5 V module.
+A **series relay K1** (added 2026-11-16 at the user's request) makes a second, independent switch: its own
+enable (`RLY_EN`, GP0), optocoupler, Q3 driver and the second poles of a DPST ARM switch and a two-contact
+E-STOP. `MID_SENSE` between the two switches shows which one failed. The relay closes first and opens last,
+so it never breaks load current. Only a double failure (Q2 shorted and K1 welded) leaves the rail live.
+Details: `hardware/circuits/power-arm.md`.

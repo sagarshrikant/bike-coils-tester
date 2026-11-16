@@ -114,6 +114,43 @@ export function createSchematic({ W, H, title }) {
     if (ctrl) text(x + 18, y + 22, ctrl, { size: 10, color: C.dig, bold: true });
     return { a: [x, y], b: [x, y + 40] };
   }
+  // vertical fuse: leads at (x,y) and (x,y+40)
+  function fuseV(x, y, color = C.ink) {
+    symbol(x - 8, y, 16, 40,
+      `<line x1="8" y1="0" x2="8" y2="8"/><rect x="2" y="8" width="12" height="24" fill="#ffffff"/><line x1="8" y1="8" x2="8" y2="32"/><line x1="8" y1="32" x2="8" y2="40"/>`, color);
+    return { a: [x, y], b: [x, y + 40] };
+  }
+  // P-channel MOSFET, bbox 40 x 60 at (x,y). Normal: drain top, source bottom. flip: source top, drain bottom.
+  // Gate lead ends at the left edge (x, y+30).
+  function pmos(x, y, { flip = false, color = C.ink } = {}) {
+    const f = (v) => (flip ? 60 - v : v);
+    const body =
+      `<path d="M0,30 H12 M12,${f(14)} V${f(46)} M18,${f(10)} V${f(22)} M18,${f(26)} V${f(34)} M18,${f(38)} V${f(50)} ` +
+      `M18,${f(16)} H38 V${f(0)} M18,${f(44)} H38 V${f(60)} M18,30 H38 M38,${f(30)} V${f(44)}"/>` +
+      `<polygon points="31,26 38,30 31,34" fill="${color}"/>`;
+    symbol(x, y, 40, 60, body, color);
+    return flip
+      ? { d: [x + 38, y + 60], s: [x + 38, y], g: [x, y + 30] }
+      : { d: [x + 38, y], s: [x + 38, y + 60], g: [x, y + 30] };
+  }
+  // N-channel MOSFET, bbox 40 x 60 at (x,y). Drain top, source bottom. mirror: gate on the right.
+  function nmos(x, y, { mirror = false, color = C.ink } = {}) {
+    const m = (v) => (mirror ? 40 - v : v);
+    const body =
+      `<path d="M${m(0)},30 H${m(12)} M${m(12)},14 V46 M${m(18)},10 V22 M${m(18)},26 V34 M${m(18)},38 V50 ` +
+      `M${m(18)},16 H${m(38)} V0 M${m(18)},44 H${m(38)} V60 M${m(18)},30 H${m(38)} M${m(38)},30 V44"/>` +
+      `<polygon points="${m(25)},26 ${m(18)},30 ${m(25)},34" fill="${color}"/>`;
+    symbol(x, y, 40, 60, body, color);
+    return mirror
+      ? { d: [x + 2, y], s: [x + 2, y + 60], g: [x + 40, y + 30] }
+      : { d: [x + 38, y], s: [x + 38, y + 60], g: [x, y + 30] };
+  }
+  // relay coil, vertical: leads at (x,y) and (x,y+80)
+  function coilV(x, y, color = C.ink) {
+    symbol(x - 12, y, 24, 80,
+      `<line x1="12" y1="0" x2="12" y2="15"/><rect x="2" y="15" width="20" height="50" fill="#ffffff"/><line x1="2" y1="15" x2="22" y2="65"/><line x1="12" y1="65" x2="12" y2="80"/>`, color);
+    return { a: [x, y], b: [x, y + 80] };
+  }
   // op-amp / comparator triangle pointing right at (x,y), size w x h. plusTop puts '+' on the upper input.
   function opamp(x, y, label = '', { w = 70, h = 60, plusTop = true } = {}) {
     const top = [x, y + 15], bot = [x, y + h - 15], out = [x + w, y + h / 2];
@@ -157,5 +194,5 @@ export function createSchematic({ W, H, title }) {
     console.log(`wrote ${path}`);
   }
 
-  return { wire, dot, text, box, symbol, resistorH, resistorV, capacitor, diodeUp, diodeDown, tvs, ground, rail, terminal, switchV, opamp, icBox, finish };
+  return { wire, dot, text, box, symbol, resistorH, resistorV, capacitor, diodeUp, diodeDown, tvs, ground, rail, terminal, switchV, fuseV, pmos, nmos, coilV, opamp, icBox, finish };
 }

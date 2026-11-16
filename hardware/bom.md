@@ -77,6 +77,31 @@ Check stock and exact order codes at the supplier. 5 % spare quantities are incl
 Shared with other blocks (listed here once): 2 × MCP23017 (I²C I/O expander, SPDIP-28 or SOIC-28),
 the Pico socket headers, and the 3V3A filter parts. See `docs/pin-budget.md`.
 
+## Power input and ARM stage (proposed, not yet ordered)
+
+| Qty | Part | Value / type | Notes |
+|---|---|---|---|
+| 2 | P-channel MOSFET, TO-220 | IRF4905 (−55 V, 20 mΩ), or equivalent | Q1 reverse protection, Q2 ARM switch. Gate-source max ±20 V |
+| 1 | Fuse holder + fuse | 5 A, 5 × 20 mm or blade, for the PCB | F1 |
+| 2 | Resettable fuse (PTC), through-hole | 2 A hold | F2 on each output |
+| 1 | TVS diode | SMBJ18A | D1 |
+| 1 | Electrolytic capacitor | 470 µF, 25 V | C1 |
+| 4 | Optocoupler | PC817 (DIP-4 or SOP-4) | U_ARM, U_RLY, U_MID, U_SENSE |
+| 1 | Power relay, SPST-NO, 12 V coil | contacts ≥ 10 A DC, PCB mount (for example Omron G5LE-1 or Hongfa HF115F class; check the part) | K1 series relay |
+| 1 | N-channel MOSFET, TO-92 | 2N7000 | Q3 relay driver |
+| 1 | Diode | 1N4007 | D6 relay flyback |
+| 1 | LED green + 1 LED red | 3 mm or 5 mm | 12 V present, ARMED |
+| 5 | Resistor | 10 kΩ | R_G1, R_PU, R_GQ, and the PWR_EN and RLY_EN pull-downs |
+| 3 | Resistor | 2.2 kΩ | R_PD, LED resistors ×2 |
+| 1 | Resistor | 4.7 kΩ 0.5 W | R_BL |
+| 2 | Resistor | 3.3 kΩ | R_S, R_SM |
+| 2 | Resistor | 330 Ω | opto LEDs (PWR_EN, RLY_EN) |
+| 1 | Toggle switch with safety cover, **DPST** (two poles), ≥ 1 A DC | panel mount | SW1 ARM (pole A: Q2 gate, pole B: relay coil) |
+| 1 | Push button / E-STOP, two normally-closed contacts (or wire jumpers) | panel mount | SW2 |
+| 5 | Screw terminal | 2-pin, 5.08 mm, 10 A | J1 input, J2 ×2 (SW1A/SW1B and SW2A/SW2B wiring), J3, J4 outputs |
+| 1 | Isolated DC-DC module, 12 V → 5 V, 1 W | B1205S-1W class, SIP | U_ISO, **DNP**, optional |
+| 1 | Schottky diode | 1N5819 | with U_ISO into Pico VSYS, DNP |
+
 ## Phase 2+ (planned, not final)
 
 LM393 comparators, TL072 / LM358 op-amps, CD4051 analog mux, 1N4148 diodes, HV resistors
