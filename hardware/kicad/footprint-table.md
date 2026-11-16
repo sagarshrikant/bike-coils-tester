@@ -18,14 +18,14 @@ Check each package against the datasheet picture once, not only the name.
 | CH-PU U1 | MCP6472-E/MS | `Package_SO:MSOP-8_3x3mm_P0.65mm` | Same pin order as the MCP6002 (1 OUTA, 2 INA−, 3 INA+, 4 VSS, 5 INB+, 6 INB−, 7 OUTB, 8 VDD). |
 | CH-PU U2 | 74HC4066 (SO-14) | `Package_SO:SOIC-14_3.9x8.7mm_P1.27mm` | Pin 7 = GND, 14 = VCC. |
 | CH-PU U3 | MCP6542-I/SN | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | 1 OUTA, 2 INA−, 3 INA+, 4 VSS, 5 INB+, 6 INB−, 7 OUTB, 8 VDD. Push-pull output. |
-| CH-PU U4 | MCP4822-E/P | `Package_DIP:DIP-8_W7.62mm` | ⚠ Expected 1 VDD, 2 CS, 3 SCK, 4 SDI, 5 LDAC, 6 VOUTB, 7 VSS, 8 VOUTA. From memory: compare with the datasheet and the KiCad symbol `Analog_DAC:MCP4822`. |
-| U14 | ADuM1250ARZ | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | ⚠ VDD1, SDA1, SCL1, GND1 on one side; VDD2, SDA2, SCL2, GND2 on the other: compare with datasheet page 1 and the symbol. |
-| U16, U17 | MCP4725A0T-E/CH | `Package_TO_SOT_SMD:SOT-23-6` | ⚠ 1 VOUT, 2 VSS, 3 VDD, 4 SDA, 5 SCL, 6 A0 (verify in the datasheet). |
+| CH-PU U4 | MCP4822-E/P | `Package_DIP:DIP-8_W7.62mm` | Confirmed from the user's picture (`hardware/MCP4822-dip8-piout.png`): 1 VDD, 2 CS, 3 SCK, 4 SDI, 5 LDAC, 6 VOUTB, 7 VSS, 8 VOUTA. |
+| U14 | ADuM1250ARZ | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | Confirmed from the user's picture (`hardware/ADuM1250-piout.png`): 1 VDD1, 2 SDA1, 3 SCL1, 4 GND1, 5 GND2, 6 SCL2, 7 SDA2, 8 VDD2. |
+| U16, U17 | MCP4725A0T-E/CH | `Package_TO_SOT_SMD:SOT-23-6` | Confirmed from the user's picture (`hardware/MCP4725-SOT23-6-pinout.png`): 1 VOUT, 2 VSS, 3 VDD, 4 SDA, 5 SCL, 6 A0. |
 | U18 | TL072CD | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | Pin 4 V−, 8 V+. |
 | U19 | 4052 (SO-16) | `Package_SO:SOIC-16_3.9x9.9mm_P1.27mm` | Pin 7 VEE, 8 VSS (GND), 16 VDD, 6 INH. |
 | U13 | ICL7660SCPA + DIP-8 socket | `Package_DIP:DIP-8_W7.62mm` | 1 BOOST, 2 CAP+, 3 GND, 4 CAP−, 5 VOUT, 6 LV, 7 OSC, 8 V+. |
 | U10, U12 | TS78L05ACY (SOT-89) | `Package_TO_SOT_SMD:SOT-89-3` | Pinout confirmed from the user's picture (`hardware/TS78L05ACY-sot89-pinout.png`): 1 OUT, 2 GND (also the tab), 3 IN. Use `Regulator_Linear:L78L05_SOT89` and compare its pin numbers with this. |
-| U20 | µA78L09 (TO-92) | `Package_TO_SOT_THT:TO-92_Inline` | ⚠ TO-92 order of the 78Lxx: 1 OUT, 2 GND, 3 IN (not the same as the 2N7000). Check the datasheet. |
+| U20 | µA78L09 (TO-92) | `Package_TO_SOT_THT:TO-92_Inline` | From the user's picture (`hardware/78L09-TO92-piout.png`): OUT, GND, IN in that order = pins 1, 2, 3 (the picture is a 3D view: check the flat side against the datasheet drawing once). Not the same as the 2N7000 (S, G, D). |
 | U11 | MCP1702T-3302E/CB (SOT-23A) | `Package_TO_SOT_SMD:SOT-23` | Pinout confirmed from the user's picture (`hardware/mcp1702-sot-23a-pinout.png`): 1 GND, 2 VOUT, 3 VIN. Use KiCad's `Regulator_Linear:MCP1702-3302_SOT23` and check its pin names against this. Needs 1 µF ceramic on input and output. |
 | PR1, PR2 | AQY210EH | `Package_DIP:DIP-4_W7.62mm` | 1 LED anode, 2 LED cathode, 3 and 4 switch. Same pins as the PC817 except for what the pins mean. |
 | PR3–PR9 | AQY212EH | `Package_DIP:DIP-4_W7.62mm` | Same. The two switch pins straddle the isolation slot where needed. |

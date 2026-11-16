@@ -59,3 +59,13 @@ very large and is not needed for the circuit or the board; skip it for now.
 - Footprints match the real parts (relay pin spacing, TO-92 pin order, terminal pitch 5.08 mm, SOIC-16, VSSOP-10).
 - Run **DRC**, then check the 3D view.
 - Export: PDF of the schematic, PNG/PDF of the layout, then Gerbers and drill files to `hardware/kicad/mainboard/fab/` (ignored by git).
+
+## Generated sheets (netlist-style, every pin labelled)
+
+| File | Content | Generator |
+|---|---|---|
+| `mainboard/mainboard-io.kicad_sch` | Pico, 2 × MCP23017, ADS1115 module headers | `node tools/kicad/gen-io-sheet.mjs` |
+| `mainboard/mainboard-arm.kicad_sch` | 12 V input, Q1/Q2, relay K1, sense optocouplers, outputs | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-arm-sheet.mjs` (add `--nets` to print the net list) |
+
+Add them with Place → Add sheet. The global labels connect the sheets (PWR_EN, RLY_EN, MID_SENSE, ARM_SENSE, 3V3, GND_L).
+Do not edit the labels by hand: change the generator, regenerate, and tell me.
