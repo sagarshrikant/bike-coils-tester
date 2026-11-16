@@ -2,7 +2,7 @@
 // Builds hardware/bom-order-list.xlsx and hardware/bom-order-list.csv from tools/bom/order-list-data.mjs.
 // Usage: node tools/bom/build-order-list.mjs
 // Needs the exceljs package: `npm install exceljs` in tools/bom, or set EXCELJS_DIR to a folder that has it.
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, existsSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import { HEADERS as BASE_HEADERS, ROWS } from './order-list-data.mjs';
@@ -19,7 +19,18 @@ catch {
 // the "what it does / what to check" column goes just before the user's column
 const HEADERS = [...BASE_HEADERS.slice(0, -1), 'What it does + what to check in the datasheet', BASE_HEADERS[BASE_HEADERS.length - 1]];
 const verifyText = (item) => VERIFY[item] ?? (GENERIC.find(([re]) => re.test(item)) ?? [null, ''])[1];
-const data = ROWS.map((r, i) => [i + 1, ...r, verifyText(r[2]), '']);
+// carry over the user's own column from hardware/bom-order-list-filled.xlsx (matched by block + item), so regenerating never loses it
+const userByKey = new Map();
+const filledPath = resolve('hardware/bom-order-list-filled.xlsx');
+if (existsSync(filledPath)) {
+  const wbF = new ExcelJS.Workbook();
+  await wbF.xlsx.readFile(filledPath);
+  const wsF = wbF.getWorksheet('Order list') ?? wbF.worksheets[0];
+  const hdr = wsF.getRow(1).values; const cUser = hdr.findIndex((h) => String(h ?? '').startsWith('YOUR ENTRY')); const cBlock = hdr.findIndex((h) => h === 'Block'); const cItem = hdr.findIndex((h) => h === 'Item');
+  wsF.eachRow((row, n) => { if (n === 1) return; const v = row.getCell(cUser).value; const text = (v && typeof v === 'object' && v.text) ? v.text : v; if (text) userByKey.set(`${row.getCell(cBlock).value}|${row.getCell(cItem).value}`, v); });
+  console.log(`kept ${userByKey.size} entries from your filled sheet`);
+}
+const data = ROWS.map((r, i) => [i + 1, ...r, verifyText(r[2]), userByKey.get(`${r[0]}|${r[2]}`) ?? '']);
 const COL_USER = HEADERS.length;                             // 1-based
 const COL_MS = HEADERS.indexOf('Milestone') + 1;
 
