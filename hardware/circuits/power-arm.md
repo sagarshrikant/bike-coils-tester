@@ -63,14 +63,19 @@ module's output goes through a Schottky diode to VSYS.
 | E-STOP pressed, or SW1 off | Q2 turns off (gate no longer pulled down) |
 | Output short | F2 / F1, and the bench supply current limit |
 | Q2 fails shorted | `MID_SENSE` reads live while Q2 is off. The relay is still open, so `12V_ARMED` stays dead. The app alarms ("Q2 fault"). |
-| K1 welds closed | `ARM_SENSE` reads live while both enables are off. Q2 is off, so the rail stays dead. The app alarms ("relay fault"). |
+| K1 welds closed | **Not visible while Q2 is off:** Q2 is the only source, so the rail stays dead and Q2 alone still protects. The weld is found by the **weld check** below (Q2 on, K1 commanded open, `ARM_SENSE` must stay dead). |
 | **Both Q2 shorted and K1 welded** | The rail stays live. The app alarms from `ARM_SENSE`. Fallback: F1 and the bench supply's own output switch. Very unlikely (two independent failures). |
 
 ## Switching order
 
 The relay should never break load current. **Arm:** close K1 first (`RLY_EN`, nothing is live yet because
 Q2 is open), then Q2 (`PWR_EN`). **Disarm:** open Q2 first, then K1. Before arming, check that `MID_SENSE`
-and `ARM_SENSE` both read dead (this catches a failed switch). After arming, check that both read live.
+and `ARM_SENSE` both read dead (this catches a shorted Q2). After arming, check that both read live.
+
+**Weld check (K1) at the start of every arming:** with `RLY_EN` low (K1 commanded open), close Q2 for about 50 ms and read the sense lines.
+`MID_SENSE` must go live (Q2 works) and `ARM_SENSE` must stay dead (K1 really opened). If `ARM_SENSE` goes live, K1 is welded closed:
+open Q2 at once and alarm. In the healthy case the outputs stay dead the whole time, so the check is safe; only in the fault case do the
+outputs see 12 V for 50 ms. (The first version of this page said a welded K1 would show on `ARM_SENSE` with both switches off: that was wrong.)
 
 ## Panel wiring
 

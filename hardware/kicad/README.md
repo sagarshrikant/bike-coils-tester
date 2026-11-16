@@ -23,7 +23,7 @@ very large and is not needed for the circuit or the board; skip it for now.
 
 | Part | Symbol | Footprint |
 |---|---|---|
-| Pico 2 W | `MCU_RaspberryPi:RaspberryPi_Pico_W` (same pin layout) | `Module:RaspberryPi_Pico_Common_THT` (the pads for the two 1×20 sockets) |
+| Pico 2 W | `MCU_Module:RaspberryPi_Pico_W` (same pin layout; it inherits its pins from `RaspberryPi_Pico`) | `Module:RaspberryPi_Pico_Common_THT` (the pads for the two 1×20 sockets) |
 | MCP23017 (SPDIP-28) | `Interface_Expansion:MCP23017x-x-SP` | DIP-28 narrow from `Package_DIP` |
 | ADS1115 | `Analog_ADC:ADS1115IDGS` | VSSOP-10 from `Package_SO` |
 | Resistor, capacitor | `Device:R`, `Device:C` | `Resistor_SMD:R_0805_2012Metric`, `Capacitor_SMD:C_0805_2012Metric` |

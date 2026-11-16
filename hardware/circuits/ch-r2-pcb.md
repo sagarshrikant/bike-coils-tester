@@ -56,6 +56,11 @@ connected to something the result will be off: the firmware says "remove the cli
 nominal means something is connected). The error from the two measurements also gives a per-range gain
 correction (kept in memory, not in the DUT result).
 
+## Control lines
+
+`R2_DRIVE_1K` (GP14) and `R2_DRIVE_10K` (GP15) drive the two ranges. The self-test photo-relays are `R2_CAL1` (EXP2.A6, PR3, 470 Ω)
+and `R2_CAL2` (EXP2.A7, PR4, 47 kΩ), both off after reset. The ADS1115 module (JM1) sits on the main I²C bus (GP4 / GP5).
+
 ## Protection
 
 - **R_S 1 kΩ + plug-in clamp header (BAT54S) + 100 nF** at the node, as on the perfboard. The clamp

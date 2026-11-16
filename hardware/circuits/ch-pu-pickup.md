@@ -54,6 +54,21 @@ connection to about 2 mA, but it is not designed for HV. Disconnect the pickup f
 8. **Optional peak hold** (footprints, DNP): diode + 10 nF + 10 MΩ bleed per polarity, reset through
    1 kΩ by an expander line, read on GP27 / GP28. Populate only if the sampled waveform misses narrow peaks.
 
+## Control lines (from the I/O expanders, docs/pin-budget.md)
+
+| Net | Expander line | Drives | Default after reset |
+|---|---|---|---|
+| `PU_RANGE5` | EXP1.A0 | S1 (±5 V range) | off (pull-down) |
+| `PU_RANGE20` | EXP1.A1 | S2 (±20 V range) | off (pull-down) |
+| `PU_RANGE100` | EXP1.A2 | S3 (±100 V range) | **on** (pull-up) |
+| `PU_LOAD1` | EXP1.A3 | PR1 (1 kΩ load) | off |
+| `PU_LOAD2` | EXP1.A4 | PR2 (10 kΩ load) | off |
+| `PU_TEST` | EXP1.A5 | self-test injection (R_INJ) | hi-Z |
+| `PU_PKRST_P` / `PU_PKRST_N` | EXP1.A6 / A7 | peak-hold resets (DNP) | hi-Z |
+
+Fast lines on the Pico: `PU_SIG` GP26 (ADC0), `PU_POS` GP2, `PU_NEG` GP3, `PU_DAC_CS` GP17 with SPI0 SCK GP18 / MOSI GP19,
+and the optional `PU_PKP` GP27, `PU_PKN` GP28. The unused fourth switch of the 74HC4066 has its input and output tied to ground.
+
 ## Why this is safe
 
 - A wrong 400 V connection: R_T1 + R_T2 limit the current to 2 mA, and the TVS clamps the input.

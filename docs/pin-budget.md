@@ -82,4 +82,5 @@ Total slow lines used: 22 of 32 (10 spare). Fast lines used: 25 of 26 (GP1 spare
 - Two independent switches in series (Q2 and relay K1) make `12V_ARMED`. Each needs its own firmware
   enable (`PWR_EN` / `RLY_EN`) **and** its own pole of the ARM switch (SW1A / SW1B) and E-STOP (SW2A /
   SW2B) (see D10, D14). The hardware ANDs them, so a firmware fault alone cannot turn the stage on.
+- Firmware: set the pad drive strength of **GP0, GP6, GP7 and GP22 to 12 mA**. They drive optocoupler LEDs through 330 Ω (about 6 mA); the default 4 mA is marginal for the PC817 (see `docs/net-check.md`, F3).
 - Wi-Fi uses GP23–25 and GP29 internally. Do not route anything to those pads.

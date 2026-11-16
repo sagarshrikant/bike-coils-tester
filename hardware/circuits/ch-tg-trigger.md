@@ -58,7 +58,7 @@ A **CD4052B** analog multiplexer (X section) connects the node `S` to one of thr
 `INH` is pulled to `MUX_VDD` (all switches open) and pulled low by the enable optocoupler, so the output is **disabled by default**.
 Break-before-make is built into the mux. Supply `MUX_VDD` +9 V and VEE −5 V = 14 V against the 15 V limit; analog signals stay between −5 V and +9 V.
 The three optocoupler pull-ups (4.7 kΩ) go to `MUX_VDD`, not to 12V_ARMED, so the control pins never exceed the mux supply.
-The Y section is unused (all its pins to GND_P). Edges take about 20–40 µs (PC817 with a 4.7 kΩ pull-up), which is plenty for
+The Y section is unused (all its pins to GND_P). Edges take about 20–100 µs (a PC817 driven hard into saturation with a 4.7 kΩ pull-up; to be measured on the bench), which is still fine for
 pulses of 0.2–10 ms.
 
 ### Amplitude (D17)

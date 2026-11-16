@@ -167,8 +167,8 @@ pmos(1060, 'PhotoMOS\nPR9', 'SHUT', 'R 1 kΩ', '12V_ARMED', '← EXP2.B1  KILL_H
 // ================================================================ notes
 box(20, 1190, 1010, 125, { fill: '#f8fafc', stroke: '#94a3b8' });
 text(32, 1210, 'Notes', { size: 12, bold: true });
-text(32, 1228, '• Pulse width, rate and order come from the Pico (GP6 / GP7, PIO or PWM). Positive pulse: A on. Negative: B on. Biphasic: A then B. The edges take 20–40 µs\n' +
-  '  (PC817 + 4.7 kΩ), plenty for pickup-like pulses of 0.2–10 ms.\n' +
+text(32, 1228, '• Pulse width, rate and order come from the Pico (GP6 / GP7, PIO or PWM). Positive pulse: A on. Negative: B on. Biphasic: A then B. The edges take about 20–100 µs\n' +
+  '  (PC817 + 4.7 kΩ, to be measured), fine for pickup-like pulses of 0.2–10 ms.\n' +
   '• Amplitude: V_AMP+ 0 … 8 V (limited in firmware by the mux supply +9 V), V_AMP− 0 … −3.3 V. Set by the DACs, then read back on JM2. To check the real OUT level under load, hold a long pulse (100 ms)\n' +
   '  with the CDI disconnected, read V_OUT_M, and compare with the bus levels.\n' +
   '• Self-test before arming: the 3V3_P side works (isolator, ADS1115, DACs answer). After arming: check the rails, the buses and OUT before the CDI is connected.\n' +

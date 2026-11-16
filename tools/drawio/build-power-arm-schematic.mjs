@@ -142,7 +142,7 @@ text(1176, 868, 'PWR_EN ← GP22', { size: 10, bold: true, color: C.dig });
 wire([uArm.pins.K, [1050, uArm.pins.K[1]]]); ground(1050, uArm.pins.K[1]);
 
 text(1040, 110, 'Pico 2 W and everything on the measurement side share GND_L.\nThe coil under test (CH-R2, CH-PU) is on this side.\nPower: USB, or the optional isolated 5 V module (left, DNP).', { size: 10, color: '#334155' });
-text(1040, 300, 'Firmware rules (D10, D14):\n• Both enables stay low until the self-test has passed.\n• Arm: close the relay first (RLY_EN), then Q2 (PWR_EN).\n  Disarm: Q2 first, then the relay. The relay never\n  switches load current.\n• While armed the Pico watchdog is on: a hang or reset\n  drops GP0 and GP22 (pull-downs) and both open.\n• MID_SENSE live while Q2 is off = Q2 shorted.\n  ARM_SENSE live while both are off = relay welded.\n  Either one: alarm, tell the user to switch off J1.', { size: 10, color: '#334155' });
+text(1040, 300, 'Firmware rules (D10, D14):\n• Both enables stay low until the self-test has passed.\n• Arm: close the relay first (RLY_EN), then Q2 (PWR_EN).\n  Disarm: Q2 first, then the relay. The relay never\n  switches load current.\n• While armed the Pico watchdog is on: a hang or reset\n  drops GP0 and GP22 (pull-downs) and both open.\n• MID_SENSE live while Q2 is off = Q2 shorted.\n• Weld check at every arming: RLY_EN low, Q2 on for 50 ms:\n  MID live, ARM_SENSE must stay dead. If ARM_SENSE\n  goes live, K1 is welded: open Q2, alarm, switch off J1.', { size: 10, color: '#334155' });
 
 // ---- notes
 box(20, 1012, 880, 125, { fill: '#f8fafc', stroke: '#94a3b8' });
