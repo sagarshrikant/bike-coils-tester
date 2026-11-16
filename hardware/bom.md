@@ -77,6 +77,35 @@ Check stock and exact order codes at the supplier. 5 % spare quantities are incl
 Shared with other blocks (listed here once): 2 × MCP23017 (I²C I/O expander, SPDIP-28 or SOIC-28),
 the Pico socket headers, and the 3V3A filter parts. See `docs/pin-budget.md`.
 
+## CH-TG trigger simulator and isolated measurement bus (proposed, not yet ordered)
+
+| Qty | Part | Value / type | Notes |
+|---|---|---|---|
+| 1 | I²C isolator, dual | ADuM1250 (SOIC-8) or an ISO1541-class equivalent | U14. Both sides powered 3.0–5.5 V |
+| 1 | ADC, 16-bit I²C | ADS1115 (VSSOP-10) | U15, address 0x49 on the power side |
+| 2 | DAC, 12-bit I²C | MCP4725 (SOT-23-6) | U16 (0x60, A0 low), U17 (0x61, A0 high) |
+| 1 | Dual op-amp | TL072 (SOIC-8) | U18, V+ = 12 V, V− = −5 V |
+| 1 | Analog multiplexer | CD4052B (SOIC-16) | U19. Check supply (17 V) and logic thresholds |
+| 2 | Voltage regulator | 78L05 (SOIC-8 or TO-92) | U10 (from 12V_RAW), U12 (from 12V_ARMED) |
+| 1 | LDO 3.3 V | for example AP2112K-3.3 (5 V in) | U11 |
+| 1 | Charge-pump inverter | ICL7660 / TC7660 (SOIC-8) | U13, −5V_P |
+| 3 | Optocoupler | PC817 | pulse A, pulse B, enable |
+| 5 | PhotoMOS relay, SOP-4 | AQY212 class, 60 V | PR5–PR9 (check the part) |
+| 1 | TVS diode, bidirectional | 15 V standoff | D8 |
+| 5 | Resistor | 330 Ω | opto and photoMOS LED drives |
+| 3 | Resistor | 4.7 kΩ | opto pull-ups to 12V_ARMED |
+| 2 | Resistor | 4.7 kΩ | pull-ups on SDA_P / SCL_P |
+| 3 | Resistor, 1 % | 100 Ω, 470 Ω, 2.2 kΩ | source-impedance bank |
+| 1 each | Resistor | 100 Ω (kill to GND), 1 kΩ (kill to +V) | PR8, PR9 |
+| 4 | Resistor, 0.1 % or 1 % | 10 kΩ, 20 kΩ, 10 kΩ, 10 kΩ | TL072 gain networks |
+| 8 | Resistor, 1 % | 100 k, 33 k, 56 k, 68 k, 30 k, 150 k, 100 k, 27 k | monitor dividers (values in the doc) |
+| 6 | Capacitor | 10 µF ×4, 100 nF ×8 | supply decoupling, charge pump |
+| 1 | Screw terminal | 3-pin, 5.08 mm | J5 (TRIG+, SHUT DOWN, GND) |
+| 1 | Pin header 1×3, 2.54 mm + jumper | | JP1: mux VDD source (12V_ARMED default / U12 output) |
+| 1 | Voltage regulator 78L09 (spare, not fitted) | | optional ±9 V version, replaces U12 |
+
+Shared with other blocks: PC817 / photoMOS families, MCP23017, ADS1115 (CH-R2 0x48).
+
 ## CH-R2 for the PCB (proposed, not yet ordered)
 
 | Qty | Part | Value / type | Notes |

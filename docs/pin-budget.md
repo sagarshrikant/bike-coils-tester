@@ -27,9 +27,9 @@ relay drives, enables, comparator outputs, pulse outputs.
 | GP1 | spare | |
 | GP2 | PU_POS: comparator output, positive pulse (PIO) | CH-PU |
 | GP3 | PU_NEG: comparator output, negative pulse (PIO) | CH-PU |
-| GP4, GP5 | I²C0 SDA, SCL | ADS1115 ×2 (0x48, 0x49), MCP23017 ×2 (0x20, 0x21) |
-| GP6 | TG_PULSE_A: trigger pulse to opto A | CH-TG |
-| GP7 | TG_PULSE_B: trigger pulse to opto B (bipolar) | CH-TG |
+| GP4, GP5 | I²C0 SDA, SCL (main bus, continues through the ADuM1250 isolator to the power-side segment) | Logic side: ADS1115 0x48 (CH-R2), ADS1115 0x4A (Phase 4, DNP), MCP23017 0x20 / 0x21. **Power side (isolated):** ADS1115 0x49, MCP4725 0x60 / 0x61 |
+| GP6 | TG_PULSE_A: positive trigger pulse (PC817 → CD4052B select) | CH-TG |
+| GP7 | TG_PULSE_B: negative trigger pulse (PC817 → CD4052B select) | CH-TG |
 | GP8 | HV_CMP: CDI output comparator (PIO) | CH-HV |
 | GP9 | SP_IN: spark detector (PIO) | CH-SP |
 | GP10 | RIG_PWM: motor driver | RIG |
@@ -60,9 +60,9 @@ relay drives, enables, comparator outputs, pulse outputs.
 | EXP1.A5 | PU_TEST: self-test injection drive | high-Z (input) |
 | EXP1.A6 | PU_PKRST_P: positive peak-hold reset (drive low) | high-Z |
 | EXP1.A7 | PU_PKRST_N: negative peak-hold reset (drive high) | high-Z |
-| EXP1.B0–B3 | TG_AMP0–3: trigger amplitude bank (photo-relays) | off = lowest amplitude |
-| EXP1.B4–B6 | TG_IMP0–2: source-impedance bank | off |
-| EXP1.B7 | TG_POL: polarity | off |
+| EXP1.B0–B3 | spare (the amplitude is now set by the DACs on the isolated bus, D17) | |
+| EXP1.B4–B6 | TG_IMP0–2: source-impedance photo-relays (100 Ω / 470 Ω / 2.2 kΩ, select one) | off (output open) |
+| EXP1.B7 | TG_EN: output enable (the mux INH line) | **off = disabled** |
 | EXP2.A0 | R4_EN: low-ohm current source enable | off |
 | EXP2.A1 | INS_EN: insulation HV boost enable | off |
 | EXP2.A2, A3 | HV_RANGE0, 1: CDI output divider range | highest range |
@@ -70,9 +70,11 @@ relay drives, enables, comparator outputs, pulse outputs.
 | EXP2.A5 | MID_SENSE: input, reads `12V_MID` through an optocoupler (low = live) | |
 | EXP2.A6 | R2_CAL1: self-test 470 Ω photo-relay (PR3) | off |
 | EXP2.A7 | R2_CAL2: self-test 47 kΩ photo-relay (PR4) | off |
-| EXP2.B0–B7 | spare (8 lines) | |
+| EXP2.B0 | KILL_GND: SHUT DOWN to GND_P photo-relay | off |
+| EXP2.B1 | KILL_HI: SHUT DOWN to 12V_ARMED photo-relay | off |
+| EXP2.B2–B7 | spare (6 lines) | |
 
-Total slow lines used: 25 of 32. Fast lines used: 25 of 26 (GP1 spare).
+Total slow lines used: 22 of 32 (10 spare). Fast lines used: 25 of 26 (GP1 spare).
 
 ## Notes
 

@@ -26,7 +26,7 @@ Block diagram: [`hardware/diagrams/system-block-diagram.drawio.svg`](../hardware
 | CH-R4 | 4-wire low ohm 0.05 – 10 Ω (I1) | LM317 100 mA CC source + ADS1115 (I²C) | I2C0 GP4/GP5, GP13 enable | 4 |
 | CH-INS | Insulation / leakage (P3, I3) | 50 V boost (nixie-type HV module) + 1 MΩ sense + ADS1115 | ADS1115 ch, GP12 enable | 4 |
 | CH-PU | Pickup signal input ±100 V (P4–P6) | Fixed HV divider + 3 switched ranges + 1.65 V bias → buffer → ADC; dual comparator → PIO. **Proposed:** see `hardware/circuits/ch-pu-pickup.md`, pins in `docs/pin-budget.md` | GP26, GP2, GP3, SPI0 | 2 |
-| CH-TG | Trigger generator (simulated pickup) | PWM → RC → TL072 bipolar driver ±5 V | GP17 / GP18 | 3 |
+| CH-TG | Trigger generator (simulated pickup) | **Proposed:** CD4052B mux between DAC-set V_AMP+ / V_AMP− and GND, optocoupler selects, isolated I²C measurement, see `hardware/circuits/ch-tg-trigger.md` | GP6, GP7 (+ expander and isolated I²C) | 3 |
 | CH-HV | CDI output / coil flyback 0 – 500 V | 100:1 HV divider, peak detector with reset, comparator → PIO | ADC1 (muxed), GP19, GP20 | 3 |
 | CH-I | Primary / supply current | 10 mΩ shunt + LM358 gain stage | ADC2 (muxed) | 3–5 |
 | CH-SP | Spark detection | HT-lead inductive loop → RC → LM393 → PIO | GP21 | 5 |

@@ -94,6 +94,21 @@ switched across the DUT terminals by photo-relays (PR3 470 Ω, PR4 47 kΩ) for a
 a 5 V TVS across the DUT terminals, 0.1 % resistors, and a 1 kΩ + 100 nF filter on each top-sense line.
 The perfboard circuit stays documented as built. Details: `hardware/circuits/ch-r2-pcb.md`.
 
+### D16 · 2026-11-16 · accepted · Isolated I²C segment for power-domain measurement
+Everything that touches the CDI is in the 12 V power domain (GND_P), so measuring it needs an isolated path.
+One ADuM1250-class I²C isolator extends the main bus to a power-side segment. The power side runs from a
+non-isolated regulator chain on `12V_RAW` (78L05, 3.3 V LDO), so no isolated DC-DC module is needed (it stays
+optional, for running the Pico from the 12 V supply). On the segment: ADS1115 0x49 (OUT level, V_AMP+/−, 12V_ARMED) and two MCP4725
+DACs. The same segment serves CH-HV later. Details: `hardware/circuits/ch-tg-trigger.md`.
+
+### D17 · 2026-11-16 · accepted · CH-TG: DAC-set amplitude, mux pulse stage, ±pulses, kill outputs
+Pulse = CD4052B analog mux switching between V_AMP+, V_AMP− and GND, selected by two optocouplers (idle and default
+= GND, INH default = disabled). V_AMP+ (0–9.9 V) and V_AMP− (0 … −3.3 V) come from two MCP4725 DACs and TL072
+stages on 12V_ARMED / −5V_P (charge pump). Source impedance 100 Ω / 470 Ω / 2.2 kΩ by photoMOS. Two photoMOS on
+SHUT DOWN (to GND_P and to 12V_ARMED) because the kill level is unknown. Supersedes the "photoMOS amplitude bank" in D10 (which was chosen
+before the isolated measurement bus existed). Jumper JP1 selects the mux VDD (12V_ARMED by default), so the negative range can later be deepened (±9 V version: 78L09 in place of the 78L05, JP1 moved, two resistor values changed) without a new PCB.
+Details: `hardware/circuits/ch-tg-trigger.md`.
+
 ### D14 · 2026-11-16 · accepted · Two power domains and the ARM stage
 The 12 V power domain (CDI supply, trigger drivers, coil driver later) has its own ground (GND_P) and is
 isolated from the logic domain (Pico, ADC, expanders, measurement side) by optocouplers. A P-channel
