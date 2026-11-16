@@ -22,7 +22,7 @@ Block diagram: [`hardware/diagrams/system-block-diagram.drawio.svg`](../hardware
 
 | Channel | Purpose | Circuit block | Pico resources | Phase |
 |---|---|---|---|---|
-| CH-R2 | 2-wire resistance 20 Ω – 200 kΩ (P1, I2) | Ratiometric divider, 1 k / 10 k ranges | ADC0-2, GP14, GP15 | **1** |
+| CH-R2 | 2-wire resistance 20 Ω – 200 kΩ (P1, I2) | Ratiometric divider, 1 k / 10 k ranges. Perfboard: Pico ADC0-2. **PCB (proposed): ADS1115**, see `hardware/circuits/ch-r2-pcb.md` | GP14, GP15 (+ I²C on the PCB) | **1** |
 | CH-R4 | 4-wire low ohm 0.05 – 10 Ω (I1) | LM317 100 mA CC source + ADS1115 (I²C) | I2C0 GP4/GP5, GP13 enable | 4 |
 | CH-INS | Insulation / leakage (P3, I3) | 50 V boost (nixie-type HV module) + 1 MΩ sense + ADS1115 | ADS1115 ch, GP12 enable | 4 |
 | CH-PU | Pickup signal input ±100 V (P4–P6) | Fixed HV divider + 3 switched ranges + 1.65 V bias → buffer → ADC; dual comparator → PIO. **Proposed:** see `hardware/circuits/ch-pu-pickup.md`, pins in `docs/pin-budget.md` | GP26, GP2, GP3, SPI0 | 2 |

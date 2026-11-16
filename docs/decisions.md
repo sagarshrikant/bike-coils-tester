@@ -88,6 +88,12 @@ free pins for the whole product (about 36 lines needed, about 21 free). Fast and
 on Pico GPIO. Every expander line has a pull resistor that sets the safe state, since the expander resets to
 inputs. Details: `docs/pin-budget.md`.
 
+### D15 · 2026-11-16 · accepted · CH-R2 on the PCB: ADS1115 sensing, self-test, TVS
+Same measuring circuit as the perfboard, sensed by an ADS1115 (D8). Added: two precision reference resistors
+switched across the DUT terminals by photo-relays (PR3 470 Ω, PR4 47 kΩ) for a clips-open self-test (D11-3),
+a 5 V TVS across the DUT terminals, 0.1 % resistors, and a 1 kΩ + 100 nF filter on each top-sense line.
+The perfboard circuit stays documented as built. Details: `hardware/circuits/ch-r2-pcb.md`.
+
 ### D14 · 2026-11-16 · accepted · Two power domains and the ARM stage
 The 12 V power domain (CDI supply, trigger drivers, coil driver later) has its own ground (GND_P) and is
 isolated from the logic domain (Pico, ADC, expanders, measurement side) by optocouplers. A P-channel

@@ -5,6 +5,9 @@ coil from ~20 Ω to 200 kΩ. Ignition **primary** (< 5 Ω) needs CH-R4 (Phase 2)
 
 Wiring diagram: [`../diagrams/ch-r2-resistance.drawio.svg`](../diagrams/ch-r2-resistance.drawio.svg)
 
+> This page describes the **perfboard circuit as built** (Pico internal ADC). The PCB version, sensed by the
+> ADS1115, is in [`ch-r2-pcb.md`](ch-r2-pcb.md).
+
 Schematic (component symbols): [`../diagrams/ch-r2-schematic.drawio.svg`](../diagrams/ch-r2-schematic.drawio.svg)
 
 ## Principle

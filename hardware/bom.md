@@ -77,6 +77,26 @@ Check stock and exact order codes at the supplier. 5 % spare quantities are incl
 Shared with other blocks (listed here once): 2 × MCP23017 (I²C I/O expander, SPDIP-28 or SOIC-28),
 the Pico socket headers, and the 3V3A filter parts. See `docs/pin-budget.md`.
 
+## CH-R2 for the PCB (proposed, not yet ordered)
+
+| Qty | Part | Value / type | Notes |
+|---|---|---|---|
+| 2 | ADC, 16-bit I²C | ADS1115 (VSSOP-10, 0.5 mm pitch) | U5 (0x48) fitted, second one (0x49) for Phase 4. Check availability; module header is the fallback |
+| 1 | Pin header | 2.54 mm, 1×10 (DNP) | ADS1115 breakout module fallback footprint |
+| 1 | Resistor, 0.1 % | 1 kΩ | R_REF1 |
+| 1 | Resistor, 0.1 % | 10 kΩ | R_REF2 |
+| 1 | Resistor, 0.1 % | 470 Ω | R_CAL1 (self-test) |
+| 1 | Resistor, 0.1 % | 47 kΩ | R_CAL2 (self-test) |
+| 3 | Resistor 0805 | 1 kΩ | R_F1, R_F2 (top-sense filters), R_S |
+| 2 | Resistor 0805 | 4.7 kΩ | I²C pull-ups (once per board) |
+| 4 | Capacitor 0805 | 100 nF | C filters ×2, C1, ADS1115 decoupling |
+| 1 | Capacitor 0805 | 1 µF | ADS1115 decoupling |
+| 2 | PhotoMOS relay, SOP-4 (low voltage is enough, 60 V class) | for example TLP172A or AQY212 class | PR3, PR4 (check the exact part) |
+| 1 | TVS diode, bidirectional | about 5 V standoff (for example SMAJ5.0CA) | D7 |
+| 1 | Schottky pair | BAT54S on the plug-in header | D2 / D3, same header design as CH-PU |
+
+Shared with other blocks: the MCP23017 expanders and the plug-in clamp header. See `docs/pin-budget.md`.
+
 ## Power input and ARM stage (proposed, not yet ordered)
 
 | Qty | Part | Value / type | Notes |

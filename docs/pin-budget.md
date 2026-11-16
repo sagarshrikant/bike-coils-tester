@@ -68,9 +68,11 @@ relay drives, enables, comparator outputs, pulse outputs.
 | EXP2.A2, A3 | HV_RANGE0, 1: CDI output divider range | highest range |
 | EXP2.A4 | HV_PKRST: HV peak-hold reset | high-Z |
 | EXP2.A5 | MID_SENSE: input, reads `12V_MID` through an optocoupler (low = live) | |
-| EXP2.A6, A7, B0–B7 | spare (10 lines) | |
+| EXP2.A6 | R2_CAL1: self-test 470 Ω photo-relay (PR3) | off |
+| EXP2.A7 | R2_CAL2: self-test 47 kΩ photo-relay (PR4) | off |
+| EXP2.B0–B7 | spare (8 lines) | |
 
-Total slow lines used: 23 of 32. Fast lines used: 25 of 26 (GP1 spare).
+Total slow lines used: 25 of 32. Fast lines used: 25 of 26 (GP1 spare).
 
 ## Notes
 
