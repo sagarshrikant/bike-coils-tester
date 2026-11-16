@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../api/tester_api.dart';
+import '../data/baseline_store.dart';
 import '../data/coil_specs.dart';
+import '../logic/baseline_compare.dart';
 import '../logic/verdict.dart';
+import '../models/baseline.dart';
 import '../models/resistance_result.dart';
 
 class _Entry {
@@ -16,7 +19,8 @@ class _Entry {
 class ResistanceScreen extends StatefulWidget {
   final TesterApi api;
   final DeviceInfo info;
-  const ResistanceScreen({super.key, required this.api, required this.info});
+  final BaselineStore? store; // defaults to on-device storage; tests inject a memory store
+  const ResistanceScreen({super.key, required this.api, required this.info, this.store});
 
   @override
   State<ResistanceScreen> createState() => _ResistanceScreenState();
@@ -29,6 +33,57 @@ class _ResistanceScreenState extends State<ResistanceScreen> {
   bool _busy = false;
   late double _leadOhms = widget.info.leadOhms;
   final _log = <_Entry>[];
+  late final BaselineStore _store = widget.store ?? PrefsBaselineStore();
+  Baseline? _baseline;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBaseline();
+  }
+
+  Future<void> _loadBaseline() async {
+    final id = _spec.id;
+    final b = await _store.load(id);
+    if (mounted && id == _spec.id) setState(() => _baseline = b);
+  }
+
+  bool get _canSaveBaseline =>
+      !_busy && _last != null && _last!.status == 'ok' && (_last!.ohms ?? 0) > 0;
+
+  Future<void> _saveBaseline() async {
+    final r = _last;
+    if (r == null || r.ohms == null) return;
+    if (_baseline != null) {
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Replace baseline?'),
+          content: Text('${_spec.id} already has a baseline of ${formatOhms(_baseline!.ohms)}. '
+              'Replace it with ${formatOhms(r.ohms)}?'),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
+            FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Replace')),
+          ],
+        ),
+      );
+      if (ok != true) return;
+    }
+    final b = Baseline(specId: _spec.id, ohms: r.ohms!, range: r.range, savedAt: DateTime.now());
+    await _store.save(b);
+    if (!mounted) return;
+    setState(() => _baseline = b);
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Baseline saved: ${_spec.id} ${formatOhms(b.ohms)}')));
+  }
+
+  Future<void> _clearBaseline() async {
+    await _store.clear(_spec.id);
+    if (mounted) setState(() => _baseline = null);
+  }
+
+  String _formatDate(DateTime d) =>
+      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
 
   Future<void> _run(Future<void> Function() action) async {
     setState(() => _busy = true);
@@ -91,6 +146,21 @@ class _ResistanceScreenState extends State<ResistanceScreen> {
     }
   }
 
+  Widget _baselineChip(Baseline b, double ohms) {
+    final c = compareToBaseline(ohms, b);
+    final word = c.isWithin
+        ? 'within tolerance'
+        : (c.state == BaselineState.high ? 'ABOVE baseline' : 'BELOW baseline');
+    return Padding(
+      padding: const EdgeInsets.only(top: 4),
+      child: Chip(
+        label: Text('vs baseline ${formatOhms(b.ohms)}: ${formatDeviation(c.deviationPct)} · $word',
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        backgroundColor: c.isWithin ? Colors.green.shade600 : Colors.orange.shade800,
+      ),
+    );
+  }
+
   Color _verdictColor(Verdict v) => v.isPass ? Colors.green.shade600 : Colors.red.shade600;
 
   @override
@@ -121,6 +191,8 @@ class _ResistanceScreenState extends State<ResistanceScreen> {
               _spec = coilSpecPresets.firstWhere((s) => s.id == id);
               _last = null;
               _verdict = null;
+              _baseline = null;
+              _loadBaseline();
             }),
           ),
           const SizedBox(height: 8),
@@ -146,6 +218,8 @@ class _ResistanceScreenState extends State<ResistanceScreen> {
                         style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                     backgroundColor: _verdictColor(_verdict!),
                   ),
+                if (_baseline != null && _last != null && _last!.status == 'ok' && _last!.ohms != null)
+                  _baselineChip(_baseline!, _last!.ohms!),
                 if (_last != null)
                   Text('range ${_last!.range} · V_top ${_last!.vTop.toStringAsFixed(3)} V · '
                       'V_node ${_last!.vNode.toStringAsFixed(3)} V',
@@ -168,6 +242,31 @@ class _ResistanceScreenState extends State<ResistanceScreen> {
               child: Text('Zero leads (${formatOhms(_leadOhms)})'),
             ),
           ]),
+          const SizedBox(height: 8),
+          Row(children: [
+            Expanded(
+              child: OutlinedButton.icon(
+                onPressed: _canSaveBaseline ? _saveBaseline : null,
+                icon: const Icon(Icons.star_outline),
+                label: Text('Save as baseline (${_spec.id})'),
+              ),
+            ),
+          ]),
+          if (_baseline != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Row(children: [
+                Expanded(
+                    child: Text(
+                        'Baseline ${formatOhms(_baseline!.ohms)} · saved ${_formatDate(_baseline!.savedAt)} · '
+                        'tolerance ±${defaultBaselineTolerancePct.toStringAsFixed(0)} %',
+                        style: t.bodySmall)),
+                IconButton(
+                    tooltip: 'Clear baseline',
+                    onPressed: _clearBaseline,
+                    icon: const Icon(Icons.delete_outline, size: 20)),
+              ]),
+            ),
           if (_busy) const Padding(padding: EdgeInsets.only(top: 12), child: LinearProgressIndicator()),
           const SizedBox(height: 24),
           if (_log.isNotEmpty) Text('This session', style: t.titleMedium),

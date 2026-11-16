@@ -30,8 +30,8 @@ soldering station, general-purpose PCB. The phase order uses these first. Their 
 - [x] **User:** confirm the Pico boards are **Pico W** (confirmed: **Pico 2 W**, RP2350, RPI_PICO2_W UF2) (Wi-Fi chip under a metal shield, near
       the antenna end). A plain Pico has no Wi-Fi and would need an ESP module or a USB link.
 - [x] **User:** install the MicroPython UF2 on the Pico W, deploy the firmware, open `http://192.168.4.1/` (done 2026-11-15, page loads over the CoilTester AP)
-- [ ] **User:** build CH-R2 on perfboard (`hardware/circuits/ch-r2-resistance.md`)
+- [x] **User:** build CH-R2 on perfboard (`hardware/circuits/ch-r2-resistance.md`), built 2026-11-16, clamp diodes disconnected until BAT54S arrives
 - [x] **User:** `flutter create` the platform folders, run the app, connect (done 2026-11-15: web build served from the laptop, iPhone Safari connected to the Pico in STA mode at its home-network IP)
-- [ ] Bench test with known resistors + the golden pickup coil → record in `docs/test-results/phase1.md`
-- [ ] App: save a measurement as a part's baseline (golden reference)
+- [ ] Bench test with known resistors + the golden pickup coil → record in `docs/test-results/phase1.md` (47 Ω, 100 Ω, 47 kΩ and the golden coil done; 1 kΩ, 10 kΩ and the re-test with the clamp fitted are waiting for the parts)
+- [x] App: save a measurement as a part's baseline (golden reference), see D7 (needs a `flutter test` and a run on the host)
 - [ ] Write skill `.claude/skills/resistance-meter/` once Phase 1 is confirmed working
