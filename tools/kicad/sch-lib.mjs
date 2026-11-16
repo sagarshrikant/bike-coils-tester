@@ -60,7 +60,7 @@ export function parsePins(block) {
 }
 
 export class Sheet {
-  constructor(title) { this.title = title; this.libs = new Map(); this.netlist = new Map(); this.items = []; this.warn = []; }
+  constructor(title) { this.title = title; this.rootUuid = uuid(); this.libs = new Map(); this.netlist = new Map(); this.items = []; this.warn = []; }
   lib(libId) {
     if (!this.libs.has(libId)) { const block = loadSymbol(libId); this.libs.set(libId, { block, pins: parsePins(block) }); }
     return this.libs.get(libId);
@@ -92,6 +92,14 @@ export class Sheet {
 \t\t(property "Footprint" "${footprint}" (at ${x} ${y} 0) (hide yes) (show_name no) (do_not_autoplace no) ${fx})
 \t\t(property "Datasheet" "${datasheet}" (at ${x} ${y} 0) (hide yes) (show_name no) (do_not_autoplace no) ${fx})
 ${puid}
+		(instances
+			(project "mainboard"
+				(path "/${this.rootUuid}"
+					(reference "${ref}")
+					(unit 1)
+				)
+			)
+		)
 \t)`);
     const used = new Set();
     for (const [key, net] of Object.entries(nets)) {
@@ -127,7 +135,7 @@ ${puid}
   }
   write(path, paper = 'A3') {
     const libs = [...this.libs.values()].map((l) => l.block.split('\n').map((ln) => '\t' + ln).join('\n')).join('\n');
-    const text = `(kicad_sch\n\t(version 20260306)\n\t(generator "eeschema")\n\t(generator_version "10.0")\n\t(uuid "${uuid()}")\n\t(paper "${paper}")\n\t(lib_symbols\n${libs}\n\t)\n${this.items.join('\n')}\n\t(sheet_instances\n\t\t(path "/"\n\t\t\t(page "1")\n\t\t)\n\t)\n\t(embedded_fonts no)\n)\n`;
+    const text = `(kicad_sch\n\t(version 20260306)\n\t(generator "eeschema")\n\t(generator_version "10.0")\n\t(uuid "${this.rootUuid}")\n\t(paper "${paper}")\n\t(lib_symbols\n${libs}\n\t)\n${this.items.join('\n')}\n\t(sheet_instances\n\t\t(path "/"\n\t\t\t(page "1")\n\t\t)\n\t)\n\t(embedded_fonts no)\n)\n`;
     writeFileSync(path, text);
     let d = 0; for (const c of text) { if (c === '(') d++; else if (c === ')') d--; }
     if (d !== 0) throw new Error('unbalanced output: ' + d);

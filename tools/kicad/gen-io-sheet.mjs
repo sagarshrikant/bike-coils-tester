@@ -88,6 +88,7 @@ const jm2 = { 1: '3V3_P', 2: 'GND_P', 3: 'SCL_P', 4: 'SDA_P', 5: '3V3_P', 6: 'AD
 
 // ---- emit
 const uuid = () => randomUUID();
+const ROOT = uuid();
 const out = [];
 const f = (s) => out.push(s);
 const font = (sz = 1.27) => `(effects (font (size ${sz} ${sz})))`;
@@ -110,6 +111,14 @@ function placeSymbol(libId, ref, value, footprint, x, y, pinsMap) {
 \t\t(property "Footprint" "${footprint}" (at ${x} ${y} 0) (hide yes) (show_name no) (do_not_autoplace no) ${font()})
 \t\t(property "Datasheet" "" (at ${x} ${y} 0) (hide yes) (show_name no) (do_not_autoplace no) ${font()})
 ${pinUuids}
+		(instances
+			(project "mainboard"
+				(path "/${ROOT}"
+					(reference "${ref}")
+					(unit 1)
+				)
+			)
+		)
 \t)`);
 }
 const r = (n) => Math.round(n * 100) / 100;
@@ -138,7 +147,7 @@ f(`(kicad_sch
 \t(version 20260306)
 \t(generator "eeschema")
 \t(generator_version "10.0")
-\t(uuid "${uuid()}")
+\t(uuid "${ROOT}")
 \t(paper "A3")
 \t(lib_symbols`);
 f(picoSym); f(mcpSym); f(conn10());
