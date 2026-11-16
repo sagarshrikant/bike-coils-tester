@@ -1,0 +1,112 @@
+// Consolidated order list data for the mainboard PCB (see hardware/circuits/*.md).
+// Columns of each row (array):
+// [block, refs, item, purpose, spec, package, solder, qtyBoard, qtyOrder, mpn, alt, hint, milestone, notes]
+// block: MB mainboard, R2 CH-R2, PU CH-PU, ARM power input and ARM stage, TG CH-TG, EXT not on the PCB
+// milestone: "M1" needed for the end-of-November target, "M1 optional" recommended but can wait,
+//            "Later" not needed for Milestone-1, "Have" already owned, "India" already in India.
+export const HEADERS = [
+  '#', 'Block', 'Ref(s)', 'Item', 'Purpose', 'Value / key spec', 'Package / mounting', 'Solder', 'Qty on board',
+  'Qty to order (with spares)', 'Suggested part number (VERIFY)', 'Alternatives I would accept', 'Search hint (Reichelt / Farnell / Mouser)',
+  'Milestone', 'Notes', 'YOUR ENTRY: availability / actual part number / link',
+];
+
+export const ROWS = [
+  // ------------------------------------------------------------------ mainboard
+  ['MB', '—', 'PCB, 2-layer, 1.6 mm', 'The mainboard (JLCPCB, 5-piece minimum)', 'about 100 × 120 mm, 1 oz, HASL lead-free, express shipping', 'order from JLCPCB', '—', 1, 5, '(Gerbers from KiCad)', '', 'JLCPCB: choose DHL express to Germany', 'M1', 'Order by Sat 21 Nov. Spares are the second revision.'],
+  ['MB', 'U1', 'Raspberry Pi Pico 2 W', 'The controller (Wi-Fi, MicroPython)', 'RP2350, Wi-Fi', 'module on sockets', '—', 1, 0, 'SC1633 (check)', 'Pico 2 W with soldered headers', 'Raspberry Pi Pico 2 W', 'Have', 'Already owned. Keep it in the sockets, do not solder it in.'],
+  ['MB', 'U1 sockets', 'Female header 1×20, 2.54 mm', 'Pico socket (2 pieces)', '1×20, 2.54 mm pitch, 17.78 mm apart', 'through-hole', 'Easy', 2, 3, 'e.g. Reichelt BL 1X20G8-2,54 (check)', 'any 1×20 female 2.54 mm', 'Buchsenleiste 1x20 RM2.54', 'M1', 'The two rows are 17.78 mm apart (Pico footprint).'],
+  ['MB', 'U2, U3', 'MCP23017 I/O expander', 'Slow control lines (ranges, enables, relays)', '16-bit I²C, 0x20 and 0x21', 'SPDIP-28 (300 mil)', 'Easy', 2, 3, 'MCP23017-E/SP', 'MCP23017-E/SO (SOIC-28)', 'MCP23017-E/SP', 'M1', 'Skinny DIP-28 so it can sit in a socket.'],
+  ['MB', 'U2, U3', 'IC socket DIP-28, narrow (0.3")', 'Sockets for the expanders', 'DIP-28, 7.62 mm', 'through-hole', 'Easy', 2, 3, 'generic', '', 'IC-Sockel DIP 28 schmal', 'M1', ''],
+  ['MB', 'J1, J3, J4, J6, J7', 'PCB terminal block, 2-pole, 5.08 mm', 'Input, outputs, DUT, pickup', '5.08 mm, ≥ 10 A, 2-pos', 'through-hole', 'Easy', 5, 7, 'e.g. Phoenix MKDS 1/2-5,08 or equivalent', 'Wago / Degson 5.08 mm blocks', 'Leiterplattenklemme 2-polig RM5.08', 'M1', 'All five are used for Milestone-1.'],
+  ['MB', 'J5', 'PCB terminal block, 3-pole, 5.08 mm', 'CDI connection (TRIG+, SHUT DOWN, GND)', '5.08 mm, 3-pos', 'through-hole', 'Easy', 1, 2, 'as above, 3-pos', '', 'Leiterplattenklemme 3-polig RM5.08', 'M1', ''],
+  ['MB', 'J2A, J2B', 'PCB terminal block, 4-pole, 5.08 mm', 'ARM switch and E-STOP wiring (4 wires each)', '5.08 mm, 4-pos', 'through-hole', 'Easy', 2, 3, 'as above, 4-pos', '', 'Leiterplattenklemme 4-polig RM5.08', 'M1', ''],
+  ['MB', 'J8', 'Pin header 2×8, 2.54 mm', 'Expansion connector for later blocks', '2×8, 2.54 mm', 'through-hole', 'Easy', 1, 2, 'generic', '', 'Stiftleiste 2x8 RM2.54', 'Later', 'Footprint stays on the PCB, parts can be fitted later.'],
+  ['MB', 'JP1', 'Pin header 1×3 + jumper', 'CD4052B supply select (default 12V_ARMED)', '1×3, 2.54 mm', 'through-hole', 'Easy', 1, 3, 'generic + jumper', '', 'Stiftleiste 1x3 + Jumper', 'M1', ''],
+  ['MB', 'JC1, JC2', 'Female header 1×3 + male-pin module', 'Plug-in clamp modules (CH-R2, CH-PU)', '1×3, 2.54 mm', 'through-hole', 'Easy', 2, 4, 'generic', '', 'Buchsenleiste 1x3', 'M1', 'Module = small board with a BAT54S (SOT-23) and 3 male pins. Make two, plus one spare.'],
+  ['MB', 'JC1, JC2 modules', 'SOT-23 to DIP adapter board', 'Carrier for the BAT54S on each plug-in clamp module', 'SOT-23-3 breakout, 2.54 mm pins', 'module', 'Medium', 2, 4, 'generic SOT-23 adapter', 'small perfboard + wire', 'SOT-23 Adapterplatine', 'M1', 'Solder the BAT54S on the adapter, then 3 male pins (3V3A / NODE / GND).'],
+  ['MB', 'JM1', 'Pin header 1×10', 'ADS1115 breakout module fallback (DNP)', '1×10, 2.54 mm', 'through-hole', 'Easy', 0, 1, 'generic', '', 'Stiftleiste 1x10', 'M1 optional', 'Only fitted if the ADS1115 chip solders badly.'],
+  ['MB', 'JM1 fallback', 'ADS1115 breakout module', 'Fallback if the 0.5 mm chip fails', 'I²C 16-bit', 'module', 'Easy', 0, 1, 'generic ADS1115 module', '', 'ADS1115 Modul', 'M1 optional', 'Buy one for safety.'],
+  ['MB', 'SW_RST', 'Tactile push button', 'Pico reset (RUN to GND)', '6×6 mm', 'through-hole', 'Easy', 1, 2, 'generic', '', 'Taster 6x6', 'M1', ''],
+  ['MB', 'TP1…TP22', 'Test point, PCB loop or pad', 'Probing', 'loop 1.6 mm', 'through-hole', 'Easy', 22, 30, 'Keystone 5010-style (check)', 'bent wire loops', 'Testpunkt Keystone 5010', 'M1', 'Optional but strongly recommended for bring-up.'],
+  ['MB', 'mounting', 'Standoffs M3 + screws', 'Board mounting', '4 × M3 × 10 mm', 'hardware', 'Easy', 4, 8, 'generic', '', 'Abstandsbolzen M3', 'M1', ''],
+  ['MB', 'passives', 'Resistor 10 kΩ, 0805, 1 %', 'Pull-up / pull-down on expander lines, I/O, gate networks, spares', '10 kΩ 1 %', '0805', 'Easy', 32, 60, 'Yageo RC0805FR-0710KL', 'any 0805 1 % 10 kΩ', 'Widerstand 0805 10k', 'M1', 'Count includes the DNP comparator pull-ups.'],
+  ['MB', 'passives', 'Resistor 330 Ω, 0805, 1 %', 'LED drive of optocouplers / photoMOS', '330 Ω', '0805', 'Easy', 14, 25, 'Yageo RC0805FR-07330RL', '', 'Widerstand 0805 330R', 'M1', ''],
+  ['MB', 'passives', 'Resistor 4.7 kΩ, 0805, 1 %', 'I²C pull-ups (4), opto pull-ups to 12 V (3)', '4.7 kΩ', '0805', 'Easy', 7, 15, 'Yageo RC0805FR-074K7L', '', 'Widerstand 0805 4k7', 'M1', ''],
+  ['MB', 'passives', 'Resistor 1 kΩ, 0805, 1 %', 'R_S, R_F, R_RST, kill resistor', '1 kΩ', '0805', 'Easy', 7, 15, 'Yageo RC0805FR-071KL', '', 'Widerstand 0805 1k', 'M1', ''],
+  ['MB', 'passives', 'Resistor 100 Ω, 0805, 1 %', 'R_OUT, source impedance 100 Ω, kill to GND', '100 Ω', '0805', 'Easy', 3, 10, 'Yageo RC0805FR-07100RL', '', 'Widerstand 0805 100R', 'M1', ''],
+  ['MB', 'passives', 'Resistor 470 Ω, 0805, 1 %', 'Source impedance 470 Ω', '470 Ω', '0805', 'Easy', 1, 5, 'Yageo RC0805FR-07470RL', '', 'Widerstand 0805 470R', 'M1', ''],
+  ['MB', 'passives', 'Resistor 2.2 kΩ, 0805, 1 %', 'R_PD, LED resistors, source impedance 2.2 kΩ', '2.2 kΩ', '0805', 'Easy', 4, 10, 'Yageo RC0805FR-072K2L', '', 'Widerstand 0805 2k2', 'M1', ''],
+  ['MB', 'passives', 'Resistor 3.3 kΩ, 0805, 1 %', 'R_S, R_SM (ARM sense)', '3.3 kΩ', '0805', 'Easy', 2, 6, 'Yageo RC0805FR-073K3L', '', 'Widerstand 0805 3k3', 'M1', ''],
+  ['MB', 'passives', 'Resistor 20 kΩ, 0805, 1 %', 'TL072 gain network', '20 kΩ', '0805', 'Easy', 1, 5, 'Yageo RC0805FR-0720KL', '', 'Widerstand 0805 20k', 'M1', ''],
+  ['MB', 'passives', 'Resistor 100 kΩ, 0805, 1 %', 'CH-TG monitor dividers (3×)', '100 kΩ', '0805', 'Easy', 3, 8, 'Yageo RC0805FR-07100KL', '', 'Widerstand 0805 100k', 'M1', ''],
+  ['MB', 'passives', 'Resistor 220 kΩ, 0805, 1 %', 'CH-PU self-test injection R_INJ', '220 kΩ', '0805', 'Easy', 1, 5, 'Yageo RC0805FR-07220KL', '', 'Widerstand 0805 220k', 'M1', ''],
+  ['MB', 'passives', 'Resistor 33 kΩ / 56 kΩ / 68 kΩ / 30 kΩ / 150 kΩ / 27 kΩ, 0805, 1 %', 'CH-TG monitor dividers', 'one of each', '0805', 'Easy', 6, 12, 'Yageo RC0805FR-07 33K / 56K / 68K / 30K / 150K / 27K L', '', 'Widerstand 0805 (each value)', 'M1', '2 of each value to order.'],
+  ['MB', 'passives', 'Resistor 10 MΩ, 0805, 1 %', 'Peak-hold bleed resistors (DNP)', '10 MΩ', '0805', 'Easy', 0, 4, 'Yageo RC0805FR-0710ML', '', 'Widerstand 0805 10M', 'M1 optional', ''],
+  ['MB', 'passives', 'Capacitor 100 nF, 0805, X7R, 50 V', 'IC decoupling, filters', '100 nF', '0805', 'Easy', 34, 60, 'Yageo CC0805KRX7R9BB104', 'any X7R 0805 100 nF ≥ 25 V', 'Kondensator 0805 100n X7R', 'M1', ''],
+  ['MB', 'passives', 'Capacitor 1 µF, 0805, X7R/X5R, 16 V', 'ADS1115 decoupling, V_BIAS filter', '1 µF', '0805', 'Easy', 3, 10, 'Yageo CC0805KKX7R7BB105', '', 'Kondensator 0805 1u', 'M1', ''],
+  ['MB', 'passives', 'Capacitor 10 µF, 1206/0805, X5R, ≥ 16 V', '3V3A filter, charge pump, regulators', '10 µF', '1206 or 0805', 'Easy', 8, 15, 'e.g. Samsung CL31A106KBHNNNE (check voltage)', 'any 10 µF X5R ≥ 16 V', 'Kondensator 1206 10u', 'M1', ''],
+  ['MB', 'passives', 'Capacitor 10 nF, 0805', 'Peak-hold caps (DNP)', '10 nF', '0805', 'Easy', 0, 4, 'generic C0G/X7R', '', 'Kondensator 0805 10n', 'M1 optional', ''],
+
+  // ------------------------------------------------------------------ CH-R2
+  ['R2', 'U5', 'ADS1115 16-bit ADC (I²C, 0x48)', 'Reads node and both top-sense voltages', 'ADS1115, 4 channels', 'VSSOP-10, 0.5 mm pitch', 'Hard', 1, 3, 'ADS1115IDGSR (tape & reel) or ADS1115IDGST', 'ADS1015 (12-bit, same package) only if desperate', 'ADS1115IDGSR', 'M1', 'Order quantity 3 covers this one, the CH-TG one (U15) and a spare. Needs flux and drag soldering or hot air.'],
+  ['R2', 'R_REF1', 'Resistor 1 kΩ, 0.1 %', 'CH-R2 reference, 1k range', '1 kΩ, 0.1 %, ≤ 25 ppm', '0805', 'Medium', 1, 3, 'Vishay TNPW08051K00BEEA', 'Yageo RT0805BRD071KL', 'Widerstand 0805 1k 0,1%', 'M1', '1 % parts work for Milestone-1 if you measure them and enter the values.'],
+  ['R2', 'R_REF2', 'Resistor 10 kΩ, 0.1 %', 'CH-R2 reference, 10k range', '10 kΩ, 0.1 %', '0805', 'Medium', 1, 3, 'Vishay TNPW080510K0BEEA', 'Yageo RT0805BRD0710KL', 'Widerstand 0805 10k 0,1%', 'M1', ''],
+  ['R2', 'R_CAL1', 'Resistor 470 Ω, 0.1 %', 'Self-test reference (1k range)', '470 Ω, 0.1 %', '0805', 'Medium', 1, 3, 'Vishay TNPW0805470RBEEA', '', 'Widerstand 0805 470R 0,1%', 'M1 optional', ''],
+  ['R2', 'R_CAL2', 'Resistor 47 kΩ, 0.1 %', 'Self-test reference (10k range)', '47 kΩ, 0.1 %', '0805', 'Medium', 1, 3, 'Vishay TNPW080547K0BEEA', '', 'Widerstand 0805 47k 0,1%', 'M1 optional', ''],
+  ['R2', 'PR3, PR4', 'PhotoMOS relay, 60 V class', 'Switches the self-test resistors across the DUT', '1-form-A, ≥ 60 V, low on-resistance', 'SOP-4', 'Medium', 2, 0, 'Toshiba TLP172A or Panasonic AQY212GS', 'Omron G3VM-61xx family', 'Halbleiterrelais SOP4 60V', 'M1 optional', 'Same part family as CH-TG PR5–PR9: order them together (see TG rows).'],
+  ['R2', 'D7', 'TVS diode, bidirectional, 5 V', 'Protects the DUT terminals', '5.0 V standoff, 400 W', 'DO-214AC (SMA)', 'Medium', 1, 3, 'SMAJ5.0CA', 'SMBJ5.0CA', 'TVS SMAJ5.0CA', 'M1', 'Check leakage near 3.3 V.'],
+  ['R2', 'D2, D3 (module)', 'Schottky pair BAT54S', 'Clamp on the plug-in modules', 'dual series Schottky', 'SOT-23', 'Medium', 2, 4, 'BAT54S,215 (Nexperia)', '2 × 1N5819, BAT85', 'BAT54S SOT-23', 'M1', 'Used on both clamp modules (CH-R2 and CH-PU). NOT the PMEG3050EP.'],
+
+  // ------------------------------------------------------------------ CH-PU
+  ['PU', 'R_T1, R_T2', 'Resistor 100 kΩ, 0.6 W, metal film', 'HV divider top (fixed, HV-rated)', '100 kΩ 1 %, 0.5–0.6 W, ≥ 350 V', 'axial, through-hole', 'Easy', 2, 4, 'Vishay MBB0207 series, 100 kΩ 1 % (check code)', 'any 0.5 W metal film, ≥ 350 V', 'Metallfilmwiderstand 0,6W 100k', 'M1', 'Do not replace with 0805.'],
+  ['PU', 'R_B5', 'Resistor 86.6 kΩ, 0.1 %', 'Range ±5 V bottom leg', '86.6 kΩ', '0805', 'Medium', 1, 3, 'Vishay TNPW080586K6BEEA', '1 % is fine for Milestone-1', 'Widerstand 0805 86,6k', 'M1', ''],
+  ['PU', 'R_B20', 'Resistor 16.2 kΩ, 0.1 %', 'Range ±20 V bottom leg', '16.2 kΩ', '0805', 'Medium', 1, 3, 'Vishay TNPW080516K2BEEA', '1 % is fine', 'Widerstand 0805 16,2k', 'M1', ''],
+  ['PU', 'R_B100', 'Resistor 3.01 kΩ, 0.1 %', 'Range ±100 V bottom leg', '3.01 kΩ', '0805', 'Medium', 1, 3, 'Vishay TNPW08053K01BEEA', '1 % is fine', 'Widerstand 0805 3,01k', 'M1', ''],
+  ['PU', 'R_L1', 'Resistor 1 kΩ, 1 W', 'CDI-like load for P6', '1 kΩ, 1 W', 'axial', 'Easy', 1, 2, 'generic 1 W metal film', '', 'Widerstand 1W 1k', 'M1', ''],
+  ['PU', 'R_L2', 'Resistor 10 kΩ, 0.5 W', 'CDI-like load for P6', '10 kΩ, 0.5 W', 'axial', 'Easy', 1, 2, 'generic', '', 'Widerstand 0,5W 10k', 'M1', ''],
+  ['PU', 'D1', 'TVS diode, bidirectional, 120 V', 'Pickup input protection', '120 V standoff', 'DO-214AC (SMA)', 'Medium', 1, 3, 'SMAJ120CA', 'SMBJ120CA', 'TVS SMAJ120CA', 'M1', 'Check against real pickup peaks at speed.'],
+  ['PU', 'U1', 'MCP6002 dual op-amp, rail-to-rail', 'V_BIAS buffer and signal buffer', '1 MHz, 1.8–6 V', 'SOIC-8', 'Medium', 1, 2, 'MCP6002-I/SN', 'MCP6022, any dual RR op-amp (3.3 V)', 'MCP6002-I/SN', 'M1', ''],
+  ['PU', 'U2', '74HC4066 quad analog switch', 'Range switches', 'quad SPST, 3.3 V', 'SOIC-14', 'Medium', 1, 2, 'SN74HC4066D', '74HC4066D,653 (Nexperia)', '74HC4066D', 'M1', ''],
+  ['PU', 'U3', 'Dual comparator, rail-to-rail', 'Pickup edge timing', '3.3 V, SOIC-8 standard pinout', 'SOIC-8', 'Medium', 1, 2, 'TLV3202AIDR (check)', 'MCP6542-I/SN (not the LM393: its input range is too small at 3.3 V)', 'TLV3202 SOIC-8', 'M1', ''],
+  ['PU', 'U4', 'MCP4822 dual 12-bit DAC (SPI)', 'Comparator thresholds', '2-ch, 2.048 V internal ref', 'SOIC-8', 'Medium', 1, 2, 'MCP4822-E/SN', '', 'MCP4822-E/SN', 'M1', ''],
+  ['PU', 'PR1, PR2', 'PhotoMOS relay, 350 V class', 'Switchable 1 kΩ / 10 kΩ load (P6)', '≥ 350 V, 1-form-A', 'SOP-4', 'Medium', 2, 3, 'Panasonic AQY210S (check)', 'Omron G3VM-351G class', 'Halbleiterrelais 350V SOP4', 'M1', 'The pickup voltage is across it: must be ≥ 350 V.'],
+  ['PU', 'D4, D5', 'Schottky diode BAT54', 'Optional peak hold', 'single', 'SOT-23', 'Medium', 0, 3, 'BAT54,215', '', 'BAT54 SOT-23', 'M1 optional', 'Footprints only; fit if narrow pulses are missed.'],
+
+  // ------------------------------------------------------------------ ARM stage
+  ['ARM', 'Q1, Q2', 'P-channel MOSFET IRF4905', 'Reverse-polarity protection, ARM switch', '−55 V, 20 mΩ', 'TO-220', 'Easy', 2, 3, 'IRF4905PBF', 'IRF9540NPBF (−100 V, 117 mΩ)', 'IRF4905', 'M1', ''],
+  ['ARM', 'F1', 'Fuse holder + fuse 5 A', 'Input fuse', '5×20 mm, 5 A fast', 'through-hole', 'Easy', 1, 1, 'PCB fuse holder 5×20 closed (generic) + 5 A fuses ×5', 'blade fuse holder', 'Sicherungshalter 5x20 Platine', 'M1', 'Order a few spare fuses.'],
+  ['ARM', 'F2 ×2', 'Resettable fuse (PTC), 2 A hold', 'Outputs J3, J4', '2 A hold', 'radial leaded', 'Easy', 2, 3, 'Bourns MF-R200 (check)', 'Littelfuse RUEF200', 'PTC Sicherung 2A', 'M1', ''],
+  ['ARM', 'D1', 'TVS diode 18 V (unidirectional)', 'Input spike protection', '18 V standoff', 'DO-214AA (SMB)', 'Medium', 1, 3, 'SMBJ18A', 'SMAJ18A', 'TVS SMBJ18A', 'M1', ''],
+  ['ARM', 'C1', 'Electrolytic capacitor 470 µF, 25 V', '12V_RAW bulk', '470 µF, 25 V, low ESR', 'radial', 'Easy', 1, 2, 'Panasonic EEU-FR1E471 (check)', 'any 470 µF ≥ 25 V', 'Elko 470u 25V', 'M1', ''],
+  ['ARM', 'U_ARM, U_RLY, U_MID, U_SENSE + TG ×3', 'Optocoupler PC817', 'Isolation: ARM, relay, MID/ARMED sense, mux select, enable', 'CTR ≥ 50 %, Vceo ≥ 35 V', 'DIP-4', 'Easy', 7, 10, 'LTV-817 or EL817', 'PC817C', 'Optokoppler LTV-817', 'M1', '4 in the ARM stage, 3 in CH-TG.'],
+  ['ARM', 'K1', 'Power relay, 12 V coil', 'Series relay, second switch', '≥ 10 A contacts, coil ≈ 33 mA', 'PCB, through-hole', 'Easy', 1, 2, 'Omron G5LE-14 DC12 (SPDT, use NO) (check)', 'Hongfa HF115F-012-1ZS', 'Relais G5LE-14 12V', 'M1', 'Check pin spacing against the footprint before the PCB order.'],
+  ['ARM', 'Q3', 'N-channel MOSFET 2N7000', 'Relay coil driver', '60 V, 200 mA', 'TO-92', 'Easy', 1, 3, '2N7000', 'BS170', '2N7000', 'M1', ''],
+  ['ARM', 'D6', 'Diode 1N4007', 'Relay flyback', '1 A, 1000 V', 'DO-41', 'Easy', 1, 5, '1N4007', '1N4148 is enough for a 33 mA coil', '1N4007', 'M1', ''],
+  ['ARM', 'LEDs', 'LED 3 mm, green and red', '12 V present, ARMED', '3 mm', 'through-hole', 'Easy', 2, 4, 'generic', '', 'LED 3mm rot / grün', 'M1', ''],
+  ['ARM', 'SW1', 'Toggle switch DPST with safety cover', 'ARM switch (two poles)', 'DPST, ≥ 1 A DC, panel mount', 'panel', 'Easy', 1, 1, 'generic with flip cover', '', 'Kippschalter 2-polig mit Schutzkappe', 'M1', 'Both poles are used (gate chain and relay coil).'],
+  ['ARM', 'SW2', 'E-STOP push button, 2 NC contacts', 'Emergency stop (or two wire jumpers)', '2 × NC', 'panel', 'Easy', 1, 1, 'generic', 'two jumpers across the terminals', 'Not-Aus Taster 2 Öffner', 'M1 optional', 'Use jumpers for Milestone-1 if you do not have one.'],
+  ['ARM', 'U_ISO', 'Isolated DC-DC 12 V → 5 V, 1 W', 'Run the Pico from the 12 V supply (DNP)', '1 W, 12 V in, 5 V out', 'SIP', 'Easy', 0, 1, 'Mornsun B1205S-1WR2 or Recom R1SX-1205 (check)', '', 'DC/DC Wandler 12V 5V 1W isoliert', 'Later', 'Not needed while the Pico runs from USB.'],
+  ['ARM', 'D (VSYS)', 'Schottky diode 1N5819', 'U_ISO into VSYS (DNP); alternative clamp diodes', '1 A, 40 V', 'DO-41', 'Easy', 0, 4, '1N5819', 'BAT85', '1N5819', 'Later', ''],
+
+  // ------------------------------------------------------------------ CH-TG
+  ['TG', 'U14', 'ADuM1250 I²C isolator', 'Extends the I²C bus into the 12 V domain', 'hot-swappable, 3–5.5 V both sides', 'SOIC-8', 'Medium', 1, 2, 'ADUM1250ARZ', 'TI ISO1541DR (check)', 'ADUM1250ARZ', 'M1', ''],
+  ['TG', 'U15', 'ADS1115 16-bit ADC (I²C, 0x49)', 'Power-side measurement', 'ADS1115', 'VSSOP-10', 'Hard', 1, 0, 'ADS1115IDGSR', '', 'ADS1115IDGSR', 'M1', 'Counted with the CH-R2 one in the order quantity (3 total).'],
+  ['TG', 'U16, U17', 'MCP4725 12-bit DAC (I²C)', 'Amplitude set-points', 'MCP4725A0, 0x60 / 0x61', 'SOT-23-6', 'Medium', 2, 3, 'MCP4725A0T-E/CH', 'MCP4725A1 (other address)', 'MCP4725A0T-E/CH', 'M1', ''],
+  ['TG', 'U18', 'TL072 dual op-amp', 'Amplitude buffers', 'JFET, ±18 V max, 17 V used', 'SOIC-8', 'Medium', 1, 2, 'TL072CDR', 'TL072ACD', 'TL072CDR', 'M1', ''],
+  ['TG', 'U19', 'CD4052B analog multiplexer', 'Pulse mux (V_AMP+, V_AMP−, GND)', 'dual 4:1, 17 V supply, check limits', 'SOIC-16', 'Medium', 1, 2, 'CD4052BM96 (TI)', 'HEF4052BT,653 (Nexperia)', 'CD4052BM', 'M1', 'Check supply and logic thresholds in the datasheet.'],
+  ['TG', 'U10, U12', 'Voltage regulator 78L05', 'Always-on and armed 5 V', '5 V, 100 mA', 'TO-92 (pick this footprint)', 'Easy', 2, 3, 'L78L05ACZ', 'L78L05ACD (SOIC-8)', 'L78L05ACZ', 'M1', 'Use the TO-92 footprint on the PCB.'],
+  ['TG', 'U12 (option)', 'Voltage regulator 78L09', 'Optional ±9 V version (replaces U12)', '9 V, 100 mA', 'TO-92', 'Easy', 0, 1, 'L78L09ACZ', '', 'L78L09ACZ', 'Later', ''],
+  ['TG', 'U11', 'LDO 3.3 V', '3V3_P for the power-side logic', '3.3 V, ≥ 250 mA, 5 V input', 'SOT-23-5', 'Medium', 1, 3, 'AP2112K-3.3TRG1', 'MCP1700-3302E/TT', 'AP2112K-3.3', 'M1', ''],
+  ['TG', 'U13', 'Charge-pump inverter ICL7660', '−5 V rail', '5 V in, −5 V out', 'SOIC-8', 'Medium', 1, 2, 'ICL7660CBAZ (check)', 'TC7660EOA, MAX1044ESA+', 'ICL7660', 'M1', ''],
+  ['TG', 'PR5–PR9', 'PhotoMOS relay, 60 V class', 'Source-impedance bank (3), kill outputs (2)', '1-form-A, ≥ 60 V', 'SOP-4', 'Medium', 5, 9, 'Toshiba TLP172A or Panasonic AQY212GS', 'Omron G3VM-61xx family', 'Halbleiterrelais SOP4 60V', 'M1', 'Order 9 in total: 5 here + 2 in CH-R2 (PR3, PR4) + 2 spares. PR8, PR9 (kill) are M1 optional.'],
+  ['TG', 'D8', 'TVS diode, bidirectional, 15 V', 'Protects OUT', '15 V standoff', 'DO-214AC (SMA)', 'Medium', 1, 3, 'SMAJ15CA', '', 'TVS SMAJ15CA', 'M1', ''],
+
+  // ------------------------------------------------------------------ external (not on the PCB)
+  ['EXT', '—', 'Ignition coil + plug cap + spark plug', 'Load for the CDI test', 'known-good coil', 'external', '—', 1, 0, '—', '', '—', 'India', 'Already in India.'],
+  ['EXT', '—', 'Spark-gap enclosure (closed, non-conductive box)', 'Safe firing of the CDI', 'closed box, gap visible', 'external', '—', 1, 0, '—', '', '—', 'India', 'Already in India. See docs/safety.md (30 cm from the Pico).'],
+  ['EXT', '—', 'Reluctor rotation rig', 'Spins the pickup for P4–P6', 'motor + steel tab or flywheel', 'external', '—', 1, 0, '—', '', '—', 'India', 'Already in India.'],
+  ['EXT', '—', '12 V variable bench supply, current limited', 'Powers the ARM stage and the CDI', '12 V, ≥ 3 A, current limit', 'external', '—', 1, 0, '—', '', '—', 'Have', 'Start with the limit at 1–2 A.'],
+  ['EXT', '—', 'Known-good pickup, AC-CDI, DC-CDI (Woostar 6-pin)', 'Golden references', '—', 'external', '—', 3, 0, '—', '', '—', 'Have', ''],
+  ['EXT', '—', 'Test leads with crocodile clips', 'CH-R2 and CH-PU connections', 'short, thick', 'external', '—', 2, 0, '—', '', '—', 'Have', ''],
+  ['EXT', '—', 'Wire, heat-shrink, wire ferrules for the screw terminals', 'Panel wiring (SW1, SW2, J-connectors)', '0.5–1.5 mm²', 'hardware', '—', 1, 1, 'generic', '', 'Aderendhülsen', 'M1', ''],
+];

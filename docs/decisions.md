@@ -121,3 +121,9 @@ enable (`RLY_EN`, GP0), optocoupler, Q3 driver and the second poles of a DPST AR
 E-STOP. `MID_SENSE` between the two switches shows which one failed. The relay closes first and opens last,
 so it never breaks load current. Only a double failure (Q2 shorted and K1 welded) leaves the rail live.
 Details: `hardware/circuits/power-arm.md`.
+
+### D18 · 2026-11-16 · accepted · One mainboard PCB with a logic / 12 V split
+One board (JLCPCB, 5-piece minimum) carries CH-R2, CH-PU, the ARM stage, CH-TG, the Pico socket, two MCP23017 expanders and
+the I²C bus. The logic region (GND_L) and the 12 V power region (GND_P) are separated by an isolation slot bridged only by
+optocouplers, photoMOS relays and the ADuM1250. HV blocks (CH-HV, insulation, AC-CDI) stay off this board and plug into
+a 2 × 8 expansion header (J8) and the aux 12 V output (J4). Connection list: `hardware/circuits/mainboard.md`.

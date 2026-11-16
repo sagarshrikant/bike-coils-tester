@@ -1,5 +1,8 @@
 # Bill of materials
 
+> **Ordering:** the consolidated, checkable list for the mainboard PCB (with Milestone-1 flags and a column for your availability notes) is
+> `bom-order-list.xlsx` (and `.csv`), generated from `tools/bom/order-list-data.mjs`. The sections below are the per-block design notes.
+
 **Already on hand:** Pico boards, a known-good pickup coil, known-good AC-CDI and DC-CDI units,
 a soldering station and general-purpose PCB.
 

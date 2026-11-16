@@ -102,5 +102,5 @@ See `hardware/bom.md`, section "Phase 2: CH-PU".
 - 74HC4066 on-resistance at 3V3A and its effect on R_B100.
 - TVS standoff voltage against real pickup peaks at high RPM (use the golden pickup, spun).
 - MCP6002 unity buffer bandwidth against the fastest pickup edge.
-- Comparator choice (TLV3202 / MCP6542 / LM393) and hysteresis resistor values.
+- Comparator choice (TLV3202 or MCP6542; not the LM393, whose input range stops about 1.5 V below the supply: too small at 3.3 V) and hysteresis resistor values.
 - Whether the optional peak hold is needed.

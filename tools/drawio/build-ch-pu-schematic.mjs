@@ -113,7 +113,7 @@ for (const [cmp, label, rtop] of [[cmpA, '→ GP2 (PU_POS)', 450], [cmpB, '→ G
   wire([[1330, cmp.out[1]], [1360, cmp.out[1]]], C.dig);
   text(1366, cmp.out[1] + 4, label, { size: 11, bold: true, color: C.dig });
 }
-text(640, 684, 'U3 footprint: dual comparator, SOIC-8, standard pinout\n(TLV3202, MCP6542 or LM393; pull-ups DNP for push-pull parts).', { size: 9, color: C.dim });
+text(640, 684, 'U3 footprint: dual comparator, SOIC-8, standard pinout\n(TLV3202 or MCP6542; pull-ups DNP for push-pull parts).', { size: 9, color: C.dim });
 
 // ---------------------------------------------------------------- F: optional peak hold
 box(20, 735, 1500, 235, { fill: '#f8fafc', stroke: '#94a3b8', dashed: true, label: '6 · Optional peak hold (footprints, DNP until needed)', size: 12 });
