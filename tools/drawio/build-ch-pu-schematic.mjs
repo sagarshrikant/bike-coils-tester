@@ -42,7 +42,7 @@ resistorH(430, 200, C.drv); text(470, 176, 'R_T2\n100 kΩ', { size: 9, anchor: '
 wire([[510, 200], [540, 200]], C.drv); dot(540, 200, C.drv);
 text(545, 222, 'N', { size: 11, bold: true });
 wire([[540, 200], [800, 200]], C.sense);
-const legs = [[600, 'R_B5\n86.6 k', '±5 V', 'S1'], [670, 'R_B20\n16.2 k', '±20 V', 'S2'], [740, 'R_B100\n3.01 k', '±100 V', 'S3']];
+const legs = [[600, 'R_B5\n84.5 k', '±5 V', 'S1'], [670, 'R_B20\n16.5 k', '±20 V', 'S2'], [740, 'R_B100\n3 k', '±100 V', 'S3']];
 for (const [x, lab, rng, sw] of legs) {
   dot(x, 200, C.sense); wire([[x, 200], [x, 215]], C.sense);
   resistorV(x, 215, C.sense);

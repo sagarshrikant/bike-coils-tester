@@ -51,9 +51,9 @@ Check stock and exact order codes at the supplier. 5 % spare quantities are incl
 | Qty | Part | Value / type | Notes |
 |---|---|---|---|
 | 2 | Resistor, 0.6 W metal film (axial) | 100 kΩ 1 % | R_T1, R_T2. Rated about 350 V. Do **not** replace with 0805 |
-| 1 | Resistor 0805 | 86.6 kΩ 0.1 % or 1 % | R_B5 |
-| 1 | Resistor 0805 | 16.2 kΩ 0.1 % or 1 % | R_B20 |
-| 1 | Resistor 0805 | 3.01 kΩ 0.1 % or 1 % | R_B100 |
+| 1 | Resistor 0805 | 84.5 kΩ 0.1 % or 1 % | R_B5 |
+| 1 | Resistor 0805 | 16.5 kΩ 0.1 % or 1 % | R_B20 |
+| 1 | Resistor 0805 | 3 kΩ 0.1 % or 1 % | R_B100 |
 | 1 | Resistor 0805 | 220 kΩ 1 % | R_INJ (self-test injection) |
 | 1 | Resistor | 1 kΩ 1 W | R_L1 load (P6) |
 | 1 | Resistor | 10 kΩ 0.25 W | R_L2 load (P6) |
@@ -65,8 +65,8 @@ Check stock and exact order codes at the supplier. 5 % spare quantities are incl
 | 1 | TVS diode, bidirectional | about 120 V standoff (for example SMAJ120CA) | D1. Check it against real pickup peaks |
 | 2 | Schottky diode pair | BAT54S (SOT-23) or 2 × 1N5819 on the plug-in header | D2, D3 clamp. **Not** PMEG3050EP |
 | 2 | Schottky diode | BAT54 (SOT-23) | D4, D5 optional peak hold |
-| 1 | Dual op-amp, rail-to-rail | MCP6002 (SOIC-8) | U1A bias buffer, U1B signal buffer |
-| 1 | Dual comparator, SOIC-8 | TLV3202 or MCP6542 (or LM393) | U3 |
+| 1 | Dual op-amp, rail-to-rail | MCP6472 (MSOP-8) | U1A bias buffer, U1B signal buffer |
+| 1 | Dual comparator, SOIC-8 | MCP6542 push-pull (or TLV3202; not LM393) | U3 |
 | 1 | Dual 12-bit DAC, SPI | MCP4822 (SOIC-8) | U4 comparator thresholds |
 | 1 | Quad analog switch | 74HC4066 (SOIC-14) | S1–S3 range switches |
 | 2 | PhotoMOS relay, 350 V class, DIP-4 (or SOP-4) | for example Panasonic AQY210 family | PR1, PR2 (check the exact part and its load voltage rating) |

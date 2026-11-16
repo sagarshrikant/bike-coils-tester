@@ -34,9 +34,9 @@ connection to about 2 mA, but it is not designed for HV. Disconnect the pickup f
 
    | Range | Bottom leg | Ratio | Full scale (±1.5 V at the node) |
    |---|---|---|---|
-   | ±5 V | R_B5 86.6 kΩ | 0.302 | ±4.96 V |
-   | ±20 V | R_B20 16.2 kΩ | 0.0749 | ±20.0 V |
-   | ±100 V | R_B100 3.01 kΩ | 0.0148 | ±101 V |
+   | ±5 V | R_B5 84.5 kΩ | 0.297 | ±5.05 V |
+   | ±20 V | R_B20 16.5 kΩ | 0.0762 | ±19.7 V |
+   | ±100 V | R_B100 3 kΩ | 0.0148 | ±101.5 V |
 
    The 74HC4066 on-resistance (about 100 Ω, to be measured) adds ~3 % to R_B100. It is removed by the
    self-test calibration.

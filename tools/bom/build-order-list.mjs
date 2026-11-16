@@ -21,16 +21,17 @@ const HEADERS = [...BASE_HEADERS.slice(0, -1), 'What it does + what to check in 
 const verifyText = (item) => VERIFY[item] ?? (GENERIC.find(([re]) => re.test(item)) ?? [null, ''])[1];
 // carry over the user's own column from hardware/bom-order-list-filled.xlsx (matched by block + item), so regenerating never loses it
 const userByKey = new Map();
+const userByRef = new Map(); // fallback when an item was renamed: block + refs, used only if that pair is unique
 const filledPath = resolve('hardware/bom-order-list-filled.xlsx');
 if (existsSync(filledPath)) {
   const wbF = new ExcelJS.Workbook();
   await wbF.xlsx.readFile(filledPath);
   const wsF = wbF.getWorksheet('Order list') ?? wbF.worksheets[0];
-  const hdr = wsF.getRow(1).values; const cUser = hdr.findIndex((h) => String(h ?? '').startsWith('YOUR ENTRY')); const cBlock = hdr.findIndex((h) => h === 'Block'); const cItem = hdr.findIndex((h) => h === 'Item');
-  wsF.eachRow((row, n) => { if (n === 1) return; const v = row.getCell(cUser).value; const text = (v && typeof v === 'object' && v.text) ? v.text : v; if (text) userByKey.set(`${row.getCell(cBlock).value}|${row.getCell(cItem).value}`, v); });
+  const hdr = wsF.getRow(1).values; const cUser = hdr.findIndex((h) => String(h ?? '').startsWith('YOUR ENTRY')); const cBlock = hdr.findIndex((h) => h === 'Block'); const cItem = hdr.findIndex((h) => h === 'Item'); const cRef = hdr.findIndex((h) => String(h ?? '').startsWith('Ref'));
+  wsF.eachRow((row, n) => { if (n === 1) return; const v = row.getCell(cUser).value; const text = (v && typeof v === 'object' && v.text) ? v.text : v; if (!text) return; userByKey.set(`${row.getCell(cBlock).value}|${row.getCell(cItem).value}`, v); const rk = `${row.getCell(cBlock).value}|${row.getCell(cRef).value}`; userByRef.set(rk, userByRef.has(rk) ? null : v); });
   console.log(`kept ${userByKey.size} entries from your filled sheet`);
 }
-const data = ROWS.map((r, i) => [i + 1, ...r, verifyText(r[2]), userByKey.get(`${r[0]}|${r[2]}`) ?? '']);
+const data = ROWS.map((r, i) => [i + 1, ...r, verifyText(r[2]), (userByKey.get(`${r[0]}|${r[2]}`) ?? (r[1] && r[1] !== 'passives' && r[1] !== '—' ? userByRef.get(`${r[0]}|${r[1]}`) : null)) ?? '']);
 const COL_USER = HEADERS.length;                             // 1-based
 const COL_MS = HEADERS.indexOf('Milestone') + 1;
 

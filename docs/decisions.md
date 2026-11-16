@@ -136,3 +136,10 @@ The earlier "±9 V option" is withdrawn (it needed an 18 V span). Found while ch
 ### D20 · 2026-11-16 · accepted · ADS1115 as breakout modules (JM1, JM2), not the bare chip
 Reichelt does not sell the ADS1115 chip. Two modules plug into 1×10 female headers: JM1 (0x48, logic side, CH-R2) and JM2 (0x49, 12 V side, CH-TG).
 Easier to solder and to replace. The typical pin order (VDD, GND, SCL, SDA, ADDR, ALRT, A0–A3) must be confirmed against the module bought.
+
+### D21 · 2026-11-16 · accepted · Part choices after the Reichelt check (op-amp, comparator, DAC, clamp, resistors, fuses)
+Chosen to match what Reichelt stocks, each checked against its datasheet: U1 MCP6472-E/MS (MSOP-8, replaces MCP6002), U3 MCP6542-I/SN
+(push-pull comparator, SOIC-8), U4 MCP4822-E/P (DIP-8), D2/D3 BAT54S-7-F (VF 0.24 V at 0.1 mA, IR 2 µA max), D4/D5 BAT54HT1G (SOD-323),
+R_B5/R_B20/R_B100 = 84.5 kΩ / 16.5 kΩ / 3 kΩ (full scale ±5.05 / ±19.7 / ±101.5 V; firmware must use these gains), F1 ESKA 520.024 (5×20 mm, 5 A quick),
+F2 SMD1812P200TF/16 (2 A hold, 16 V: keep the bench supply ≤ 15 V), D1 SM6T18CA (stand-off 15.3 V: supply ≤ 14 V), E-STOP with two NC contacts.
+R_CAL1 may be a 1 % part: its measured value goes into hw_pins.py. Open: AQY210EHA vs AQY210EH, D8 must be 15 V (not 5 V), R_L2 is an NTC (wrong).
