@@ -34,3 +34,56 @@ interface, so it can move to the Pico later. Why now: it needs no firmware or AP
 unblocks the Phase 1 exit test. Limits: a baseline lives only in the browser/device that saved it
 (the laptop and the iPhone don't share), and Safari can clear site storage after about a week of
 not visiting the site. Record important baselines in `docs/test-results/`.
+
+### D8 · 2026-11-16 · accepted · CH-R2 moves to the ADS1115 (node and both top-sense voltages)
+Frees the three internal ADC pins (GP26–28) for CH-PU and later channels, and gives 16-bit
+readings with one shared reference. The circuit is unchanged; `resistance.py` and `hw_pins.py`
+change when the PCB firmware is written. Re-check the CH-R2 readings after the change.
+
+### D9 · 2026-11-16 · accepted · ICs on the PCB instead of breakout modules (except the Pico 2 W)
+Cost, and the board has to be soldered anyway. Use SOIC / SOT-23 / through-hole parts and 0805
+passives, all from Reichelt, Farnell or Mouser. The one fine-pitch part is the ADS1115
+(VSSOP-10, 0.5 mm): add a parallel module-header footprint (DNP) as a fallback. One PCB for the
+designed blocks, with an expansion connector for the HV blocks (separate boards). JLCPCB, 5-piece minimum.
+
+### D10 · 2026-11-16 · accepted · Profile-driven, self-checking, programmable test hardware
+The tester has to work on units nobody has data for (any Indian-market DC/AC CDI, pickup or
+ignition coil), operated by a non-expert. Workflow: the service person picks a profile (or
+"Unknown / generic") in the app, the Pico programs the hardware, runs a self-test (measures what it
+actually set), reports READY, and only then is the power stage armed. Details:
+- **ARM switch** cuts only the 12 V power stage and the outputs. The Pico, ADS1115 and the stored
+  settings stay powered, so wires are connected with every output dead. ARMED LED next to the
+  switch. Firmware refuses to arm if the self-test failed.
+- Programmability uses **fixed precision resistors switched by opto-isolated photo-relays** (for
+  example TLP172 / AQY212 class) on the isolated 12 V side, and analog switches on low-voltage
+  nodes. Digital potentiometers only for low-voltage trims where ± 20 % tolerance is acceptable
+  (calibrated by self-test).
+- **Profiles live in the app first** (JSON list with an editor). The Pico gets the active profile
+  through the API (update `docs/architecture.md` and `app/lib/api/` together when it is added).
+- **"Unknown" profile:** start at the lowest energy, step up until the unit responds, record the
+  threshold, offer to save it as a new profile.
+
+### D11 · 2026-11-16 · accepted · Design principles for every measurement channel
+1. **Start safe, step up.** Lowest range, lowest amplitude, shortest dwell first. Auto-range from
+   the top for unknown input voltages.
+2. **Program the low-voltage side, keep the high-voltage side fixed and passive.** HV dividers are
+   fixed HV-rated resistors. Only the low-voltage bottom leg is switched, so no switch sees more
+   than 3.3 V.
+3. **Self-test before arming,** using an internal precision reference path read by the ADS1115.
+4. **Limits in hardware as well as firmware** (current limit, series resistors, clamps, fuse).
+5. **No data needed from the user beyond a few simple choices.** Everything else is found by
+   measuring.
+
+### D12 · 2026-11-16 · accepted · CH-PU architecture (supersedes the earlier sketch in docs/architecture.md)
+Fixed HV-rated top divider (2 × 100 kΩ), switched bottom legs (±5 / ±20 / ±100 V) on a 74HC4066, 1.65 V
+bias via a buffered divider, MCP6002 buffer into GP26, and a dual comparator with DAC-set thresholds
+(MCP4822) for PIO edge timing. Photo-relay loads for P6. Self-test by injecting 3.3 V / 0 V through a
+220 kΩ resistor. Optional peak-hold footprints (DNP). Why: handles any pickup without setup (D10, D11),
+no switch ever sees more than 3.3 V, the earlier 1:40 single divider could not auto-range.
+Details: `hardware/circuits/ch-pu-pickup.md`. Status: approach accepted 2026-11-16; values still to be verified on the bench.
+
+### D13 · 2026-11-16 · accepted · I²C I/O expanders for slow control lines
+Two MCP23017 (I²C, 0x20 / 0x21) carry range, load, enable and relay lines, because the Pico has too few
+free pins for the whole product (about 36 lines needed, about 21 free). Fast and timing-critical lines stay
+on Pico GPIO. Every expander line has a pull resistor that sets the safe state, since the expander resets to
+inputs. Details: `docs/pin-budget.md`.
