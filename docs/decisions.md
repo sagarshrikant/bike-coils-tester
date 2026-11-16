@@ -103,7 +103,7 @@ DACs. The same segment serves CH-HV later. Details: `hardware/circuits/ch-tg-tri
 
 ### D17 · 2026-11-16 · accepted · CH-TG: DAC-set amplitude, mux pulse stage, ±pulses, kill outputs
 Pulse = CD4052B analog mux switching between V_AMP+, V_AMP− and GND, selected by two optocouplers (idle and default
-= GND, INH default = disabled). V_AMP+ (0–9.9 V) and V_AMP− (0 … −3.3 V) come from two MCP4725 DACs and TL072
+= GND, INH default = disabled). V_AMP+ (0–8 V, see D19) and V_AMP− (0 … −3.3 V) come from two MCP4725 DACs and TL072
 stages on 12V_ARMED / −5V_P (charge pump). Source impedance 100 Ω / 470 Ω / 2.2 kΩ by photoMOS. Two photoMOS on
 SHUT DOWN (to GND_P and to 12V_ARMED) because the kill level is unknown. Supersedes the "photoMOS amplitude bank" in D10 (which was chosen
 before the isolated measurement bus existed). Jumper JP1 selects the mux VDD (12V_ARMED by default), so the negative range can later be deepened (±9 V version: 78L09 in place of the 78L05, JP1 moved, two resistor values changed) without a new PCB.
@@ -127,3 +127,12 @@ One board (JLCPCB, 5-piece minimum) carries CH-R2, CH-PU, the ARM stage, CH-TG, 
 the I²C bus. The logic region (GND_L) and the 12 V power region (GND_P) are separated by an isolation slot bridged only by
 optocouplers, photoMOS relays and the ADuM1250. HV blocks (CH-HV, insulation, AC-CDI) stay off this board and plug into
 a 2 × 8 expansion header (J8) and the aux 12 V output (J4). Connection list: `hardware/circuits/mainboard.md`.
+
+### D19 · 2026-11-16 · accepted · Mux supply limited to 15 V: +9 V from a 78L09 (U20), selected by JP1
+The 4052 multiplexer available at Reichelt is the 3–15 V type. The first CH-TG design gave it 12 V − (−5 V) = 17 V. Now: VDD = +9 V (U20 78L09),
+VEE = −5 V, span 14 V. JP1 can select +5 V instead. The optocoupler pull-ups go to MUX_VDD. V_AMP+ is therefore limited to about 8 V.
+The earlier "±9 V option" is withdrawn (it needed an 18 V span). Found while checking the user's part choice against the datasheet limits.
+
+### D20 · 2026-11-16 · accepted · ADS1115 as breakout modules (JM1, JM2), not the bare chip
+Reichelt does not sell the ADS1115 chip. Two modules plug into 1×10 female headers: JM1 (0x48, logic side, CH-R2) and JM2 (0x49, 12 V side, CH-TG).
+Easier to solder and to replace. The typical pin order (VDD, GND, SCL, SDA, ADDR, ALRT, A0–A3) must be confirmed against the module bought.

@@ -71,8 +71,8 @@ correction (kept in memory, not in the DUT result).
 - Place R_REF1/2, R_S, the clamp header and the three 100 nF capacitors close to the Pico pins and the ADS1115.
 - One AGND point at the DUT− terminal; keep the clip return away from the digital ground currents.
 - Short, wide traces from the terminals, twisted pair to the clips. Lead resistance is removed by the "Zero" calibration.
-- The ADS1115 (VSSOP-10, 0.5 mm pitch) is the hardest part to hand-solder. A parallel footprint for the ADS1115
-  breakout module header (DNP) is the fallback.
+- The ADS1115 is fitted as a **breakout module** on a 1×10 female header (JM1), because Reichelt does not sell the bare chip. Pin order of the
+  typical module: VDD, GND, SCL, SDA, ADDR, ALRT, A0, A1, A2, A3 (confirm with the module you buy). ADDR is tied to GND on the board (0x48).
 
 ## Firmware change (when the PCB firmware is written)
 
@@ -85,4 +85,4 @@ Re-check the readings against the resistor table in `docs/test-results/phase1.md
 - Confirm the accuracy improvement on the bench (47 Ω, 100 Ω, 47 kΩ, the golden pickup coil).
 - Check BAT54S leakage on the ADS1115 input at the node.
 - Decide the lowest-ohm limit with the ±0.512 V PGA setting.
-- Second ADS1115 (0x49) is footprinted for the 4-wire channel, not part of this circuit.
+- The CH-TG power-side ADS1115 (0x49) is a second module (JM2). A third module (0x4A) would be for the Phase 4 4-wire channel.

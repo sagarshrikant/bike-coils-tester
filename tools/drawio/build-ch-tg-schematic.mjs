@@ -23,7 +23,7 @@ const nl = (x, y, label, color = C.ink, side = 'l') => {                    // p
 };
 
 // ================================================================ 1: supplies
-box(40, 100, 440, 290, { fill: '#fffbeb', stroke: '#ca8a04', dashed: true, label: '1 · Supplies', size: 12 });
+box(40, 100, 440, 300, { fill: '#fffbeb', stroke: '#ca8a04', dashed: true, label: '1 · Supplies', size: 12 });
 const u10 = icBox(140, 150, 80, 'U10  78L05', ['IN', 'GND'], ['OUT'], { pitch: 26 });
 nl(u10.pins.IN[0], u10.pins.IN[1], '12V_RAW', C.drv); gl(u10.pins.GND[0], u10.pins.GND[1]);
 const u11 = icBox(280, 150, 110, 'U11  3.3 V LDO', ['IN', 'GND'], ['OUT'], { pitch: 26 });
@@ -35,20 +35,20 @@ nl(u12.pins.IN[0], u12.pins.IN[1], '12V_ARMED', C.drv); gl(u12.pins.GND[0], u12.
 const u13 = icBox(280, 285, 110, 'U13  ICL7660', ['V+', 'GND'], ['VOUT'], { pitch: 26 });
 wire([u12.pins.OUT, u13.pins['V+']]); text(228, u12.pins.OUT[1] - 6, '+5V_P', { size: 9, bold: true, color: C.dim });
 gl(u13.pins.GND[0], u13.pins.GND[1]); nl(u13.pins.VOUT[0], u13.pins.VOUT[1], '−5V_P', C.sense, 'r');
-text(60, 380, 'U13: 10 µF on CAP+/CAP−, 10 µF out.\nU12 = 78L05 (default). A 78L09 gives the ±9 V option (JP1).', { size: 9, color: C.dim });
+text(60, 380, 'U13: 10 µF on CAP+/CAP−, 10 µF out.\nU12 78L05 feeds the pump; the mux\nsupply is U20 (+9V_P), chosen with JP1.', { size: 9, color: C.dim });
 
 // ================================================================ 2: ADS1115 on the isolated bus + monitors
 box(500, 100, 520, 290, { fill: '#f0fdf4', stroke: '#16a34a', dashed: true, label: '2 · Power-side measurement (ADS1115 0x49)', size: 12 });
-const ads = icBox(640, 150, 130, 'U15  ADS1115 (0x49)', ['AIN0', 'AIN1', 'AIN2', 'AIN3'], ['SDA', 'SCL', 'VDD', 'GND', 'ADDR'], { pitch: 26 });
-nl(ads.pins.AIN0[0], ads.pins.AIN0[1], 'V_OUT_M', C.sense); nl(ads.pins.AIN1[0], ads.pins.AIN1[1], 'V_AMPP_M', C.sense);
-nl(ads.pins.AIN2[0], ads.pins.AIN2[1], 'V_AMPN_M', C.sense); nl(ads.pins.AIN3[0], ads.pins.AIN3[1], 'V_ARM_M', C.sense);
+const ads = icBox(640, 150, 130, 'JM2  ADS1115 module (0x49)', ['A0', 'A1', 'A2', 'A3'], ['SDA', 'SCL', 'VDD', 'GND', 'ADDR'], { pitch: 26 });
+nl(ads.pins.A0[0], ads.pins.A0[1], 'V_OUT_M', C.sense); nl(ads.pins.A1[0], ads.pins.A1[1], 'V_AMPP_M', C.sense);
+nl(ads.pins.A2[0], ads.pins.A2[1], 'V_AMPN_M', C.sense); nl(ads.pins.A3[0], ads.pins.A3[1], 'V_ARM_M', C.sense);
 nl(ads.pins.SDA[0], ads.pins.SDA[1], 'SDA_P', C.dig, 'r'); nl(ads.pins.SCL[0], ads.pins.SCL[1], 'SCL_P', C.dig, 'r');
 nl(ads.pins.VDD[0], ads.pins.VDD[1], '3V3_P', C.clamp, 'r'); gl(ads.pins.GND[0], ads.pins.GND[1]);
 nl(ads.pins.ADDR[0], ads.pins.ADDR[1], '3V3_P (0x49)', C.clamp, 'r');
 text(516, 346, 'Level-shifting dividers (values in the doc):\n V_OUT_M = OUT × 0.17 + 1.0 V   (−5 … +12 V → 0.15 … 3.1 V)\n V_AMPP_M = V_AMP+ ÷ 3.3     V_AMPN_M = V_AMP− × 0.4 + 2.0 V\n V_ARM_M = 12V_ARMED × 0.21', { size: 9, color: '#334155' });
 
 // ================================================================ 3: DACs and amplifiers
-box(40, 410, 450, 412, { fill: '#faf5ff', stroke: '#7c3aed', dashed: true, label: '3 · Amplitude: DAC + op-amp per polarity', size: 12 });
+box(40, 410, 450, 425, { fill: '#faf5ff', stroke: '#7c3aed', dashed: true, label: '3 · Amplitude: DAC + op-amp per polarity', size: 12 });
 const dacL = ['SDA_P', 'SCL_P', '3V3_P', 'GND', 'A0'];
 const stubRail = (p, name) => { wire([p, [p[0] - 16, p[1]]], C.clamp); wire([[p[0] - 28, p[1] - 4 + 4], [p[0] - 16, p[1]]], C.clamp); };
 const d1 = icBox(70, 440, 110, 'U16 MCP4725\n(0x60)', dacL, ['VOUT'], { pitch: 24 });
@@ -79,10 +79,10 @@ resistorH(318, 630); text(358, 618, 'R_F 10 kΩ', { size: 9, anchor: 'middle', c
 wire([[398, 630], [420, 630], [420, ob.out[1]]]); wire([ob.out, [470, ob.out[1]]], C.sense); dot(420, ob.out[1], C.sense);
 text(426, ob.out[1] - 6, 'V_AMP−', { size: 11, bold: true, color: C.sense });
 wire([ob.inP, [300, ob.inP[1]]]); ground(300, ob.inP[1]);
-text(60, 806, 'U18 TL072: V+ = 12V_ARMED, V− = −5V_P (swing about +10 V / −3.5 V). The buses are stiff\nDC levels. The mux connects them to the output only for the pulse width.', { size: 9, color: C.dim });
+text(60, 798, 'U18 TL072: V+ = 12V_ARMED, V− = −5V_P (swing about +10 V / −3.5 V). V_AMP+ is\nkept below 8 V in firmware (mux VDD = +9 V). The buses are stiff\nDC levels. The mux connects them to the output only for the pulse width.', { size: 9, color: C.dim });
 
 // ================================================================ 4: mux
-box(500, 410, 280, 400, { fill: '#fefce8', stroke: '#ca8a04', dashed: true, label: '4 · Pulse mux (CD4052B)', size: 12 });
+box(500, 410, 280, 510, { fill: '#fefce8', stroke: '#ca8a04', dashed: true, label: '4 · Pulse mux (CD4052B)', size: 12 });
 const mux = icBox(540, 440, 140, 'U19  CD4052B', ['X0', 'X1', 'X2', 'X3', 'A', 'B', 'INH'], ['X', 'VDD', 'VEE', 'VSS'], { pitch: 26 });
 gl(mux.pins.X0[0], mux.pins.X0[1]);
 nl(mux.pins.X1[0], mux.pins.X1[1], 'V_AMP−', C.sense); nl(mux.pins.X2[0], mux.pins.X2[1], 'V_AMP+', C.drv);
@@ -91,15 +91,17 @@ nl(mux.pins.A[0], mux.pins.A[1], 'MUX_A', C.dig); nl(mux.pins.B[0], mux.pins.B[1
 nl(mux.pins.X[0], mux.pins.X[1], 'S', C.drv, 'r');
 { const [vx, vy] = mux.pins.VDD;
   wire([[vx, vy], [750, vy]], C.drv); text(702, vy + 16, 'MUX_VDD', { size: 9, bold: true, color: C.drv });
-  terminal(756, vy - 20, C.drv); terminal(756, vy, C.drv); terminal(756, vy + 20, C.clamp);
-  wire([[756, vy - 20], [756, vy]], C.drv); wire([[752, vy - 20], [760, vy - 20]], C.drv);
-  text(768, vy - 16, 'JP1.1  12V_ARMED  (default)', { size: 9, bold: true, color: C.drv });
-  text(768, vy + 24, 'JP1.3  +5V_P  (78L09 option)', { size: 9, bold: true, color: C.clamp }); }
+  terminal(756, vy - 20, C.clamp); terminal(756, vy, C.drv); terminal(756, vy + 20, C.drv);
+  wire([[756, vy], [756, vy + 20]], C.drv); wire([[752, vy + 20], [760, vy + 20]], C.drv);
+  text(768, vy - 16, 'JP1.1  +5V_P  (alternative)', { size: 9, bold: true, color: C.clamp });
+  text(768, vy + 24, 'JP1.3  +9V_P  (default: jumper 2–3)', { size: 9, bold: true, color: C.drv }); }
 nl(mux.pins.VEE[0], mux.pins.VEE[1], '−5V_P', C.sense, 'r'); gl(mux.pins.VSS[0], mux.pins.VSS[1]);
-text(512, 660, 'Select (B A):\n 11 = X3 = GND: idle, and the default when the\n      optocouplers are off\n 10 = X2 = V_AMP+: positive pulse (A on)\n 01 = X1 = V_AMP−: negative pulse (B on)\n 00 = X0 = GND\nINH pulled to 12 V = all switches open (default).\nY section unused: all its pins to GND_P.\nBreak-before-make. Supply 17 V (limit 18 V).', { size: 9, color: '#334155' });
+text(512, 690, 'Select (B A):\n 11 = X3 = GND: idle, and the default when\n      the optocouplers are off\n 10 = X2 = V_AMP+: positive pulse (A on)\n 01 = X1 = V_AMP−: negative pulse (B on)\n 00 = X0 = GND\nINH pulled to MUX_VDD = all switches open (default).\nVDD +9 V, VEE −5 V = 14 V (limit 15 V for the\n3–15 V part). Y section: all pins to GND_P.', { size: 9, color: '#334155' });
+const u20 = icBox(600, 815, 100, 'U20  78L09', ['IN', 'GND'], ['OUT'], { pitch: 26 });
+nl(u20.pins.IN[0], u20.pins.IN[1], '12V_ARMED', C.drv); gl(u20.pins.GND[0], u20.pins.GND[1]); nl(u20.pins.OUT[0], u20.pins.OUT[1], '+9V_P', C.drv, 'r');
 
 // ================================================================ 5: output, 6: kill
-box(40, 830, 450, 330, { fill: '#fff1f2', stroke: '#dc2626', dashed: true, label: '5 · Output and CDI connector', size: 12 });
+box(40, 845, 450, 315, { fill: '#fff1f2', stroke: '#dc2626', dashed: true, label: '5 · Output and CDI connector', size: 12 });
 terminal(80, 900, C.drv); text(60, 884, 'J5.1  TRIG+  (blue / white wire)', { size: 10, bold: true, color: C.drv });
 wire([[86, 900], [260, 900]], C.drv); dot(200, 900, C.drv);
 text(266, 904, 'OUT', { size: 11, bold: true, color: C.drv });
@@ -132,7 +134,7 @@ const opto = (y, title, net, logicLabel) => {
   const [cx, cy] = d.pins.C;
   wire([[cx, cy], [910, cy]], C.dig); dot(910, cy, C.dig);
   wire([[910, cy], [900, cy]], C.dig); resistorH(820, cy, C.drv);
-  text(816, cy + 4, '+12V_ARMED', { size: 9, anchor: 'end', bold: true, color: C.drv });
+  text(816, cy + 4, 'MUX_VDD', { size: 9, anchor: 'end', bold: true, color: C.drv });
   text(860, cy - 12, `R 4.7 kΩ  →  ${net}`, { size: 9, anchor: 'middle', bold: true, color: C.dig });
   gl(d.pins.E[0], d.pins.E[1]);
   logicFeed(d.pins.A[0], d.pins.A[1], logicLabel);
@@ -167,7 +169,7 @@ box(20, 1190, 1010, 125, { fill: '#f8fafc', stroke: '#94a3b8' });
 text(32, 1210, 'Notes', { size: 12, bold: true });
 text(32, 1228, '• Pulse width, rate and order come from the Pico (GP6 / GP7, PIO or PWM). Positive pulse: A on. Negative: B on. Biphasic: A then B. The edges take 20–40 µs\n' +
   '  (PC817 + 4.7 kΩ), plenty for pickup-like pulses of 0.2–10 ms.\n' +
-  '• Amplitude: V_AMP+ 0 … 9.9 V, V_AMP− 0 … −3.3 V. Set by the DACs, then read back on U15. To check the real OUT level under load, hold a long pulse (100 ms)\n' +
+  '• Amplitude: V_AMP+ 0 … 8 V (limited in firmware by the mux supply +9 V), V_AMP− 0 … −3.3 V. Set by the DACs, then read back on JM2. To check the real OUT level under load, hold a long pulse (100 ms)\n' +
   '  with the CDI disconnected, read V_OUT_M, and compare with the bus levels.\n' +
   '• Self-test before arming: the 3V3_P side works (isolator, ADS1115, DACs answer). After arming: check the rails, the buses and OUT before the CDI is connected.\n' +
   '• The unknown-CDI search steps V_AMP+ up from the lowest level until the CDI fires, then records the threshold.', { size: 9.5, color: '#334155' });

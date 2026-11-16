@@ -63,12 +63,12 @@ Do not route anything to the Wi-Fi pads (GP23–25, GP29) or the Pico's SWD pads
 
 | Device | Address | Side |
 |---|---|---|
-| ADS1115 (CH-R2) | 0x48 (ADDR to GND) | logic |
-| ADS1115 (Phase 4) | 0x4A (ADDR to SDA), DNP | logic |
+| ADS1115 module JM1 (CH-R2) | 0x48 (ADDR to GND) | logic |
+| ADS1115 module (Phase 4) | 0x4A (ADDR to SDA), later | logic |
 | MCP23017 EXP1 | 0x20 (A0–A2 to GND) | logic |
 | MCP23017 EXP2 | 0x21 (A0 to 3V3, A1–A2 to GND) | logic |
 | ADuM1250, side 1 | | logic |
-| ADS1115 (CH-TG) | 0x49 (ADDR to 3V3_P) | power, via the isolator |
+| ADS1115 module JM2 (CH-TG) | 0x49 (ADDR to 3V3_P) | power, via the isolator |
 | MCP4725 ×2 (CH-TG) | 0x60, 0x61 | power, via the isolator |
 
 4.7 kΩ pull-ups to 3V3 on SDA and SCL once on the logic side, and 4.7 kΩ to 3V3_P once on the power side.
@@ -111,9 +111,9 @@ at boot before anything else. Full line list: `docs/pin-budget.md`.
 | J6 | 2 | CH-R2: DUT+, DUT− (to AGND) |
 | J7 | 2 | CH-PU pickup: IN+, IN− |
 | J8 | 2 × 8 header | expansion: 1 3V3, 2 GND_L, 3 SDA, 4 SCL, 5 GP1, 6 GP8, 7 GP9, 8 GP10, 9 GP11, 10 GP12, 11 GP16, 12 GP21, 13 VSYS, 14 GND_L, 15–16 spare |
-| JP1 | 1 × 3 header + jumper | CD4052B VDD: 1 = 12V_ARMED (default), 3 = U12 output |
+| JP1 | 1 × 3 header + jumper | 4052 mux VDD: 1 = +5V_P, 3 = +9V_P from U20 (default, jumper on 2–3) |
 | JC1, JC2 | 1 × 3 female | plug-in clamp modules: 1 = 3V3A, 2 = NODE, 3 = GND. JC1 for CH-R2, JC2 for CH-PU. Module = BAT54S |
-| JM1 | 1 × 10 header, DNP | ADS1115 breakout module fallback |
+| JM1, JM2 | 1 × 10 female header | ADS1115 breakout modules (0x48 on the logic side, 0x49 on the 12 V side). Typical pin order: VDD, GND, SCL, SDA, ADDR, ALRT, A0–A3: confirm with the module |
 | SW_RST | push button | RUN to GND |
 
 The CDI IGNITION wire goes straight to the ignition coil, not to this board.

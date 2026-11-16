@@ -1,0 +1,13 @@
+# KiCad backups and caches (not part of the design)
+*-backups/
+*.kicad_prl
+fp-info-cache
+*.lck
+_autosave-*
+*.bak
+*-cache.lib
+# fabrication output is regenerated: keep it out of git, but see README
+fab/
+
+# KiCad 10 keeps a local history as a git repository inside the project: not part of ours
+.history/

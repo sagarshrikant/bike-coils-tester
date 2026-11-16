@@ -39,8 +39,10 @@ Everything that touches the CDI lives in the **12 V power domain (GND_P)**. The 
 
 - **3V3_P (always on, from `12V_RAW`):** 78L05, then a 3.3 V LDO. It powers the isolator's power side, the ADS1115 and the DACs,
   so the firmware can check the power side while the rail is still dead.
-- **12V_ARMED:** the CD4052B and the TL072 positive supply, and the 78L05 → ICL7660 charge pump that makes **−5V_P**.
-  These exist only when armed.
+- **12V_ARMED:** the TL072 positive supply, and two regulators: **U12 78L05 → ICL7660S charge pump** that makes **−5V_P**, and **U20 78L09** that makes
+  **+9V_P**, the multiplexer's positive supply (chosen with JP1). These exist only when armed.
+- **Why +9 V and not 12 V for the multiplexer:** the 4052 part you chose is rated for a 3–15 V supply, and 12 V − (−5 V) = 17 V would exceed it.
+  With +9 V and −5 V the span is 14 V. (The TI CD4052B tolerates more, but the Reichelt part is the 15 V type.)
 
 ### Pulse stage
 
@@ -53,8 +55,9 @@ A **CD4052B** analog multiplexer (X section) connects the node `S` to one of thr
 | 0 1 | X1 = V_AMP− | negative pulse (TG_PULSE_B on) |
 | 0 0 | X0 = GND | |
 
-`INH` is pulled to 12 V (all switches open) and pulled low by the enable optocoupler, so the output is **disabled by default**.
-Break-before-make is built into the mux. Supply 12 V − (−5 V) = 17 V against the 18 V limit; analog signals stay between −5 V and +12 V.
+`INH` is pulled to `MUX_VDD` (all switches open) and pulled low by the enable optocoupler, so the output is **disabled by default**.
+Break-before-make is built into the mux. Supply `MUX_VDD` +9 V and VEE −5 V = 14 V against the 15 V limit; analog signals stay between −5 V and +9 V.
+The three optocoupler pull-ups (4.7 kΩ) go to `MUX_VDD`, not to 12V_ARMED, so the control pins never exceed the mux supply.
 The Y section is unused (all its pins to GND_P). Edges take about 20–40 µs (PC817 with a 4.7 kΩ pull-up), which is plenty for
 pulses of 0.2–10 ms.
 
@@ -64,23 +67,21 @@ Two **MCP4725** DACs (I²C 0x60 / 0x61, on the isolated segment), each followed 
 
 | Bus | Circuit | Range |
 |---|---|---|
-| V_AMP+ | non-inverting, gain 3 (R_F 20 kΩ, R_G 10 kΩ) | 0 … 9.9 V |
+| V_AMP+ | non-inverting, gain 3 (R_F 20 kΩ, R_G 10 kΩ) | 0 … 8 V (the firmware keeps the DAC code below the mux supply of +9 V) |
 | V_AMP− | inverting, gain −1 (10 kΩ / 10 kΩ) | 0 … −3.3 V |
 
 The buses are stiff DC levels. The TL072 swing is about +10 V / −3.5 V on its supplies (12 V / −5 V).
 At power-up the MCP4725 may start from its stored value, so the mux idle default (GND) and `INH` keep the output safe.
 These ranges are a first version; if a CDI needs more negative amplitude, the −5 V pump can be replaced by a larger one.
 
-### Option: deeper negative amplitude (±9 V)
+### Option: mux supply from the 5 V rail (JP1)
 
-V_AMP− is limited by the −5 V rail (the TL072 output stops about 1.5 V short of its supply), so about −3.3 V. If a CDI needs more,
-no new PCB is needed:
-1. Replace **U12 (78L05) with a 78L09**: same footprint. The ICL7660 then makes about −9 V (its input limit is about 10 V, check the datasheet).
-2. Move **JP1** from pins 1–2 (mux VDD = `12V_ARMED`, default) to pins 2–3 (mux VDD = U12 output, +9 V). The CD4052B must not see more
-   than about 18 V between its supplies (check the datasheet), so the positive amplitude drops to about +8.5 V; the firmware limits the DAC code.
-3. Change two resistors: U18B feedback 10 kΩ → about 25 kΩ (gain about −2.5, so V_AMP− reaches about −8 V), and the V_AMPN_M divider
-   150 kΩ → about 300 kΩ so the ADS1115 reads the deeper range.
-Leave JP1 on pins 1–2 for the default version (+9.9 V / −3.3 V).
+JP1 selects the multiplexer's positive supply: pins 2–3 = `+9V_P` from U20 (default), pins 1–2 = `+5V_P` from U12. With +5 V the span is
+10 V and the pulse levels are limited to about +4 V / −3.3 V. Use it only if the 78L09 is a problem.
+
+Deeper negative pulses than −3.3 V need a lower VEE and, because the mux span must stay within 15 V, a lower positive supply as well. That
+is not part of this version; if a real CDI needs it, it is a small change (charge pump fed from a higher rail, VDD from the 5 V rail,
+two resistor values), and it would be decided after the first tests with real units.
 
 ### Source impedance and the output
 
@@ -95,7 +96,7 @@ Because the active level is unknown, the firmware tries each while pulses run an
 
 ## Measurement on the isolated bus (D16)
 
-ADS1115 (0x49, power side) channels:
+ADS1115 (0x49, power side; a breakout module on header JM2) channels:
 
 | Input | Signal | Divider |
 |---|---|---|
@@ -123,7 +124,7 @@ The ADS1115 is too slow to see a 0.3 ms pulse, so a normal pulse's amplitude is 
 
 ## Open items
 
-- Check the ICL7660 (input 5 V), the TL072 total supply (17 V) and the CD4052B supply and logic-level limits against the datasheets.
+- Check the TL072 total supply (17 V, fine for 36 V) and the 4052 part's logic-level limits at +9 V against its datasheet (HEF4052B or CD4052B). U13 is chosen: ICL7660SCPA (DIP-8, 1.5–12 V, 45 mA); pin 1 (boost), 6 (LV) and 7 (OSC) stay open.
 - Choose the exact parts: AQY212-class photoMOS for PR5–PR9, ADuM1250 or an ISO1541 equivalent, the 3.3 V LDO.
 - Verify the edge times and the amplitude accuracy on the bench; check that V_AMP− is enough for real CDIs.
 - Decide whether to add an INA219 current monitor on the isolated bus for the CDI supply current (not in this version).

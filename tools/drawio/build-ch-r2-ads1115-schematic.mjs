@@ -71,28 +71,28 @@ terminal(540, 720, C.gnd); text(526, 724, 'DUT−  (black clip)', { size: 11, an
 wire([[546, 720], [580, 720]], C.gnd); dot(580, 720, C.gnd); ground(580, 722);
 
 // ---- ADS1115
-box(930, 70, 450, 420, { fill: '#f0fdf4', stroke: '#16a34a', dashed: true, label: 'U5  ADS1115 (VSSOP-10, I²C 0x48)', size: 12 });
-const ads = icBox(980, 150, 150, 'ADS1115', ['(4) AIN0', '(5) AIN1', '(6) AIN2', '(7) AIN3'], ['(9) SDA', '(10) SCL', '(1) ADDR', '(2) ALERT', '(8) VDD', '(3) GND'], { pitch: 26 });
-for (const [pin, label] of [['(4) AIN0', 'V_NODE'], ['(5) AIN1', 'V_TOP1K'], ['(6) AIN2', 'V_TOP10K']]) {
+box(930, 70, 450, 420, { fill: '#f0fdf4', stroke: '#16a34a', dashed: true, label: 'JM1  ADS1115 module (I²C 0x48), typical pin order', size: 12 });
+const ads = icBox(980, 150, 150, 'ADS1115 module', ['(7) A0', '(8) A1', '(9) A2', '(10) A3'], ['(4) SDA', '(3) SCL', '(5) ADDR', '(6) ALRT', '(1) VDD', '(2) GND'], { pitch: 26 });
+for (const [pin, label] of [['(7) A0', 'V_NODE'], ['(8) A1', 'V_TOP1K'], ['(9) A2', 'V_TOP10K']]) {
   const [x, y] = ads.pins[pin];
   wire([[x, y], [x - 24, y]], C.sense);
   text(x - 28, y + 4, label, { size: 10, anchor: 'end', bold: true, color: C.sense });
 }
-{ const [x, y] = ads.pins['(7) AIN3']; wire([[x, y], [x - 24, y]]); text(x - 28, y + 4, 'spare (test pad)', { size: 9, anchor: 'end', color: C.dim }); }
-const sda = ads.pins['(9) SDA'], scl = ads.pins['(10) SCL'];
+{ const [x, y] = ads.pins['(10) A3']; wire([[x, y], [x - 24, y]]); text(x - 28, y + 4, 'spare (test pad)', { size: 9, anchor: 'end', color: C.dim }); }
+const sda = ads.pins['(4) SDA'], scl = ads.pins['(3) SCL'];
 wire([sda, [1290, sda[1]]], C.dig); text(1296, sda[1] + 4, 'SDA ← GP4', { size: 10, bold: true, color: C.dig });
 wire([scl, [1290, scl[1]]], C.dig); text(1296, scl[1] + 4, 'SCL ← GP5', { size: 10, bold: true, color: C.dig });
 text(1180, 120, 'SDA and SCL: 4.7 kΩ pull-ups to 3V3\n(once per board, on the mainboard I²C bus)', { size: 9, color: C.dim });
-const addr = ads.pins['(1) ADDR']; wire([addr, [addr[0] + 24, addr[1]]]); ground(addr[0] + 24, addr[1]);
+const addr = ads.pins['(5) ADDR']; wire([addr, [addr[0] + 24, addr[1]]]); ground(addr[0] + 24, addr[1]);
 text(addr[0] + 44, addr[1] + 4, 'ADDR = GND → 0x48', { size: 9, color: C.dim });
-const alert = ads.pins['(2) ALERT']; wire([alert, [alert[0] + 24, alert[1]]], C.dig);
+const alert = ads.pins['(6) ALRT']; wire([alert, [alert[0] + 24, alert[1]]], C.dig);
 text(alert[0] + 30, alert[1] + 4, 'ALERT/RDY → test pad', { size: 9, color: C.dim });
-const vdd = ads.pins['(8) VDD'], gnd = ads.pins['(3) GND'];
+const vdd = ads.pins['(1) VDD'], gnd = ads.pins['(2) GND'];
 wire([vdd, [vdd[0] + 90, vdd[1]]], C.clamp); rail(vdd[0] + 90, vdd[1], '3V3A'); dot(vdd[0] + 40, vdd[1], C.clamp);
 capacitor(vdd[0] + 40, vdd[1]); wire([[vdd[0] + 40, vdd[1] + 30], [vdd[0] + 40, gnd[1]]]);
 wire([gnd, [gnd[0] + 90, gnd[1]]]); dot(gnd[0] + 40, gnd[1]); ground(gnd[0] + 90, gnd[1]);
 text(vdd[0] + 52, vdd[1] + 44, 'C 100 nF + 1 µF, close to VDD', { size: 9, color: C.dim });
-text(960, 420, 'Single-ended inputs, PGA ±4.096 V (±0.512 V for the node on low ohms), 128–860 SPS.\nA second ADS1115 (0x49) footprint is on the board for the 4-wire channel (Phase 4).\nFootprint for the ADS1115 breakout module header (DNP) is the fallback.', { size: 9, color: C.dim });
+text(960, 420, 'Single-ended inputs, PGA ±4.096 V (±0.512 V for the node on low ohms), 128–860 SPS.\nThe ADS1115 is a breakout module on header JM1 (pin order to be confirmed).\nThe CH-TG power side has its own module (0x49) on JM2.', { size: 9, color: C.dim });
 
 // ---- notes
 box(20, 775, 760, 115, { fill: '#f8fafc', stroke: '#94a3b8' });

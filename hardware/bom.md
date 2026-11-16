@@ -69,7 +69,7 @@ Check stock and exact order codes at the supplier. 5 % spare quantities are incl
 | 1 | Dual comparator, SOIC-8 | TLV3202 or MCP6542 (or LM393) | U3 |
 | 1 | Dual 12-bit DAC, SPI | MCP4822 (SOIC-8) | U4 comparator thresholds |
 | 1 | Quad analog switch | 74HC4066 (SOIC-14) | S1–S3 range switches |
-| 2 | PhotoMOS relay, 350 V class, SOP-4 | for example Panasonic AQY210 family | PR1, PR2 (check the exact part and its load voltage rating) |
+| 2 | PhotoMOS relay, 350 V class, DIP-4 (or SOP-4) | for example Panasonic AQY210 family | PR1, PR2 (check the exact part and its load voltage rating) |
 | 1 | Capacitor | 1 µF (ceramic) | C_B |
 | 2 | Capacitor 0805 | 10 nF | optional peak hold |
 | 6 | Capacitor 0805 | 100 nF | IC decoupling |
@@ -88,12 +88,12 @@ the Pico socket headers, and the 3V3A filter parts. See `docs/pin-budget.md`.
 | 1 | ADC, 16-bit I²C | ADS1115 (VSSOP-10) | U15, address 0x49 on the power side |
 | 2 | DAC, 12-bit I²C | MCP4725 (SOT-23-6) | U16 (0x60, A0 low), U17 (0x61, A0 high) |
 | 1 | Dual op-amp | TL072 (SOIC-8) | U18, V+ = 12 V, V− = −5 V |
-| 1 | Analog multiplexer | CD4052B (SOIC-16) | U19. Check supply (17 V) and logic thresholds |
+| 1 | Analog multiplexer | 4052, 4-channel, 3–15 V, SO-16 (chosen from Reichelt) | U19. Supply held at 14 V (+9 V / −5 V) |
 | 2 | Voltage regulator | 78L05 (SOIC-8 or TO-92) | U10 (from 12V_RAW), U12 (from 12V_ARMED) |
 | 1 | LDO 3.3 V | for example AP2112K-3.3 (5 V in) | U11 |
-| 1 | Charge-pump inverter | ICL7660 / TC7660 (SOIC-8) | U13, −5V_P |
+| 1 | Charge-pump inverter | ICL7660SCPA (DIP-8), chosen 2026-11-16 | U13, −5V_P |
 | 3 | Optocoupler | PC817 | pulse A, pulse B, enable |
-| 5 | PhotoMOS relay, SOP-4 | AQY212 class, 60 V | PR5–PR9 (check the part) |
+| 5 | PhotoMOS relay, DIP-4 (or SOP-4) | AQY212 class, 60 V | PR5–PR9 (check the part) |
 | 1 | TVS diode, bidirectional | 15 V standoff | D8 |
 | 5 | Resistor | 330 Ω | opto and photoMOS LED drives |
 | 3 | Resistor | 4.7 kΩ | opto pull-ups to 12V_ARMED |
@@ -104,8 +104,8 @@ the Pico socket headers, and the 3V3A filter parts. See `docs/pin-budget.md`.
 | 8 | Resistor, 1 % | 100 k, 33 k, 56 k, 68 k, 30 k, 150 k, 100 k, 27 k | monitor dividers (values in the doc) |
 | 6 | Capacitor | 10 µF ×4, 100 nF ×8 | supply decoupling, charge pump |
 | 1 | Screw terminal | 3-pin, 5.08 mm | J5 (TRIG+, SHUT DOWN, GND) |
-| 1 | Pin header 1×3, 2.54 mm + jumper | | JP1: mux VDD source (12V_ARMED default / U12 output) |
-| 1 | Voltage regulator 78L09 (spare, not fitted) | | optional ±9 V version, replaces U12 |
+| 1 | Pin header 1×3, 2.54 mm + jumper | | JP1: mux VDD source (+9V_P default / +5V_P) |
+| 1 | Voltage regulator 78L09 (TO-92) | | U20: mux supply +9 V (required, D19) |
 
 Shared with other blocks: PC817 / photoMOS families, MCP23017, ADS1115 (CH-R2 0x48).
 
@@ -113,8 +113,8 @@ Shared with other blocks: PC817 / photoMOS families, MCP23017, ADS1115 (CH-R2 0x
 
 | Qty | Part | Value / type | Notes |
 |---|---|---|---|
-| 2 | ADC, 16-bit I²C | ADS1115 (VSSOP-10, 0.5 mm pitch) | U5 (0x48) fitted, second one (0x49) for Phase 4. Check availability; module header is the fallback |
-| 1 | Pin header | 2.54 mm, 1×10 (DNP) | ADS1115 breakout module fallback footprint |
+| 2 | ADS1115 breakout module (I²C, 16-bit) | module with a 1×10 header | JM1 (0x48, CH-R2) and JM2 (0x49, CH-TG); the bare chip is not sold at Reichelt (D20) |
+| 2 | Female header 1×10, 2.54 mm | | sockets for the modules |
 | 1 | Resistor, 0.1 % | 1 kΩ | R_REF1 |
 | 1 | Resistor, 0.1 % | 10 kΩ | R_REF2 |
 | 1 | Resistor, 0.1 % | 470 Ω | R_CAL1 (self-test) |
@@ -123,7 +123,7 @@ Shared with other blocks: PC817 / photoMOS families, MCP23017, ADS1115 (CH-R2 0x
 | 2 | Resistor 0805 | 4.7 kΩ | I²C pull-ups (once per board) |
 | 4 | Capacitor 0805 | 100 nF | C filters ×2, C1, ADS1115 decoupling |
 | 1 | Capacitor 0805 | 1 µF | ADS1115 decoupling |
-| 2 | PhotoMOS relay, SOP-4 (low voltage is enough, 60 V class) | for example TLP172A or AQY212 class | PR3, PR4 (check the exact part) |
+| 2 | PhotoMOS relay, DIP-4 (or SOP-4) (low voltage is enough, 60 V class) | for example TLP172A or AQY212 class | PR3, PR4 (check the exact part) |
 | 1 | TVS diode, bidirectional | about 5 V standoff (for example SMAJ5.0CA) | D7 |
 | 1 | Schottky pair | BAT54S on the plug-in header | D2 / D3, same header design as CH-PU |
 

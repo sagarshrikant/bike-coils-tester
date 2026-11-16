@@ -97,7 +97,7 @@ text(696, 332, 'SW1B', { size: 9, bold: true, color: SW });
 wire([[680, 350], [680, 364]]); switchV(680, 364, '', SW);
 text(696, 386, 'SW2B', { size: 9, bold: true, color: SW });
 wire([[680, 404], [680, 416]]);
-coilV(680, 416); text(664, 452, 'K1 coil\n12 V, about 33 mA', { size: 9, anchor: 'end', bold: true, color: C.dim });
+coilV(680, 416); text(664, 452, 'K1 coil\n12 V, 30–60 mA', { size: 9, anchor: 'end', bold: true, color: C.dim });
 wire([[680, 496], [680, 510]]); dot(680, 496);
 wire([[680, 416], [740, 416], [740, 426]], C.drv); diodeUp(740, 426); wire([[740, 456], [740, 496], [680, 496]], C.drv);
 text(752, 446, 'D6 1N4007\n(flyback)', { size: 9, color: C.clamp, bold: true });

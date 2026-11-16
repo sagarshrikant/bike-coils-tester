@@ -38,7 +38,7 @@ module's output goes through a Schottky diode to VSYS.
 4. **`PWR_EN` (GP22) drives the U_ARM LED** through 330 Ω (about 6 mA) with a 10 kΩ pull-down, so it
    is off while the Pico is in reset, unpowered or hung and the watchdog has fired.
 5. **K1 is switch 2 (the series relay),** SPST-NO with 10 A contacts, between `12V_MID` (after Q2) and
-   `12V_ARMED`. Its coil (12 V, about 33 mA) is fed from `12V_RAW` through the **second poles of the
+   `12V_ARMED`. Its coil (12 V, about 30–60 mA depending on the relay version) is fed from `12V_RAW` through the **second poles of the
    ARM switch and E-STOP (SW1B, SW2B)** and switched low-side by Q3 (2N7000). Q3's gate is driven by its
    own optocoupler U_RLY from its own GPIO, `RLY_EN` (GP0), with its own pull-down. D6 (1N4007) is the
    flyback diode. Switch 2 therefore has its own enable, optocoupler and switch poles: no single fault
