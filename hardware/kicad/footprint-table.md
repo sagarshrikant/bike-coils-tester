@@ -24,9 +24,9 @@ Check each package against the datasheet picture once, not only the name.
 | U18 | TL072CD | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | Pin 4 V−, 8 V+. |
 | U19 | 4052 (SO-16) | `Package_SO:SOIC-16_3.9x9.9mm_P1.27mm` | Pin 7 VEE, 8 VSS (GND), 16 VDD, 6 INH. |
 | U13 | ICL7660SCPA + DIP-8 socket | `Package_DIP:DIP-8_W7.62mm` | 1 BOOST, 2 CAP+, 3 GND, 4 CAP−, 5 VOUT, 6 LV, 7 OSC, 8 V+. |
-| U10, U12 | TS78L05ACY (SOT-89) | `Package_TO_SOT_SMD:SOT-89-3` | ⚠ Expected 1 OUT, 2 GND (tab), 3 IN. Sources I found agree, but I did not see the original datasheet picture. Use the KiCad symbol `Regulator_Linear:L78L05_SOT89` and compare its pin numbers with the datasheet. |
+| U10, U12 | TS78L05ACY (SOT-89) | `Package_TO_SOT_SMD:SOT-89-3` | Pinout confirmed from the user's picture (`hardware/TS78L05ACY-sot89-pinout.png`): 1 OUT, 2 GND (also the tab), 3 IN. Use `Regulator_Linear:L78L05_SOT89` and compare its pin numbers with this. |
 | U20 | µA78L09 (TO-92) | `Package_TO_SOT_THT:TO-92_Inline` | ⚠ TO-92 order of the 78Lxx: 1 OUT, 2 GND, 3 IN (not the same as the 2N7000). Check the datasheet. |
-| U11 | MCP1702T-3302E/CB (SOT-23A) | `Package_TO_SOT_SMD:SOT-23` | ⚠ The MCP1702 pin picture could not be read from the text of its datasheet. Use KiCad's `Regulator_Linear:MCP1702-3302_SOT23` and compare its pin names with the picture on page 2 of the datasheet (DS22008E). Needs 1 µF ceramic on input and output. |
+| U11 | MCP1702T-3302E/CB (SOT-23A) | `Package_TO_SOT_SMD:SOT-23` | Pinout confirmed from the user's picture (`hardware/mcp1702-sot-23a-pinout.png`): 1 GND, 2 VOUT, 3 VIN. Use KiCad's `Regulator_Linear:MCP1702-3302_SOT23` and check its pin names against this. Needs 1 µF ceramic on input and output. |
 | PR1, PR2 | AQY210EH | `Package_DIP:DIP-4_W7.62mm` | 1 LED anode, 2 LED cathode, 3 and 4 switch. Same pins as the PC817 except for what the pins mean. |
 | PR3–PR9 | AQY212EH | `Package_DIP:DIP-4_W7.62mm` | Same. The two switch pins straddle the isolation slot where needed. |
 | opto (7) | PC817X1NSZ1B | `Package_DIP:DIP-4_W7.62mm` | ⚠ 1 anode, 2 cathode, 3 emitter, 4 collector. |
