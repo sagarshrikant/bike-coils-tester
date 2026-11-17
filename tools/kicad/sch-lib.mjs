@@ -127,6 +127,14 @@ ${puid}
     const open = [...pins.keys()].filter((n) => !used.has(n));
     if (open.length) this.warn.push(`${ref}: pins without net: ${open.join(', ')}`);
   }
+  // two-terminal part (R, C, fuse) laid out left-right at (x, y): pin 1 is on the left after the 90-degree turn
+  two(libId, ref, value, footprint, x, y, left, right) {
+    this.place({ libId, ref, value, footprint, x, y, rot: 90, nets: { 1: left, 2: right } });
+  }
+  // diode or LED, drawn left-right: pin 1 = K (left), pin 2 = A (right)
+  diode(libId, ref, value, footprint, x, y, anode, cathode) {
+    this.place({ libId, ref, value, footprint, x, y, rot: 0, nets: { 1: cathode, 2: anode } });
+  }
   note(x, y, text, size = 1.27) {
     this.items.push(`\t(text "${text.replace(/"/g, "'").replace(/\n/g, '\\n')}"\n\t\t(exclude_from_sim no)\n\t\t(at ${x} ${y} 0)\n\t\t(effects (font (size ${size} ${size})) (justify left top))\n\t\t(uuid "${uuid()}")\n\t)`);
   }

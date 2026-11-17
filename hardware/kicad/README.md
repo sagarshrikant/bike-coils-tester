@@ -64,7 +64,8 @@ very large and is not needed for the circuit or the board; skip it for now.
 
 | File | Content | Generator |
 |---|---|---|
-| `mainboard/mainboard-io.kicad_sch` | Pico, 2 × MCP23017, ADS1115 module headers | `node tools/kicad/gen-io-sheet.mjs` |
+| `mainboard/mainboard-io.kicad_sch` | Pico, 2 × MCP23017, ADS1115 module headers, bus pull-ups, expander pull resistors, reset button, J8 | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-io-sheet.mjs` |
+| `mainboard/mainboard-ch-r2.kicad_sch` | CH-R2 resistance meter (R_REF, filters, clamp header JC1, TVS, self-test photoMOS, 3V3A filter, AGND tie) | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-ch-r2-sheet.mjs` |
 | `mainboard/mainboard-arm.kicad_sch` | 12 V input, Q1/Q2, relay K1, sense optocouplers, outputs | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-arm-sheet.mjs` (add `--nets` to print the net list) |
 
 Add them with Place → Add sheet. The global labels connect the sheets (PWR_EN, RLY_EN, MID_SENSE, ARM_SENSE, 3V3, GND_L).
