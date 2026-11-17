@@ -59,15 +59,30 @@ export function parsePins(block) {
   return pins;
 }
 
+// pins per unit: Map(unit -> Map(number -> pin)); unit 0 holds pins common to all units
+export function parseUnits(block) {
+  const units = new Map();
+  const heads = [...block.matchAll(/\(symbol "[^"]*?_(\d+)_(\d+)"/g)].map((m) => ({ u: +m[1], i: m.index }));
+  heads.forEach((h, k) => {
+    const end = k + 1 < heads.length ? heads[k + 1].i : block.length;
+    const cur = units.get(h.u) ?? new Map();
+    for (const [n, p] of parsePins(block.slice(h.i, end))) cur.set(n, p);
+    units.set(h.u, cur);
+  });
+  return units;
+}
+
 export class Sheet {
   constructor(title) { this.title = title; this.rootUuid = uuid(); this.libs = new Map(); this.netlist = new Map(); this.items = []; this.warn = []; }
   lib(libId) {
-    if (!this.libs.has(libId)) { const block = loadSymbol(libId); this.libs.set(libId, { block, pins: parsePins(block) }); }
+    if (!this.libs.has(libId)) { const block = loadSymbol(libId); this.libs.set(libId, { block, pins: parsePins(block), units: parseUnits(block) }); }
     return this.libs.get(libId);
   }
   // place a symbol; netmap keys are pin numbers (or pin names); rot 0 or 90 (counter-clockwise)
-  place({ libId, ref, value, footprint = '', x, y, rot = 0, nets = {}, nc = [], datasheet = '' }) {
-    const { pins } = this.lib(libId);
+  place({ libId, ref, value, footprint = '', x, y, rot = 0, nets = {}, nc = [], datasheet = '', unit = 1, dnp = false }) {
+    const lib = this.lib(libId);
+    const multi = [...lib.units.keys()].filter((u) => u > 0).length > 1;
+    const pins = multi ? new Map([...(lib.units.get(0) ?? []), ...(lib.units.get(unit) ?? [])]) : lib.pins;
     const byName = new Map([...pins.values()].filter((p) => p.name).map((p) => [p.name, p]));
     const ang = (a) => (a + rot) % 360;
     const world = (p) => {
@@ -79,13 +94,13 @@ export class Sheet {
     this.items.push(`\t(symbol
 \t\t(lib_id "${libId}")
 \t\t(at ${x} ${y} ${rot})
-\t\t(unit 1)
+\t\t(unit ${unit})
 \t\t(body_style 1)
 \t\t(exclude_from_sim no)
 \t\t(in_bom yes)
 \t\t(on_board yes)
 \t\t(in_pos_files yes)
-\t\t(dnp no)
+\t\t(dnp ${dnp ? 'yes' : 'no'})
 \t\t(uuid "${uuid()}")
 \t\t(property "Reference" "${ref}" (at ${x} ${r2(y - 6.5)} 0) (show_name no) (do_not_autoplace no) ${fx})
 \t\t(property "Value" "${String(value).replace(/"/g, "'")}" (at ${x} ${r2(y + 6.5)} 0) (show_name no) (do_not_autoplace no) ${fx})
@@ -96,7 +111,7 @@ ${puid}
 			(project "mainboard"
 				(path "/${this.rootUuid}"
 					(reference "${ref}")
-					(unit 1)
+					(unit ${unit})
 				)
 			)
 		)
