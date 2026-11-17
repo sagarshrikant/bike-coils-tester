@@ -1,0 +1,129 @@
+ERC report (2026-11-17T15:13:43, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1669 mils, 14270 mils): Symbol U513 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2200 mils, 9672 mils): Symbol U508 Pin 1 [VOUT, Output, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(4050 mils, 14400 mils): Global Label 'TG_EN'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4054 mils, 12050 mils): Symbol R516 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(4054 mils, 12050 mils): Global Label 'TG_PULSE_A'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4054 mils, 13150 mils): Symbol R518 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(4054 mils, 13150 mils): Global Label 'TG_PULSE_B'
+[lib_symbol_mismatch]: Symbol 'ICL7660' doesn't match copy in library 'Regulator_SwitchedCapacitor'
+    ; warning
+    @(5300 mils, 4950 mils): Symbol U504 [ICL7660]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9200 mils, 4059 mils): Symbol C504 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9300 mils, 14353 mils): Symbol PR8 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9300 mils, 15187 mils): Symbol PR9 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 11650 mils): Symbol PR5 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 12600 mils): Symbol PR6 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 13550 mils): Symbol PR7 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 14453 mils): Symbol PR8 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 15287 mils): Symbol PR9 [AQY282EH]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(11650 mils, 11800 mils): Global Label 'TG_IMP0'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11650 mils, 12616 mils): Symbol R525 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(11650 mils, 12616 mils): Global Label 'TG_IMP1'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11650 mils, 13481 mils): Symbol R527 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(11650 mils, 13481 mils): Global Label 'TG_IMP2'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(11650 mils, 14300 mils): Global Label 'KILL_GND'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(11700 mils, 15200 mils): Global Label 'KILL_HI'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12133 mils, 4784 mils): Symbol R503 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(12750 mils, 3450 mils): Global Label 'SDA'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(12750 mils, 3650 mils): Global Label 'SCL'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13450 mils, 12566 mils): Symbol R524 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13500 mils, 13481 mils): Symbol R526 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13944 mils, 4784 mils): Symbol R504 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13944 mils, 5571 mils): Symbol R510 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15756 mils, 4784 mils): Symbol R505 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15756 mils, 5571 mils): Symbol R511 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(16446 mils, 3078 mils): Symbol C511 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(16446 mils, 3707 mils): Symbol C512 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(17567 mils, 4784 mils): Symbol R506 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(19202 mils, 3078 mils): Symbol R501 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(19202 mils, 3707 mils): Symbol R502 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(19378 mils, 4784 mils): Symbol R507 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(21189 mils, 4784 mils): Symbol R508 Pin 1 [Passive, Line]
+
+ ** ERC messages: 39  Errors 0  Warnings 39
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

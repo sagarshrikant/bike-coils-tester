@@ -3,7 +3,7 @@
 Reviewed together, one point at a time. Source of the points: `review-checklist.md`.
 Status: open / ok / fix (needs a change) / fixed.
 
-Order: 1 I/O (done), 2 ARM (done), 3 CH-R2 (done), 4 CH-PU (done), 5 CH-TG.
+Order: 1 I/O, 2 ARM, 3 CH-R2, 4 CH-PU, 5 CH-TG: all reviewed.
 
 ## 1. I/O sheet (`mainboard-io.kicad_sch`)
 
@@ -135,3 +135,41 @@ ERC (ERC-ch-PU.rpt): first run 9 errors. Fixed: U402 unit D value text made iden
 | 4.13 | Peak hold, negative (DNP): D403 anode PU_PKN, cathode PU_BUF; C408 10n PU_PKN-AGND; R419 10M PU_PKN-3V3A; R420 1k PU_PKN-PU_PKRST_N | ok | matches, D403 marked DNP |
 
 ## CH-PU sheet: REVIEW COMPLETE (6 ERC errors, all "input not driven" from other sheets). Hand-edited: do not regenerate.
+
+## 5. CH-TG sheet (`mainboard-ch-tg.kicad_sch`)
+Hand-edited by the user (layout cleaned). Do not regenerate.
+ERC (ERC-ch-TG.rpt): first run 6 errors, all "power pin not driven" (12V_RAW, GND_P, 12V_ARMED, 3V3, GND_L, MUX_VDD). Fixed with a PWR_FLAG plus label on each of the six nets. Now 0 errors. Warnings: off grid, library copy, 10 single-label (TG_EN, TG_PULSE_A/B, TG_IMP0-2, KILL_GND/HI, SDA, SCL: other end on the I/O sheet).
+
+| # | Point | Status | Answer / correction |
+|---|---|---|---|
+| 5.1 | 3V3_P chain: U501 78L05 (SOT-89) 1 5V_RAW, 2 GND_P, 3 12V_RAW; U502 MCP1702 1 GND_P, 2 3V3_P, 3 5V_RAW; C501 100n 12V_RAW-GND_P, C502 1u 5V_RAW-GND_P, C503 10u 3V3_P-GND_P (C504 100n 3V3_P-GND_P to confirm) | ok | matches (pin orders from the user's datasheet pictures) |
+| 5.2 | C504 100n 3V3_P-GND_P; U503 78L05 (armed) 1 +5V_P (P5), 2 GND_P, 3 12V_ARMED | ok | matches |
+| 5.3 | C505 100n 12V_ARMED-GND_P, C506 10u +5V_P-GND_P; U504 ICL7660: 1 NC, 2 CAP_P, 3 GND_P, 4 CAP_N, 5 -5V_P, 6 NC (LV open, fine for V+ above 3.5 V), 7 NC (oscillator default), 8 +5V_P | ok | matches the ICL7660 DIP-8 pinout |
+| 5.4 | C507 10u pump CAP_P-CAP_N; C508 10u GND_P to -5V_P; U505 78L09 (TO-92) 1 +9V_P, 2 GND_P, 3 12V_ARMED; C509 100n 12V_ARMED-GND_P; C510 10u +9V_P-GND_P | ok | matches. Block 1 (supplies) complete |
+| 5.5 | U506 ADuM1250: 1 3V3, 2 SDA, 3 SCL, 4 GND_L, 5 GND_P, 6 SCL_P, 7 SDA_P, 8 3V3_P; C511 100n 3V3-GND_L; C512 100n 3V3_P-GND_P; R501/R502 4.7k 3V3_P to SDA_P/SCL_P | ok | matches. The isolation crossing for the bus: logic side 3V3/GND_L, power side 3V3_P/GND_P |
+| 5.6 | Dividers: R503 100k OUT-V_OUT_M, R504 33k V_OUT_M-GND_P, R505 56k V_OUT_M-3V3_P; R506 68k V_AMP+ to V_AMPP_M, R507 30k V_AMPP_M-GND_P; R508 150k V_AMP- to V_AMPN_M | ok | matches (R509-R511 to confirm) |
+| 5.7 | R509 100k V_AMPN_M-3V3_P, R510 100k 12V_ARMED-V_ARM_M, R511 27k V_ARM_M-GND_P | ok | matches. Block 2 complete. Checked: V_ARM_M = 2.55 V at 12 V, 2.98 V at 14 V (inside the ADS1115 range); V_AMPN_M 0.66-1.98 V for V_AMP- 0 to -3.3 V |
+| 5.8 | U507 MCP4725 (0x60): 1 DAC_P, 2 GND_P, 3 3V3_P, 4 SDA_P, 5 SCL_P, 6 GND_P; U508 (0x61): 1 DAC_N, 2 GND_P, 3 3V3_P, 4 SDA_P, 5 SCL_P, 6 3V3_P (A0 high) | ok | matches the MCP4725 SOT-23-6 pinout picture |
+| 5.9 | U509 TL072: A 3 DAC_P (+), 2 TG_FBP (-), 1 V_AMP+; B 5 GND_P (+), 6 TG_FBN (-), 7 V_AMP-; C 8 12V_ARMED, 4 -5V_P | ok | matches. A = non-inverting gain 3, B = inverting gain -1 |
+| 5.10 | R512 10k TG_FBP-GND_P, R513 20k TG_FBP-V_AMP+ (gain 3); R514 10k DAC_N-TG_FBN, R515 10k TG_FBN-V_AMP- (gain -1); C513/C514 100n 3V3_P-GND_P, C515 100n 12V_ARMED-GND_P, C516 100n GND_P-(-5V_P) | ok | matches. Block 3 complete |
+| 5.11 | U510 4052 signal pins: 11 GND_P (X3), 12 GND_P (X0), 13 TG_S (common X), 14 V_AMP- (X1), 15 V_AMP+ (X2) | ok | matches. Truth table checked (B A): idle 11 = X3 = GND; pulse A on = MUX_A low, MUX_B high = 10 = X2 = V_AMP+; pulse B on = 01 = X1 = V_AMP- |
+| 5.12 | U510 control/power: 9 MUX_B, 10 MUX_A, 6 MUX_INH, 7 -5V_P (VEE), 8 GND_P, 16 MUX_VDD; unused pins 1-5 GND_P | ok | matches. Open: pin numbers match the 74HC4052/CD4052B SOIC-16 pinout; verify against the datasheet of the part actually bought (HEF4052BT) |
+| 5.13 | JP1: 1 +5V_P, 2 MUX_VDD, 3 +9V_P (jumper 2-3 = +9V_P default); C517 100n, C518 10u MUX_VDD-GND_P; C519 100n GND_P to -5V_P | ok | matches. Supply range: VDD 9 V and VEE -5 V = 14 V total (4052 max 15.5 V); control inputs reference VSS = GND_P. Block 4 complete |
+| 5.14 | U511 (pulse A): 1 U511_A, 2 GND_L, 3 GND_P, 4 MUX_A; R516 330 TG_PULSE_A-U511_A; R517 4.7k MUX_VDD-MUX_A | ok | matches. Isolation crossing |
+| 5.15 | U512 (pulse B): 1 U512_A, 2 GND_L, 3 GND_P, 4 MUX_B; U513 (enable): 1 U513_A, 2 GND_L, 3 GND_P, 4 MUX_INH; R518 330 TG_PULSE_B-U512_A, R519 4.7k MUX_VDD-MUX_B, R520 330 TG_EN-U513_A, R521 4.7k MUX_VDD-MUX_INH | ok | matches. TG_EN low (default, pulled down): LED off, MUX_INH high = mux disabled. Block 5 complete |
+| 5.16 | PR5/PR6/PR7 (source impedance): each 1 PRn_A, 2 GND_L, 3 TG_S, 4 PRn_B | ok | matches |
+| 5.17 | Source impedance: R522 100 PR5_B-OUT, R524 470 PR6_B-OUT, R526 2.2k PR7_B-OUT; LED resistors R523/R525/R527 330 from TG_IMP0/1/2 to PRn_A | ok | matches |
+| 5.18 | Kill outputs: PR8 1 PR8_A, 2 GND_L, 3 SHUT, 4 PR8_B; PR9 1 PR9_A, 2 GND_L, 3 SHUT, 4 PR9_B; R528 100 PR8_B-GND_P, R529 330 KILL_GND-PR8_A; R530 1k PR9_B-12V_ARMED, R531 330 KILL_HI-PR9_A | ok | matches |
+| 5.19 | J5 CDI: 1 OUT (TRIG+), 2 SHUT, 3 GND_P; D501 P4SMAJ15CA OUT-GND_P | ok | matches. Block 6 complete |
+
+## CH-TG sheet: REVIEW COMPLETE (0 ERC errors after the six PWR_FLAGs). Hand-edited: do not regenerate.
+
+# Summary of the review (all five sheets)
+- I/O, ARM, CH-R2, CH-PU, CH-TG: every net compared point by point with the block pages / pin budget; no wiring errors found. Fixes were cosmetic or ERC-related (labels, references J21/J22 and SW301, PWR_FLAGs, a unit value text).
+- Open items carried to the next phase:
+  1. F1 fuse-holder footprint (measure ESKA 503101 clips on arrival), SPTH terminal blocks, Omron G5LE-1, 10 uF capacitor package, Pico socket holes.
+  2. CH-HV: HV_RANGE0/1 pull directions (highest range by default).
+  3. 4052 pin numbers against the datasheet of the HEF4052BT actually bought.
+  4. Isolated 12 V to 5 V module and VSYS diode, CH-SP, rig connectors: not on any sheet yet.
+  5. Once all five sheets are in one project, re-run ERC (the single-label and "input not driven" items should disappear).
+  6. Stand-in symbols (AQY282EH, MCP6002, MCP6562, HEF4066BT, MCP1700): values hold the real parts; footprints are what matter for the PCB.
