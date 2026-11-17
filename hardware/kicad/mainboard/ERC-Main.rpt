@@ -1,17 +1,7 @@
-ERC report (2026-11-17T15:49:31, Encoding UTF8)
+ERC report (2026-11-17T15:53:06, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
-[duplicate_reference]: Duplicate items #FLG01
-
-    ; error
-    @(4950 mils, 3800 mils): Symbol #FLG01 [PWR_FLAG]
-    @(5350 mils, 5650 mils): Symbol #FLG01 [PWR_FLAG]
-[duplicate_reference]: Duplicate items #FLG01
-
-    ; error
-    @(5350 mils, 5650 mils): Symbol #FLG01 [PWR_FLAG]
-    @(8700 mils, 5100 mils): Symbol #FLG01 [PWR_FLAG]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(1300 mils, 8101 mils): Symbol R318 Pin 1 [Passive, Line]
@@ -395,7 +385,7 @@ Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /CH-TG trigger/
 
- ** ERC messages: 126  Errors 2  Warnings 124
+ ** ERC messages: 124  Errors 0  Warnings 124
 
  ** Ignored checks:
     - Global label only appears once in the schematic

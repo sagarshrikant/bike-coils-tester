@@ -181,3 +181,7 @@ First run: 6 errors, 124 warnings.
 - 3 errors "duplicate reference" #FLG01 / #FLG02: PWR_FLAGs on different sheets got the same hidden reference. Fix: annotate (keep existing).
 - 101 off-grid and 16 library-copy warnings: harmless.
 - Annotate "keep existing" cannot fix duplicate power-flag numbers. Fixed in the files: CH-PU flag renumbered #FLG11, I/O flag #FLG21 (CH-TG keeps #FLG01/02/03/06). The three flag clashes were removed in KiCad (3V3 and GND_L on CH-TG, AGND on CH-PU).
+- RESULT: whole-project ERC = 0 errors (user run after the fixes). Remaining warnings are the harmless kinds plus the 7 expected unconnected labels.
+
+## Schematic phase status
+All five sheets reviewed, in one project, 0 ERC errors. Next phase: PCB layout (footprint assignment, board outline, isolation slot, placement, routing), then Gerbers for JLCPCB by Sat 21 Nov 2026.
