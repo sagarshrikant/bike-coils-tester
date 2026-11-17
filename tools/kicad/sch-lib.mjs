@@ -39,13 +39,12 @@ export function loadSymbol(libId) {
   if (ext) {
     const base = readSymbolFile(lib, ext[1]);
     const valueOf = (b, key) => (b.match(new RegExp(`\\(property "${key}" "([^"]*)"`)) ?? [])[1];
-    let merged = base.replace(`(symbol "${ext[1]}"`, `(symbol "${name}"`);
+    let merged = base.split(`"${ext[1]}_`).join(`"${name}_`).replace(`(symbol "${ext[1]}"`, `(symbol "${name}"`);
     for (const key of ['Value', 'Footprint', 'Datasheet', 'Description']) {
       const v = valueOf(block, key);
       if (v !== undefined) merged = merged.replace(new RegExp(`(\\(property "${key}" )"[^"]*"`), `$1"${v.replace(/\$/g, '$$$$')}"`);
     }
     // sub-symbol names inside carry the base name: rename them to the derived name
-    merged = merged.split(`"${ext[1]}_`).join(`"${name}_`);
     block = merged;
   }
   block = block.replace(`(symbol "${name}"`, `(symbol "${libId}"`);
