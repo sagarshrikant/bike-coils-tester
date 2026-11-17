@@ -173,3 +173,10 @@ ERC (ERC-ch-TG.rpt): first run 6 errors, all "power pin not driven" (12V_RAW, GN
   4. Isolated 12 V to 5 V module and VSYS diode, CH-SP, rig connectors: not on any sheet yet.
   5. Once all five sheets are in one project, re-run ERC (the single-label and "input not driven" items should disappear).
   6. Stand-in symbols (AQY282EH, MCP6002, MCP6562, HEF4066BT, MCP1700): values hold the real parts; footprints are what matter for the PCB.
+
+# Whole-project ERC (ERC-Main.rpt, all five sheets in the root)
+First run: 6 errors, 124 warnings.
+- 7 single-label warnings, exactly the expected set: VBUS, HV_RANGE0/1, HV_PKRST, ADS1_ALRT, ADS2_ALRT, ADS1_A3_SPARE. All the "input not driven" errors and the 30-odd cross-sheet single labels are gone: the sheets are connected.
+- 3 errors "power output to power output": the PWR_FLAGs I asked for on AGND (CH-PU), 3V3 and GND_L (CH-TG) clash with the Pico's own power-output pins (AGND pin 33, 3V3 pin 36, GND). Fix: delete those three flags (the Pico drives those nets now).
+- 3 errors "duplicate reference" #FLG01 / #FLG02: PWR_FLAGs on different sheets got the same hidden reference. Fix: annotate (keep existing).
+- 101 off-grid and 16 library-copy warnings: harmless.

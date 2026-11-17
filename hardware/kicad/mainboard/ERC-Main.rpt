@@ -1,0 +1,421 @@
+ERC report (2026-11-17T15:45:40, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[duplicate_reference]: Duplicate items #FLG01
+
+    ; error
+    @(4950 mils, 3800 mils): Symbol #FLG01 [PWR_FLAG]
+    @(5350 mils, 5650 mils): Symbol #FLG01 [PWR_FLAG]
+[duplicate_reference]: Duplicate items #FLG01
+
+    ; error
+    @(5350 mils, 5650 mils): Symbol #FLG01 [PWR_FLAG]
+    @(8700 mils, 5100 mils): Symbol #FLG01 [PWR_FLAG]
+[duplicate_reference]: Duplicate items #FLG02
+
+    ; error
+    @(5400 mils, 6450 mils): Symbol #FLG02 [PWR_FLAG]
+    @(9150 mils, 5100 mils): Symbol #FLG02 [PWR_FLAG]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1300 mils, 8101 mils): Symbol R318 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1425 mils, 6614 mils): Symbol R301 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(1800 mils, 9350 mils): Global Label 'ADS1_ALRT'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(1800 mils, 9750 mils): Global Label 'ADS1_A3_SPARE'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(2850 mils, 1850 mils): Global Label 'VBUS'
+[lib_symbol_mismatch]: Symbol 'RaspberryPi_Pico_W' doesn't match copy in library 'MCU_Module'
+    ; warning
+    @(2850 mils, 3350 mils): Symbol U1 [RaspberryPi_Pico_W]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 7559 mils): Symbol R311 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 8110 mils): Symbol R319 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3196 mils, 6614 mils): Symbol R302 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(4050 mils, 9300 mils): Global Label 'ADS2_ALRT'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4968 mils, 6614 mils): Symbol R303 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4968 mils, 7559 mils): Symbol R312 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4968 mils, 8110 mils): Symbol R320 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6937 mils, 7559 mils): Symbol R313 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6937 mils, 8110 mils): Symbol R321 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7133 mils, 6614 mils): Symbol C301 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'MCP23017x-x-SP' doesn't match copy in library 'Interface_Expansion'
+    ; warning
+    @(7800 mils, 3200 mils): Symbol U2 [MCP23017x-x-SP]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8708 mils, 6614 mils): Symbol C302 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8905 mils, 7559 mils): Symbol R314 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8905 mils, 8110 mils): Symbol R322 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10874 mils, 7559 mils): Symbol R315 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10874 mils, 8110 mils): Symbol R323 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11217 mils, 6614 mils): Symbol SW301 Pin 1 [1, Passive, Line]
+[lib_symbol_mismatch]: Symbol 'MCP23017x-x-SP' doesn't match copy in library 'Interface_Expansion'
+    ; warning
+    @(12400 mils, 3250 mils): Symbol U3 [MCP23017x-x-SP]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12842 mils, 7559 mils): Symbol R316 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12842 mils, 8110 mils): Symbol R324 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(12900 mils, 2650 mils): Global Label 'HV_RANGE0'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(12900 mils, 2750 mils): Global Label 'HV_RANGE1'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(12900 mils, 2850 mils): Global Label 'HV_PKRST'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14811 mils, 7559 mils): Symbol R317 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1958 mils, 2519 mils): Symbol J1 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1958 mils, 3069 mils): Symbol J21 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1958 mils, 3819 mils): Symbol J22 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1958 mils, 4619 mils): Symbol J3 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1958 mils, 5131 mils): Symbol J4 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4208 mils, 2731 mils): Symbol F1 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4208 mils, 3831 mils): Symbol C101 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4358 mils, 6431 mils): Symbol Q2 Pin 1 [G, Input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4358 mils, 6431 mils): Horizontal Wire, length 100 mils
+[lib_symbol_mismatch]: Symbol 'IRF4905' doesn't match copy in library 'Transistor_FET'
+    ; warning
+    @(4558 mils, 6431 mils): Symbol Q2 [IRF4905]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4558 mils, 8781 mils): Symbol R105 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4658 mils, 6131 mils): Horizontal Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4658 mils, 6231 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4658 mils, 6631 mils): Vertical Wire, length 50 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4658 mils, 6681 mils): Horizontal Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5658 mils, 3831 mils): Symbol C102 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5908 mils, 8681 mils): Symbol U103 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6208 mils, 2681 mils): Symbol Q1 Pin 1 [G, Input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6208 mils, 2681 mils): Horizontal Wire, length 50 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6358 mils, 5781 mils): Symbol R102 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6358 mils, 6331 mils): Symbol R103 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6358 mils, 6881 mils): Symbol R110 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'IRF4905' doesn't match copy in library 'Transistor_FET'
+    ; warning
+    @(6408 mils, 2681 mils): Symbol Q1 [IRF4905]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6508 mils, 2381 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6508 mils, 2481 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6508 mils, 2881 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6508 mils, 2981 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7108 mils, 3831 mils): Symbol D101 Pin 1 [A1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8008 mils, 8731 mils): Symbol R114 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8058 mils, 5831 mils): Symbol U101 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8258 mils, 6881 mils): Symbol R111 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8508 mils, 2381 mils): Symbol R101 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8508 mils, 3131 mils): Symbol LED101 Pin 1 [K, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8558 mils, 3831 mils): Symbol R108 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9908 mils, 8731 mils): Symbol R106 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10972 mils, 3593 mils): Symbol K1 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11708 mils, 8631 mils): Symbol U104 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13908 mils, 8631 mils): Symbol R115 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 2481 mils): Symbol R201 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 3466 mils): Symbol R202 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 5434 mils): Symbol R205 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 6615 mils): Symbol D201 Pin 1 [A1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3685 mils, 5434 mils): Symbol C203 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4276 mils, 2481 mils): Symbol R203 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4276 mils, 3466 mils): Symbol R204 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5604 mils, 5334 mils): Symbol JC1 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5604 mils, 6812 mils): Symbol J6 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6244 mils, 2481 mils): Symbol C201 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6244 mils, 3466 mils): Symbol C202 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9197 mils, 6615 mils): Symbol R210 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9247 mils, 7324 mils): Symbol NT1 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9835 mils, 4350 mils): Symbol PR4 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(10135 mils, 4450 mils): Symbol PR4 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(10150 mils, 2750 mils): Symbol PR3 [AQY282EH]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11166 mils, 6615 mils): Symbol C204 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12165 mils, 2750 mils): Symbol R207 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12937 mils, 6615 mils): Symbol C205 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1504 mils, 4394 mils): Symbol PR2 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1554 mils, 2644 mils): Symbol J7 Pin 1 [Pin_1, Passive, Line]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(1800 mils, 3500 mils): Symbol PR1 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(1804 mils, 4494 mils): Symbol PR2 [AQY282EH]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4846 mils, 9000 mils): Symbol D403 Pin 1 [K, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6846 mils, 9000 mils): Symbol R419 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6846 mils, 10000 mils): Symbol R420 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'MCP4822' doesn't match copy in library 'Analog_DAC'
+    ; warning
+    @(10150 mils, 6450 mils): Symbol U404 [MCP4822]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1669 mils, 14270 mils): Symbol U513 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2200 mils, 9672 mils): Symbol U508 Pin 1 [VOUT, Output, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4054 mils, 12050 mils): Symbol R516 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4054 mils, 13150 mils): Symbol R518 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'ICL7660' doesn't match copy in library 'Regulator_SwitchedCapacitor'
+    ; warning
+    @(5300 mils, 4950 mils): Symbol U504 [ICL7660]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9200 mils, 4059 mils): Symbol C504 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9300 mils, 14353 mils): Symbol PR8 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9300 mils, 15187 mils): Symbol PR9 Pin 1 [Passive, Line]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 11650 mils): Symbol PR5 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 12600 mils): Symbol PR6 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 13550 mils): Symbol PR7 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 14453 mils): Symbol PR8 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(9600 mils, 15287 mils): Symbol PR9 [AQY282EH]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11650 mils, 12616 mils): Symbol R525 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11650 mils, 13481 mils): Symbol R527 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12133 mils, 4784 mils): Symbol R503 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13450 mils, 12566 mils): Symbol R524 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13500 mils, 13481 mils): Symbol R526 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13944 mils, 4784 mils): Symbol R504 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13944 mils, 5571 mils): Symbol R510 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15756 mils, 4784 mils): Symbol R505 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15756 mils, 5571 mils): Symbol R511 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(16446 mils, 3078 mils): Symbol C511 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(16446 mils, 3707 mils): Symbol C512 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(17567 mils, 4784 mils): Symbol R506 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(19202 mils, 3078 mils): Symbol R501 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(19202 mils, 3707 mils): Symbol R502 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(19378 mils, 4784 mils): Symbol R507 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(21189 mils, 4784 mils): Symbol R508 Pin 1 [Passive, Line]
+
+***** Sheet /Mainboard I/O/
+
+***** Sheet /ARM stage/
+
+***** Sheet /CH-R2 resistance/
+
+***** Sheet /CH-PU pickup/
+[pin_to_pin]: Pins of type Power output and Power output are connected
+    ; error
+    @(5400 mils, 6450 mils): Symbol #FLG02 Pin 1 [Power output, Line]
+    @(3750 mils, 4250 mils): Symbol U1 Pin 33 [AGND, Power output, Line]
+
+***** Sheet /CH-TG trigger/
+[pin_to_pin]: Pins of type Power output and Power output are connected
+    ; error
+    @(10050 mils, 5100 mils): Symbol #FLG04 Pin 1 [Power output, Line]
+    @(3050 mils, 1850 mils): Symbol U1 Pin 36 [3V3, Power output, Line]
+[pin_to_pin]: Pins of type Power output and Power output are connected
+    ; error
+    @(10500 mils, 5100 mils): Symbol #FLG05 Pin 1 [Power output, Line]
+    @(2850 mils, 4750 mils): Symbol U1 Pin 3 [GND, Power output, Line]
+
+ ** ERC messages: 130  Errors 6  Warnings 124
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters
