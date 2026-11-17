@@ -60,7 +60,7 @@ Check each package against the datasheet picture once, not only the name.
 | C1 | WL1E477M10016100 | `Capacitor_THT:CP_Radial_D10.0mm_P5.00mm` | Stripe = −. |
 | J1, J3, J4, J6, J7 | SPTH 3 2 5.08 | `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal` | ⚠ The 2-pole is the larger "SPTH 3" family (up to 4 mm²): measure its pin diameter and housing against the footprint. |
 | J5 | SPTH 1.5 3 5.08 | `…MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal` | Measure. |
-| J2A, J2B | SPTH 1.5 4 5.08 | `…MKDS-1,5-4-5.08_1x04_P5.08mm_Horizontal` | Measure. |
+| J21, J22 | SPTH 1.5 4 5.08 | `…MKDS-1,5-4-5.08_1x04_P5.08mm_Horizontal` | Measure. |
 | J8 | 2 × 8 header | `Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical` | |
 | JP1 | 1 × 3 header | `Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical` | |
 | JC1, JC2 | 1 × 3 female | `Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical` | |

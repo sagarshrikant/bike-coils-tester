@@ -28,8 +28,8 @@ s.note(10, 21, 'References are in the 100 series so they stay unique on the main
 s.box(8, 28, 100, 112);
 s.note(10, 29, 'Connectors');
 s.place({ libId: 'Connector:Screw_Terminal_01x02', ref: 'J1', value: '12 V IN (+, GND_P)', footprint: PH + '2-5.08_1x02_P5.08mm_Horizontal', x: 40, y: 45, nets: { 1: '12V_IN', 2: GP } });
-s.place({ libId: 'Connector:Screw_Terminal_01x04', ref: 'J2A', value: 'SW1A (1-2), SW2A E-STOP (3-4)', footprint: PH + '4-5.08_1x04_P5.08mm_Horizontal', x: 40, y: 70, nets: { 1: 'ARM_A1', 2: 'ARM_A2', 3: 'ARM_A2', 4: 'ARM_A3' } });
-s.place({ libId: 'Connector:Screw_Terminal_01x04', ref: 'J2B', value: 'SW1B (1-2), SW2B E-STOP (3-4)', footprint: PH + '4-5.08_1x04_P5.08mm_Horizontal', x: 40, y: 95, nets: { 1: '12V_RAW', 2: 'ARM_B2', 3: 'ARM_B2', 4: 'RLY_COIL_P' } });
+s.place({ libId: 'Connector:Screw_Terminal_01x04', ref: 'J21', value: 'SW1A (1-2), SW2A E-STOP (3-4)', footprint: PH + '4-5.08_1x04_P5.08mm_Horizontal', x: 40, y: 70, nets: { 1: 'ARM_A1', 2: 'ARM_A2', 3: 'ARM_A2', 4: 'ARM_A3' } });
+s.place({ libId: 'Connector:Screw_Terminal_01x04', ref: 'J22', value: 'SW1B (1-2), SW2B E-STOP (3-4)', footprint: PH + '4-5.08_1x04_P5.08mm_Horizontal', x: 40, y: 95, nets: { 1: '12V_RAW', 2: 'ARM_B2', 3: 'ARM_B2', 4: 'RLY_COIL_P' } });
 s.place({ libId: 'Connector:Screw_Terminal_01x02', ref: 'J3', value: 'OUT 1: CDI POWER+', footprint: PH + '2-5.08_1x02_P5.08mm_Horizontal', x: 40, y: 117, nets: { 1: 'OUT1', 2: GP } });
 s.place({ libId: 'Connector:Screw_Terminal_01x02', ref: 'J4', value: 'OUT 2 (spare)', footprint: PH + '2-5.08_1x02_P5.08mm_Horizontal', x: 40, y: 130, nets: { 1: 'OUT2', 2: GP } });
 

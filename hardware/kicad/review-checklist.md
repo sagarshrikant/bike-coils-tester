@@ -13,7 +13,7 @@ The sheets are netlist-style: every pin has a global label. Nothing here was ope
 ## ARM (`mainboard-arm`)
 1. Relay K1: COM (pin 1) = 12V_MID, NO (pin 3) = 12V_ARMED, coil pins 2 and 5, pin 4 not connected. Compare with the Omron pin diagram.
 2. Q1 drain toward the input (IN_FUSED), source = 12V_RAW. Q2 source = 12V_RAW, drain = 12V_MID.
-3. Gate chain: Q2_G - R103 - J2A.1 ... J2A.4 - U101 collector. Jumper J2A 3-4 when there is no E-STOP; J2B likewise.
+3. Gate chain: Q2_G - R103 - J21.1 ... J21.4 - U101 collector. Jumper J21 3-4 when there is no E-STOP; J22 likewise.
 4. F1 footprint is empty until the ESKA clip is measured. D101 is SM6T18CA (stand-off 15.3 V: keep the supply at 14 V or below).
 
 ## CH-R2 (`mainboard-ch-r2`)

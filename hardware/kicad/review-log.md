@@ -76,3 +76,11 @@ R301 4.7k 3V3-SDA, R302 4.7k 3V3-SCL, R303 10k 3V3-EXP_RESET.
 C301, C302 100n 3V3-GND_L; SW301 RUN-GND_L.
 
 ## I/O sheet: REVIEW COMPLETE (0 ERC errors). The sheet file is now hand-edited; do not regenerate it.
+
+## 2. ARM sheet (`mainboard-arm.kicad_sch`)
+The sheet is hand-edited (user cleaned texts, boxes, titles): never regenerate it.
+
+| # | Point | Status | Answer / correction |
+|---|---|---|---|
+| 2.1 | Layout, overlaps, title and boxes off page | fixed | cleaned by the user in KiCad |
+| 2.2 | ERC | fixed | first run 1 error (J2A unannotated), 38 harmless warnings. J2A/J2B renamed J21/J22 (KiCad needs a numeric suffix); docs and footprint table updated. ERC now 0 errors. The drawio diagram and the BOM sheet keep the old names J2A/J2B. |

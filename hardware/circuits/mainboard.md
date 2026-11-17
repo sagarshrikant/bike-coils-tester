@@ -103,8 +103,8 @@ at boot before anything else. Full line list: `docs/pin-budget.md`.
 | Ref | Pins | Function |
 |---|---|---|
 | J1 | 2 | 12 V IN: +12 V, GND_P (feeds F1) |
-| J2A | 4 | switch-1 chain: SW1A (2 wires), SW2A (2 wires). A jumper replaces SW2 if there is no E-STOP |
-| J2B | 4 | switch-2 chain: SW1B (2 wires), SW2B (2 wires) |
+| J2A (KiCad: J21) | 4 | switch-1 chain: SW1A (2 wires), SW2A (2 wires). A jumper replaces SW2 if there is no E-STOP |
+| J2B (KiCad: J22) | 4 | switch-2 chain: SW1B (2 wires), SW2B (2 wires) |
 | J3 | 2 | OUT 1: 12V_ARMED through F2 2 A, GND_P. To the CDI POWER + |
 | J4 | 2 | OUT 2: spare / aux, F2 2 A, GND_P |
 | J5 | 3 | CDI: 1 TRIG+, 2 SHUT DOWN, 3 GND_P (green wires) |
