@@ -16,3 +16,7 @@ app/.idea/
 .DS_Store
 .vscode/
 *.swp
+
+# Claude Code local settings (machine specific)
+.claude/settings.local.json
+.claude/settings.local.json.tmp.*
