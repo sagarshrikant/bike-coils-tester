@@ -3,7 +3,7 @@
 Reviewed together, one point at a time. Source of the points: `review-checklist.md`.
 Status: open / ok / fix (needs a change) / fixed.
 
-Order: 1 I/O (done), 2 ARM, 3 CH-R2, 4 CH-PU, 5 CH-TG.
+Order: 1 I/O (done), 2 ARM (done), 3 CH-R2, 4 CH-PU, 5 CH-TG.
 
 ## 1. I/O sheet (`mainboard-io.kicad_sch`)
 
@@ -84,3 +84,19 @@ The sheet is hand-edited (user cleaned texts, boxes, titles): never regenerate i
 |---|---|---|---|
 | 2.1 | Layout, overlaps, title and boxes off page | fixed | cleaned by the user in KiCad |
 | 2.2 | ERC | fixed | first run 1 error (J2A unannotated), 38 harmless warnings. J2A/J2B renamed J21/J22 (KiCad needs a numeric suffix); docs and footprint table updated. ERC now 0 errors. The drawio diagram and the BOM sheet keep the old names J2A/J2B. |
+| 2.3 | J1 (1 12V_IN, 2 GND_P), F1 (12V_IN to IN_FUSED) | ok | matches |
+| 2.4 | Q1 reverse protection: G=Q1_G, D=IN_FUSED, S=12V_RAW, R101 10k Q1_G to GND_P | ok | P-FET with drain at the input: body diode conducts for correct polarity, gate pulled low turns it fully on; reversed input leaves Vgs = 0 so it blocks |
+| 2.5 | 12V_RAW parts: C101 470u, C102 100n, D101 SM6T18CA (all 12V_RAW to GND_P), R108 2.2k + LED101 green | ok | matches. D101 stand-off 15.3 V: supply must stay at 14 V or below |
+| 2.6 | Switch 1: Q2 G=Q2_G, D=12V_MID, S=12V_RAW; R102 10k 12V_RAW-Q2_G; R103 2.2k Q2_G-ARM_A1 | ok | matches. Gate divider gives Vgs about -9.8 V when the chain conducts (IRF4905 fully on); with the chain open R102 holds Vgs = 0 = off |
+| 2.7 | Gate chain: J21 pins 1 ARM_A1, 2 ARM_A2, 3 ARM_A2, 4 ARM_A3 (jumper 3-4 if no SW2A); U101 pin 4 ARM_A3, pin 1 U101_A | ok | matches. R110 330 is the LED series resistor (PWR_EN to U101_A), R111 10k pulls PWR_EN low (not a divider). U101 pin 2 = GND_L, pin 3 = GND_P confirmed (the isolation crossing) |
+| 2.8 | Relay K1 pins: 1 12V_MID (COM), 3 12V_ARMED (NO), 2 RLY_COIL_N, 5 RLY_COIL_P, 4 NC | ok | matches the Omron G5LE datasheet (SPDT, bottom view): coil 2 and 5, COM 1, NO 3, NC 4. Confirmed by the user against the datasheet. Closes the open relay-pin item. |
+| 2.9 | D102 flyback: anode RLY_COIL_N, cathode RLY_COIL_P; Q3 pin 3 (D) = RLY_COIL_N; R104 10k Q3_G to GND_P | ok | matches. 2N7000 TO-92 pinout 1 S, 2 G, 3 D confirmed in the symbol; the real device must be the onsemi/Fairchild 2N7000 (1 S, 2 G, 3 D), not a BS170 (D-G-S). Q3 pin 1 GND_P, pin 2 Q3_G confirmed |
+| 2.10 | U102 (relay optocoupler): 1 U102_A, 2 GND_L, 3 Q3_G, 4 12V_RAW | ok | matches. RLY_EN high: LED about 6 mA, transistor saturates, Q3 gate at about 11.8 V (2N7000 max 20 V), R104 holds it low otherwise |
+| 2.11 | Coil enable chain: J22 1 12V_RAW, 2-3 ARM_B2 (jumper if no SW2B), 4 RLY_COIL_P; R112 330 RLY_EN to U102_A; R113 10k RLY_EN to GND_L | ok | matches. The relay coil only gets power through SW1B and SW2B (hardware path independent of firmware) |
+| 2.12 | Output side: R107 4.7k 12V_ARMED-GND_P (bleeds the rail), R109 2.2k + LED102 red ARMED (anode toward 12V_ARMED, cathode GND_P), F2 12V_ARMED-OUT1, F3 12V_ARMED-OUT2 | ok | matches |
+| 2.13 | Outputs: J3 1 OUT1 / 2 GND_P, J4 1 OUT2 / 2 GND_P | ok | matches |
+| 2.14 | U103 MID_SENSE: 1 U103_A, 2 GND_P, 3 GND_L, 4 MID_SENSE; R105 3.3k 12V_MID-U103_A; R114 10k 3V3-MID_SENSE | ok | matches. LED about 3 mA at 12 V; low on MID_SENSE = 12V_MID live |
+| 2.15 | U104 ARM_SENSE: 1 U104_A, 2 GND_P, 3 GND_L, 4 ARM_SENSE; R106 3.3k 12V_ARMED-U104_A; R115 10k 3V3-ARM_SENSE | ok | matches. Weld check: ARM_SENSE reads the real output rail, MID_SENSE reads the node before the relay |
+
+## ARM sheet: REVIEW COMPLETE (0 ERC errors). Hand-edited: do not regenerate.
+Open item carried forward: F1 footprint empty until the ESKA 503101 clips are measured (PCB layout phase).

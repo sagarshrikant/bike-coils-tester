@@ -3283,7 +3283,7 @@
 	)
 	(text "Switch 2: series relay K1 (coil through SW1B/SW2B, Q3, own optocoupler U102)"
 		(exclude_from_sim no)
-		(at 246.61 52.64 0)
+		(at 248.92 55.626 0)
 		(effects
 			(font
 				(size 1.27 1.27)
