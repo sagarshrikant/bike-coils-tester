@@ -3,7 +3,7 @@
 Reviewed together, one point at a time. Source of the points: `review-checklist.md`.
 Status: open / ok / fix (needs a change) / fixed.
 
-Order: 1 I/O (done), 2 ARM (done), 3 CH-R2, 4 CH-PU, 5 CH-TG.
+Order: 1 I/O (done), 2 ARM (done), 3 CH-R2 (done), 4 CH-PU, 5 CH-TG.
 
 ## 1. I/O sheet (`mainboard-io.kicad_sch`)
 
@@ -100,3 +100,16 @@ The sheet is hand-edited (user cleaned texts, boxes, titles): never regenerate i
 
 ## ARM sheet: REVIEW COMPLETE (0 ERC errors). Hand-edited: do not regenerate.
 Open item carried forward: F1 footprint empty until the ESKA 503101 clips are measured (PCB layout phase).
+
+## 3. CH-R2 sheet (`mainboard-ch-r2.kicad_sch`)
+Hand-edited by the user (layout clean). ERC (ERC-ch-R2.rpt): 0 errors, 22 harmless warnings (off grid, library copy, single labels 3V3 / R2_CAL1 / R2_CAL2 whose other end is on the I/O sheet).
+
+| # | Point | Status | Answer / correction |
+|---|---|---|---|
+| 3.1 | Reference resistors: R201 1k 0.1% R2_DRIVE_1K-R2_NODE, R202 10k 0.1% R2_DRIVE_10K-R2_NODE; R203 R2_DRIVE_1K-V_TOP1K + C201 100n to AGND; R204 R2_DRIVE_10K-V_TOP10K + C202 100n to AGND | ok | matches |
+| 3.2 | Node sense: R205 1k R2_NODE-V_NODE, C203 100n V_NODE-AGND, D201 SMAJ5.0CA R2_NODE-AGND, J6 1 R2_NODE / 2 AGND, JC1 1 3V3A / 2 V_NODE / 3 AGND | ok | matches |
+| 3.3 | PR3 self-test (470 ohm): 1 PR3_A, 2 GND_L, 3 R2_NODE, 4 PR3_B; R206 330 R2_CAL1-PR3_A; R207 470 0.1% PR3_B-AGND | ok | matches. LED side GND_L, switch side on the analog node: the photoMOS is the isolation crossing here |
+| 3.4 | PR4 self-test (47k): 1 PR4_A, 2 GND_L, 3 R2_NODE, 4 PR4_B; R208 330 R2_CAL2-PR4_A; R209 47k 0.1% PR4_B-AGND | ok | matches |
+| 3.5 | Analog supply: R210 10 ohm 3V3-3V3A; C204 10u and C205 100n 3V3A-AGND; NT1 net tie AGND-GND_L | ok | matches. NT1 is the only AGND to GND_L connection on this sheet (JM1 pin 2 and Pico pin 33 are on the AGND net, so the star point is NT1). Open: confirm the 10 uF capacitor package on arrival (footprint-table) |
+
+## CH-R2 sheet: REVIEW COMPLETE (0 ERC errors). Hand-edited: do not regenerate.

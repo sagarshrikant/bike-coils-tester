@@ -1,0 +1,78 @@
+ERC report (2026-11-17T12:02:22, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 2481 mils): Symbol R201 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 3466 mils): Symbol R202 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 5434 mils): Symbol R205 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1914 mils, 6615 mils): Symbol D201 Pin 1 [A1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3685 mils, 5434 mils): Symbol C203 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4276 mils, 2481 mils): Symbol R203 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4276 mils, 3466 mils): Symbol R204 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5604 mils, 5334 mils): Symbol JC1 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5604 mils, 6812 mils): Symbol J6 Pin 1 [Pin_1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6244 mils, 2481 mils): Symbol C201 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6244 mils, 3466 mils): Symbol C202 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9197 mils, 6615 mils): Symbol R210 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(9197 mils, 6615 mils): Global Label '3V3'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9247 mils, 7324 mils): Symbol NT1 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9835 mils, 4350 mils): Symbol PR4 Pin 1 [Passive, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(9900 mils, 5200 mils): Global Label 'R2_CAL2'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(9950 mils, 3550 mils): Global Label 'R2_CAL1'
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(10135 mils, 4450 mils): Symbol PR4 [AQY282EH]
+[lib_symbol_mismatch]: Symbol 'AQY282EH' doesn't match copy in library 'Relay_SolidState'
+    ; warning
+    @(10150 mils, 2750 mils): Symbol PR3 [AQY282EH]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11166 mils, 6615 mils): Symbol C204 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12165 mils, 2750 mils): Symbol R207 Pin 1 [Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12937 mils, 6615 mils): Symbol C205 Pin 1 [Passive, Line]
+
+ ** ERC messages: 22  Errors 0  Warnings 22
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters
