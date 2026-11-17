@@ -437,6 +437,26 @@
     [
       "4bec750f-d57c-4e27-81b5-2cda04532c0d",
       "Mainboard"
+    ],
+    [
+      "776be482-997b-4fb9-8228-87d7812cefcc",
+      "Mainboard I/O"
+    ],
+    [
+      "9130f9c0-b73c-4ec4-b42f-a5bf06de38d4",
+      "ARM stage"
+    ],
+    [
+      "34d77eda-ee8e-4235-b1ed-24bbe7e28c21",
+      "CH-R2 resistance"
+    ],
+    [
+      "8d9f6340-d127-470a-9f2b-f0003aff0e1a",
+      "CH-PU pickup"
+    ],
+    [
+      "7e084072-c965-4158-85cc-eff3448f7eec",
+      "CH-TG trigger"
     ]
   ],
   "text_variables": {},

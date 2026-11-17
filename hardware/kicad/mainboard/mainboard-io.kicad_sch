@@ -6867,6 +6867,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "JM2")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -6945,6 +6951,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "SW301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7019,6 +7031,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R315")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R315")
 					(unit 1)
 				)
@@ -7125,6 +7143,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "JM1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7199,6 +7223,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R322")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R322")
 					(unit 1)
 				)
@@ -7281,6 +7311,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "C301")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7355,6 +7391,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R301")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R301")
 					(unit 1)
 				)
@@ -7437,6 +7479,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R311")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7511,6 +7559,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R323")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R323")
 					(unit 1)
 				)
@@ -7593,6 +7647,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R317")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7667,6 +7727,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R302")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R302")
 					(unit 1)
 				)
@@ -7749,6 +7815,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R313")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -7823,6 +7895,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R321")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R321")
 					(unit 1)
 				)
@@ -7943,6 +8021,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "J8")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "J8")
 					(unit 1)
 				)
@@ -8103,6 +8187,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "U2")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8177,6 +8267,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R312")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R312")
 					(unit 1)
 				)
@@ -8259,6 +8355,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R310")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8337,6 +8439,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R320")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8351,7 +8459,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bcb82f96-a2f2-456f-99c8-4501adc5917c")
-		(property "Reference" "#FLG01"
+		(property "Reference" "#FLG21"
 			(at 125.73 94.615 0)
 			(hide yes)
 			(show_name no)
@@ -8411,7 +8519,13 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
-					(reference "#FLG01")
+					(reference "#FLG21")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "#FLG21")
 					(unit 1)
 				)
 			)
@@ -8571,6 +8685,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "U3")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8645,6 +8765,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R324")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R324")
 					(unit 1)
 				)
@@ -8841,6 +8967,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "U1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8915,6 +9047,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R318")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R318")
 					(unit 1)
 				)
@@ -8997,6 +9135,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R319")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9071,6 +9215,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "R316")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R316")
 					(unit 1)
 				)
@@ -9153,6 +9303,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R314")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9227,6 +9383,12 @@
 		(instances
 			(project "mainboard-io"
 				(path "/435356f6-22bd-4062-9067-9105c8ae0dad"
+					(reference "C302")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "C302")
 					(unit 1)
 				)
@@ -9309,6 +9471,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R303")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(sheet_instances
@@ -9316,5 +9484,4 @@
 			(page "1")
 		)
 	)
-	(embedded_fonts no)
 )

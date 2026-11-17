@@ -3021,6 +3021,12 @@
 			(uuid "d1bf542b-bef5-4f5e-9837-7f991b8cc7a7")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "J6")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "J6")
@@ -3099,6 +3105,12 @@
 			(uuid "b512aa7b-931d-41bf-8cf9-e057894ee3a7")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "C201")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "C201")
@@ -3177,6 +3189,12 @@
 			(uuid "535903fb-9ad8-4249-83d0-24e4712b919d")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "C202")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "C202")
@@ -3258,6 +3276,12 @@
 			(uuid "88a2afe1-6ee0-4c46-92dd-9dff53a25427")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "JC1")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "JC1")
@@ -3336,6 +3360,12 @@
 			(uuid "23f4f72f-1d06-45d9-a54d-91e397231ca9")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R206")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R206")
@@ -3420,6 +3450,12 @@
 			(uuid "762e935a-4ced-4090-a99b-921ec0d18e7c")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "PR4")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "PR4")
@@ -3498,6 +3534,12 @@
 			(uuid "0840ebfd-a060-429d-9747-42771f31c24d")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "NT1")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "NT1")
@@ -3582,6 +3624,12 @@
 			(uuid "d68ac6e3-1972-4ff6-b9f4-9b655dfb18c9")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "PR3")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "PR3")
@@ -3660,6 +3708,12 @@
 			(uuid "c9529e15-e286-4aa8-8020-0757152713fb")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R205")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R205")
@@ -3738,6 +3792,12 @@
 			(uuid "d719fd6f-b6d8-407c-9a89-1e06fe10802f")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "C203")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "C203")
@@ -3816,6 +3876,12 @@
 			(uuid "99d075ee-e9d0-447b-811d-caae5954814f")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R204")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R204")
@@ -3894,6 +3960,12 @@
 			(uuid "39438986-037c-481b-b19c-e404f31c5331")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R202")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R202")
@@ -3972,6 +4044,12 @@
 			(uuid "8344e4c9-15ab-443d-ba23-bfadf8c7d188")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R209")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R209")
@@ -4050,6 +4128,12 @@
 			(uuid "3374d670-0ab4-4ad4-8844-466a3c8790aa")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "C205")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "C205")
@@ -4128,6 +4212,12 @@
 			(uuid "4c7ab46f-0478-45c0-95dd-f6b1e7bec2f9")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "C204")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "C204")
@@ -4206,6 +4296,12 @@
 			(uuid "0e06310d-053a-41d0-b0ab-2b9635d5df90")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R208")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R208")
@@ -4284,6 +4380,12 @@
 			(uuid "78873ef5-d786-4b60-9ce5-e924541c79ac")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "D201")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "D201")
@@ -4362,6 +4464,12 @@
 			(uuid "1ffd6bb8-4a4c-4448-9738-c85f28494251")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R201")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R201")
@@ -4440,6 +4548,12 @@
 			(uuid "538fa44b-ce9a-46cb-aa9b-73c5a03047d6")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R210")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R210")
@@ -4518,6 +4632,12 @@
 			(uuid "0656d350-1774-40a9-8676-9d0a967a94e9")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R207")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R207")
@@ -4596,6 +4716,12 @@
 			(uuid "730d34de-945e-4b62-9c9e-d3cc4cb15914")
 		)
 		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/34d77eda-ee8e-4235-b1ed-24bbe7e28c21"
+					(reference "R203")
+					(unit 1)
+				)
+			)
 			(project "mainboard-ch-r2"
 				(path "/5c9264b6-77d0-404b-8c60-663e2291716f"
 					(reference "R203")
@@ -4609,5 +4735,4 @@
 			(page "1")
 		)
 	)
-	(embedded_fonts no)
 )

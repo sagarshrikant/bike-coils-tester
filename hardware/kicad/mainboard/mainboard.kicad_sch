@@ -6,48 +6,6 @@
 	(paper "A3")
 	(lib_symbols)
 	(sheet
-		(at 30 40)
-		(size 80 20)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke (width 0.1524) (type solid))
-		(fill (color 0 0 0 0.0000))
-		(uuid "776be482-997b-4fb9-8228-87d7812cefcc")
-		(property "Sheetname" "Mainboard I/O" (at 30 39.3 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left bottom)))
-		(property "Sheetfile" "mainboard-io.kicad_sch" (at 30 60.6 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left top)))
-		(instances
-			(project "mainboard"
-				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d"
-					(page "2")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 30 80)
-		(size 80 20)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke (width 0.1524) (type solid))
-		(fill (color 0 0 0 0.0000))
-		(uuid "9130f9c0-b73c-4ec4-b42f-a5bf06de38d4")
-		(property "Sheetname" "ARM stage" (at 30 79.3 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left bottom)))
-		(property "Sheetfile" "mainboard-arm.kicad_sch" (at 30 100.6 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left top)))
-		(instances
-			(project "mainboard"
-				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d"
-					(page "3")
-				)
-			)
-		)
-	)
-	(sheet
 		(at 30 120)
 		(size 80 20)
 		(exclude_from_sim no)
@@ -55,11 +13,36 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke (width 0.1524) (type solid))
-		(fill (color 0 0 0 0.0000))
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
 		(uuid "34d77eda-ee8e-4235-b1ed-24bbe7e28c21")
-		(property "Sheetname" "CH-R2 resistance" (at 30 119.3 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left bottom)))
-		(property "Sheetfile" "mainboard-ch-r2.kicad_sch" (at 30 140.6 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left top)))
+		(property "Sheetname" "CH-R2 resistance"
+			(at 30 119.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mainboard-ch-r2.kicad_sch"
+			(at 30 140.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
 		(instances
 			(project "mainboard"
 				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d"
@@ -69,22 +52,47 @@
 		)
 	)
 	(sheet
-		(at 30 160)
+		(at 30 40)
 		(size 80 20)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke (width 0.1524) (type solid))
-		(fill (color 0 0 0 0.0000))
-		(uuid "8d9f6340-d127-470a-9f2b-f0003aff0e1a")
-		(property "Sheetname" "CH-PU pickup" (at 30 159.3 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left bottom)))
-		(property "Sheetfile" "mainboard-ch-pu.kicad_sch" (at 30 180.6 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left top)))
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "776be482-997b-4fb9-8228-87d7812cefcc")
+		(property "Sheetname" "Mainboard I/O"
+			(at 30 39.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mainboard-io.kicad_sch"
+			(at 30 60.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
 		(instances
 			(project "mainboard"
 				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d"
-					(page "5")
+					(page "2")
 				)
 			)
 		)
@@ -97,15 +105,132 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke (width 0.1524) (type solid))
-		(fill (color 0 0 0 0.0000))
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
 		(uuid "7e084072-c965-4158-85cc-eff3448f7eec")
-		(property "Sheetname" "CH-TG trigger" (at 30 199.3 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left bottom)))
-		(property "Sheetfile" "mainboard-ch-tg.kicad_sch" (at 30 220.6 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left top)))
+		(property "Sheetname" "CH-TG trigger"
+			(at 30 199.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mainboard-ch-tg.kicad_sch"
+			(at 30 220.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
 		(instances
 			(project "mainboard"
 				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d"
 					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30 160)
+		(size 80 20)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "8d9f6340-d127-470a-9f2b-f0003aff0e1a")
+		(property "Sheetname" "CH-PU pickup"
+			(at 30 159.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mainboard-ch-pu.kicad_sch"
+			(at 30 180.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30 80)
+		(size 80 20)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "9130f9c0-b73c-4ec4-b42f-a5bf06de38d4")
+		(property "Sheetname" "ARM stage"
+			(at 30 79.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mainboard-arm.kicad_sch"
+			(at 30 100.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d"
+					(page "3")
 				)
 			)
 		)

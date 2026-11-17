@@ -1,4 +1,4 @@
-ERC report (2026-11-17T15:45:40, Encoding UTF8)
+ERC report (2026-11-17T15:49:31, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -12,11 +12,6 @@ Report includes: Errors, Warnings, Exclusions
     ; error
     @(5350 mils, 5650 mils): Symbol #FLG01 [PWR_FLAG]
     @(8700 mils, 5100 mils): Symbol #FLG01 [PWR_FLAG]
-[duplicate_reference]: Duplicate items #FLG02
-
-    ; error
-    @(5400 mils, 6450 mils): Symbol #FLG02 [PWR_FLAG]
-    @(9150 mils, 5100 mils): Symbol #FLG02 [PWR_FLAG]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(1300 mils, 8101 mils): Symbol R318 Pin 1 [Passive, Line]
@@ -397,22 +392,10 @@ Report includes: Errors, Warnings, Exclusions
 ***** Sheet /CH-R2 resistance/
 
 ***** Sheet /CH-PU pickup/
-[pin_to_pin]: Pins of type Power output and Power output are connected
-    ; error
-    @(5400 mils, 6450 mils): Symbol #FLG02 Pin 1 [Power output, Line]
-    @(3750 mils, 4250 mils): Symbol U1 Pin 33 [AGND, Power output, Line]
 
 ***** Sheet /CH-TG trigger/
-[pin_to_pin]: Pins of type Power output and Power output are connected
-    ; error
-    @(10050 mils, 5100 mils): Symbol #FLG04 Pin 1 [Power output, Line]
-    @(3050 mils, 1850 mils): Symbol U1 Pin 36 [3V3, Power output, Line]
-[pin_to_pin]: Pins of type Power output and Power output are connected
-    ; error
-    @(10500 mils, 5100 mils): Symbol #FLG05 Pin 1 [Power output, Line]
-    @(2850 mils, 4750 mils): Symbol U1 Pin 3 [GND, Power output, Line]
 
- ** ERC messages: 130  Errors 6  Warnings 124
+ ** ERC messages: 126  Errors 2  Warnings 124
 
  ** Ignored checks:
     - Global label only appears once in the schematic

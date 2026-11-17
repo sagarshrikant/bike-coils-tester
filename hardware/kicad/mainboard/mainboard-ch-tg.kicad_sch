@@ -4119,33 +4119,13 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 129.54) (xy 278.13 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2fcf5895-ae4e-45fb-8a3d-4a383d5ccd04")
-	)
-	(wire
-		(pts
 			(xy 255.27 129.54) (xy 255.27 134.62)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "718ad09d-45dd-429f-ab20-974b3e9345e3")
-	)
-	(wire
-		(pts
-			(xy 266.7 129.54) (xy 266.7 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "db04bb4a-be79-4751-b41b-29f3a7373e79")
+		(uuid "2fcf5895-ae4e-45fb-8a3d-4a383d5ccd04")
 	)
 	(wire
 		(pts
@@ -6303,30 +6283,6 @@
 			)
 		)
 	)
-	(global_label "3V3"
-		(shape input)
-		(at 255.27 134.62 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7503c4ca-f950-4d1a-9a86-e0550addb27e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 255.27 141.1128 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "GND_L"
 		(shape bidirectional)
 		(at 43.18 308.61 180)
@@ -7074,30 +7030,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-			)
-		)
-	)
-	(global_label "GND_L"
-		(shape input)
-		(at 266.7 134.62 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "a50ceac0-338b-4519-a9fe-6cbf39b72d13")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 266.7 143.4714 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)
@@ -7963,7 +7895,7 @@
 	)
 	(global_label "MUX_VDD"
 		(shape input)
-		(at 278.13 134.62 270)
+		(at 255.27 134.62 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7973,7 +7905,7 @@
 		)
 		(uuid "d27de166-fb47-44a8-bc7a-689a7a26baa5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 278.13 146.1928 90)
+			(at 255.27 146.1928 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8809,6 +8741,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R503")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -8883,6 +8821,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R526")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R526")
 					(unit 1)
 				)
@@ -8971,6 +8915,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U512")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9048,6 +8998,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "U505")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "U505")
 					(unit 1)
 				)
@@ -9136,6 +9092,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "PR8")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9210,6 +9172,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "#FLG01")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "#FLG01")
 					(unit 1)
 				)
@@ -9310,6 +9278,12 @@
 					(unit 2)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U509")
+					(unit 2)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9388,6 +9362,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C517")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9462,6 +9442,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R513")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R513")
 					(unit 1)
 				)
@@ -9550,6 +9536,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "PR6")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9624,6 +9616,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R520")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R520")
 					(unit 1)
 				)
@@ -9712,6 +9710,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U511")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9786,6 +9790,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R509")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R509")
 					(unit 1)
 				)
@@ -9868,6 +9878,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C510")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -9942,6 +9958,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R524")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R524")
 					(unit 1)
 				)
@@ -10027,6 +10049,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "JP1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10105,6 +10133,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R523")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10179,6 +10213,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C512")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C512")
 					(unit 1)
 				)
@@ -10279,6 +10319,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U509")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10353,6 +10399,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R507")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R507")
 					(unit 1)
 				)
@@ -10435,6 +10487,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R506")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10509,6 +10567,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C509")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C509")
 					(unit 1)
 				)
@@ -10591,6 +10655,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R521")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10669,6 +10739,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R508")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10743,6 +10819,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "#FLG03")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "#FLG03")
 					(unit 1)
 				)
@@ -10867,6 +10949,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U510")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -10957,6 +11045,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U508")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11034,6 +11128,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "J5")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "J5")
 					(unit 1)
 				)
@@ -11116,6 +11216,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C502")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11190,6 +11296,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C508")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C508")
 					(unit 1)
 				)
@@ -11272,6 +11384,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "#FLG02")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11346,6 +11464,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R525")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R525")
 					(unit 1)
 				)
@@ -11428,11 +11552,17 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C505")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 278.13 129.54 0)
+		(at 255.27 129.54 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11443,7 +11573,7 @@
 		(fields_autoplaced yes)
 		(uuid "5fb2f2be-2db0-4be7-bcb7-7bad0b74ef50")
 		(property "Reference" "#FLG06"
-			(at 278.13 127.635 0)
+			(at 255.27 127.635 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11454,7 +11584,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 278.13 124.46 0)
+			(at 255.27 124.46 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11464,7 +11594,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 278.13 129.54 0)
+			(at 255.27 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11475,7 +11605,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 278.13 129.54 0)
+			(at 255.27 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11486,7 +11616,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 278.13 129.54 0)
+			(at 255.27 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11502,6 +11632,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "#FLG06")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "#FLG06")
 					(unit 1)
 				)
@@ -11584,6 +11720,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C514")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11658,6 +11800,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C504")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C504")
 					(unit 1)
 				)
@@ -11740,81 +11888,9 @@
 					(unit 1)
 				)
 			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 266.7 129.54 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "70a6c0df-c1da-49d3-b524-7741d160c834")
-		(property "Reference" "#FLG05"
-			(at 266.7 127.635 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 266.7 124.46 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 266.7 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 266.7 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 266.7 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0d63afed-84dc-4957-baac-c3f4dea17c50")
-		)
-		(instances
-			(project "mainboard-ch-tg"
-				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
-					(reference "#FLG05")
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C503")
 					(unit 1)
 				)
 			)
@@ -11896,6 +11972,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "D501")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -11970,6 +12052,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R501")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R501")
 					(unit 1)
 				)
@@ -12070,6 +12158,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U504")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -12148,6 +12242,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C519")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -12222,6 +12322,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C506")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C506")
 					(unit 1)
 				)
@@ -12322,6 +12428,12 @@
 					(unit 3)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U509")
+					(unit 3)
+				)
+			)
 		)
 	)
 	(symbol
@@ -12399,6 +12511,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "U502")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "U502")
 					(unit 1)
 				)
@@ -12481,6 +12599,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R514")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -12555,6 +12679,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R530")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R530")
 					(unit 1)
 				)
@@ -12637,6 +12767,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C515")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -12711,6 +12847,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R518")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R518")
 					(unit 1)
 				)
@@ -12799,6 +12941,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "PR7")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -12873,6 +13021,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R529")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R529")
 					(unit 1)
 				)
@@ -12955,6 +13109,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C507")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -13029,6 +13189,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R522")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R522")
 					(unit 1)
 				)
@@ -13114,6 +13280,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U501")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -13188,6 +13360,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R511")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R511")
 					(unit 1)
 				)
@@ -13270,6 +13448,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R519")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -13344,6 +13528,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C511")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C511")
 					(unit 1)
 				)
@@ -13432,6 +13622,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "PR5")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -13506,6 +13702,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R510")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R510")
 					(unit 1)
 				)
@@ -13606,6 +13808,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U506")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -13690,6 +13898,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U513")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -13768,6 +13982,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R515")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -13842,6 +14062,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R505")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R505")
 					(unit 1)
 				)
@@ -13930,6 +14156,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "PR9")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -14004,6 +14236,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R517")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R517")
 					(unit 1)
 				)
@@ -14086,6 +14324,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R527")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -14160,6 +14404,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R528")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R528")
 					(unit 1)
 				)
@@ -14242,6 +14492,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R502")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -14316,6 +14572,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C518")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C518")
 					(unit 1)
 				)
@@ -14398,6 +14660,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "C501")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -14472,6 +14740,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C513")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C513")
 					(unit 1)
 				)
@@ -14554,6 +14828,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R504")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -14628,6 +14908,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "C516")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "C516")
 					(unit 1)
 				)
@@ -14710,6 +14996,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R516")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -14788,6 +15080,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "R512")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -14862,6 +15160,12 @@
 		(instances
 			(project "mainboard-ch-tg"
 				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
+					(reference "R531")
+					(unit 1)
+				)
+			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
 					(reference "R531")
 					(unit 1)
 				)
@@ -14956,81 +15260,9 @@
 					(unit 1)
 				)
 			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 255.27 129.54 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fe4b189e-b45c-4036-a72f-5db5b17b57fe")
-		(property "Reference" "#FLG04"
-			(at 255.27 127.635 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 255.27 124.46 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 255.27 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 255.27 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 255.27 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8cbfd0ff-5cd6-4ae4-9cc7-3ca048a2ceec")
-		)
-		(instances
-			(project "mainboard-ch-tg"
-				(path "/1a907b6c-a9ca-401c-8b8f-4872d5d2cb66"
-					(reference "#FLG04")
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U507")
 					(unit 1)
 				)
 			)
@@ -15115,6 +15347,12 @@
 					(unit 1)
 				)
 			)
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/7e084072-c965-4158-85cc-eff3448f7eec"
+					(reference "U503")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(sheet_instances
@@ -15122,5 +15360,4 @@
 			(page "1")
 		)
 	)
-	(embedded_fonts no)
 )

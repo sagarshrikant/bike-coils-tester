@@ -180,3 +180,4 @@ First run: 6 errors, 124 warnings.
 - 3 errors "power output to power output": the PWR_FLAGs I asked for on AGND (CH-PU), 3V3 and GND_L (CH-TG) clash with the Pico's own power-output pins (AGND pin 33, 3V3 pin 36, GND). Fix: delete those three flags (the Pico drives those nets now).
 - 3 errors "duplicate reference" #FLG01 / #FLG02: PWR_FLAGs on different sheets got the same hidden reference. Fix: annotate (keep existing).
 - 101 off-grid and 16 library-copy warnings: harmless.
+- Annotate "keep existing" cannot fix duplicate power-flag numbers. Fixed in the files: CH-PU flag renumbered #FLG11, I/O flag #FLG21 (CH-TG keeps #FLG01/02/03/06). The three flag clashes were removed in KiCad (3V3 and GND_L on CH-TG, AGND on CH-PU).
