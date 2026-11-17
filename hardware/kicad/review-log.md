@@ -3,7 +3,7 @@
 Reviewed together, one point at a time. Source of the points: `review-checklist.md`.
 Status: open / ok / fix (needs a change) / fixed.
 
-Order: 1 I/O (done), 2 ARM (done), 3 CH-R2 (done), 4 CH-PU, 5 CH-TG.
+Order: 1 I/O (done), 2 ARM (done), 3 CH-R2 (done), 4 CH-PU (done), 5 CH-TG.
 
 ## 1. I/O sheet (`mainboard-io.kicad_sch`)
 
@@ -113,3 +113,25 @@ Hand-edited by the user (layout clean). ERC (ERC-ch-R2.rpt): 0 errors, 22 harmle
 | 3.5 | Analog supply: R210 10 ohm 3V3-3V3A; C204 10u and C205 100n 3V3A-AGND; NT1 net tie AGND-GND_L | ok | matches. NT1 is the only AGND to GND_L connection on this sheet (JM1 pin 2 and Pico pin 33 are on the AGND net, so the star point is NT1). Open: confirm the 10 uF capacitor package on arrival (footprint-table) |
 
 ## CH-R2 sheet: REVIEW COMPLETE (0 ERC errors). Hand-edited: do not regenerate.
+
+## 4. CH-PU sheet (`mainboard-ch-pu.kicad_sch`)
+Hand-edited by the user (layout cleaned). Do not regenerate.
+ERC (ERC-ch-PU.rpt): first run 9 errors. Fixed: U402 unit D value text made identical to the other units; PWR_FLAG on 3V3A and on AGND (op-amp power pins). Now 6 errors, all "input not driven": U404 SCK / SDI / CS and U402 pins 13, 5, 6 are driven from the I/O sheet (Pico, expanders), which ERC cannot see until the sheets share one project. 14 single-label warnings: same reason.
+
+| # | Point | Status | Answer / correction |
+|---|---|---|---|
+| 4.1 | Input: J7 1 PU_IN / 2 AGND (IN- is AGND); D401 P4SMAJ120CA PU_IN-AGND; R407 220k PU_TEST-PU_IN | ok | matches |
+| 4.2 | PR1 (1k load, AQY210EH 350 V): 1 PR1_A, 2 GND_L, 3 PU_IN, 4 PR1_B; R403 330 PU_LOAD1-PR1_A; R402 1k 1W MELF PR1_B-AGND | ok | matches |
+| 4.3 | PR2 (10k load): 1 PR2_A, 2 GND_L, 3 PU_IN, 4 PR2_B; R406 330 PU_LOAD2-PR2_A; R405 10k 0.5W PR2_B-AGND | ok | matches |
+| 4.4 | Divider: R408 100k PU_IN-PU_MID, R409 100k PU_MID-PU_N (200k total, axial 0.6 W); R410 84.5k PU_N-PU_L5, R411 16.5k PU_N-PU_L20, R412 3k PU_N-PU_L100 | ok | matches the ordered R_B values (ranges about +-5.05 / +-19.7 / +-101.5 V) |
+| 4.5 | U402 4066 switches A/B/C: A 1 PU_L5, 2 V_BIAS, 13 PU_RANGE5; B 4 PU_L20, 3 V_BIAS, 5 PU_RANGE20; C 8 PU_L100, 9 V_BIAS, 6 PU_RANGE100 | ok | matches. Each range leg connects to V_BIAS (1.65 V) when its switch is on |
+| 4.6 | U402 unit D (unused) pins 10, 11, 12 AGND; power 14 3V3A, 7 AGND | ok | matches |
+| 4.7 | Node sense: R413 1k PU_N-PU_CL; JC2 1 3V3A / 2 PU_CL / 3 AGND; U401B (buffer) 5 PU_CL (+), 6 and 7 PU_BUF (voltage follower); R416 100 PU_BUF-PU_SIG | ok | matches |
+| 4.8 | V_BIAS: R414 10k 3V3A-VB_RAW, R415 10k VB_RAW-AGND, C402 1u VB_RAW-AGND; U401A 3 VB_RAW (+), 1 and 2 V_BIAS (follower) | ok | matches. V_BIAS = 1.65 V |
+| 4.9 | U401C power: 8 3V3A, 4 AGND. U404 MCP4822: 1 3V3A, 2 PU_DAC_CS, 3 SPI0_SCK, 4 SPI0_MOSI, 5 AGND (LDAC, immediate update), 6 VTHN (VOUTB), 7 AGND, 8 VTHP (VOUTA) | ok | matches the MCP4822 DIP-8 pinout picture |
+| 4.10 | Comparators U403 (MCP6542 push-pull): A 3 PU_BUF (+), 2 VTHP (-), 1 PU_POS; B 5 VTHN (+), 6 PU_BUF (-), 7 PU_NEG; C 8 3V3A, 4 AGND | ok | matches. Logic: PU_POS high when signal > VTHP (above bias), PU_NEG high when signal < VTHN (below bias); outputs go to Pico GP2 / GP3 |
+| 4.11 | Decoupling C403 (U401), C404 (U402), C405 (U403), C406 (U404): 100n 3V3A-AGND | ok | matches. Place each right next to its chip's supply pin in the layout |
+| 4.12 | Peak hold, positive (DNP): D402 BAT54HT1G anode PU_BUF, cathode PU_PKP; C407 10n and R417 10M PU_PKP-AGND; R418 1k PU_PKP-PU_PKRST_P | ok | matches, D402 marked DNP |
+| 4.13 | Peak hold, negative (DNP): D403 anode PU_PKN, cathode PU_BUF; C408 10n PU_PKN-AGND; R419 10M PU_PKN-3V3A; R420 1k PU_PKN-PU_PKRST_N | ok | matches, D403 marked DNP |
+
+## CH-PU sheet: REVIEW COMPLETE (6 ERC errors, all "input not driven" from other sheets). Hand-edited: do not regenerate.
