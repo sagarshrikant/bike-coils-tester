@@ -65,9 +65,12 @@ very large and is not needed for the circuit or the board; skip it for now.
 | File | Content | Generator |
 |---|---|---|
 | `mainboard/mainboard-io.kicad_sch` | Pico, 2 × MCP23017, ADS1115 module headers, bus pull-ups, expander pull resistors, reset button, J8 | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-io-sheet.mjs` |
+| `mainboard/mainboard-ch-tg.kicad_sch` | CH-TG: supplies (78L05, 3.3 V LDO, ICL7660, 78L09), ADuM1250, DACs + TL072, 4052 mux, JP1, optocouplers, photoMOS bank, J5, TVS, measurement dividers (paper A2) | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-ch-tg-sheet.mjs` |
 | `mainboard/mainboard-ch-pu.kicad_sch` | CH-PU pickup input (TVS, loads, R_INJ, divider, 74HC4066 legs, clamp header JC2, buffers, bias, DAC, comparators, optional peak hold DNP) | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-ch-pu-sheet.mjs` |
 | `mainboard/mainboard-ch-r2.kicad_sch` | CH-R2 resistance meter (R_REF, filters, clamp header JC1, TVS, self-test photoMOS, 3V3A filter, AGND tie) | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-ch-r2-sheet.mjs` |
 | `mainboard/mainboard-arm.kicad_sch` | 12 V input, Q1/Q2, relay K1, sense optocouplers, outputs | `KICAD_SYMBOLS=<kicad-symbols checkout> node tools/kicad/gen-arm-sheet.mjs` (add `--nets` to print the net list) |
 
 Add them with Place → Add sheet. The global labels connect the sheets (PWR_EN, RLY_EN, MID_SENSE, ARM_SENSE, 3V3, GND_L).
 Do not edit the labels by hand: change the generator, regenerate, and tell me.
+
+Cross-sheet check: `node tools/kicad/check-labels.mjs` (lists labels that connect to nothing). Review points for each sheet: `review-checklist.md`.
