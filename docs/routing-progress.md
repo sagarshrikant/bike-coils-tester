@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: next task = T0.1** (last updated 2026-11-18, nothing routed yet)
+**RESUME HERE: next task = T0.2** (last updated 2026-11-18, nothing routed yet)
 
 How we work: one small task at a time. The user routes in KiCad (PCB editor, `hardware/kicad/mainboard/mainboard.kicad_pcb`), saves,
 says "T<n> done". Claude then checks the file with `node tools/pcb/netcheck.js hardware/kicad/mainboard/mainboard.kicad_pcb <NET>`
@@ -29,7 +29,7 @@ Tasks of later milestones are written when we reach them (the part positions may
 
 ## M0 Preparation
 
-- [ ] **T0.1** Reopen the project, run DRC (Inspect, Design Rules Checker, Run), save the report as `DRC.rpt`. Expected: only "unconnected items". Tell Claude the counts by type.
+- [x] **T0.1** Reopen the project, run DRC (Inspect, Design Rules Checker, Run), save the report as `DRC.rpt`. Expected: only "unconnected items". Tell Claude the counts by type.
 - [ ] **T0.2** Router settings: in the toolbar set the track width to "Use net class width" and the via size to "Use net class size". In Route, Interactive Router Settings, choose mode "Walk around obstacles".
 
 ## M1 12 V power path (all on F.Cu, 3 mm unless stated)
@@ -50,4 +50,5 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18: T0.1 done: DRC shows only the 489 unconnected items (no clearance, courtyard, edge or hole errors).
 - 2026-11-18: plan created; the board is placed (150 x 125 mm), DRC fixes applied (net classes, severities, JP21 moved); no tracks yet.
