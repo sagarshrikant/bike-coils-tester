@@ -84,7 +84,7 @@ Rotation of the Pico: 90 degrees, so the USB end is at the left board edge.
 |---|---|---|---|
 | Logic, Pico | 3 to 57 | 3 to 26 | U1 (USB toward the left edge), SW301, R301 to R303, C301, C302 |
 | Logic, expanders | 60 to 85 | 3 to 39 | U2, U3 and their pull resistors R310 to R326 packed around them |
-| Logic, headers | 112 to 148 | 3 to 29 | J10, J8, JM1, JM2, JP21 |
+| Logic, headers | 112 to 148 | 3 to 29 | J10, J8, JM1, JP21 (JM2 is on the 12 V side, x 138 to 142, y 85 to 112) |
 | Logic, CH-R2 | 3 to 31 | 30 to 55 | JC1, PR3, PR4, J6 and the R200 / C200 parts around them |
 | Logic, CH-PU | 88 to 139 | 31 to 58 | U401 to U404, PR1, PR2, J7, JC2 and the R400 / C400 parts |
 | LED resistors | 64 to 130 | about 59 | R516, R518, R520, R523, R525, R527, R529, R531, C511 above the straddling parts |
