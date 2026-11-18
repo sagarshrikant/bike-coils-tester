@@ -31,12 +31,12 @@ Tasks of later milestones are written when we reach them (the part positions may
 
 - [x] **T0.1** Reopen the project, run DRC (Inspect, Design Rules Checker, Run), save the report as `DRC.rpt`. Expected: only "unconnected items". Tell Claude the counts by type.
 - [x] **T0.2** Router settings (already set).
-- [ ] **T0.3** Reopen the project and look at the power area (bottom right): Claude moved the 31 parts of the ARM power stage into a short chain (J1, F1, Q1, Q2, K1, F2, F3, J3, J4 ...). If it looks wrong, Claude undoes it (`git revert` of the commit "ARM power stage re-placed").
+- [ ] **T0.3** Reopen the project and look at the power area (lower right, board bottom edge). Claude placed the 12 V chain by hand-designed coordinates and an optimiser: terminals J1, J3, J4 on the bottom edge, F1 standing upright above J1, Q1 and Q2 standing upright to its right, K1 top right, F2, F3, D102 and C101 below and beside K1. Chain length 349 mm to about 100 mm. If it looks wrong, Claude undoes it (`git revert` of the commit "12 V chain placed").
 
 ## M1 12 V power path (all on F.Cu, 3 mm unless stated)
 
-- [ ] **T1.1** `12V_IN`: J1 pin 1 to F1 pad 1.
-- [ ] **T1.2** `IN_FUSED`: F1 pad 2 to Q1 pin 2 (drain).
+- [ ] **T1.1** `12V_IN`: J1 pin 1 (x 95.15, y 132.38) straight up to F1 pad 1 (x 95.15, y 122.13), 10 mm, 3 mm wide, on F.Cu.
+- [ ] **T1.2** `IN_FUSED`: F1 pad 2 (95.15, 99.63) to Q1 pin 2 (105.15, 100.23). The TO-220 pins are only 2.54 mm apart, so a 3 mm track cannot end on one pin: use 1.5 mm for the last 3 mm at the pin (press **W** while routing to change the width), or draw the net as a zone later.
 - [ ] **T1.3** `12V_RAW`, main trunk: Q1 pin 3 to Q2 pin 3, then to C101 pin 1, C102 pin 1 and D101 pin 1.
 - [ ] **T1.4** `12V_RAW`, branches: R102 pad 1, R108 pad 1, J22 pin 1, U102 pin 4.
 - [ ] **T1.5** `12V_RAW`, regulator: U501 pin 3 and C501 pad 1 (0.5 mm is enough; the net class decides).
@@ -51,6 +51,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18: 12 V chain re-placed (second attempt; the first optimiser result left 3 of 8 links blocked). User must reopen and look (T0.3).
 - 2026-11-18: T0.2 done. ARM power stage re-placed by a wire-length optimiser (chain length 349 mm to 177 mm); user to check (T0.3).
 - 2026-11-18: T0.1 done: DRC shows only the 489 unconnected items (no clearance, courtyard, edge or hole errors).
 - 2026-11-18: plan created; the board is placed (150 x 125 mm), DRC fixes applied (net classes, severities, JP21 moved); no tracks yet.
