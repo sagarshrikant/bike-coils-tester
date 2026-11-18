@@ -56,7 +56,7 @@ Check each package against the datasheet picture once, not only the name.
 |---|---|---|---|
 | R (SMD) | 0805 resistors | `Resistor_SMD:R_0805_2012Metric` | |
 | C (SMD) | 0805 capacitors | `Capacitor_SMD:C_0805_2012Metric` | The 10 µF: use `C_1206_3216Metric` if the ones in the cart are 1206 (check). |
-| R_T1, R_T2 | Vishay MBB0207, 100 kΩ | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | Rated 350 V. Leave extra clearance (2 mm) to other copper. |
+| R_T1, R_T2 (R408, R409) | Vishay MBB0207, 100 kΩ | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | ✔ Checked 2026-11-18 (user-measured): body 6.5 × 2.5 mm, lead 0.6 mm, lead spacing 10 mm. The footprint is 6.3 × 2.5 mm, pitch 10.16 mm, drill 0.8 mm: the 0.6 mm lead fits, the pitch is 0.16 mm wider (bend the leads) and the body is 0.2 mm longer than drawn (inside the courtyard margin). Rated 350 V. Leave extra clearance (2 mm) to other copper. |
 | R_L1 | VIT ZC207 1k MELF | `Resistor_SMD:R_MELF_MMB-0207` | |
 | R_L2 | METALL 10k | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | |
 | C1 | WL1E477M10016100 | `Capacitor_THT:CP_Radial_D10.0mm_P5.00mm` | Stripe = −. |

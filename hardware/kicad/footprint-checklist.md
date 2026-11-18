@@ -34,7 +34,8 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - [x] **J1, J3, J4, J6, J7** (SPTH 3/2-5,08): checked against the Phoenix datasheet 2026-11-18. Pads match (pitch 5.08, drill 1.3); body is 11.12 × 10 mm vs the footprint's 10.2 × 9.8, so leave 1.5 mm around it. Push-in spring terminal, wire entry toward the board edge.
 - [ ] **J5** (3-pole), **J21, J22** (4-pole): SPTH 1.5 family; datasheets still to check (pitch, pin drill, body).
 
-- [ ] **R408, R409** (MBB0207, 350 V) and **R405**: `R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm`; check body length and lead pitch. Keep 2 mm clearance around R408/R409.
+- [x] **R408, R409** (MBB0207, 350 V): checked 2026-11-18, body 6.5 × 2.5 mm, lead 0.6 mm, spacing 10 mm; fits `R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm` (0.16 mm wider pitch, 0.2 mm longer body). Keep 2 mm clearance.
+- [ ] **R405** (10k 0.5 W, same footprint): body and lead pitch of the part you bought not checked yet.
 - [ ] **R402** (1k 1 W MELF): `R_MELF_MMB-0207`; check the body size of the ZC207.
 - [ ] **C101** (470u, 25 V): `CP_Radial_D10.0mm_P5.00mm`; check diameter 10 mm and lead spacing 5 mm.
 - [ ] **C204, C503, C506, C507, C508, C510, C518** (10 µF): all `C_1206_3216Metric`. Confirm the package of the capacitors you bought (0805 or 1206). C204 uses a polarized symbol: if the part is a ceramic, polarity does not matter.
