@@ -3374,7 +3374,7 @@
 	(footprint "coiltester:DIP-4_in_DIP-6_socket_W7.62mm"
 		(layer "F.Cu")
 		(uuid "1c69c91e-4f00-4015-8d57-82de0b8f89a0")
-		(at 105.605 122.045)
+		(at 65.54 46.19 270)
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U512"
@@ -5981,7 +5981,7 @@
 	(footprint "Package_DIP:DIP-4_W7.62mm"
 		(layer "F.Cu")
 		(uuid "28fedc26-7687-4628-b59e-5801687f8efc")
-		(at 94.085 131.955)
+		(at 105.27 46.19 270)
 		(descr "4-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "PR8"
@@ -6764,7 +6764,7 @@
 	(footprint "Package_DIP:DIP-4_W7.62mm"
 		(layer "F.Cu")
 		(uuid "2c93dba0-791a-4259-bb19-9a38a9fb05e5")
-		(at 94.085 118.675)
+		(at 91.27 46.19 270)
 		(descr "4-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "PR6"
@@ -14482,7 +14482,7 @@
 	(footprint "coiltester:DIP-4_in_DIP-6_socket_W7.62mm"
 		(layer "F.Cu")
 		(uuid "562e8cf5-afe1-4497-bfe6-48239129623a")
-		(at 94.825 61.555)
+		(at 26.54 46.19 270)
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U102"
@@ -16556,7 +16556,7 @@
 	(footprint "Package_DIP:DIP-4_W7.62mm"
 		(layer "F.Cu")
 		(uuid "6868aa7c-d830-4c44-ab0c-e1823dc4d290")
-		(at 94.085 112.035)
+		(at 84.27 46.19 270)
 		(descr "4-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "PR5"
@@ -25344,7 +25344,7 @@
 	(footprint "coiltester:DIP-4_in_DIP-6_socket_W7.62mm"
 		(layer "F.Cu")
 		(uuid "9f3ebc23-994a-4faa-ad93-ca99e2ccb11d")
-		(at 94.825 71.285)
+		(at 30.46 53.81 90)
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U103"
@@ -27403,7 +27403,7 @@
 	(footprint "coiltester:DIP-4_in_DIP-6_socket_W7.62mm"
 		(layer "F.Cu")
 		(uuid "afbdd242-9cd7-4430-bc22-face19e46796")
-		(at 94.825 81.015)
+		(at 39.46 53.81 90)
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U104"
@@ -32801,7 +32801,7 @@
 	(footprint "coiltester:DIP-4_in_DIP-6_socket_W7.62mm"
 		(layer "F.Cu")
 		(uuid "c9b1e469-b9cd-483c-993f-db4478c9f2a3")
-		(at 94.825 51.825)
+		(at 17.54 46.19 270)
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U101"
@@ -34250,7 +34250,7 @@
 	(footprint "Package_DIP:DIP-4_W7.62mm"
 		(layer "F.Cu")
 		(uuid "d007aac0-a844-425b-b976-8d253909e712")
-		(at 94.085 125.315)
+		(at 98.27 46.19 270)
 		(descr "4-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "PR7"
@@ -35529,7 +35529,7 @@
 	(footprint "Package_DIP:DIP-4_W7.62mm"
 		(layer "F.Cu")
 		(uuid "d7a0c4eb-fbcc-4fb1-9e98-f715c7591273")
-		(at 94.085 138.595)
+		(at 112.27 46.19 270)
 		(descr "4-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "PR9"
@@ -35796,7 +35796,7 @@
 	(footprint "coiltester:DIP-4_in_DIP-6_socket_W7.62mm"
 		(layer "F.Cu")
 		(uuid "d81a9d31-5741-4d56-8e0f-553f16d82334")
-		(at 105.605 112.315)
+		(at 56.54 46.19 270)
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U511"
@@ -38168,7 +38168,7 @@
 	(footprint "coiltester:DIP-4_in_DIP-6_socket_W7.62mm"
 		(layer "F.Cu")
 		(uuid "e64fd080-71ab-4901-993c-c2103e8bf6ee")
-		(at 105.605 131.775)
+		(at 74.54 46.19 270)
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U513"
@@ -44708,53 +44708,53 @@
 		)
 		(fill no)
 		(layer "Edge.Cuts")
-		(uuid "5e190625-14d0-4989-a9c3-74ba4f32c96d")
+		(uuid "a132cc2a-d238-4d50-ae89-ae60cec35c58")
 	)
 	(gr_line
-		(start 60 6)
-		(end 60 94)
+		(start 6 49)
+		(end 124 49)
 		(stroke
 			(width 0.05)
 			(type solid)
 		)
 		(layer "Edge.Cuts")
-		(uuid "c191edb4-542b-4520-984a-3f075a409a86")
+		(uuid "d357c2be-13c6-4a7a-8643-d8a46d008484")
 	)
 	(gr_line
-		(start 62 6)
-		(end 62 94)
+		(start 6 51)
+		(end 124 51)
 		(stroke
 			(width 0.05)
 			(type solid)
 		)
 		(layer "Edge.Cuts")
-		(uuid "547bbc03-1d96-421a-920b-c3c8009990f3")
+		(uuid "b7ccca9c-4162-4f6c-8f40-cbd8114affcc")
 	)
 	(gr_arc
-		(start 60 6)
-		(mid 61 5)
-		(end 62 6)
+		(start 6 49)
+		(mid 5 50)
+		(end 6 51)
 		(stroke
 			(width 0.05)
 			(type solid)
 		)
 		(layer "Edge.Cuts")
-		(uuid "ed48cba1-bcbf-4e87-9198-b380188125dd")
+		(uuid "8d117385-4ccc-4799-8bc6-076f5e831f8f")
 	)
 	(gr_arc
-		(start 62 94)
-		(mid 61 95)
-		(end 60 94)
+		(start 124 51)
+		(mid 125 50)
+		(end 124 49)
 		(stroke
 			(width 0.05)
 			(type solid)
 		)
 		(layer "Edge.Cuts")
-		(uuid "0c2e6465-18ab-4f79-a34a-273583a377de")
+		(uuid "16387621-1459-4087-b9da-d08371d4a640")
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(layer "F.Cu")
-		(uuid "360f93e9-49a0-4419-b2a4-a10086a02ee1")
+		(uuid "e0df94fe-2272-4c27-8818-1dd8b1a395e7")
 		(at 4 4)
 		(descr "Mounting Hole 3.2mm, M3, no annular, generated by kicad-footprint-generator mountinghole.py")
 		(tags "mountinghole M3")
@@ -44831,7 +44831,7 @@
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(layer "F.Cu")
-		(uuid "1fd7d9f1-180e-46bd-b7ce-67ba70ab69c6")
+		(uuid "e30b8339-05a3-42bf-a0c6-a221db26b3eb")
 		(at 126 4)
 		(descr "Mounting Hole 3.2mm, M3, no annular, generated by kicad-footprint-generator mountinghole.py")
 		(tags "mountinghole M3")
@@ -44908,7 +44908,7 @@
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(layer "F.Cu")
-		(uuid "5fe808b5-878a-4df9-91a0-37bb02d9dd51")
+		(uuid "b35706e9-1972-427e-9c9a-f0934756b351")
 		(at 4 96)
 		(descr "Mounting Hole 3.2mm, M3, no annular, generated by kicad-footprint-generator mountinghole.py")
 		(tags "mountinghole M3")
@@ -44985,7 +44985,7 @@
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(layer "F.Cu")
-		(uuid "e86cdad3-f9f6-4537-b522-0b55588e5ca2")
+		(uuid "274f330e-b0fb-40df-8e5c-1c117d6d51c6")
 		(at 126 96)
 		(descr "Mounting Hole 3.2mm, M3, no annular, generated by kicad-footprint-generator mountinghole.py")
 		(tags "mountinghole M3")

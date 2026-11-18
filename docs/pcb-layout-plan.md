@@ -19,7 +19,8 @@ hand-solderable SMD (0805, SOIC, MSOP, SOT-23, SOT-89, SMA/SMB, 1812).
 ## Isolation slot (D26)
 
 - Routed slot **2 mm wide**, copper pulled back **0.5 mm** on both sides: 3 mm copper to copper across the slot.
-- The slot does **not** run edge to edge: leave **5 mm solid bridges** at both ends so the board stays in one piece. No copper on a bridge.
+- The slot is **horizontal**, y = 49 to 51, x = 5 to 125 (round ends), and does **not** run edge to edge: **5 mm solid bridges** at the left and right edges keep the board in one piece. No copper on a bridge. (A vertical slot was tried first: the 13 straddling parts need about 100 mm along the slot and the board is only 100 mm tall.)
+- **Logic side on top (y < 49), 12 V side at the bottom (y > 51).**
 - Straddling parts (their two rows of pins sit on opposite sides of the slot): U101–U104 and U511–U513 (PC817 in 6-pin sockets, rows 7.62 mm apart), PR5–PR9 (AQY212EH, 7.62 mm), U506 (ADuM1250, pad gap 3.9 mm). The slot fits between their pads.
 - Why 2 mm and not 3 mm: the ADuM1250 pad gap leaves only 0.45 mm per side with a 3 mm slot and 0.93 mm with 2 mm; the 3 mm
   copper-to-copper distance already covers the 2.5 mm that IPC-2221 asks for at 400 V; the voltage across the barrier in
@@ -28,7 +29,7 @@ hand-solderable SMD (0805, SOIC, MSOP, SOT-23, SOT-89, SMA/SMB, 1812).
 
 ## Sides of the slot
 
-| 12 V side (GND_P) | logic side (GND_L) |
+| 12 V side (GND_P), bottom | logic side (GND_L), top |
 |---|---|
 | ARM stage: J1, F1, Q1, Q2, K1, Q3, C101, J3, J4, J21, J22, LEDs, R10x | Pico U1, expanders U2, U3, ADS modules JM1, JM2, J8, J10, SW301 |
 | CH-TG: regulators U501–U505, U504 pump, U507–U509, U510, J5, JP1, J9 | CH-R2 (J6, JC1) and CH-PU (J7, JC2, PR1, PR2, PR3, PR4, U401–U404) |
@@ -61,3 +62,15 @@ JP21/JP22: "CHAIN-B ONLY. Bridges isolation." J5: "Chain-B: unplug J5.1 (OUT)." 
 3. Place the 12 V side, then the logic side, then connectors on the edges.
 4. Route the Power5A and Power2A nets first, then the rest; pours last.
 5. DRC to zero errors, then silkscreen, then Gerbers and drill files.
+
+## Slot-straddling parts, already placed in the PCB file (2026-11-18)
+
+Centre x along the slot, centre y = 50. LED side of an optocoupler or photoMOS on the logic side (top), switch/transistor side on the 12 V side (bottom). U103 and U104 are the other way round (their LED is on the 12 V side).
+
+| Part | Footprint | Centre x (mm) | Rotation |
+|---|---|---|---|
+| U101, U102 | PC817 in DIP-6 socket | 15, 24 | 270 |
+| U103, U104 (LED on the 12 V side) | PC817 in DIP-6 socket | 33, 42 | 90 |
+| U511, U512, U513 | PC817 in DIP-6 socket | 54, 63, 72 | 270 |
+| PR5 to PR9 | DIP-4 | 83, 90, 97, 104, 111 | 270 |
+| U506 (ADuM1250) | SOIC-8 | 120 (not placed: rotate 270 in KiCad, pins 1-4 on the top row) | 270 |
