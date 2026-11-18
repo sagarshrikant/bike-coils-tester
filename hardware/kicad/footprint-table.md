@@ -55,7 +55,7 @@ Check each package against the datasheet picture once, not only the name.
 | Ref | Part | Footprint | Notes |
 |---|---|---|---|
 | R (SMD) | 0805 resistors | `Resistor_SMD:R_0805_2012Metric` | |
-| C (SMD) | 0805 capacitors | `Capacitor_SMD:C_0805_2012Metric` | The 10 µF: use `C_1206_3216Metric` if the ones in the cart are 1206 (check). |
+| C (SMD) | 0805 capacitors | `Capacitor_SMD:C_0805_2012Metric` | The 10 µF parts are also **0805** (KEMET 10 µF X7R 10 %, 16 V; ordered, confirmed 2026-11-18): use `C_0805_2012Metric`. All rails they sit on are 9 V or lower, so 16 V is enough (X7R loses capacity under DC bias, which is fine for decoupling). |
 | R_T1, R_T2 (R408, R409) | Vishay MBB0207, 100 kΩ | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | ✔ Checked 2026-11-18 (user-measured): body 6.5 × 2.5 mm, lead 0.6 mm, lead spacing 10 mm. The footprint is 6.3 × 2.5 mm, pitch 10.16 mm, drill 0.8 mm: the 0.6 mm lead fits, the pitch is 0.16 mm wider (bend the leads) and the body is 0.2 mm longer than drawn (inside the courtyard margin). Rated 350 V. Leave extra clearance (2 mm) to other copper. |
 | R_L1 (R402) | VIT ZC207 / ZCM207 1k MELF | `Resistor_SMD:R_MELF_MMB-0207` | ✔ Checked against the ZCM series datasheet (2026-11-18): body L 5.8 (+0/−0.3) × Ø 2.2 ±0.2 mm, end cap 1.25 mm, 1 W (power operation) / 0.4 W (standard) at 70 °C, 350 V max working. The KiCad footprint has pads 2.1 × 2.6 mm at ±2.45 mm (gap 2.8, span 7.0 mm): the same span and pad width as the datasheet's wave-soldering pads (gap 2.4, pad 2.3 × 2.6, span 7.0), and 0.4 mm more gap, which still sits under the end caps. Fine. The 1 W figure needs the board to keep the film cool; the pickup load is only pulsed. |
 | R_L2 | METALL 10k | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | |
@@ -76,5 +76,5 @@ Check each package against the datasheet picture once, not only the name.
 1. ESKA fuse clips: fit check of the 3.4 × 0.9 mm slots on the real part.
 2. SPTH 1.5 terminal blocks (J5 3-pole, J21 and J22 4-pole): datasheets still to check. The 2-pole SPTH 3 is done.
 3. Omron G5LE-1: fit check on the real relay (the stock footprint already matches the datasheet).
-4. The 10 µF capacitor package (0805 or 1206).
+4. ~~The 10 µF capacitor package~~ closed 2026-11-18: ordered as 0805.
 5. Pico socket pins: fit in the Pico footprint holes.

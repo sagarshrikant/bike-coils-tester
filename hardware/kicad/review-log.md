@@ -110,7 +110,7 @@ Hand-edited by the user (layout clean). ERC (ERC-ch-R2.rpt): 0 errors, 22 harmle
 | 3.2 | Node sense: R205 1k R2_NODE-V_NODE, C203 100n V_NODE-AGND, D201 SMAJ5.0CA R2_NODE-AGND, J6 1 R2_NODE / 2 AGND, JC1 1 3V3A / 2 V_NODE / 3 AGND | ok | matches |
 | 3.3 | PR3 self-test (470 ohm): 1 PR3_A, 2 GND_L, 3 R2_NODE, 4 PR3_B; R206 330 R2_CAL1-PR3_A; R207 470 0.1% PR3_B-AGND | ok | matches. LED side GND_L, switch side on the analog node: the photoMOS is the isolation crossing here |
 | 3.4 | PR4 self-test (47k): 1 PR4_A, 2 GND_L, 3 R2_NODE, 4 PR4_B; R208 330 R2_CAL2-PR4_A; R209 47k 0.1% PR4_B-AGND | ok | matches |
-| 3.5 | Analog supply: R210 10 ohm 3V3-3V3A; C204 10u and C205 100n 3V3A-AGND; NT1 net tie AGND-GND_L | ok | matches. NT1 is the only AGND to GND_L connection on this sheet (JM1 pin 2 and Pico pin 33 are on the AGND net, so the star point is NT1). Open: confirm the 10 uF capacitor package on arrival (footprint-table) |
+| 3.5 | Analog supply: R210 10 ohm 3V3-3V3A; C204 10u and C205 100n 3V3A-AGND; NT1 net tie AGND-GND_L | ok | matches. NT1 is the only AGND to GND_L connection on this sheet (JM1 pin 2 and Pico pin 33 are on the AGND net, so the star point is NT1). 10 uF capacitors are ordered as 0805: footprint change C_1206 to C_0805 listed in footprint-checklist.md (2026-11-18) |
 
 ## CH-R2 sheet: REVIEW COMPLETE (0 ERC errors). Hand-edited: do not regenerate.
 
@@ -167,7 +167,7 @@ ERC (ERC-ch-TG.rpt): first run 6 errors, all "power pin not driven" (12V_RAW, GN
 # Summary of the review (all five sheets)
 - I/O, ARM, CH-R2, CH-PU, CH-TG: every net compared point by point with the block pages / pin budget; no wiring errors found. Fixes were cosmetic or ERC-related (labels, references J21/J22 and SW301, PWR_FLAGs, a unit value text).
 - Open items carried to the next phase:
-  1. F1 fuse-holder footprint (measure ESKA 503101 clips on arrival), SPTH terminal blocks, Omron G5LE-1, 10 uF capacitor package, Pico socket holes.
+  1. F1 fuse-holder footprint (measure ESKA 503101 clips on arrival), SPTH terminal blocks, Omron G5LE-1, Pico socket holes. (10 uF capacitors: ordered as 0805, footprint change to do.)
   2. HV_RANGE0/1: decided in D23 (pull-down R325/R326, 00 = highest range, J8 15/16). Drawn on the I/O sheet 2026-11-18. HV_PKRST has no J8 pin (stays unrouted).
   3. ~~4052 pin numbers against the HEF4052BT datasheet~~ closed 2026-11-17 (see 5.12).
   4. Isolated 12 V to 5 V module and VSYS diode: decided in D22 (U_ISO + D_VSYS, DNP, ARM sheet), still to be drawn on the sheet and its footprint to be made. CH-SP and the rig connectors are not on any sheet yet.
