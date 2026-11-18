@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: next task = step 5 (12V_MID R105.1), then steps 9-10 (12V_ARMED branches)**F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
+**RESUME HERE: next task = 12V_ARMED branches (near: R106,R107,R109,R510,R530; far: C505,C509,C515,U503,U505,U509)**F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
 
 ## Milestones (Claude's overview)
@@ -45,6 +45,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18 16:47: 12V_IN, IN_FUSED, 12V_RAW, 12V_MID, OUT1, OUT2 all routed. Only 12V_ARMED branches open.
 - 2026-11-18: R110-R115 (logic parts: GND_L/3V3 nets) moved from the power side to the logic side, row at board y 58.5 above the opto sockets U101-U104 (they were wrongly in the power set). 12V_RAW: C102.1 piece found open after user save, to be checked.
 - 2026-11-18 16:20: 12V_RAW fully routed (11 pads). Open: 12V_MID R105.1; 12V_ARMED branches.
 - 2026-11-18: C501 and C509 swapped (C501 now 3.5 mm below U501 pin 3; C509 beside C505). 12V_RAW left spur (U102.4, U501.3 joined; C501.1 and the link to J22.1 still open, 0.5 mm).
