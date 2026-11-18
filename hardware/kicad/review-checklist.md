@@ -22,7 +22,7 @@ The sheets are netlist-style: every pin has a global label. Nothing here was ope
 3. NT1 net tie joins AGND to GND_L (the only connection between them).
 
 ## I/O (`mainboard-io`)
-1. Compare every Pico pin label with docs/pin-budget.md. 2. Expander pull directions (RANGE100 up, all others down, including HV_RANGE0/1 = R325/R326, D23). 3. J8 pin list.
+1. Compare every Pico pin label with docs/pin-budget.md. 2. J9, J10, JP2 (D24) present and wired as in mainboard.md. Expander pull directions (RANGE100 up, all others down, including HV_RANGE0/1 = R325/R326, D23). 3. J8 pin list.
 
 ## CH-PU (`mainboard-ch-pu`)
 1. Pickup input: IN- is AGND. R_T1 + R_T2 in series, axial 0.6 W. 2. U402 (4066): unused switch tied to ground, VDD = 3V3A.

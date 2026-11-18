@@ -60,7 +60,7 @@ relay drives, enables, comparator outputs, pulse outputs.
 | EXP1.A5 | PU_TEST: self-test injection drive | high-Z (input) |
 | EXP1.A6 | PU_PKRST_P: positive peak-hold reset (drive low) | high-Z |
 | EXP1.A7 | PU_PKRST_N: negative peak-hold reset (drive high) | high-Z |
-| EXP1.B0–B3 | spare (the amplitude is now set by the DACs on the isolated bus, D17) | |
+| EXP1.B0–B3 | spare, routed to J10 11-14 as EXP1_B0-B3 (D24) | |
 | EXP1.B4–B6 | TG_IMP0–2: source-impedance photo-relays (100 Ω / 470 Ω / 2.2 kΩ, select one) | off (output open) |
 | EXP1.B7 | TG_EN: output enable (the mux INH line) | **off = disabled** |
 | EXP2.A0 | R4_EN: low-ohm current source enable | off |
@@ -72,7 +72,7 @@ relay drives, enables, comparator outputs, pulse outputs.
 | EXP2.A7 | R2_CAL2: self-test 47 kΩ photo-relay (PR4) | off |
 | EXP2.B0 | KILL_GND: SHUT DOWN to GND_P photo-relay | off |
 | EXP2.B1 | KILL_HI: SHUT DOWN to 12V_ARMED photo-relay | off |
-| EXP2.B2–B7 | spare (6 lines) | |
+| EXP2.B2–B7 | spare (6 lines), routed to J10 15-20 as EXP2_B2-B7 (EXP2_B2 suggested for an external AC source enable) (D24) | |
 
 Total slow lines used: 22 of 32 (10 spare). Fast lines used: 25 of 26 (GP1 spare).
 
