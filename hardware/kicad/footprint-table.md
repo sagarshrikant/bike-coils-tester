@@ -47,7 +47,7 @@ Check each package against the datasheet picture once, not only the name.
 | D8 | P4SMAJ15CA | `Diode_SMD:D_SMA` | Bidirectional. |
 | D1 (ARM) | SM6T18CA | `Diode_SMD:D_SMB` | Bidirectional. |
 | D_VSYS | 1N5819 (DNP) | `Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal` | Band (cathode) toward VSYS. Optional stand-alone supply, D22. |
-| F1 | ESKA 503101, 5 × 20 fuse | clip holder ×2, footprint to be drawn | ⚠ The ESKA catalogue (page 16, 503.000/.100/.200/.600) gives: 503.101 = white, solder **pin** (bottom); pitch between the clips **22.5 mm**; body 28.2 × 8.0 mm; 250 V, 6.3 A; brass, tinned. It has **no** pin diameter, drill size or pin offset. **Measure the pin diameter and the pin position across the 8 mm width when it arrives**, then draw the custom footprint. Provisional: two pads 22.5 mm apart, centred on the width, 1.5 mm drill (verify before ordering). |
+| F1 | ESKA 503101, 5 × 20 fuse | `coiltester:Fuseholder_ESKA_503101` (custom, `hardware/kicad/mainboard/coiltester.pretty/`) | Drawn 2026-11-18. User-measured: body 28.2 × 8.0 mm, flat pins 3.0 × 0.5 mm, pitch 22.5 mm (also in the ESKA catalogue), M3 × 4.5 screw at the centre. Pads 1 and 2 at ±11.25 mm, **round 3.3 mm drill, 5.0 mm pad** (the diagonal of the 3.0 × 0.5 pin is 3.04 mm, so it fits in either orientation), 3.2 mm non-plated hole at the centre, courtyard 29.2 × 9 mm. ⚠ Pin position across the width is assumed to be on the centreline (not measured). Keep copper out of the screw-head area (about 6 mm dia). |
 | F2 ×2 | SMD1812P200TF/16 | `Fuse:Fuse_1812_4532Metric` | |
 
 ## Passives and connectors
@@ -73,7 +73,7 @@ Check each package against the datasheet picture once, not only the name.
 
 ## To measure when the parts arrive (before layout is final)
 
-1. ESKA fuse clips: pin diameter, drill and pin offset across the width (pitch 22.5 mm is from the datasheet).
+1. ESKA fuse clips: pin position across the 8 mm width (assumed on the centreline); a slot instead of the round 3.3 mm hole once the pin orientation is known.
 2. SPTH terminal blocks: pin diameter, pin spacing, housing width.
 3. Omron G5LE-1: fit check on the real relay (the stock footprint already matches the datasheet).
 4. The 10 µF capacitor package (0805 or 1206).

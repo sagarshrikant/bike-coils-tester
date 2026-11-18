@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "coiltester")(type "KiCad")(uri "${KIPRJMOD}/coiltester.pretty")(options "")(descr "Project footprints (custom parts)"))
+)
