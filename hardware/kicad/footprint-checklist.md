@@ -23,7 +23,7 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - [x] **Q3** (ARM) 2N7000, `TO-92_Inline`: checked against the Diotec 2N7000 datasheet (Reichelt, version 2011-02-16) on 2026-11-18: drawing shows the pins S, G, D in order = 1 S, 2 G, 3 D, same as the KiCad symbol. Not a BS170.
 - [x] **U505** (CH-TG) 78L09 TO-92: checked against the Hottech 78Lxx datasheet 2026-11-18. The package picture lists the pins OUT, GND, IN = 1, 2, 3 (flat face toward you, leads down: OUT is on the left). Reichelt sells the Hottech part, so the sheet value "uA78L09" is the same function. Input max 30 V; the output is guaranteed for Vin 12-24 V, so keep the supply at 12 V or more.
 - [ ] **U501, U503** (CH-TG) TS78L05ACY, `SOT-89-3`: 1 OUT, 2 GND (tab), 3 IN.
-- [ ] **U101–U104** (ARM), **U511–U513** (CH-TG) PC817, `DIP-4_W7.62mm`: 1 anode, 2 cathode, 3 emitter, 4 collector.
+- [ ] **U101–U104** (ARM), **U511–U513** (CH-TG) PC817: **change the footprint in KiCad from `DIP-4_W7.62mm` to `coiltester:DIP-4_in_DIP-6_socket_W7.62mm`** (they go in 6-pin sockets). Pins 1 anode, 2 cathode, 3 emitter, 4 collector (confirmed).
 - [ ] **U504** (CH-TG) ICL7660, `DIP-8_W7.62mm`: 1 NC, 2 CAP+, 3 GND, 4 CAP−, 5 VOUT, 6 LV, 7 OSC, 8 V+.
 - [ ] **U510** (CH-TG) HEF4052BT, `SOIC-16_3.9x9.9mm_P1.27mm`: pinout confirmed 2026-11-17.
 - [ ] **U404** (CH-PU) MCP4822-E/P, `DIP-8_W7.62mm`; **U507, U508** MCP4725, `SOT-23-6`; **U506** ADuM1250, `SOIC-8`; **U509** TL072, `SOIC-8`: pin orders were confirmed from your pictures.

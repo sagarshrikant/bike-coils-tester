@@ -30,7 +30,7 @@ Check each package against the datasheet picture once, not only the name.
 | U11 | MCP1702T-3302E/CB (SOT-23A) | `Package_TO_SOT_SMD:SOT-23` | Pinout confirmed from the user's picture (`hardware/mcp1702-sot-23a-pinout.png`): 1 GND, 2 VOUT, 3 VIN. Use KiCad's `Regulator_Linear:MCP1702-3302_SOT23` and check its pin names against this. Needs 1 µF ceramic on input and output. |
 | PR1, PR2 | AQY210EH | `Package_DIP:DIP-4_W7.62mm` | 1 LED anode, 2 LED cathode, 3 and 4 switch. Same pins as the PC817 except for what the pins mean. |
 | PR3–PR9 | AQY212EH | `Package_DIP:DIP-4_W7.62mm` | Same. The two switch pins straddle the isolation slot where needed. |
-| opto (7) | PC817X1NSZ1B | `Package_DIP:DIP-4_W7.62mm` | ⚠ 1 anode, 2 cathode, 3 emitter, 4 collector. |
+| opto (7) | PC817X1NSZ1B, in a 6-pin DIP socket | `coiltester:DIP-4_in_DIP-6_socket_W7.62mm` (custom) | User-confirmed 2026-11-18: pins 1 anode, 2 cathode, 3 emitter, 4 collector; the sockets are 7.62 mm wide, 2.54 mm pitch, 5.08 mm over the three pins of a row (6-pin). The IC goes in the top two positions; the extra two holes are for the socket's unused pins. The isolation slot runs between the two rows (7.62 mm apart). |
 | K1 | Omron G5LE-1 DC12 | `Relay_THT:Relay_SPDT_Omron-G5LE-1` | ✔ Checked against the Omron G5LE datasheet (2026-11-17): the stock footprint matches. Pads (top view, mm, pin 1 at 0,0): 2 (−6, 2), 5 (6, 2), 3 (−6, 14.2), 4 (6, 14.2); drill 1.3 (datasheet: 1.3 dia., ±0.1), pad 2.5. Coil pins 12.0 apart, 2.0 from COM; contacts 12.2 from the coil pins. Body 22.5 × 16.5 × 19 max. Pin numbers: 1 COM, 2/5 coil, 3 NO, 4 NC. Only a quick fit check on the real relay remains. |
 
 ## Transistors, diodes, protection
@@ -81,3 +81,5 @@ Check each package against the datasheet picture once, not only the name.
 3. Omron G5LE-1: fit check on the real relay (the stock footprint already matches the datasheet).
 4. ~~The 10 µF capacitor package~~ closed 2026-11-18: ordered as 0805.
 5. Pico socket pins: fit in the Pico footprint holes.
+
+All DIP ICs (MCP23017, MCP4822, ICL7660, PC817) go into sockets with 2.54 mm pitch, 7.62 mm row spacing; the sockets are taller and wider than the ICs, so leave courtyard room around them in the layout.
