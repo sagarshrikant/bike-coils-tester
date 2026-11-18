@@ -38,8 +38,8 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - [x] **R405** (10k 0.5 W): checked 2026-11-18, body Ø 2.3 × 6.5 mm, lead 0.6 mm; fits `R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm` at the 10.16 mm pitch.
 - [x] **R402** (1k 1 W MELF ZCM207): checked 2026-11-18, body 5.8 × Ø 2.2 mm; `R_MELF_MMB-0207` matches the datasheet's pad span (7.0) and width (2.6).
 - [x] **C101** (470u, 25 V): checked 2026-11-18, Ø 10 × 16 mm, spacing 5 mm; exact match with `CP_Radial_D10.0mm_P5.00mm` (1.0 mm drill, 2.0 mm pad).
-- [ ] **C204, C503, C506, C507, C508, C510, C518** (10 µF): **change from `C_1206_3216Metric` to `C_0805_2012Metric` in KiCad** (ordered as 0805, KEMET X7R 16 V). C204 also uses a polarized symbol; a ceramic has no polarity, so swap it for `Device:C` if you want the symbol to match.
-- [ ] **R107** (4.7k, bleeds `12V_ARMED`): **change from `R_1206_3216Metric` to `R_0805_2012Metric` in KiCad**: all the 4.7k you bought are 0805, 125 mW. The load is 14 V² / 4.7k = 42 mW at the worst case (14 V supply), about a third of the rating, so 0805 is fine. Also fix the value text on the ARM sheet (it says 0.5W).
+- [x] **C204, C503, C506, C507, C508, C510, C518** (10 µF): changed to `C_0805_2012Metric` in the sheets 2026-11-18 (ordered as 0805). C204 still uses a polarized symbol; optional to swap for `Device:C`.
+- [x] **R107** (4.7k, bleeds `12V_ARMED`): changed to `R_0805_2012Metric` and the value text corrected 2026-11-18 (0805, 125 mW; worst case 42 mW).
 - [ ] **F2, F3**: `Fuse_1812_4532Metric` (SMD1812P200TF/16).
 - [ ] **U1** Pico 2 W: `RaspberryPi_Pico_Common_THT` with two 1×20 sockets.
 
@@ -47,12 +47,11 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 
 - Mounting holes (4 × M3), test points TP1…TP22, CH-HV, CH-SP, rig connectors (J8 only), U_ISO (DNP, no part ordered).
 
-## All parts by footprint
+## All parts by footprint (regenerated 2026-11-18 from the sheets, after the 0805 changes)
 
-- `Resistor_SMD:R_0805_2012Metric` (89): R101, R102, R103, R104, R105, R106, R108, R109, R110, R111, R112, R113, R114, R115, R201, R202, R203, R204, R205, R206, R207, R208, R209, R210, R301, R302, R303, R310, R311, R312, R313, R314, R315, R316, R317, R318, R319, R320, R321, R322, R323, R324, R325, R326, R403, R406, R407, R410, R411, R412, R413, R414, R415, R416, R417, R418, R419, R420, R501, R502, R503, R504, R505, R506, R507, R508, R509, R510, R511, R512, R513, R514, R515, R516, R517, R518, R519, R520, R521, R522, R523, R524, R525, R526, R527, R528, R529, R530, R531
-- `Capacitor_SMD:C_0805_2012Metric` (27): C102, C201, C202, C203, C205, C301, C302, C402, C403, C404, C405, C406, C407, C408, C501, C502, C504, C505, C509, C511, C512, C513, C514, C515, C516, C517, C519
+- `Resistor_SMD:R_0805_2012Metric` (90): R101, R102, R103, R104, R105, R106, R107, R108, R109, R110, R111, R112, R113, R114, R115, R201, R202, R203, R204, R205, R206, R207, R208, R209, R210, R301, R302, R303, R310, R311, R312, R313, R314, R315, R316, R317, R318, R319, R320, R321, R322, R323, R324, R325, R326, R403, R406, R407, R410, R411, R412, R413, R414, R415, R416, R417, R418, R419, R420, R501, R502, R503, R504, R505, R506, R507, R508, R509, R510, R511, R512, R513, R514, R515, R516, R517, R518, R519, R520, R521, R522, R523, R524, R525, R526, R527, R528, R529, R530, R531
+- `Capacitor_SMD:C_0805_2012Metric` (34): C102, C201, C202, C203, C204, C205, C301, C302, C402, C403, C404, C405, C406, C407, C408, C501, C502, C503, C504, C505, C506, C507, C508, C509, C510, C511, C512, C513, C514, C515, C516, C517, C518, C519
 - `Package_DIP:DIP-4_W7.62mm` (16): PR1, PR2, PR3, PR4, PR5, PR6, PR7, PR8, PR9, U101, U102, U103, U104, U511, U512, U513
-- `Capacitor_SMD:C_1206_3216Metric` (7): C204, C503, C506, C507, C508, C510, C518
 - `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal` (5): J1, J3, J4, J6, J7
 - `Diode_SMD:D_SMA` (3): D201, D401, D501
 - `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` (3): U403, U506, U509
@@ -72,7 +71,6 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - `Button_Switch_THT:SW_PUSH_6mm` (1): SW301
 - `Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical` (1): J8
 - `Module:RaspberryPi_Pico_Common_THT` (1): U1
-- `Resistor_SMD:R_1206_3216Metric` (1): R107
 - `Relay_THT:Relay_SPDT_Omron-G5LE-1` (1): K1
 - `Capacitor_THT:CP_Radial_D10.0mm_P5.00mm` (1): C101
 - `(none)` (1): F1
