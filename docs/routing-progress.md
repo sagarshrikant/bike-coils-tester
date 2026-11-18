@@ -37,7 +37,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 
 - [x] **T1.1** `12V_IN`: J1 pin 1 (x 95.15, y 132.38) straight up to F1 pad 1 (x 95.15, y 122.13), 10 mm, 3 mm wide, on F.Cu.
 - [x] **T1.2** `IN_FUSED`: F1 pad 2 (95.15, 99.63) to Q1 pin 2 (105.15, 100.23). The TO-220 pins are only 2.54 mm apart, so a 3 mm track cannot end on one pin: use 1.5 mm for the last 3 mm at the pin (press **W** while routing to change the width), or draw the net as a zone later.
-- [ ] **T1.3** `12V_RAW`, main trunk: Q1 pin 3 to Q2 pin 3, then to C101 pin 1, C102 pin 1 and D101 pin 1.
+- [ ] **T1.3** `12V_RAW`, trunk part 1: Q1 pin 3 (104.50, 96.96) to Q2 pin 3 (116.75, 97.29). 1.5 mm for the first 2 mm (to x 106.5) and the last 2 mm (from x 114.5), 3 mm in between.
+- [ ] **T1.3b** `12V_RAW`, trunk part 2: from the trunk to C101 pin 1 (103.15, 114.48), C102 pin 1 (108.20, 93.86) and D101 pin 1 (101.95, 122.78).
 - [ ] **T1.4** `12V_RAW`, branches: R102 pad 1, R108 pad 1, J22 pin 1, U102 pin 4.
 - [ ] **T1.5** `12V_RAW`, regulator: U501 pin 3 and C501 pad 1 (0.5 mm is enough; the net class decides).
 - [ ] **T1.6** `12V_MID`: Q2 pin 2 to K1 pin 1 and R105 pad 1.
