@@ -92,7 +92,7 @@ at boot before anything else. Full line list: `docs/pin-budget.md`.
 | EXP1.B4–B6 | TG_IMP0–2 | 10 kΩ down |
 | EXP1.B7 | TG_EN | 10 kΩ down (disabled) |
 | EXP2.A0, A1 | R4_EN, INS_EN | 10 kΩ down |
-| EXP2.A2, A3 | HV_RANGE0, 1 | defined by the CH-HV design (later) |
+| EXP2.A2, A3 | HV_RANGE0, 1 | R325, R326 10 kΩ **down** (00 = highest range, D23) |
 | EXP2.A4 | HV_PKRST | none |
 | EXP2.A5 | MID_SENSE (input) | 10 kΩ up |
 | EXP2.A6, A7 | R2_CAL1, R2_CAL2 | 10 kΩ down |
@@ -110,7 +110,7 @@ at boot before anything else. Full line list: `docs/pin-budget.md`.
 | J5 | 3 | CDI: 1 TRIG+, 2 SHUT DOWN, 3 GND_P (green wires) |
 | J6 | 2 | CH-R2: DUT+, DUT− (to AGND) |
 | J7 | 2 | CH-PU pickup: IN+, IN− |
-| J8 | 2 × 8 header | expansion: 1 3V3, 2 GND_L, 3 SDA, 4 SCL, 5 GP1, 6 GP8, 7 GP9, 8 GP10, 9 GP11, 10 GP12, 11 GP16, 12 GP21, 13 VSYS, 14 GND_L, 15–16 spare |
+| J8 | 2 × 8 header | expansion: 1 3V3, 2 GND_L, 3 SDA, 4 SCL, 5 GP1, 6 GP8, 7 GP9, 8 GP10, 9 GP11, 10 GP12, 11 GP16, 12 GP21, 13 VSYS, 14 GND_L, 15 HV_RANGE0, 16 HV_RANGE1 (D23) |
 | JP1 | 1 × 3 header + jumper | 4052 mux VDD: 1 = +5V_P, 3 = +9V_P from U20 (default, jumper on 2–3) |
 | JC1, JC2 | 1 × 3 female | plug-in clamp modules: 1 = 3V3A, 2 = NODE, 3 = GND. JC1 for CH-R2, JC2 for CH-PU. Module = BAT54S |
 | JM1, JM2 | 1 × 10 female header | ADS1115 breakout modules (0x48 on the logic side, 0x49 on the 12 V side). Typical pin order: VDD, GND, SCL, SDA, ADDR, ALRT, A0–A3: confirm with the module |

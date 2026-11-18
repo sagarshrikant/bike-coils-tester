@@ -8,7 +8,7 @@ The sheets are netlist-style: every pin has a global label. Nothing here was ope
 - Stand-in symbols (same pinout, other name): AQY282EH for AQY212EH and AQY210EH, MCP6002-xMS for MCP6472-E/MS, MCP6562 for MCP6542,
   HEF4066BT for 74HC4066, MCP1700x-330xxTT for MCP1702. The real names are in each symbol's Value field and the BOM.
 - References: ARM 100-series, CH-R2 200, I/O 300, CH-PU 400, CH-TG 500. Annotate with "keep existing references".
-- Single-label nets that are expected: VBUS, HV_RANGE0/1, HV_PKRST (CH-HV later), ADS1_ALRT, ADS2_ALRT, ADS1_A3_SPARE.
+- Single-label nets that are expected: VBUS, HV_PKRST (CH-HV later; HV_RANGE0/1 now go to J8 15/16), ADS1_ALRT, ADS2_ALRT, ADS1_A3_SPARE.
 
 ## ARM (`mainboard-arm`)
 1. Relay K1: COM (pin 1) = 12V_MID, NO (pin 3) = 12V_ARMED, coil pins 2 and 5, pin 4 not connected. Compare with the Omron pin diagram.
@@ -22,7 +22,7 @@ The sheets are netlist-style: every pin has a global label. Nothing here was ope
 3. NT1 net tie joins AGND to GND_L (the only connection between them).
 
 ## I/O (`mainboard-io`)
-1. Compare every Pico pin label with docs/pin-budget.md. 2. Expander pull directions (RANGE100 up, all others down). 3. J8 pin list.
+1. Compare every Pico pin label with docs/pin-budget.md. 2. Expander pull directions (RANGE100 up, all others down, including HV_RANGE0/1 = R325/R326, D23). 3. J8 pin list.
 
 ## CH-PU (`mainboard-ch-pu`)
 1. Pickup input: IN- is AGND. R_T1 + R_T2 in series, axial 0.6 W. 2. U402 (4066): unused switch tied to ground, VDD = 3V3A.

@@ -53,7 +53,7 @@ Still to check: pin 18 (RESET) and GPA pins 21-28.
 ### 1.10 Pull resistors R310-R324: match
 14 pull-downs to GND_L: PU_RANGE5, PU_RANGE20, PU_LOAD1, PU_LOAD2, TG_IMP0-2, TG_EN, R4_EN, INS_EN, R2_CAL1, R2_CAL2, KILL_GND, KILL_HI. One pull-up to 3V3: PU_RANGE100 (R324), the least sensitive range.
 No pull on purpose (high-Z by design): PU_TEST, PU_PKRST_P/N, HV_PKRST, MID_SENSE.
-OPEN for CH-HV: HV_RANGE0/1 should default to the highest range (pin budget). Decide the pull directions when the CH-HV divider is designed; no resistors on the I/O sheet yet.
+DECIDED 2026-11-17 (D23): HV_RANGE0/1 get 10 kΩ pull-downs R325 and R326 to GND_L (00 = highest range). FIXED 2026-11-18: R325 and R326 (10k, GND_L to HV_RANGE0 / HV_RANGE1) are on the I/O sheet.
 
 ### 1.11 JM1 (ADS1115 0x48, logic side): matches the module order
 1 3V3A (user read "3V3": confirm it says 3V3A, the filtered analog supply), 2 AGND, 3 SCL, 4 SDA, 5 GND_L (ADDR to ground = 0x48), 6 ADS1_ALRT, 7 V_NODE (A0), 8 V_TOP1K (A1), 9 V_TOP10K (A2), 10 ADS1_A3_SPARE (A3).
@@ -66,7 +66,7 @@ JM1 pin 1 confirmed 3V3A.
 
 JM2 pins 3 and 4 confirmed SCL_P / SDA_P (isolated segment). JM2 is finished.
 
-### 1.13 J8 expansion header: all 14 pins match (15-16 NC)
+### 1.13 J8 expansion header: all 14 pins match (15-16 NC); D23 changes 15-16 to HV_RANGE0 / HV_RANGE1: FIXED 2026-11-18 (no-connect marks removed, labels on J8 15 and 16; checked in the file, ERC re-run still to do)
 Note: J8 pin 13 carries VSYS (the 5 V rail), pins 6-10 are the Pico GP8-GP12 fast lines, pin 12 is EXP_INT.
 
 ### 1.14 Bus pull-ups: match
@@ -153,7 +153,7 @@ ERC (ERC-ch-TG.rpt): first run 6 errors, all "power pin not driven" (12V_RAW, GN
 | 5.9 | U509 TL072: A 3 DAC_P (+), 2 TG_FBP (-), 1 V_AMP+; B 5 GND_P (+), 6 TG_FBN (-), 7 V_AMP-; C 8 12V_ARMED, 4 -5V_P | ok | matches. A = non-inverting gain 3, B = inverting gain -1 |
 | 5.10 | R512 10k TG_FBP-GND_P, R513 20k TG_FBP-V_AMP+ (gain 3); R514 10k DAC_N-TG_FBN, R515 10k TG_FBN-V_AMP- (gain -1); C513/C514 100n 3V3_P-GND_P, C515 100n 12V_ARMED-GND_P, C516 100n GND_P-(-5V_P) | ok | matches. Block 3 complete |
 | 5.11 | U510 4052 signal pins: 11 GND_P (X3), 12 GND_P (X0), 13 TG_S (common X), 14 V_AMP- (X1), 15 V_AMP+ (X2) | ok | matches. Truth table checked (B A): idle 11 = X3 = GND; pulse A on = MUX_A low, MUX_B high = 10 = X2 = V_AMP+; pulse B on = 01 = X1 = V_AMP- |
-| 5.12 | U510 control/power: 9 MUX_B, 10 MUX_A, 6 MUX_INH, 7 -5V_P (VEE), 8 GND_P, 16 MUX_VDD; unused pins 1-5 GND_P | ok | matches. Open: pin numbers match the 74HC4052/CD4052B SOIC-16 pinout; verify against the datasheet of the part actually bought (HEF4052BT) |
+| 5.12 | U510 control/power: 9 MUX_B, 10 MUX_A, 6 MUX_INH, 7 -5V_P (VEE), 8 GND_P, 16 MUX_VDD; unused pins 1-5 GND_P | ok | matches. Closed 2026-11-17: user checked the HEF4052BT datasheet pinout (1,2,4,5 Y channels, 3 Y common, 6 INH, 7 VEE, 8 Vss, 9 B, 10 A, 11,12,14,15 X channels, 13 X common, 16 VDD): all pins match. The X channel numbers (12 = X0, 14 = X1, 15 = X2, 11 = X3) are the standard 4052 numbering, not stated in the user message; confirm once in the function table |
 | 5.13 | JP1: 1 +5V_P, 2 MUX_VDD, 3 +9V_P (jumper 2-3 = +9V_P default); C517 100n, C518 10u MUX_VDD-GND_P; C519 100n GND_P to -5V_P | ok | matches. Supply range: VDD 9 V and VEE -5 V = 14 V total (4052 max 15.5 V); control inputs reference VSS = GND_P. Block 4 complete |
 | 5.14 | U511 (pulse A): 1 U511_A, 2 GND_L, 3 GND_P, 4 MUX_A; R516 330 TG_PULSE_A-U511_A; R517 4.7k MUX_VDD-MUX_A | ok | matches. Isolation crossing |
 | 5.15 | U512 (pulse B): 1 U512_A, 2 GND_L, 3 GND_P, 4 MUX_B; U513 (enable): 1 U513_A, 2 GND_L, 3 GND_P, 4 MUX_INH; R518 330 TG_PULSE_B-U512_A, R519 4.7k MUX_VDD-MUX_B, R520 330 TG_EN-U513_A, R521 4.7k MUX_VDD-MUX_INH | ok | matches. TG_EN low (default, pulled down): LED off, MUX_INH high = mux disabled. Block 5 complete |
@@ -168,9 +168,9 @@ ERC (ERC-ch-TG.rpt): first run 6 errors, all "power pin not driven" (12V_RAW, GN
 - I/O, ARM, CH-R2, CH-PU, CH-TG: every net compared point by point with the block pages / pin budget; no wiring errors found. Fixes were cosmetic or ERC-related (labels, references J21/J22 and SW301, PWR_FLAGs, a unit value text).
 - Open items carried to the next phase:
   1. F1 fuse-holder footprint (measure ESKA 503101 clips on arrival), SPTH terminal blocks, Omron G5LE-1, 10 uF capacitor package, Pico socket holes.
-  2. CH-HV: HV_RANGE0/1 pull directions (highest range by default).
-  3. 4052 pin numbers against the datasheet of the HEF4052BT actually bought.
-  4. Isolated 12 V to 5 V module and VSYS diode, CH-SP, rig connectors: not on any sheet yet.
+  2. HV_RANGE0/1: decided in D23 (pull-down R325/R326, 00 = highest range, J8 15/16). Drawn on the I/O sheet 2026-11-18. HV_PKRST has no J8 pin (stays unrouted).
+  3. ~~4052 pin numbers against the HEF4052BT datasheet~~ closed 2026-11-17 (see 5.12).
+  4. Isolated 12 V to 5 V module and VSYS diode: decided in D22 (U_ISO + D_VSYS, DNP, ARM sheet), still to be drawn on the sheet and its footprint to be made. CH-SP and the rig connectors are not on any sheet yet.
   5. Once all five sheets are in one project, re-run ERC (the single-label and "input not driven" items should disappear).
   6. Stand-in symbols (AQY282EH, MCP6002, MCP6562, HEF4066BT, MCP1700): values hold the real parts; footprints are what matter for the PCB.
 

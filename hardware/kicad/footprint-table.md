@@ -19,6 +19,7 @@ Check each package against the datasheet picture once, not only the name.
 | CH-PU U2 | 74HC4066 (SO-14) | `Package_SO:SOIC-14_3.9x8.7mm_P1.27mm` | Pin 7 = GND, 14 = VCC. |
 | CH-PU U3 | MCP6542-I/SN | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | 1 OUTA, 2 INA−, 3 INA+, 4 VSS, 5 INB+, 6 INB−, 7 OUTB, 8 VDD. Push-pull output. |
 | CH-PU U4 | MCP4822-E/P | `Package_DIP:DIP-8_W7.62mm` | Confirmed from the user's picture (`hardware/MCP4822-dip8-piout.png`): 1 VDD, 2 CS, 3 SCK, 4 SDI, 5 LDAC, 6 VOUTB, 7 VSS, 8 VOUTA. |
+| U_ISO | none ordered (DNP) | no footprint yet | Optional stand-alone supply, D22. Pick the part and draw its footprint only if it is ever fitted. |
 | U14 | ADuM1250ARZ | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | Confirmed from the user's picture (`hardware/ADuM1250-piout.png`): 1 VDD1, 2 SDA1, 3 SCL1, 4 GND1, 5 GND2, 6 SCL2, 7 SDA2, 8 VDD2. |
 | U16, U17 | MCP4725A0T-E/CH | `Package_TO_SOT_SMD:SOT-23-6` | Confirmed from the user's picture (`hardware/MCP4725-SOT23-6-pinout.png`): 1 VOUT, 2 VSS, 3 VDD, 4 SDA, 5 SCL, 6 A0. |
 | U18 | TL072CD | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | Pin 4 V−, 8 V+. |
@@ -30,7 +31,7 @@ Check each package against the datasheet picture once, not only the name.
 | PR1, PR2 | AQY210EH | `Package_DIP:DIP-4_W7.62mm` | 1 LED anode, 2 LED cathode, 3 and 4 switch. Same pins as the PC817 except for what the pins mean. |
 | PR3–PR9 | AQY212EH | `Package_DIP:DIP-4_W7.62mm` | Same. The two switch pins straddle the isolation slot where needed. |
 | opto (7) | PC817X1NSZ1B | `Package_DIP:DIP-4_W7.62mm` | ⚠ 1 anode, 2 cathode, 3 emitter, 4 collector. |
-| K1 | Omron G5LE-1 DC12 | `Relay_THT:Relay_SPDT_Omron-G5LE-1` | Measure after delivery: pin spacing. |
+| K1 | Omron G5LE-1 DC12 | `Relay_THT:Relay_SPDT_Omron-G5LE-1` | ✔ Checked against the Omron G5LE datasheet (2026-11-17): the stock footprint matches. Pads (top view, mm, pin 1 at 0,0): 2 (−6, 2), 5 (6, 2), 3 (−6, 14.2), 4 (6, 14.2); drill 1.3 (datasheet: 1.3 dia., ±0.1), pad 2.5. Coil pins 12.0 apart, 2.0 from COM; contacts 12.2 from the coil pins. Body 22.5 × 16.5 × 19 max. Pin numbers: 1 COM, 2/5 coil, 3 NO, 4 NC. Only a quick fit check on the real relay remains. |
 
 ## Transistors, diodes, protection
 
@@ -45,7 +46,8 @@ Check each package against the datasheet picture once, not only the name.
 | D1 (PU) | P4SMAJ120CA | `Diode_SMD:D_SMA` | Bidirectional. |
 | D8 | P4SMAJ15CA | `Diode_SMD:D_SMA` | Bidirectional. |
 | D1 (ARM) | SM6T18CA | `Diode_SMD:D_SMB` | Bidirectional. |
-| F1 | ESKA 503101, 5 × 20 fuse | clip holder ×2, footprint to be drawn | ⚠ The Reichelt page gives no dimensions. **Measure the clip when it arrives** (pin spacing within one clip and the distance between the two clips for a 20 mm fuse), then I draw a custom footprint. |
+| D_VSYS | 1N5819 (DNP) | `Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal` | Band (cathode) toward VSYS. Optional stand-alone supply, D22. |
+| F1 | ESKA 503101, 5 × 20 fuse | clip holder ×2, footprint to be drawn | ⚠ The ESKA catalogue (page 16, 503.000/.100/.200/.600) gives: 503.101 = white, solder **pin** (bottom); pitch between the clips **22.5 mm**; body 28.2 × 8.0 mm; 250 V, 6.3 A; brass, tinned. It has **no** pin diameter, drill size or pin offset. **Measure the pin diameter and the pin position across the 8 mm width when it arrives**, then draw the custom footprint. Provisional: two pads 22.5 mm apart, centred on the width, 1.5 mm drill (verify before ordering). |
 | F2 ×2 | SMD1812P200TF/16 | `Fuse:Fuse_1812_4532Metric` | |
 
 ## Passives and connectors
@@ -71,8 +73,8 @@ Check each package against the datasheet picture once, not only the name.
 
 ## To measure when the parts arrive (before layout is final)
 
-1. ESKA fuse clips: spacing and hole size (custom footprint).
+1. ESKA fuse clips: pin diameter, drill and pin offset across the width (pitch 22.5 mm is from the datasheet).
 2. SPTH terminal blocks: pin diameter, pin spacing, housing width.
-3. Omron G5LE-1: pin spacing against the KiCad footprint.
+3. Omron G5LE-1: fit check on the real relay (the stock footprint already matches the datasheet).
 4. The 10 µF capacitor package (0805 or 1206).
 5. Pico socket pins: fit in the Pico footprint holes.

@@ -21,8 +21,25 @@ stay powered, so the service person can connect wires while every output is dead
 
 The two are separated by optocouplers (and the CH-TG photo-relays later). The ignition-coil primary
 current and CDI spikes flow in GND_P and never reach the logic ground. The Pico runs from USB, or from
-the optional isolated 12 V → 5 V module (footprint, DNP) when you want it standalone. Never both: the
-module's output goes through a Schottky diode to VSYS.
+the optional isolated 12 V → 5 V module (footprint, DNP) when you want it standalone. Both can be
+connected at once: the module's output goes through a Schottky diode to VSYS, and the Pico has its own
+diode from VBUS to VSYS (D22).
+
+### Optional stand-alone supply (U_ISO, D_VSYS, both DNP)
+
+| Part | Connection |
+|---|---|
+| U_ISO, 12 V → 5 V isolated, 14 V-tolerant input, 200 mA (no part ordered or chosen, D22) | +Vin = `12V_RAW`, −Vin = `GND_P`, +Vout = `5V_ISO`, −Vout = `GND_L` |
+| C_ISO1 10 µF + C_ISO2 100 nF | `12V_RAW` to `GND_P`, at the module's input pins |
+| C_ISO3 10 µF + C_ISO4 100 nF | `5V_ISO` to `GND_L`, at the module's output pins |
+| D_VSYS 1N5819 | anode `5V_ISO`, cathode `VSYS` (band toward VSYS) |
+
+- Place it on the **ARM sheet**. The existing PWR_FLAG on VSYS (I/O sheet) stays. Do not add a second flag.
+- The input pins are in the 12 V domain and the output pins in the logic domain: the isolation slot runs between them, so the module straddles the slot like the optocouplers.
+- Output: about 4.6 V at VSYS (5 V − 0.4 V diode drop), fine for the Pico 2 W (1.8–5.5 V).
+- 200 mA must cover the Pico 2 W (Wi-Fi peaks), the 3V3 loads and anything taken from J8 pin 13 (VSYS). Check on the bench before relying on it; USB stays the default.
+- **HV/safety:** the module's isolation (1–1.5 kV) is rated for 12 V use only. It does not make the logic side safe against a CDI fault. The CDI stays on `OUT`, never on this module.
+- If a module is fitted later it must be a wide-input type. A 12 V ±10 % module (10.8–13.2 V in) is wrong: the bench supply may reach 14 V.
 
 ## How it works
 
@@ -97,4 +114,5 @@ go to the panel: SW1A, SW1B, SW2A, SW2B, on screw terminals J2.
 - Pick the exact IRF4905 alternatives available at Reichelt, Farnell, Mouser. Check gate-source maximum (±20 V).
 - Confirm the PC817 current transfer ratio is enough: the gate chain draws about 1 mA at 12 V, the LED
   gives about 6 mA, so any grade should work.
-- Check the isolated DC-DC module's output (1 W, about 200 mA) against the Pico 2 W's Wi-Fi peaks.
+- Check the isolated DC-DC module's output (1 W, about 200 mA) against the Pico 2 W's Wi-Fi peaks (bench test with the module fitted).
+- U_ISO: no module ordered, stays DNP. Pick the part and draw its footprint only if it is ever fitted.
