@@ -3,7 +3,7 @@
 	(generator "pcbnew")
 	(generator_version "10.0")
 	(layer "F.Cu")
-	(descr "ESKA 503.101 open fuse holder, 5x20 mm, PCB solder pins (bottom). Pitch 22.5 mm, body 28.2 x 8.0 mm, centre M3 screw. Flat pins 3.0 x 0.5 mm in a round 3.3 mm hole (works in either pin orientation). Pin offset across the width not measured: assumed on the centreline.")
+	(descr "ESKA 503.101 open fuse holder, 5x20 mm, PCB solder pins (bottom). Pitch 22.5 mm, body 28.2 x 8.0 mm, centre M3 screw. Flat pins 3.0 x 0.5 mm, long side across the 8 mm width, in a 3.4 x 0.9 mm slot. Pins on the centreline (user-confirmed).")
 	(tags "fuse holder 5x20 ESKA 503.101")
 	(property "Reference" "REF**"
 		(at 0 -5.5 0)
@@ -66,17 +66,17 @@
 		(fill no)
 		(layer "F.CrtYd")
 	)
-	(pad "1" thru_hole circle
+	(pad "1" thru_hole oval
 		(at -11.25 0)
-		(size 5 5)
-		(drill 3.3)
+		(size 2.1 4.6)
+		(drill oval 0.9 3.4)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 	)
-	(pad "2" thru_hole circle
+	(pad "2" thru_hole oval
 		(at 11.25 0)
-		(size 5 5)
-		(drill 3.3)
+		(size 2.1 4.6)
+		(drill oval 0.9 3.4)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 	)

@@ -47,7 +47,7 @@ Check each package against the datasheet picture once, not only the name.
 | D8 | P4SMAJ15CA | `Diode_SMD:D_SMA` | Bidirectional. |
 | D1 (ARM) | SM6T18CA | `Diode_SMD:D_SMB` | Bidirectional. |
 | D_VSYS | 1N5819 (DNP) | `Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal` | Band (cathode) toward VSYS. Optional stand-alone supply, D22. |
-| F1 | ESKA 503101, 5 × 20 fuse | `coiltester:Fuseholder_ESKA_503101` (custom, `hardware/kicad/mainboard/coiltester.pretty/`) | Drawn 2026-11-18. User-measured: body 28.2 × 8.0 mm, flat pins 3.0 × 0.5 mm, pitch 22.5 mm (also in the ESKA catalogue), M3 × 4.5 screw at the centre. Pads 1 and 2 at ±11.25 mm, **round 3.3 mm drill, 5.0 mm pad** (the diagonal of the 3.0 × 0.5 pin is 3.04 mm, so it fits in either orientation), 3.2 mm non-plated hole at the centre, courtyard 29.2 × 9 mm. ⚠ Pin position across the width is assumed to be on the centreline (not measured). Keep copper out of the screw-head area (about 6 mm dia). |
+| F1 | ESKA 503101, 5 × 20 fuse | `coiltester:Fuseholder_ESKA_503101` (custom, `hardware/kicad/mainboard/coiltester.pretty/`) | Drawn 2026-11-18, slots 2026-11-18. User-measured: body 28.2 × 8.0 mm, flat pins 3.0 × 0.5 mm with the 3 mm side across the 8 mm width, pitch 22.5 mm (also in the ESKA catalogue), pins on the centreline, M3 × 4.5 screw at the centre. Pads 1 and 2 at ±11.25 mm, **oval slot 3.4 × 0.9 mm (long side across the width), pad 2.1 × 4.6 mm**, 3.2 mm non-plated hole at the centre, courtyard 29.2 × 9 mm. Keep copper out of the screw-head area (about 6 mm dia). Slot drilling is a routing step at the board house: check that JLCPCB accepts a 0.9 mm slot width (or use a 1.0 mm slot). |
 | F2 ×2 | SMD1812P200TF/16 | `Fuse:Fuse_1812_4532Metric` | |
 
 ## Passives and connectors
@@ -73,7 +73,7 @@ Check each package against the datasheet picture once, not only the name.
 
 ## To measure when the parts arrive (before layout is final)
 
-1. ESKA fuse clips: pin position across the 8 mm width (assumed on the centreline); a slot instead of the round 3.3 mm hole once the pin orientation is known.
+1. ESKA fuse clips: fit check of the 3.4 × 0.9 mm slots on the real part.
 2. SPTH terminal blocks: pin diameter, pin spacing, housing width.
 3. Omron G5LE-1: fit check on the real relay (the stock footprint already matches the datasheet).
 4. The 10 µF capacitor package (0805 or 1206).
