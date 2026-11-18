@@ -31,3 +31,10 @@ high voltage.
 7. **AC-CDI testing** needs an HV AC source. That comes later (Phase 7) and gets its own safety
    review before we build it.
 8. Add a **visible "HV LIVE" LED** and a **physical arm switch** to every stage that makes HV.
+9. **JP2 (AGND to GND_P jumper) is open except in Chain-B.** Closed, it ties the logic ground, and USB with it, to the
+   12 V / CDI ground: the isolation barrier is bypassed (D24). Close it only when the pickup's return wire is the CDI ground,
+   remove it again afterwards, and with it closed obey rule 5: no USB to a laptop while HV stages run.
+10. **Chain-B: unplug J5.1 (`OUT`).** J5.1 has a 15 V TVS to ground. If it stays wired to the CDI trigger input, it clips the
+    real pickup pulses above 15 V and the test shows wrong values. The pickup goes directly to the CDI, with a tap to J7.
+11. **An external AC source for an AC-CDI is not controlled by the ARM switch or the E-STOP** unless the optional enable contact
+    (`EXP2_B2`, J10) is wired into its enable. Give that source its own E-STOP and switch, and treat the exciter side as 100-400 V AC.

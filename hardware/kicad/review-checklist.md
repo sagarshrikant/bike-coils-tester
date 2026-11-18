@@ -40,3 +40,9 @@ The sheets are netlist-style: every pin has a global label. Nothing here was ope
 ## Not on any sheet yet
 - Isolated 12 V -> 5 V module and the VSYS diode (Later). CH-HV, CH-SP, rig connectors (J8 only).
 - Mounting holes, board outline, isolation slot (PCB layout).
+
+## PCB layout phase: do not forget (D24, safety rules 9-11)
+- Silkscreen next to JP2: "CHAIN-B ONLY. Bridges isolation." Silkscreen next to J5: "Chain-B: unplug J5.1 (OUT)".
+- JP2: two separate pads, one on each side of the isolation slot, joined only by a wire or jumper; keep them clear of other copper.
+- J9 on the 12 V side of the slot, J10 on the logic side.
+- App and firmware: show a warning while a Chain-B test is selected (JP2 and J5.1 instructions).

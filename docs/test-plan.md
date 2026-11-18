@@ -77,6 +77,7 @@ No spinning parts. Tests CDI + coil together.
 
 **Chain-B (full mechanical):** Motor-driven reluctor → real pickup → CDI → coil → spark gap.
 Tests everything, including the pickup at real RPM.
+**Chain-B wiring and safety (D24, `docs/safety.md` rules 9–10):** unplug J5.1; tap the pickup into J7; close JP2 only if the pickup's return wire is the CDI ground, and open it again afterwards (it bypasses the isolation barrier).
 
 Captured on every event, timestamped by the Pico's PIO (8 ns resolution):
 
