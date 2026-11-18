@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: next task = M2: refill zones (B), run DRC, then GND_L pour on the logic side**F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
+**RESUME HERE: next task = refill (B), run DRC, then M3 supply rails**F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
 
 ## Milestones (Claude's overview)
@@ -9,7 +9,7 @@ default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (mileston
 |---|---|---|
 | M0 | Preparation: DRC run, router settings | done |
 | M1 | 12 V power path (J1 to the outputs) | done (DRC clean) |
-| M2 | Ground pours GND_P, GND_L; AGND star | open |
+| M2 | Ground pours GND_P, GND_L; AGND star | pours done, AGND star open |
 | M3 | Supply rails (3V3, 3V3A, 3V3_P, VSYS, ±5 V, 9 V, MUX_VDD) | open |
 | M4 | ARM stage signals (gate chain, relay, senses) | open |
 | M5 | CH-TG (trigger generator) | open |
@@ -45,6 +45,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18: GND_L pours (F.Cu, B.Cu) drawn by user; 144 GND_L stitching vias added by script; U507.2/U508.2 set to solid connection. AGND star still to do.
 - 2026-11-18: JM2 (ADS1115 0x49, power-side nets) was wrongly on the logic side; moved to the 12 V side (x 140, y 87). 107 GND_P stitching vias added by script (0.6/0.3). U508.2 and U507.2 are still isolated top-layer pads (surrounded by other tracks); user fixes by hand.
 - 2026-11-18 18:44: M1 DRC: only unconnected items left (447); dangling stub and C513/R528 courtyard fixed by user. Next: M2 ground pours.
 - 2026-11-18 18:40: netcheck.js fixed (a track end on the body of another track counts as connected). 12V_ARMED is fully routed (14 pads). M1 complete: all seven power nets routed.
