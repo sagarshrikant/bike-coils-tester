@@ -22,7 +22,7 @@ for (const fp of s.split("\n\t(footprint ").slice(1)) {
     // KiCad: positive rotation is counter-clockwise on screen, y points down
     const x = fx + px * c + py * sn, y = fy - px * sn + py * c;
     const layers = m[2] === "thru_hole" || m[2] === "np_thru_hole" ? ["F.Cu", "B.Cu"] : [flipped ? "B.Cu" : "F.Cu"];
-    pads.push({ ref, num: m[1], net: net[1], x, y, r: Math.max(+m[6], +m[7]) / 2, layers });
+    pads.push({ ref, num: m[1], net: net[1], x, y, r: Math.max(+m[6], +m[7]) / 2, layers, th: m[2] === "thru_hole" });
   }
 }
 // ---- tracks, vias
@@ -64,7 +64,7 @@ function check(net) {
     if (a.kind === "zone" || b.kind === "zone") {
       const [zn_, o] = a.kind === "zone" ? [a, b] : [b, a]; if (o.kind === "zone") continue;
       const [x, y] = pos(o); const lay = o.kind === "pad" ? o.p.layers : o.kind === "end" ? [o.layer] : ["F.Cu", "B.Cu"];
-      if (lay.includes(zn_.z.layer) && inPoly(x, y, zn_.z.pts)) uni(i, j);
+      if (lay.includes(zn_.z.layer) && (inPoly(x, y, zn_.z.pts) || (o.kind === "pad" && o.p.th && zn_.z.pts.some(([px, py]) => Math.hypot(px - x, py - y) <= o.p.r + 1.0)))) uni(i, j); // thermal-relief pads sit in a hole of the fill, so a nearby fill vertex counts
       continue;
     }
     const [x1, y1] = pos(a), [x2, y2] = pos(b);
