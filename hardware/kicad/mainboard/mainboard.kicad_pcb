@@ -799,7 +799,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "044ae6ce-ce0d-46c5-a643-2fda88261244")
-		(at 46.5275 110.7575)
+		(at 42.0225 99.9575)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C501"
@@ -3377,7 +3377,7 @@
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U512"
-			(at 3.81 -2.9 0)
+			(at -2.6675 2.1875 0)
 			(layer "F.SilkS")
 			(uuid "5234c139-3175-47fa-9794-184b50e6850c")
 			(effects
@@ -14591,7 +14591,7 @@
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U102"
-			(at 3.81 -2.9 0)
+			(at -2.9175 2.6875 0)
 			(layer "F.SilkS")
 			(uuid "167fed41-4c18-44d1-94b3-76cd547b33bf")
 			(effects
@@ -25453,7 +25453,7 @@
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U103"
-			(at 3.81 -2.9 0)
+			(at 10.5375 2.3925 0)
 			(layer "F.SilkS")
 			(uuid "ab23252b-064c-4294-b4f2-1aa9f0bcc121")
 			(effects
@@ -27512,7 +27512,7 @@
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U104"
-			(at 3.81 -2.9 0)
+			(at 10.5375 2.3925 0)
 			(layer "F.SilkS")
 			(uuid "2ef3ea20-c6d2-4470-a977-f99472705c39")
 			(effects
@@ -28346,7 +28346,7 @@
 	(footprint "Module:RaspberryPi_Pico_Common_THT"
 		(layer "F.Cu")
 		(uuid "b3a14fb7-8fb6-4d58-8745-163e7b1b6ff7")
-		(at -25.73875 84.25625 90)
+		(at 22.93 42.78 90)
 		(descr "Raspberry Pi Pico common (Pico & Pico W) through-hole footprint, supports Raspberry Pi Pico 2, default socketed model has height of 8.51mm, https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf")
 		(tags "module usb pcb antenna")
 		(property "Reference" "U1"
@@ -29730,8 +29730,8 @@
 			)
 			(polygon
 				(pts
-					(xy 192.43375 201.688645) (xy 187.73375 198.038645) (xy 187.73375 193.69875) (xy 201.93375 193.69875)
-					(xy 201.93375 198.038645) (xy 197.23375 201.688645) (xy 197.23375 202.69875) (xy 192.43375 202.69875)
+					(xy 241.1025 160.212395) (xy 236.4025 156.562395) (xy 236.4025 152.2225) (xy 250.6025 152.2225)
+					(xy 250.6025 156.562395) (xy 245.9025 160.212395) (xy 245.9025 161.2225) (xy 241.1025 161.2225)
 				)
 			)
 		)
@@ -29762,8 +29762,8 @@
 			)
 			(polygon
 				(pts
-					(xy 189.08375 148.99875) (xy 190.89375 148.99875) (xy 190.89375 149.39875) (xy 198.77375 149.39875)
-					(xy 198.77375 148.99875) (xy 200.58375 148.99875) (xy 200.58375 129.49875) (xy 189.08375 129.49875)
+					(xy 237.7525 107.5225) (xy 239.5625 107.5225) (xy 239.5625 107.9225) (xy 247.4425 107.9225) (xy 247.4425 107.5225)
+					(xy 249.2525 107.5225) (xy 249.2525 88.0225) (xy 237.7525 88.0225)
 				)
 			)
 		)
@@ -33016,7 +33016,7 @@
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U101"
-			(at 3.81 -2.9 0)
+			(at -2.6675 2.4375 0)
 			(layer "F.SilkS")
 			(uuid "8d582511-23df-4de3-aeed-7e13cfecb169")
 			(effects
@@ -36011,7 +36011,7 @@
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U511"
-			(at 3.81 -2.9 0)
+			(at -2.6675 2.1875 0)
 			(layer "F.SilkS")
 			(uuid "c810156c-f28a-4fb2-ab2a-5a9d7b6a7dce")
 			(effects
@@ -38595,7 +38595,7 @@
 		(descr "PC817 (DIP-4) in a 6-pin DIP socket: rows 7.62 mm apart, pitch 2.54 mm. Pads 1-4 as DIP-4 (1 top-left, 2 below it, 3 bottom-right, 4 top-right); the two extra unnumbered holes at the bottom are for the socket's unused pins (they can also stay empty when the IC is soldered or plugged in directly).")
 		(tags "DIP-4 PC817 DIP-6 socket")
 		(property "Reference" "U513"
-			(at 3.81 -2.9 0)
+			(at -2.9175 2.6875 0)
 			(layer "F.SilkS")
 			(uuid "40b2f62c-9a54-4ee3-99c4-a3800e11db1f")
 			(effects
@@ -43379,7 +43379,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "f70779fa-8506-4a3a-bd9f-b3f01a79a67a")
-		(at 42.0225 99.9575)
+		(at 46.5275 110.7575)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C509"
@@ -45183,6 +45183,14 @@
 		(uuid "008d9a69-76f3-4288-bcef-45f09eaf5374")
 	)
 	(segment
+		(start 41.5 97.75)
+		(end 45 97.75)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "0b833774-fd99-420c-a81e-edf3e6a28a58")
+	)
+	(segment
 		(start 114.79 97.29)
 		(end 116.75 97.29)
 		(width 2)
@@ -45207,12 +45215,28 @@
 		(uuid "1b51a8e5-0b66-4ea9-8e4e-f5a6278826e4")
 	)
 	(segment
+		(start 41.1775 96.4775)
+		(end 41.1775 97.4275)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "1b52ef0d-d613-46a3-a0ab-b3ab45672b4b")
+	)
+	(segment
 		(start 104.5 92.75)
 		(end 106 91.25)
 		(width 2)
 		(layer "F.Cu")
 		(net "12V_RAW")
 		(uuid "1ca60bf1-b820-4c66-9bf0-8efcb933cf45")
+	)
+	(segment
+		(start 51.6875 89.0625)
+		(end 51.6875 87.2875)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "242c6607-9fc4-45f2-906d-b1b8d7e5f43b")
 	)
 	(segment
 		(start 102.882323 123.225)
@@ -45247,6 +45271,14 @@
 		(uuid "39561be3-c282-42aa-95ae-55af2e4fa2df")
 	)
 	(segment
+		(start 46.75 91.75)
+		(end 47.75 90.75)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "3dd2676b-cda6-4142-9fc0-b2b3ac43ebbf")
+	)
+	(segment
 		(start 113.3375 113.5)
 		(end 110.75 113.5)
 		(width 1.5)
@@ -45255,12 +45287,36 @@
 		(uuid "40708c83-b2e2-4b30-92ee-1e37fc6a8827")
 	)
 	(segment
+		(start 50 90.75)
+		(end 51.6875 89.0625)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "46de2197-be58-4f3a-9153-85ede9fb98fd")
+	)
+	(segment
+		(start 41.1775 97.4275)
+		(end 41.5 97.75)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "49b67106-7388-40d3-83dd-5939cd205e6b")
+	)
+	(segment
 		(start 113 92.5)
 		(end 113 95.5)
 		(width 2)
 		(layer "F.Cu")
 		(net "12V_RAW")
 		(uuid "4f036c92-cd9b-4548-8ce6-b93d9b978e8e")
+	)
+	(segment
+		(start 45 97.75)
+		(end 46.75 96)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "5912b6fe-b227-45ae-92a1-0b407847fe19")
 	)
 	(segment
 		(start 102.882323 115.117677)
@@ -45351,6 +45407,14 @@
 		(uuid "b856c8e4-2d5b-4dd2-a11b-0e21b2126ffc")
 	)
 	(segment
+		(start 46.75 96)
+		(end 46.75 91.75)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "b90a2a40-2405-451c-8584-875d4efb0a1a")
+	)
+	(segment
 		(start 91.25 118.25)
 		(end 94.25 115.25)
 		(width 3)
@@ -45373,6 +45437,14 @@
 		(layer "F.Cu")
 		(net "12V_RAW")
 		(uuid "cf279ac7-a7ea-431b-9703-ee4884c00dc7")
+	)
+	(segment
+		(start 47.75 90.75)
+		(end 50 90.75)
+		(width 1)
+		(layer "F.Cu")
+		(net "12V_RAW")
+		(uuid "d17b3e4b-1c75-464b-9128-ac5d48ca67c7")
 	)
 	(segment
 		(start 111.75 91.25)
