@@ -39,7 +39,7 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - [x] **R402** (1k 1 W MELF ZCM207): checked 2026-11-18, body 5.8 × Ø 2.2 mm; `R_MELF_MMB-0207` matches the datasheet's pad span (7.0) and width (2.6).
 - [x] **C101** (470u, 25 V): checked 2026-11-18, Ø 10 × 16 mm, spacing 5 mm; exact match with `CP_Radial_D10.0mm_P5.00mm` (1.0 mm drill, 2.0 mm pad).
 - [ ] **C204, C503, C506, C507, C508, C510, C518** (10 µF): **change from `C_1206_3216Metric` to `C_0805_2012Metric` in KiCad** (ordered as 0805, KEMET X7R 16 V). C204 also uses a polarized symbol; a ceramic has no polarity, so swap it for `Device:C` if you want the symbol to match.
-- [ ] **R107** (4.7k 0.5 W): `R_1206_3216Metric`. The load is under 50 mW, so a 1206 is fine, but check that the bought part is a 1206.
+- [ ] **R107** (4.7k, bleeds `12V_ARMED`): **change from `R_1206_3216Metric` to `R_0805_2012Metric` in KiCad**: all the 4.7k you bought are 0805, 125 mW. The load is 14 V² / 4.7k = 42 mW at the worst case (14 V supply), about a third of the rating, so 0805 is fine. Also fix the value text on the ARM sheet (it says 0.5W).
 - [ ] **F2, F3**: `Fuse_1812_4532Metric` (SMD1812P200TF/16).
 - [ ] **U1** Pico 2 W: `RaspberryPi_Pico_Common_THT` with two 1×20 sockets.
 
