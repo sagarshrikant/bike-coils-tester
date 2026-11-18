@@ -45,6 +45,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18 18:25: U509.8 joined to the 12V_ARMED main group (via + B.Cu). Open on 12V_ARMED: R530.2, C515.1, R510.1, C509.1, U503.3+R106.1. V_ARM_M open (R510.2/R511.1).
 - 2026-11-18: R510 moved next to R511 (V_ARM_M divider), 2.3 mm apart.
 - 2026-11-18: C515 moved next to U509 (6.8 mm), C505 next to U505 (4 mm), C509 beside R510. 12V_ARMED B.Cu line (U505.3 to K1.3, 0.5 mm) routed by user; open: C505, C509, C515, R510, R530, U503, U509.
 - 2026-11-18 16:47: 12V_IN, IN_FUSED, 12V_RAW, 12V_MID, OUT1, OUT2 all routed. Only 12V_ARMED branches open.
