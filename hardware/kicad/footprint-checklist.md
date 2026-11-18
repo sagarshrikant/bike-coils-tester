@@ -13,9 +13,9 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 
 - [x] **PR1, PR2** (CH-PU): real part AQY210EH, symbol AQY282EH, `DIP-4_W7.62mm`. Pins 1 LED+, 2 LED−, 3 and 4 switch. Pins confirmed against the Panasonic datasheet (order list).
 - [x] **PR3, PR4** (CH-R2), **PR5–PR9** (CH-TG): real part AQY212EH, same symbol and footprint. Pins confirmed against the Panasonic datasheet (order list).
-- [ ] **U401** (CH-PU): real MCP6472-E/MS, symbol MCP6002, `MSOP-8_3x3mm_P0.65mm`.
+- [x] **U401** (CH-PU): real MCP6472-E/MS, symbol MCP6002, `MSOP-8_3x3mm_P0.65mm`. Ordered as MCP6472-E/MS = **MSOP-8** (3 × 3 mm, 0.65 mm pitch; "MS" is MSOP, not SOIC), confirmed 2026-11-18: the footprint is right. Hard to hand-solder: use a fine tip and flux.
 - [x] **U402** (CH-PU) 74HC4066D: checked against the NXP datasheet 2026-11-18: SO14, SOT108-1, body width 3.9 mm (narrow), length 8.55-8.75 mm, matches `SOIC-14_3.9x8.7mm_P1.27mm`. Pins 1 1Y, 2 1Z, 3 2Z, 4 2Y, 5 2E, 6 3E, 7 GND, 8 3Y, 9 3Z, 10 4Z, 11 4Y, 12 4E, 13 1E, 14 VCC: the same as the wiring in the sheet.
-- [ ] **U403** (CH-PU): real MCP6542-I/SN, symbol MCP6562, `SOIC-8_3.9x4.9mm_P1.27mm`.
+- [x] **U403** (CH-PU): real MCP6542-I/SN, symbol MCP6562, `SOIC-8_3.9x4.9mm_P1.27mm`. Ordered as MCP6542-I/SN = **SOIC-8** (3.9 mm body, 1.27 mm pitch), confirmed 2026-11-18: the footprint is right.
 - [x] **U502** (CH-TG): real MCP1702T-3302E/CB, symbol MCP1700x-330xxTT, `SOT-23`. The symbol pins are 1 GND, 2 VO, 3 VI, which match the MCP1702 SOT-23A pinout from your picture. Pinout confirmed from your picture.
 
 ## 3. Pin order can swap: compare with the datasheet picture once
