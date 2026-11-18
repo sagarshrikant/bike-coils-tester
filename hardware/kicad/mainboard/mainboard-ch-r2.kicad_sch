@@ -4583,7 +4583,7 @@
 				)
 			)
 		)
-		(property "Value" "470 0.1% (R_CAL1)"
+		(property "Value" "510 0.1% (R_CAL1)"
 			(at 312.81 74.544 90)
 			(show_name no)
 			(do_not_autoplace no)

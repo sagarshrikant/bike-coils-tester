@@ -165,3 +165,9 @@ Requirement (user, repeated): the PCB covers every test case (DC-CDI, AC-CDI alo
 - **JP2, two single pins, schematic refs JP21 (`AGND`) and JP22 (`GND_P`) (not one header, so it does not straddle the isolation slot):** `AGND` and `GND_P`, joined by a wire or jumper. Open by default. Close it only for Chain-B, where the pickup's return wire is the CDI ground. **Closed, the logic ground (and USB) is tied to the 12 V ground: the isolation barrier is bypassed.**
 - **Wiring rule, no hardware:** J5.1 (`OUT`, 15 V TVS) is unplugged in Chain-B; the pickup goes to the CDI directly, with a tap to J7.
 Not done, on purpose: an on-board shunt, an AC source, an HV-divider module (all later modules).
+
+### D25 · 2026-11-18 · accepted · Order check I-937558: R_CAL1 = 510 Ω, R210 10 Ω missing
+The Reichelt order was compared with the sheets (`docs/order-check-reichelt-937558.md`). All quantities are enough. Two findings:
+- **R207 (R_CAL1)** was 470 Ω 0.1 % in the design, but the order has 510 Ω 0.1 %. Decision: R_CAL1 = **510 Ω** (a self-test reference whose measured value is stored in the firmware). Sheet value, `pin-budget.md`, `ch-r2-pcb.md` and the review log were updated. R524 (source impedance) stays 470 Ω 1 %.
+- **R210 (10 Ω, 3V3 to 3V3A filter)** is in no order and no order list: to buy (any 0805), or a 0 Ω link meanwhile.
+The parts of the order list that are not on this Reichelt order (headers, sockets, ADS1115 modules, button, E-STOP, screws, and 7 six-pin sockets for the PC817) are listed in the order-check file.

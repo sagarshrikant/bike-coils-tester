@@ -47,7 +47,7 @@ the two V_top values, then drive LOW for 20 ms and release (as in the perfboard 
 ## Self-test (D11-3)
 
 With the **clips open**:
-1. Close PR3 (R_CAL1 470 Ω 0.1 %) and measure on the 1k range. Expect 470 Ω ± 3 %.
+1. Close PR3 (R_CAL1 510 Ω 0.1 %, D25) and measure on the 1k range. Expect 510 Ω ± 3 %.
 2. Open PR3, close PR4 (R_CAL2 47 kΩ 0.1 %) and measure on the 10k range. Expect 47 kΩ ± 3 %.
 3. Open both.
 
@@ -58,7 +58,7 @@ correction (kept in memory, not in the DUT result).
 
 ## Control lines
 
-`R2_DRIVE_1K` (GP14) and `R2_DRIVE_10K` (GP15) drive the two ranges. The self-test photo-relays are `R2_CAL1` (EXP2.A6, PR3, 470 Ω)
+`R2_DRIVE_1K` (GP14) and `R2_DRIVE_10K` (GP15) drive the two ranges. The self-test photo-relays are `R2_CAL1` (EXP2.A6, PR3, 510 Ω since D25)
 and `R2_CAL2` (EXP2.A7, PR4, 47 kΩ), both off after reset. The ADS1115 module (JM1) sits on the main I²C bus (GP4 / GP5).
 
 ## Protection

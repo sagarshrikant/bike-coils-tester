@@ -68,7 +68,7 @@ relay drives, enables, comparator outputs, pulse outputs.
 | EXP2.A2, A3 | HV_RANGE0, 1: CDI output divider range (00 = highest range; to J8 pins 15, 16; D23) | **00 = highest range** (10 kΩ pull-downs) |
 | EXP2.A4 | HV_PKRST: HV peak-hold reset | high-Z |
 | EXP2.A5 | MID_SENSE: input, reads `12V_MID` through an optocoupler (low = live) | |
-| EXP2.A6 | R2_CAL1: self-test 470 Ω photo-relay (PR3) | off |
+| EXP2.A6 | R2_CAL1: self-test 510 Ω photo-relay (PR3, D25) | off |
 | EXP2.A7 | R2_CAL2: self-test 47 kΩ photo-relay (PR4) | off |
 | EXP2.B0 | KILL_GND: SHUT DOWN to GND_P photo-relay | off |
 | EXP2.B1 | KILL_HI: SHUT DOWN to 12V_ARMED photo-relay | off |
