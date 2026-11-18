@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: next task = 12V_ARMED branches (near: R106,R107,R109,R510,R530; far: C505,C509,C515,U503,U505,U509)**F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
+**RESUME HERE: next task = DRC run after M1, then M2 (ground pours)**F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
 
 ## Milestones (Claude's overview)
@@ -8,7 +8,7 @@ default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (mileston
 | M | Goal | Status |
 |---|---|---|
 | M0 | Preparation: DRC run, router settings | done |
-| M1 | 12 V power path (J1 to the outputs) | open |
+| M1 | 12 V power path (J1 to the outputs) | done (DRC pending) |
 | M2 | Ground pours GND_P, GND_L; AGND star | open |
 | M3 | Supply rails (3V3, 3V3A, 3V3_P, VSYS, ±5 V, 9 V, MUX_VDD) | open |
 | M4 | ARM stage signals (gate chain, relay, senses) | open |
@@ -45,6 +45,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18 18:40: netcheck.js fixed (a track end on the body of another track counts as connected). 12V_ARMED is fully routed (14 pads). M1 complete: all seven power nets routed.
 - 2026-11-18 18:34: 12V_ARMED down to 2 pieces ([U503.3 R106.1 C509.1] and the main group); V_ARM_M R510-R511 joined (JM2.10 later, M8).
 - 2026-11-18 18:25: U509.8 joined to the 12V_ARMED main group (via + B.Cu). Open on 12V_ARMED: R530.2, C515.1, R510.1, C509.1, U503.3+R106.1. V_ARM_M open (R510.2/R511.1).
 - 2026-11-18: R510 moved next to R511 (V_ARM_M divider), 2.3 mm apart.
