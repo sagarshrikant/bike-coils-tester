@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: M3 supply rails. Done: 5V_RAW, +5V_P, +9V_P. Open: -5V_P (3 pieces), MUX_VDD (2), then 3V3_P, 3V3, 3V3A, VSYS.**
+**RESUME HERE: M3: refill zones (B) and run DRC; then join the 3V3_P pieces (middle cluster to source C503/U502.2, then R509, R505, C504); then 3V3, 3V3A, VSYS. -5V_P, MUX_VDD, +5V_P, +9V_P, SDA_P, SCL_P done.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -47,6 +47,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18 23:40: U1 rotation was already back at 90 (user undid it); removed stray TG_PULSE_B via at the old U1 pin 10. C511 (3V3 bypass of U506 pin 1) and C512 (3V3_P bypass of U506 pin 8) moved right next to U506 (board x 134, y 64.6 / 71.4, vertical). Saved file had unfilled zones: user must press B.
 - 2026-11-18 21:30: DRC 0 errors, 2 dangling-via warnings (DAC_N at board 54,99; V_AMP+ at 21,107; remove or use them in M6/M7). +5V_P and +9V_P routed. Open: -5V_P (U509.4, U510.7, rest), MUX_VDD (R521.1 alone).
 - 2026-11-18: DRC after stitching: 3 GND_L vias removed (PU_HV clearance near R402/R407/R409, hole-to-hole near J8). Keep stitching vias 1.5 mm further from PU_HV parts in future.
 - 2026-11-18: GND_L pours (F.Cu, B.Cu) drawn by user; 144 GND_L stitching vias added by script; U507.2/U508.2 set to solid connection. AGND star still to do.
