@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: next task = T0.3** (last updated 2026-11-18, nothing routed yet)
+**RESUME HERE: next task = T1.1** (last updated 2026-11-18, nothing routed yet)
 
 How we work: one small task at a time. The user routes in KiCad (PCB editor, `hardware/kicad/mainboard/mainboard.kicad_pcb`), saves,
 says "T<n> done". Claude then checks the file with `node tools/pcb/netcheck.js hardware/kicad/mainboard/mainboard.kicad_pcb <NET>`
@@ -14,7 +14,7 @@ default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (mileston
 
 | M | Goal | Status |
 |---|---|---|
-| M0 | Preparation: DRC run, router settings | open |
+| M0 | Preparation: DRC run, router settings | done |
 | M1 | 12 V power path (J1 to the outputs) | open |
 | M2 | Ground pours GND_P, GND_L; AGND star | open |
 | M3 | Supply rails (3V3, 3V3A, 3V3_P, VSYS, ±5 V, 9 V, MUX_VDD) | open |
@@ -31,7 +31,7 @@ Tasks of later milestones are written when we reach them (the part positions may
 
 - [x] **T0.1** Reopen the project, run DRC (Inspect, Design Rules Checker, Run), save the report as `DRC.rpt`. Expected: only "unconnected items". Tell Claude the counts by type.
 - [x] **T0.2** Router settings (already set).
-- [ ] **T0.3** Reopen the project and look at the power area (lower right, board bottom edge). Claude placed the 12 V chain by hand-designed coordinates and an optimiser: terminals J1, J3, J4 on the bottom edge, F1 standing upright above J1, Q1 and Q2 standing upright to its right, K1 top right, F2, F3, D102 and C101 below and beside K1. Chain length 349 mm to about 100 mm. If it looks wrong, Claude undoes it (`git revert` of the commit "12 V chain placed").
+- [x] **T0.3** Reopen the project and look at the power area (lower right, board bottom edge). Claude placed the 12 V chain by hand-designed coordinates and an optimiser: terminals J1, J3, J4 on the bottom edge, F1 standing upright above J1, Q1 and Q2 standing upright to its right, K1 top right, F2, F3, D102 and C101 below and beside K1. Chain length 349 mm to about 100 mm. If it looks wrong, Claude undoes it (`git revert` of the commit "12 V chain placed").
 
 ## M1 12 V power path (all on F.Cu, 3 mm unless stated)
 
@@ -50,6 +50,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 Not written yet.
 
 ## Log
+
+- 2026-11-18: T0.3 done: user confirmed the re-placed power area looks right.
 
 - 2026-11-18: 12 V chain re-placed (second attempt; the first optimiser result left 3 of 8 links blocked). User must reopen and look (T0.3).
 - 2026-11-18: T0.2 done. ARM power stage re-placed by a wire-length optimiser (chain length 349 mm to 177 mm); user to check (T0.3).
