@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: next task = T1.2** (last updated 2026-11-18, nothing routed yet)
+**RESUME HERE: next task = T1.3** (last updated 2026-11-18, nothing routed yet)
 
 How we work: one small task at a time. The user routes in KiCad (PCB editor, `hardware/kicad/mainboard/mainboard.kicad_pcb`), saves,
 says "T<n> done". Claude then checks the file with `node tools/pcb/netcheck.js hardware/kicad/mainboard/mainboard.kicad_pcb <NET>`
@@ -36,7 +36,7 @@ Tasks of later milestones are written when we reach them (the part positions may
 ## M1 12 V power path (all on F.Cu, 3 mm unless stated)
 
 - [x] **T1.1** `12V_IN`: J1 pin 1 (x 95.15, y 132.38) straight up to F1 pad 1 (x 95.15, y 122.13), 10 mm, 3 mm wide, on F.Cu.
-- [ ] **T1.2** `IN_FUSED`: F1 pad 2 (95.15, 99.63) to Q1 pin 2 (105.15, 100.23). The TO-220 pins are only 2.54 mm apart, so a 3 mm track cannot end on one pin: use 1.5 mm for the last 3 mm at the pin (press **W** while routing to change the width), or draw the net as a zone later.
+- [x] **T1.2** `IN_FUSED`: F1 pad 2 (95.15, 99.63) to Q1 pin 2 (105.15, 100.23). The TO-220 pins are only 2.54 mm apart, so a 3 mm track cannot end on one pin: use 1.5 mm for the last 3 mm at the pin (press **W** while routing to change the width), or draw the net as a zone later.
 - [ ] **T1.3** `12V_RAW`, main trunk: Q1 pin 3 to Q2 pin 3, then to C101 pin 1, C102 pin 1 and D101 pin 1.
 - [ ] **T1.4** `12V_RAW`, branches: R102 pad 1, R108 pad 1, J22 pin 1, U102 pin 4.
 - [ ] **T1.5** `12V_RAW`, regulator: U501 pin 3 and C501 pad 1 (0.5 mm is enough; the net class decides).
@@ -50,6 +50,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 Not written yet.
 
 ## Log
+
+- 2026-11-18: T1.2 done: IN_FUSED routed (3 mm, necked to 1.5 mm at Q1.2).
 
 - 2026-11-18: T1.1 done: 12V_IN routed (3 mm, J1.1 to F1.1).
 
