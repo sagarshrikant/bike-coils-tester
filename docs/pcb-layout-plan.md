@@ -11,7 +11,7 @@ hand-solderable SMD (0805, SOIC, MSOP, SOT-23, SOT-89, SMA/SMB, 1812).
 | Thickness | 1.6 mm | standard, no surcharge |
 | Copper | 1 oz outer | standard |
 | Surface | lead-free HASL | cheapest finish, fine for hand soldering |
-| Size | smallest rectangle that holds the parts, about 130 × 100 mm to start | the part courtyards add up to about 9 000 mm²; 100 × 100 mm (the usual cheapest size tier) is probably too small. Shrink after placement; do not squeeze for price |
+| Size | **150 × 125 mm** (was 130 × 100) | the part courtyards add up to about 7 800 mm²; on 130 × 100 mm the logic side would be 83 % full, too dense to route on 2 layers. 150 × 125 mm gives about 45 % fill |
 | Outline | plain rectangle, 4 × M3 holes (3.2 mm) 4 mm in from the corners | no routing surcharge |
 | Min track / clearance | 0.25 mm / 0.2 mm (default), vias 0.6 / 0.3 mm | well inside any house's limits |
 | Copper to board edge | 0.3 mm or more | house minimum |
@@ -19,7 +19,7 @@ hand-solderable SMD (0805, SOIC, MSOP, SOT-23, SOT-89, SMA/SMB, 1812).
 ## Isolation slot (D26)
 
 - Routed slot **2 mm wide**, copper pulled back **0.5 mm** on both sides: 3 mm copper to copper across the slot.
-- The slot is **horizontal**, y = 49 to 51, x = 5 to 125 (round ends), and does **not** run edge to edge: **5 mm solid bridges** at the left and right edges keep the board in one piece. No copper on a bridge. (A vertical slot was tried first: the 13 straddling parts need about 100 mm along the slot and the board is only 100 mm tall.)
+- The slot is **horizontal**, y = 67 to 69, x = 5 to 145 (round ends), and does **not** run edge to edge: **5 mm solid bridges** at the left and right edges keep the board in one piece. No copper on a bridge. (A vertical slot was tried first: the 13 straddling parts need about 100 mm along the slot.)
 - **Logic side on top (y < 49), 12 V side at the bottom (y > 51).**
 - Straddling parts (their two rows of pins sit on opposite sides of the slot): U101–U104 and U511–U513 (PC817 in 6-pin sockets, rows 7.62 mm apart), PR5–PR9 (AQY212EH, 7.62 mm), U506 (ADuM1250, pad gap 3.9 mm). The slot fits between their pads.
 - Why 2 mm and not 3 mm: the ADuM1250 pad gap leaves only 0.45 mm per side with a 3 mm slot and 0.93 mm with 2 mm; the 3 mm
@@ -74,3 +74,30 @@ Centre x along the slot, centre y = 50. LED side of an optocoupler or photoMOS o
 | U511, U512, U513 | PC817 in DIP-6 socket | 54, 63, 72 | 270 |
 | PR5 to PR9 | DIP-4 | 83, 90, 97, 104, 111 | 270 |
 | U506 (ADuM1250) | SOIC-8 | 120 (not placed: rotate 270 in KiCad, pins 1-4 on the top row) | 270 |
+
+## Floorplan of the draft placement (2026-11-18)
+
+Board coordinates: origin at the board's top-left corner, x to the right, y down, in mm. In KiCad add the board offset (15.1475, 15.4775).
+Rotation of the Pico: 90 degrees, so the USB end is at the left board edge.
+
+| Region | x (mm) | y (mm) | Contents |
+|---|---|---|---|
+| Logic, Pico | 3 to 57 | 3 to 26 | U1 (USB toward the left edge), SW301, R301 to R303, C301, C302 |
+| Logic, expanders | 60 to 85 | 3 to 39 | U2, U3 and their pull resistors R310 to R326 packed around them |
+| Logic, headers | 112 to 148 | 3 to 29 | J10, J8, JM1, JM2, JP21 |
+| Logic, CH-R2 | 3 to 31 | 30 to 55 | JC1, PR3, PR4, J6 and the R200 / C200 parts around them |
+| Logic, CH-PU | 88 to 139 | 31 to 58 | U401 to U404, PR1, PR2, J7, JC2 and the R400 / C400 parts |
+| LED resistors | 64 to 130 | about 59 | R516, R518, R520, R523, R525, R527, R529, R531, C511 above the straddling parts |
+| Slot band | 5 to 145 | 57 to 79 (slot 67 to 69) | U101 to U104, U511 to U513, PR5 to PR9, U506 |
+| Power, CH-TG | 3 to 59 | 77 to 104 | U501 to U505, U507 to U510, JP1, J9, JP22 and the R500 / C500 parts |
+| Power, ARM | 62 to 137 | 77 to 110 | F1, K1, C101, Q1, Q2 and the R100 parts, diodes, LEDs, Q3, F2, F3 |
+| Terminal row | from x = 5 | about 111 to 122 | J1, J3, J4, J5, J21, J22 along the bottom edge |
+| Mounting holes | 4 and 146 | 4 and 121 | H1 to H4 |
+
+This is a draft made by a script from the part sizes: the passives sit in the free space nearest to their group, with no overlap
+and every part inside the board. It is not optimised for wiring. Refine it by hand in this order:
+1. Connectors: check which way each terminal's wire entry faces (it must face the board edge); rotate if not.
+2. Straddling parts: pin 1 marks (LED side toward the logic side, except U103 and U104).
+3. Decoupling capacitors right next to the supply pin of each IC.
+4. Analog part of CH-PU and CH-R2 (keep it away from the 12 V side and the Pico).
+5. The 12 V power path (F1, Q1, Q2, K1, F2, F3) in a short, wide line.
