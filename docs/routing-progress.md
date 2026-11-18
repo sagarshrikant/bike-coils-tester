@@ -52,6 +52,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18: J3 and J4 moved 16 mm right (J3.1 at 123.15,132.38; J4.1 at 135.15,132.38) so OUT1/OUT2 run straight down from F2/F3. T1.9 coordinates: F2.2 (128.14,119.25), F3.2 (135.39,119.25).
 - 2026-11-18: T1.3 done: Q1.3 to Q2.3 routed as a 2 mm loop via C102.1; D101/C101/R108 group also routed by user but not yet joined.
 - 2026-11-18: T1.2 done: IN_FUSED routed (3 mm, necked to 1.5 mm at Q1.2).
 
