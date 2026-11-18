@@ -45,6 +45,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18: DRC after stitching: 3 GND_L vias removed (PU_HV clearance near R402/R407/R409, hole-to-hole near J8). Keep stitching vias 1.5 mm further from PU_HV parts in future.
 - 2026-11-18: GND_L pours (F.Cu, B.Cu) drawn by user; 144 GND_L stitching vias added by script; U507.2/U508.2 set to solid connection. AGND star still to do.
 - 2026-11-18: JM2 (ADS1115 0x49, power-side nets) was wrongly on the logic side; moved to the 12 V side (x 140, y 87). 107 GND_P stitching vias added by script (0.6/0.3). U508.2 and U507.2 are still isolated top-layer pads (surrounded by other tracks); user fixes by hand.
 - 2026-11-18 18:44: M1 DRC: only unconnected items left (447); dangling stub and C513/R528 courtyard fixed by user. Next: M2 ground pours.
