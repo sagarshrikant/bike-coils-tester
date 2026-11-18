@@ -60,7 +60,7 @@ Check each package against the datasheet picture once, not only the name.
 | R_L1 | VIT ZC207 1k MELF | `Resistor_SMD:R_MELF_MMB-0207` | |
 | R_L2 | METALL 10k | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | |
 | C1 | WL1E477M10016100 | `Capacitor_THT:CP_Radial_D10.0mm_P5.00mm` | Stripe = −. |
-| J1, J3, J4, J6, J7 | SPTH 3 2 5.08 | `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal` | ⚠ The 2-pole is the larger "SPTH 3" family (up to 4 mm²): measure its pin diameter and housing against the footprint. |
+| J1, J3, J4, J6, J7 | SPTH 3/2-5,08 (Phoenix 1580780) | `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal` | ✔ Checked against the Phoenix datasheet (2026-11-18): pitch 5.08 mm, one solder pin per pole, **drill 1.3 mm** (the footprint: 1.3 drill, 2.6 pad), pin length 3.5 mm, wire entry parallel to the board (0°). The pads match. The body differs a little: 11.12 (l) × 10 (w) mm against the footprint's 10.2 × 9.8, so keep about 1.5 mm free around the courtyard; height 21.5 mm. It is a **push-in spring terminal** (4 mm², 32 A, 400 V), not a screw terminal: flexible wire without a ferrule needs the orange actuator pressed. Strip 8 mm. Face the wire opening toward the board edge. |
 | J5 | SPTH 1.5 3 5.08 | `…MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal` | Measure. |
 | J21, J22 | SPTH 1.5 4 5.08 | `…MKDS-1,5-4-5.08_1x04_P5.08mm_Horizontal` | Measure. |
 | J8 | 2 × 8 header | `Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical` | |
@@ -74,7 +74,7 @@ Check each package against the datasheet picture once, not only the name.
 ## To measure when the parts arrive (before layout is final)
 
 1. ESKA fuse clips: fit check of the 3.4 × 0.9 mm slots on the real part.
-2. SPTH terminal blocks: pin diameter, pin spacing, housing width.
+2. SPTH 1.5 terminal blocks (J5 3-pole, J21 and J22 4-pole): datasheets still to check. The 2-pole SPTH 3 is done.
 3. Omron G5LE-1: fit check on the real relay (the stock footprint already matches the datasheet).
 4. The 10 µF capacitor package (0805 or 1206).
 5. Pico socket pins: fit in the Pico footprint holes.
