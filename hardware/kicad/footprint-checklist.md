@@ -32,7 +32,7 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 ## 4. Mechanical: check against the datasheet or part before ordering the board
 
 - [x] **J1, J3, J4, J6, J7** (SPTH 3/2-5,08): checked against the Phoenix datasheet 2026-11-18. Pads match (pitch 5.08, drill 1.3); body is 11.12 × 10 mm vs the footprint's 10.2 × 9.8, so leave 1.5 mm around it. Push-in spring terminal, wire entry toward the board edge.
-- [ ] **J5** (3-pole), **J21, J22** (4-pole): SPTH 1.5 family; datasheets still to check (pitch, pin drill, body).
+- [ ] **J5** (3-pole), **J21, J22** (4-pole): pitch 5.08 and depth 9.85 mm (footprint 9.8) confirmed, height 17.25 mm. Open: pin diameter (the footprint's 1.3 mm drill fits a pin up to about 1.1 mm).
 
 - [x] **R408, R409** (MBB0207, 350 V): checked 2026-11-18, body 6.5 × 2.5 mm, lead 0.6 mm, spacing 10 mm; fits `R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm` (0.16 mm wider pitch, 0.2 mm longer body). Keep 2 mm clearance.
 - [ ] **R405** (10k 0.5 W, same footprint): body and lead pitch of the part you bought not checked yet.
