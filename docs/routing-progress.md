@@ -45,6 +45,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18: R510 moved next to R511 (V_ARM_M divider), 2.3 mm apart.
 - 2026-11-18: C515 moved next to U509 (6.8 mm), C505 next to U505 (4 mm), C509 beside R510. 12V_ARMED B.Cu line (U505.3 to K1.3, 0.5 mm) routed by user; open: C505, C509, C515, R510, R530, U503, U509.
 - 2026-11-18 16:47: 12V_IN, IN_FUSED, 12V_RAW, 12V_MID, OUT1, OUT2 all routed. Only 12V_ARMED branches open.
 - 2026-11-18: R110-R115 (logic parts: GND_L/3V3 nets) moved from the power side to the logic side, row at board y 58.5 above the opto sockets U101-U104 (they were wrongly in the power set). 12V_RAW: C102.1 piece found open after user save, to be checked.
