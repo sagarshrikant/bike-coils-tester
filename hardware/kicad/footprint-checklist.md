@@ -35,7 +35,7 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - [x] **J5** (3-pole): checked against the Phoenix datasheet 2026-11-18 (drill 1.3, 15.16 × 9.85 mm, pitch 5.08): matches. **J21, J22** (4-pole): same family, pitch and depth confirmed by measurement; wire opening toward the board edge.
 
 - [x] **R408, R409** (MBB0207, 350 V): checked 2026-11-18, body 6.5 × 2.5 mm, lead 0.6 mm, spacing 10 mm; fits `R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm` (0.16 mm wider pitch, 0.2 mm longer body). Keep 2 mm clearance.
-- [ ] **R405** (10k 0.5 W, same footprint): body and lead pitch of the part you bought not checked yet.
+- [x] **R405** (10k 0.5 W): checked 2026-11-18, body Ø 2.3 × 6.5 mm, lead 0.6 mm; fits `R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm` at the 10.16 mm pitch.
 - [x] **R402** (1k 1 W MELF ZCM207): checked 2026-11-18, body 5.8 × Ø 2.2 mm; `R_MELF_MMB-0207` matches the datasheet's pad span (7.0) and width (2.6).
 - [x] **C101** (470u, 25 V): checked 2026-11-18, Ø 10 × 16 mm, spacing 5 mm; exact match with `CP_Radial_D10.0mm_P5.00mm` (1.0 mm drill, 2.0 mm pad).
 - [ ] **C204, C503, C506, C507, C508, C510, C518** (10 µF): **change from `C_1206_3216Metric` to `C_0805_2012Metric` in KiCad** (ordered as 0805, KEMET X7R 16 V). C204 also uses a polarized symbol; a ceramic has no polarity, so swap it for `Device:C` if you want the symbol to match.
