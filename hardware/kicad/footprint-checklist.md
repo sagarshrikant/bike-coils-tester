@@ -7,7 +7,7 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 
 ## 1. Missing: set it
 
-- [ ] **F1** (ARM): `coiltester:Fuseholder_ESKA_503101` (project library `coiltester`, loaded through `mainboard/fp-lib-table`)
+- [x] **F1** (ARM): `coiltester:Fuseholder_ESKA_503101` set in the ARM sheet 2026-11-18 (checked in the file).
 
 ## 2. Stand-in symbols: footprint is assigned; check pin names against the real part
 
@@ -20,7 +20,7 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 
 ## 3. Pin order can swap: compare with the datasheet picture once
 
-- [ ] **Q3** (ARM) 2N7000, `TO-92_Inline`: 1 S, 2 G, 3 D (not a BS170).
+- [x] **Q3** (ARM) 2N7000, `TO-92_Inline`: checked against the Diotec 2N7000 datasheet (Reichelt, version 2011-02-16) on 2026-11-18: drawing shows the pins S, G, D in order = 1 S, 2 G, 3 D, same as the KiCad symbol. Not a BS170.
 - [ ] **U505** (CH-TG) 78L09 TO-92: 1 OUT, 2 GND, 3 IN. Check the flat side against the drawing.
 - [ ] **U501, U503** (CH-TG) TS78L05ACY, `SOT-89-3`: 1 OUT, 2 GND (tab), 3 IN.
 - [ ] **U101–U104** (ARM), **U511–U513** (CH-TG) PC817, `DIP-4_W7.62mm`: 1 anode, 2 cathode, 3 emitter, 4 collector.

@@ -38,7 +38,7 @@ Check each package against the datasheet picture once, not only the name.
 | Ref | Part | Footprint | Notes |
 |---|---|---|---|
 | Q1, Q2 | IRF4905 | `Package_TO_SOT_THT:TO-220-3_Vertical` | Pins 1 G, 2 D, 3 S. |
-| Q3 | 2N7000 | `Package_TO_SOT_THT:TO-92_Inline` | ⚠ 1 S, 2 G, 3 D (BS170 is different). Run ERC against the KiCad symbol. |
+| Q3 | 2N7000 (Diotec, Reichelt) | `Package_TO_SOT_THT:TO-92_Inline` | ✔ Datasheet checked 2026-11-18 (Diotec 2N7000, TO-92 10D3): pins in the order S, G, D = 1 S, 2 G, 3 D, matching the symbol. A BS170 or another maker's part may be D-G-S: keep the Diotec one. 60 V, ±20 V gate, 350 mW. |
 | D6 | 1N4007 | `Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal` | Cathode (band) at the +12 V side of the coil. |
 | D2, D3 modules | BAT54S-7-F | `Package_TO_SOT_SMD:SOT-23` | Pin order confirmed by the user. |
 | D4, D5 | BAT54HT1G | `Diode_SMD:D_SOD-323` | Cathode = bar. |

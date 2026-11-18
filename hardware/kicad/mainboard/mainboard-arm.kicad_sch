@@ -7705,7 +7705,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "coiltester:Fuseholder_ESKA_503101"
 			(at 110.69 69.36 0)
 			(hide yes)
 			(show_name no)
