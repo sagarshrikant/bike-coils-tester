@@ -3444,10 +3444,6 @@
 		(uuid "30030330-d386-46ab-979c-2da9fad2a4e9")
 	)
 	(no_connect
-		(at 245.11 245.11)
-		(uuid "31693a65-e631-4435-8fae-d9b389ab401a")
-	)
-	(no_connect
 		(at 302.26 80.01)
 		(uuid "4951ab21-84ec-4eb7-98a3-b75a7c7358d1")
 	)
@@ -3478,10 +3474,6 @@
 	(no_connect
 		(at 327.66 102.87)
 		(uuid "cd5349de-f3d7-4560-ae9d-1d7749032f4a")
-	)
-	(no_connect
-		(at 257.81 245.11)
-		(uuid "df99bdfc-892e-4fc8-ae92-74a272a1faf1")
 	)
 	(no_connect
 		(at 327.66 97.79)
@@ -3839,6 +3831,28 @@
 			)
 		)
 	)
+	(global_label "HV_RANGE1"
+		(shape bidirectional)
+		(at 257.81 245.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "19d690a6-6dfe-43a7-80dc-4743e74b3710")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.81 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
 	(global_label "SDA"
 		(shape bidirectional)
 		(at 45.72 232.41 180)
@@ -3961,6 +3975,28 @@
 		(uuid "25c09509-ab9c-48ea-a27f-7f1170be2be1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 210.82 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "HV_RANGE1"
+		(shape bidirectional)
+		(at 387.35 73.66 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "28f82d72-8a92-4ea4-a06e-fd5be044899c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 387.35 73.66 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4247,6 +4283,28 @@
 		(uuid "375a6ee6-6248-4553-b723-33a6e91e924b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 102.87 228.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "GND_L"
+		(shape bidirectional)
+		(at 374.65 81.28 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "379cc8c8-e5d5-4ff3-9c17-0c74253edc8f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 374.65 81.28 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4665,6 +4723,28 @@
 		(uuid "51849e3b-e42c-4782-adb4-d6d6a0f7718a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 210.82 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "HV_RANGE0"
+		(shape bidirectional)
+		(at 245.11 245.11 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "52da703d-89fd-4a53-9f23-2028d216c914")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 245.11 245.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6171,6 +6251,28 @@
 			)
 		)
 	)
+	(global_label "HV_RANGE0"
+		(shape bidirectional)
+		(at 374.65 73.66 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c9cadeff-321d-4782-8cd8-a01bc494c5d8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 374.65 73.66 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
 	(global_label "R4_EN"
 		(shape bidirectional)
 		(at 33.02 205.77 180)
@@ -6579,6 +6681,28 @@
 		(uuid "ef0bb8d0-0482-460b-910c-d7a1f2444dff")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 45.72 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "GND_L"
+		(shape bidirectional)
+		(at 387.35 81.28 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ef335787-d01a-49af-ba6c-fa5c35d549da")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 387.35 81.28 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9306,6 +9430,162 @@
 			(project "mainboard"
 				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
 					(reference "R314")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 387.35 77.47 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f5c5ac2d-cfe0-4f76-b1de-1627347acfe4")
+		(property "Reference" "R326"
+			(at 390.25 77.306 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 383.646 77.306 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 387.35 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 387.35 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 387.35 77.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9f344156-7c3a-48ff-af04-b0ee0aa8fc45")
+		)
+		(pin "2"
+			(uuid "263b8079-48fc-47f4-807d-4285d2ec511e")
+		)
+		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R326")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 374.65 77.47 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f92c1752-e634-42ac-8fd6-51cdf61f5f2e")
+		(property "Reference" "R325"
+			(at 377.55 77.306 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 370.946 77.306 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 374.65 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 374.65 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 374.65 77.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5d784f17-c245-4fed-86fc-d71c973a13ea")
+		)
+		(pin "2"
+			(uuid "563d777c-f641-478b-bf11-21812bfda0eb")
+		)
+		(instances
+			(project "mainboard"
+				(path "/4bec750f-d57c-4e27-81b5-2cda04532c0d/776be482-997b-4fb9-8228-87d7812cefcc"
+					(reference "R325")
 					(unit 1)
 				)
 			)
