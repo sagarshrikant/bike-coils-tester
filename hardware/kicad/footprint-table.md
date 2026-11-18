@@ -16,7 +16,7 @@ Check each package against the datasheet picture once, not only the name.
 | U2, U3 (EXP) | MCP23017-E/SP + DIP-28 socket | `Package_DIP:DIP-28_W7.62mm` (+ socket) | Narrow (0.3") body. |
 | JM1, JM2 | ADS1115 module, 1×10 female | `Connector_PinSocket_2.54mm:PinSocket_1x10_P2.54mm_Vertical` | User confirmed the pin order VDD, GND, SCL, SDA, ADDR, ALRT, A0–A3. |
 | CH-PU U1 | MCP6472-E/MS | `Package_SO:MSOP-8_3x3mm_P0.65mm` | Same pin order as the MCP6002 (1 OUTA, 2 INA−, 3 INA+, 4 VSS, 5 INB+, 6 INB−, 7 OUTB, 8 VDD). |
-| CH-PU U2 | 74HC4066 (SO-14) | `Package_SO:SOIC-14_3.9x8.7mm_P1.27mm` | Pin 7 = GND, 14 = VCC. |
+| CH-PU U2 | 74HC4066D (NXP) | `Package_SO:SOIC-14_3.9x8.7mm_P1.27mm` | ✔ Checked 2026-11-18: SOT108-1, 3.9 mm body, pin 7 GND, 14 VCC; pin list as in the review. |
 | CH-PU U3 | MCP6542-I/SN | `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` | 1 OUTA, 2 INA−, 3 INA+, 4 VSS, 5 INB+, 6 INB−, 7 OUTB, 8 VDD. Push-pull output. |
 | CH-PU U4 | MCP4822-E/P | `Package_DIP:DIP-8_W7.62mm` | Confirmed from the user's picture (`hardware/MCP4822-dip8-piout.png`): 1 VDD, 2 CS, 3 SCK, 4 SDI, 5 LDAC, 6 VOUTB, 7 VSS, 8 VOUTA. |
 | U_ISO | none ordered (DNP) | no footprint yet | Optional stand-alone supply, D22. Pick the part and draw its footprint only if it is ever fitted. |
@@ -26,7 +26,7 @@ Check each package against the datasheet picture once, not only the name.
 | U19 | 4052 (SO-16) | `Package_SO:SOIC-16_3.9x9.9mm_P1.27mm` | Pin 7 VEE, 8 VSS (GND), 16 VDD, 6 INH. |
 | U13 | ICL7660SCPA + DIP-8 socket | `Package_DIP:DIP-8_W7.62mm` | 1 BOOST, 2 CAP+, 3 GND, 4 CAP−, 5 VOUT, 6 LV, 7 OSC, 8 V+. |
 | U10, U12 | TS78L05ACY (SOT-89) | `Package_TO_SOT_SMD:SOT-89-3` | Pinout confirmed from the user's picture (`hardware/TS78L05ACY-sot89-pinout.png`): 1 OUT, 2 GND (also the tab), 3 IN. Use `Regulator_Linear:L78L05_SOT89` and compare its pin numbers with this. |
-| U20 | µA78L09 (TO-92) | `Package_TO_SOT_THT:TO-92_Inline` | From the user's picture (`hardware/78L09-TO92-piout.png`): OUT, GND, IN in that order = pins 1, 2, 3 (the picture is a 3D view: check the flat side against the datasheet drawing once). Not the same as the 2N7000 (S, G, D). |
+| U20 | 78L09 (Hottech via Reichelt, TO-92) | `Package_TO_SOT_THT:TO-92_Inline` | ✔ Checked against the Hottech 78Lxx datasheet 2026-11-18: pins OUT, GND, IN = 1, 2, 3 (flat face toward you, leads down: OUT on the left). Input max 30 V; output spec Vin 12-24 V. Not the same as the 2N7000 (S, G, D). |
 | U11 | MCP1702T-3302E/CB (SOT-23A) | `Package_TO_SOT_SMD:SOT-23` | Pinout confirmed from the user's picture (`hardware/mcp1702-sot-23a-pinout.png`): 1 GND, 2 VOUT, 3 VIN. Use KiCad's `Regulator_Linear:MCP1702-3302_SOT23` and check its pin names against this. Needs 1 µF ceramic on input and output. |
 | PR1, PR2 | AQY210EH | `Package_DIP:DIP-4_W7.62mm` | 1 LED anode, 2 LED cathode, 3 and 4 switch. Same pins as the PC817 except for what the pins mean. |
 | PR3–PR9 | AQY212EH | `Package_DIP:DIP-4_W7.62mm` | Same. The two switch pins straddle the isolation slot where needed. |
@@ -37,7 +37,7 @@ Check each package against the datasheet picture once, not only the name.
 
 | Ref | Part | Footprint | Notes |
 |---|---|---|---|
-| Q1, Q2 | IRF4905 | `Package_TO_SOT_THT:TO-220-3_Vertical` | Pins 1 G, 2 D, 3 S. |
+| Q1, Q2 | IRF4905 | `Package_TO_SOT_THT:TO-220-3_Vertical` | ✔ IR datasheet checked 2026-11-18: TO-220AB, pins 1 G, 2 D, 3 S. |
 | Q3 | 2N7000 (Diotec, Reichelt) | `Package_TO_SOT_THT:TO-92_Inline` | ✔ Datasheet checked 2026-11-18 (Diotec 2N7000, TO-92 10D3): pins in the order S, G, D = 1 S, 2 G, 3 D, matching the symbol. A BS170 or another maker's part may be D-G-S: keep the Diotec one. 60 V, ±20 V gate, 350 mW. |
 | D6 | 1N4007 | `Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal` | Cathode (band) at the +12 V side of the coil. |
 | D2, D3 modules | BAT54S-7-F | `Package_TO_SOT_SMD:SOT-23` | Pin order confirmed by the user. |
@@ -48,7 +48,7 @@ Check each package against the datasheet picture once, not only the name.
 | D1 (ARM) | SM6T18CA | `Diode_SMD:D_SMB` | Bidirectional. |
 | D_VSYS | 1N5819 (DNP) | `Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal` | Band (cathode) toward VSYS. Optional stand-alone supply, D22. |
 | F1 | ESKA 503101, 5 × 20 fuse | `coiltester:Fuseholder_ESKA_503101` (custom, `hardware/kicad/mainboard/coiltester.pretty/`) | Drawn 2026-11-18, slots 2026-11-18. User-measured: body 28.2 × 8.0 mm, flat pins 3.0 × 0.5 mm with the 3 mm side across the 8 mm width, pitch 22.5 mm (also in the ESKA catalogue), pins on the centreline, M3 × 4.5 screw at the centre. Pads 1 and 2 at ±11.25 mm, **oval slot 3.4 × 0.9 mm (long side across the width), pad 2.1 × 4.6 mm**, 3.2 mm non-plated hole at the centre, courtyard 29.2 × 9 mm. Keep copper out of the screw-head area (about 6 mm dia). Slot drilling is a routing step at the board house: check that JLCPCB accepts a 0.9 mm slot width (or use a 1.0 mm slot). |
-| F2 ×2 | SMD1812P200TF/16 | `Fuse:Fuse_1812_4532Metric` | |
+| F2 ×2 | SMD1812P200TF/16 | `Fuse:Fuse_1812_4532Metric` | ✔ User-measured body 4.73 × 3.41 mm; footprint pads 1.125 × 3.4 mm, outer span 5.4 mm: fits. |
 
 ## Passives and connectors
 
@@ -69,7 +69,7 @@ Check each package against the datasheet picture once, not only the name.
 | JP21, JP22 | single pins, AGND and GND_P (chain-B jumper, D24) | `Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical` | One on each side of the isolation slot, never joined on the board. Silkscreen: CHAIN-B ONLY. |
 | JP1 | 1 × 3 header | `Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical` | |
 | JC1, JC2 | 1 × 3 female | `Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical` | |
-| SW_RST | 6 × 6 mm button | `Button_Switch_THT:SW_PUSH_6mm` | |
+| SW_RST (SW301) | 6 × 6 mm button | `Button_Switch_THT:SW_PUSH_6mm` | ✔ User confirmed the footprint matches the part. |
 | TP1…TP22 | pin or wire | `Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical` | 1.0 mm hole fits a header pin or a bent wire up to about 0.8 mm. |
 | mounting | M3 holes | `MountingHole:MountingHole_3.2mm_M3_Pad` (or no pad) | 4 corners. |
 | LEDs | 3 mm | `LED_THT:LED_D3.0mm` | Cathode (flat side) marked. |
