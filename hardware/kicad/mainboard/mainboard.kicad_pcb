@@ -957,7 +957,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "06030324-2ce7-477e-9428-ac879b4deeab")
-		(at 59.25 103.5)
+		(at 65.5 104)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C513"
@@ -45805,14 +45805,6 @@
 		(layer "F.Cu")
 		(net "12V_ARMED")
 		(uuid "d175757b-fe51-4f5c-af7a-06d7749f1c10")
-	)
-	(segment
-		(start 65.8375 97.4125)
-		(end 65.75 97.5)
-		(width 0.5)
-		(layer "F.Cu")
-		(net "12V_ARMED")
-		(uuid "df36e158-b0e2-49f7-b75e-3d8182d64c9e")
 	)
 	(segment
 		(start 125.5 108.5725)
