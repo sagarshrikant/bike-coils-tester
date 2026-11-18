@@ -64,6 +64,9 @@ Check each package against the datasheet picture once, not only the name.
 | J5 | SPTH 1.5/3-5,08 (Phoenix 1472189) | `…MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal` | ✔ Checked against the Phoenix datasheet (2026-11-18): pitch 5.08 mm, **drill 1.3 mm** (the footprint: 1.3 drill, 2.6 pad), pin length 3.5 mm, body 15.16 (along the poles) × 9.85 (depth) mm vs the footprint's 15.2 × 9.8, height 17.25 mm (13.75 above the board seat). Pads and body match. Push-in spring terminal, wire entry parallel to the board: opening toward the board edge. |
 | J21, J22 | SPTH 1.5 4 5.08 | `…MKDS-1,5-4-5.08_1x04_P5.08mm_Horizontal` | ✔ Pitch 5.08 mm and depth 9.85 mm (user-measured), height 17.25 mm. Same SPTH 1.5 family as J5, whose datasheet gives a 1.3 mm drill and 3.5 mm pin; the 4-pole datasheet itself was not read. Footprint 20.3 × 9.8 mm. Opening toward the board edge. |
 | J8 | 2 × 8 header | `Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical` | |
+| J9 | 1 × 4 header (isolated bus, D24) | `Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical` | 12 V side of the slot. |
+| J10 | 2 × 10 header (expansion 2, D24) | `Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical` | Logic side of the slot. |
+| JP21, JP22 | single pins, AGND and GND_P (chain-B jumper, D24) | `Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical` | One on each side of the isolation slot, never joined on the board. Silkscreen: CHAIN-B ONLY. |
 | JP1 | 1 × 3 header | `Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical` | |
 | JC1, JC2 | 1 × 3 female | `Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical` | |
 | SW_RST | 6 × 6 mm button | `Button_Switch_THT:SW_PUSH_6mm` | |

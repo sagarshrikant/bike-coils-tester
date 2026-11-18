@@ -185,3 +185,16 @@ First run: 6 errors, 124 warnings.
 
 ## Schematic phase status
 All five sheets reviewed, in one project, 0 ERC errors. Next phase: PCB layout (footprint assignment, board outline, isolation slot, placement, routing), then Gerbers for JLCPCB by Sat 21 Nov 2026.
+
+## 6. D24 additions on the I/O sheet (2026-11-18): J9, J10, JP21, JP22
+Hand-edited by the user in KiCad, step by step; every item was checked in `mainboard-io.kicad_sch`.
+
+| # | Point | Status | Answer / correction |
+|---|---|---|---|
+| 6.1 | J9 (1x4, 12 V side): 1 SDA_P, 2 SCL_P, 3 3V3_P, 4 GND_P | ok | footprint PinHeader_1x04_P2.54mm_Vertical |
+| 6.2 | J10 (2x10, logic side) pins 1-10: 3V3, GND_L, R4_EN, INS_EN, HV_PKRST, ADS1_ALRT, 3V3A, ADS1_A3, AGND, GND_L | ok | label ADS1_A3_SPARE renamed ADS1_A3 on JM1 pin 10; footprint PinHeader_2x10_P2.54mm_Vertical |
+| 6.3 | J10 pins 11-20 = EXP1_B0-B3, EXP2_B2-B7, and the same ten labels on the U2 and U3 pins | ok | the ten no-connect marks removed; each name is on exactly two labels (chip pin and J10) |
+| 6.4 | JP21 (AGND) and JP22 (GND_P), two separate 1x1 pins, not joined on the sheet | fixed | second part was first named J22 (clash with the ARM terminal J22), renamed JP22; text note "CHAIN-B ONLY" on the sheet |
+| 6.5 | ERC on the whole project | ok | 0 errors, 119 warnings (101 off grid, 16 library copy, 2 single labels: VBUS, ADS2_ALRT); ADS2_ALRT is the 12 V-side alert with no connector, polled instead |
+
+PCB layout still to do for these: silkscreen warnings at JP21/JP22 and J5, J9 on the 12 V side and J10 on the logic side of the slot (see `review-checklist.md`).

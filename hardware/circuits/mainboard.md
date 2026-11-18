@@ -114,7 +114,7 @@ at boot before anything else. Full line list: `docs/pin-budget.md`.
 | JP1 | 1 × 3 header + jumper | 4052 mux VDD: 1 = +5V_P, 3 = +9V_P from U20 (default, jumper on 2–3) |
 | J9 | 1 × 4 header | isolated bus, 12 V side (D24): 1 SDA_P, 2 SCL_P, 3 3V3_P, 4 GND_P |
 | J10 | 2 × 10 header | expansion 2, logic side (D24): 1 3V3, 2 GND_L, 3 R4_EN, 4 INS_EN, 5 HV_PKRST, 6 ADS1_ALRT, 7 3V3A, 8 ADS1_A3, 9 AGND, 10 GND_L, 11-14 EXP1_B0-B3, 15-20 EXP2_B2-B7 |
-| JP2 | 2 single pins | AGND and GND_P, wire or jumper, open by default; closed only for Chain-B (D24) |
+| JP2 (refs JP21 = AGND, JP22 = GND_P) | 2 single pins, 1 × 1 headers | AGND and GND_P, wire or jumper, open by default; closed only for Chain-B (D24) |
 | JC1, JC2 | 1 × 3 female | plug-in clamp modules: 1 = 3V3A, 2 = NODE, 3 = GND. JC1 for CH-R2, JC2 for CH-PU. Module = BAT54S |
 | JM1, JM2 | 1 × 10 female header | ADS1115 breakout modules (0x48 on the logic side, 0x49 on the 12 V side). Typical pin order: VDD, GND, SCL, SDA, ADDR, ALRT, A0–A3: confirm with the module |
 | SW_RST | push button | RUN to GND |

@@ -57,6 +57,7 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - `Package_SO:SOIC-8_3.9x4.9mm_P1.27mm` (3): U403, U506, U509
 - `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` (3): R405, R408, R409
 - `Connector_PinSocket_2.54mm:PinSocket_1x10_P2.54mm_Vertical` (2): JM1, JM2
+- `Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical` (2): JP21, JP22
 - `Package_DIP:DIP-28_W7.62mm` (2): U2, U3
 - `Package_TO_SOT_THT:TO-220-3_Vertical` (2): Q1, Q2
 - `TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-4-5.08_1x04_P5.08mm_Horizontal` (2): J21, J22
@@ -69,6 +70,8 @@ Tick a line once its footprint was compared with the datasheet or part, not just
 - `Package_TO_SOT_SMD:SOT-23-6` (2): U507, U508
 - `Package_TO_SOT_SMD:SOT-89-3` (2): U501, U503
 - `Button_Switch_THT:SW_PUSH_6mm` (1): SW301
+- `Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical` (1): J9
+- `Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical` (1): J10
 - `Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical` (1): J8
 - `Module:RaspberryPi_Pico_Common_THT` (1): U1
 - `Relay_THT:Relay_SPDT_Omron-G5LE-1` (1): K1
