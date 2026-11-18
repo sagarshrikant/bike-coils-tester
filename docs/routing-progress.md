@@ -1,13 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: next task = step 1 of the 10-step order (join the two 12V_RAW groups) (last updated 2026-11-18, nothing routed yet)
-
-How we work: one small task at a time. The user routes in KiCad (PCB editor, `hardware/kicad/mainboard/mainboard.kicad_pcb`), saves,
-says "T<n> done". Claude then checks the file with `node tools/pcb/netcheck.js hardware/kicad/mainboard/mainboard.kicad_pcb <NET>`
-(shows ROUTED or OPEN with the pieces that are still separate; `--pads <NET>` prints pad coordinates; `--all` lists every net),
-updates this file, commits, and gives the next task. DRC is the final judge. Claude never edits the PCB file while KiCad is open.
-
-Rules for all tasks: power nets on **F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
+**RESUME HERE: next task = step 5 (12V_MID R105.1), then steps 9-10 (12V_ARMED branches)**F.Cu** (top) with the width from the net class (Power5A 3 mm, Power2A 1.5 mm, PowerLogic 0.5 mm,
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
 
 ## Milestones (Claude's overview)
@@ -52,6 +45,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-18 16:20: 12V_RAW fully routed (11 pads). Open: 12V_MID R105.1; 12V_ARMED branches.
 - 2026-11-18: C501 and C509 swapped (C501 now 3.5 mm below U501 pin 3; C509 beside C505). 12V_RAW left spur (U102.4, U501.3 joined; C501.1 and the link to J22.1 still open, 0.5 mm).
 - 2026-11-18 15:37: routed: 12V_IN, IN_FUSED, OUT1, OUT2, 12V_MID Q2.2-K1.1, 12V_ARMED trunk K1.3-F2.1-F3.1, 12V_RAW J22.1 joined to lower group. Open: 12V_RAW (6 pieces), 12V_MID R105.1, 12V_ARMED branches.
 - 2026-11-18: J3 and J4 moved 16 mm right (J3.1 at 123.15,132.38; J4.1 at 135.15,132.38) so OUT1/OUT2 run straight down from F2/F3. T1.9 coordinates: F2.2 (128.14,119.25), F3.2 (135.39,119.25).
