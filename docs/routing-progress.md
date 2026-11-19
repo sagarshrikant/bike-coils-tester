@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19): power side DONE (DRC clean there). Set F.Cu GND_L / GND_P zones to thermal reliefs for all pads (hand soldering), refill, DRC. Then logic side: 3V3 (6 steps in chat), 3V3A, VSYS.**
+**RESUME HERE (2026-11-19 17:45): logic side, CH-R2. AGND star done for CH-R2 (12 pads to NT1). Open: GND_L track NT1 pad 2 to a GND_L via (starved thermal), R2_NODE PR3 pin 3 not joined. Then long runs to Pico/JM1/U3, 3V3 backbone, 3V3A, VSYS, CH-PU.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -46,6 +46,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 Not written yet.
 
 ## Log
+
+- 2026-11-19 17:45: CH-R2 placed and partly routed; AGND star (12 pads incl. R209, Pico pin 33) reaches NT1. DRC: 1 error (NT1 pad 2 starved thermal, one spoke), 181 unconnected. R2_NODE: PR3.3 open. 66 nets routed.
 
 - 2026-11-19 10:40: power side complete: last GND_P island joined, DRC shows only 2 dangling logic-side vias (VSYS, PU_NEG). 53 nets routed.
 - 2026-11-19 10:35: U1 had been dragged 48 mm off the board; restored to its original place (22.93, 42.78, 90). Stray R2_DRIVE_1K via removed. 4 GND_P vias + short tracks added for islands (R511.2, U504.3, U101.3, U511.3). Load path widened by user (12V_MID 2 mm, OUT1/OUT2 1.5 mm, 12V_ARMED trunk 1.5-3 mm). netcheck: track end on another track copper counts as connected.
