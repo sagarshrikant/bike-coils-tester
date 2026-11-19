@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE: M3: 3V3_P done (17 pads). Next: 3V3 backbone from Pico pin 36, then 3V3A, VSYS.**
+**RESUME HERE (2026-11-19): bottom (power) side first. Open: Q2_G (R102.2, R103.1, Q2.1), ARM_A2 (J21.2-J21.3), DAC_P (U507.1 to U509.3), DAC_N (U508.1 to R514.1); then OUT and the sense lines to JM2 (V_OUT_M, V_AMPP_M, V_AMPN_M, V_ARM_M). Fix 20 vias that are 0.5/0.3 (DRC annular + diameter errors): change them to 0.6/0.3 and set the router via size to 0.6/0.3. Then logic side: 3V3, 3V3A, VSYS.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -47,6 +47,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-19 01:13: user saved. Routed: ARM_A1, ARM_B2, TG_FBN, TG_FBP, V_AMP+, V_AMP-. DRC: 20 annular_width + 20 via_diameter (vias 0.5/0.3, min 0.6), 1 hole_to_hole (V_AMP+/V_AMP- vias 0.45), 1 starved thermal (U505.2 GND_P island), 2 dangling vias (VSYS, PU_NEG). 41 nets routed, 111 open.
 - 2026-11-18 23:45: 3V3_P routed (17 pads), DRC 2 warnings only.
 
 - 2026-11-18 23:40: U1 rotation was already back at 90 (user undid it); removed stray TG_PULSE_B via at the old U1 pin 10. C511 (3V3 bypass of U506 pin 1) and C512 (3V3_P bypass of U506 pin 8) moved right next to U506 (board x 134, y 64.6 / 71.4, vertical). Saved file had unfilled zones: user must press B.
