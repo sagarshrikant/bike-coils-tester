@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19 17:45): logic side, CH-R2. AGND star done for CH-R2 (12 pads to NT1). Open: delete the GND_L via too close to the J6-D201 R2_NODE track. Then long runs to Pico/JM1/U3, 3V3 backbone, 3V3A, VSYS, CH-PU.**
+**RESUME HERE (2026-11-19 18:10): CH-PU and JM1 re-placed by Claude (J7 at right edge with the HV front end, JM1 next to CH-R2, decaps at their ICs). User: open, check, refill, DRC. Then CH-R2 long runs to JM1 / Pico, CH-PU routing, 3V3 backbone, 3V3A, VSYS.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -46,6 +46,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 Not written yet.
 
 ## Log
+
+- 2026-11-19 18:10: DRC 0 errors (180 unconnected). Re-placed: J7 to right edge (rot 90) with D401, PR1/PR2, R402/R405 (loads), R408/R409 (divider), R403/R406/R407 beside it; JM1 moved next to CH-R2 (rot 270, row at board y 45, module body over the free area below it); CH-PU decaps C403-C406 at their IC supply pins; peak detectors D402/D403 + R417-R420, C407/C408 above U401/U402; VB_RAW divider R414/R415/C402 under U401; R410-R412, JC2, R413 under U402.
 
 - 2026-11-19 17:56: NT1 pad 2 tied to GND_L via by track (starved thermal gone); R2_NODE fully routed (PR3.3 joined). DRC: 1 clearance (new GND_L via at abs 33.15,69.30 vs R2_NODE track, 0.13 mm), 180 unconnected. 67 nets routed.
 - 2026-11-19 17:45: CH-R2 placed and partly routed; AGND star (12 pads incl. R209, Pico pin 33) reaches NT1. DRC: 1 error (NT1 pad 2 starved thermal, one spoke), 181 unconnected. R2_NODE: PR3.3 open. 66 nets routed.
