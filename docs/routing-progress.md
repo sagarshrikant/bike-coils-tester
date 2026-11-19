@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19 23:05): logic side re-placed (see Log); all logic routing was removed except the LED-resistor links to the optos. Start the logic routing again from the guided order: 1) J8 drops from the Pico, 2) J10 drops from U2/U3, 3) I2C bus, 4) CH-R2 rows at JM1, 5) CH-PU right to left, 6) AGND trunk to NT1, 3V3A, 3V3, 7) GND_L stitching (script) and DRC.**
+**RESUME HERE (2026-11-19 23:20): logic side re-placed; next task L1.1 in "Logic side, guided order" below.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -21,6 +21,39 @@ default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (mileston
 | M9 | Cleanup: DRC to zero, silkscreen, Gerbers | open |
 
 Tasks of later milestones are written when we reach them (the part positions may still change).
+
+## Logic side, guided order (after the re-placement 2026-11-19)
+
+Codes: T top (F.Cu), B bottom (B.Cu), V vertical, H horizontal, ↗↖↘↙ 45°, "via" = press V while routing. Width 0.25 mm unless stated.
+
+### L1 J8 (all T)
+- [ ] L1.1 HV_RANGE1  R326.1 → J8.16   T H←
+- [ ] L1.2 HV_RANGE0  R325.1 → J8.15   T H←
+- [ ] L1.3 DRV_OUT    U1.16 → J8.10    T V↑ under Pico, ↖ between top-row pins, ↖ in
+- [ ] L1.4 RIG_TACH   U1.15 → J8.9     T V↑, ↖ in
+- [ ] L1.5 RIG_PWM    U1.14 → J8.8     T V↑, ↖ in
+- [ ] L1.6 SP_IN      U1.12 → J8.7     T V↑ straight
+- [ ] L1.7 HV_CMP     U1.11 → J8.6     T V↑, ↗ in
+- [ ] L1.8 EXP_INT    U1.27 → J8.12    T V↑ short, via, B ↗ in
+- [ ] L1.9 GP16_SPARE U1.21 → J8.11    T ↖ H← ↖ (gap between J8 and Pico)
+- [ ] L1.10 VSYS      U1.39 → J8.13    T 0.5 mm: ↗ then H→ along the gap, ↘ in
+- [ ] L1.11 GP1_SPARE U1.2 → J8.5      T ↗ long under Pico, via, B ↗ in
+
+### L2 J10 (T unless stated)
+- [ ] L2.1 EXP2_B2..B7  U3.3..8 → J10.15..20   T ↗ fan, B2 first, each next one outside the previous; B7 may need via + B H→ at the end
+- [ ] L2.2 EXP1_B0..B3  U2.1..4 → J10.11..14   T V↑ straight up the free strip right of U3, small ↖ at the end
+- [ ] L2.3 R318.1 → J10.3, R319.1 → J10.4      T short
+- [ ] L2.4 R4_EN, INS_EN, HV_PKRST  U3.21/22/25 → J10.3/4/5   T H→ in the U3/U2 gap, via, B H→ under the EXP1 lines, via, T ↗ V↑ in
+- [ ] L2.5 ADS1_ALRT JM1.6 → J10.6, ADS1_A3 JM1.10 → J10.8   T V↑ left of JM1 (via + B at the end if blocked)
+- [ ] L2.6 HV_RANGE0/1  U3.23/24 → R325.1/R326.1   T H← in the U3/U2 gap, ↖ up between Pico and U3, H← to R325/R326
+- [ ] L2.7 EXP_INT  U2.20 → U1.27   T ↖ H← in the U3/U2 gap, ↖ to the Pico (via at the end if blocked)
+
+### Later (details when we get there)
+- L3 I2C bus SDA/SCL (Pico, R301/R302, U3, U2, J8, JM1, U506) and EXP_RESET
+- L4 CH-R2 rows at JM1, R2_DRIVE from Pico, R2_CAL, R2_NODE
+- L5 CH-PU right to left (PU_IN 0.3 mm class), U2 controls, peak detectors, Pico lines
+- L6 TG/KILL lines to the LED resistors, ARM/MID/PWR/RLY lines
+- L7 AGND trunk to NT1, 3V3A, 3V3, GND_L stitching (script), DRC
 
 ## M0 Preparation
 
