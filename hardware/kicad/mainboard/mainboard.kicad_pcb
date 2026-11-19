@@ -3565,7 +3565,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "1c8d8d3c-500f-45d9-b4d1-7d8df89c32a8")
-		(at 105.2625 26.85)
+		(at 76.2475 28.2775 90)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R314"
@@ -3690,7 +3690,7 @@
 			)
 		)
 		(pad "1" smd roundrect
-			(at -0.9125 0)
+			(at -0.9125 0 90)
 			(size 1.025 1.4)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.243902)
@@ -3699,7 +3699,7 @@
 			(uuid "167ff0ae-e8a8-41e6-b119-44f7e11cf8b8")
 		)
 		(pad "2" smd roundrect
-			(at 0.9125 0)
+			(at 0.9125 0 90)
 			(size 1.025 1.4)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.243902)
@@ -10303,7 +10303,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "40d86507-5206-4009-8f6f-0479be36e05e")
-		(at 73.55 70.4)
+		(at 120.4475 40.2775)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R312"
@@ -14781,7 +14781,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "588beba8-969d-4ecb-a102-8f16f0638dfe")
-		(at 98.55 66.5375 90)
+		(at 116.9475 35.2775 90)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R419"
@@ -20172,7 +20172,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "8120b53c-1266-44df-a094-792bc655ca5a")
-		(at 96.35 66.5375 90)
+		(at 114.7475 35.2775 90)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C408"
@@ -28085,7 +28085,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "b105f6d5-a147-4c33-95d8-a59ac9f103c7")
-		(at 94.15 66.5375 90)
+		(at 112.5475 35.2775 90)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R420"
@@ -48084,14 +48084,6 @@
 		(uuid "60f40fd9-652b-4566-a412-25342dce7533")
 	)
 	(segment
-		(start 32.7 65.4)
-		(end 31.95 66.15)
-		(width 0.25)
-		(layer "F.Cu")
-		(net "AGND")
-		(uuid "61ced744-4d4d-40d2-b8b9-3b824ece86f1")
-	)
-	(segment
 		(start 33.35 66.35)
 		(end 33.7 66.7)
 		(width 0.25)
@@ -48460,14 +48452,6 @@
 		(uuid "f40ba128-0ad4-4ec6-873f-898cc61d2fc5")
 	)
 	(segment
-		(start 130.5475 49.9975)
-		(end 130.55 50)
-		(width 0.25)
-		(layer "F.Cu")
-		(net "AGND")
-		(uuid "f431a7fe-9716-48a7-9f63-24e9e73914ef")
-	)
-	(segment
 		(start 105.7975 45.0775)
 		(end 104.7225 45.0775)
 		(width 0.25)
@@ -48604,14 +48588,6 @@
 		(uuid "c09678c5-c699-4729-9e34-78b7db97f582")
 	)
 	(via
-		(at 32.7 65.4)
-		(size 0.6)
-		(drill 0.3)
-		(layers "F.Cu" "B.Cu")
-		(net "AGND")
-		(uuid "c125f220-f40e-410e-a7ee-2d2f211aa73d")
-	)
-	(via
 		(at 104.7 45.1)
 		(size 0.6)
 		(drill 0.3)
@@ -48722,14 +48698,6 @@
 		(layer "B.Cu")
 		(net "AGND")
 		(uuid "21f37727-74cf-41b1-a590-2499847e2139")
-	)
-	(segment
-		(start 42.65 64.15)
-		(end 41.7 65.1)
-		(width 0.25)
-		(layer "B.Cu")
-		(net "AGND")
-		(uuid "2831039a-a67e-45e5-8593-71602b5b2118")
 	)
 	(segment
 		(start 36.75 67.7)
@@ -48906,14 +48874,6 @@
 		(layer "B.Cu")
 		(net "AGND")
 		(uuid "91707b42-bdc7-474b-891b-f7f3c8b6d12d")
-	)
-	(segment
-		(start 42.15 64.65)
-		(end 41.7 65.1)
-		(width 0.25)
-		(layer "B.Cu")
-		(net "AGND")
-		(uuid "928874d8-5cfe-4d7c-bded-e20ab38f14a6")
 	)
 	(segment
 		(start 107.55 68.5775)

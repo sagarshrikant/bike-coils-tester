@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19 18:10): CH-PU and JM1 re-placed by Claude (J7 at right edge with the HV front end, JM1 next to CH-R2, decaps at their ICs). User: open, check, refill, DRC. Then CH-R2 long runs to JM1 / Pico, CH-PU routing, 3V3 backbone, 3V3A, VSYS.**
+**RESUME HERE (2026-11-19 19:05): AGND trunk (0.5 mm B.Cu, J7 to NT1 area) done; open AGND drops: U402.10-12, U403.4, R415.2, JC2.3, C404.2, C408.2 (J10.9 later). Then CH-PU signals, CH-R2 long runs to JM1 / Pico, 3V3 backbone, 3V3A, VSYS.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -46,6 +46,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 Not written yet.
 
 ## Log
+
+- 2026-11-19 19:05: user consolidated AGND into one 0.5 mm B.Cu trunk (JM1 keeps its own short run to the star). Claude: R314 beside U2 pin 5, R312 with R313, negative peak parts R420/C408/R419 above D403; removed 4 dangling AGND stubs and a one-layer via near NT1. 69 nets routed.
 
 - 2026-11-19 18:10: DRC 0 errors (180 unconnected). Re-placed: J7 to right edge (rot 90) with D401, PR1/PR2, R402/R405 (loads), R408/R409 (divider), R403/R406/R407 beside it; JM1 moved next to CH-R2 (rot 270, row at board y 45, module body over the free area below it); CH-PU decaps C403-C406 at their IC supply pins; peak detectors D402/D403 + R417-R420, C407/C408 above U401/U402; VB_RAW divider R414/R415/C402 under U401; R410-R412, JC2, R413 under U402.
 
