@@ -47,6 +47,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-19 06:52: ARM_A2 routed, 7 small vias fixed, stray SDA_P/SCL_P vias gone. DRC 11: 3 small vias (Q2_G x2, TG_FBP), TG_FBN via vs V_AMPN_M via/track 0.15 mm, U505.2 starved thermal (B.Cu GND_P island). 43 nets routed.
 - 2026-11-19 01:13: user saved. Routed: ARM_A1, ARM_B2, TG_FBN, TG_FBP, V_AMP+, V_AMP-. DRC: 20 annular_width + 20 via_diameter (vias 0.5/0.3, min 0.6), 1 hole_to_hole (V_AMP+/V_AMP- vias 0.45), 1 starved thermal (U505.2 GND_P island), 2 dangling vias (VSYS, PU_NEG). 41 nets routed, 111 open.
 - 2026-11-18 23:45: 3V3_P routed (17 pads), DRC 2 warnings only.
 
