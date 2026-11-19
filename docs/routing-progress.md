@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19): bottom (power) side first. Open: Q2_G (R102.2, R103.1, Q2.1), ARM_A2 (J21.2-J21.3), DAC_P (U507.1 to U509.3), DAC_N (U508.1 to R514.1); then OUT and the sense lines to JM2 (V_OUT_M, V_AMPP_M, V_AMPN_M, V_ARM_M). Fix 20 vias that are 0.5/0.3 (DRC annular + diameter errors): change them to 0.6/0.3 and set the router via size to 0.6/0.3. Then logic side: 3V3, 3V3A, VSYS.**
+**RESUME HERE (2026-11-19): power side signals all routed. To do: widen the load path (12V_MID Q2.2-K1.1, 12V_ARMED K1.3-F2.1-F3.1 now 1 mm; OUT1/OUT2 1 mm, class 1.5 mm); Claude adds GND_P stitching vias for the islands (R511.2, U504.3, U101.3, U511.3; needs KiCad closed). Then logic side: 3V3, 3V3A, VSYS.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -47,6 +47,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-19 09:41: Q3_G routed; user narrowed signal nets (SHUT, TG_S, PR5_B..PR9_B, Q2_G, MUX_A, MUX_INH, TG_FB*, V_AMP*) from 0.5 to 0.25 mm: fine (all under 100 mA). DRC 5: 3 starved thermals (GND_P islands), 2 dangling vias. 52 nets routed.
 - 2026-11-19 08:21: Q2_G, DAC_P, DAC_N, V_AMPN_M, V_ARM_M routed. Open on power side: V_OUT_M (R503/R504 to R505/JM2.7), V_AMPP_M (JM2.8). DRC 17: 6 vias 0.5/0.3 (DAC_N, V_AMPN_M, V_AMPP_M x2 each), GND_P pours split into islands (starved thermals U505.2, U504.3, U101.3; R511.2 isolated).
 - 2026-11-19 06:52: ARM_A2 routed, 7 small vias fixed, stray SDA_P/SCL_P vias gone. DRC 11: 3 small vias (Q2_G x2, TG_FBP), TG_FBN via vs V_AMPN_M via/track 0.15 mm, U505.2 starved thermal (B.Cu GND_P island). 43 nets routed.
 - 2026-11-19 01:13: user saved. Routed: ARM_A1, ARM_B2, TG_FBN, TG_FBP, V_AMP+, V_AMP-. DRC: 20 annular_width + 20 via_diameter (vias 0.5/0.3, min 0.6), 1 hole_to_hole (V_AMP+/V_AMP- vias 0.45), 1 starved thermal (U505.2 GND_P island), 2 dangling vias (VSYS, PU_NEG). 41 nets routed, 111 open.
