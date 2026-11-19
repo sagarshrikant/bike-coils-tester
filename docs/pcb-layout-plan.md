@@ -82,11 +82,11 @@ Rotation of the Pico: 90 degrees, so the USB end is at the left board edge.
 
 | Region | x (mm) | y (mm) | Contents |
 |---|---|---|---|
-| Logic, Pico | 3 to 57 | 3 to 26 | U1 (USB toward the left edge), SW301, R301 to R303, C301, C302; J8 on the top edge above the Pico (moved 2026-11-19) |
-| Logic, expanders | 60 to 85 | 3 to 39 | U2, U3 and their pull resistors R310 to R326 packed around them |
-| Logic, headers | 112 to 148 | 3 to 29 | J10, JP21 (J8 moved above the Pico; JM1 moved to the CH-R2 / CH-PU gap; JM2 is on the 12 V side, x 138 to 142, y 85 to 112) |
-| Logic, CH-R2 | 3 to 31 | 30 to 55 | JC1, PR3, PR4, J6 and the R200 / C200 parts around them |
-| Logic, CH-PU | 88 to 139 | 31 to 58 | U401 to U404, PR1, PR2, J7, JC2 and the R400 / C400 parts |
+| Logic, Pico | 3 to 58 | 12 to 35 | U1 (USB toward the left edge); J8 on the top edge above it with a 5 mm gap; SW301 on the top edge left of J8; R325/R326 beside J8 pins 15/16 (re-placed 2026-11-19) |
+| Logic, expanders | 60 to 109 | 7 to 37 | U3 (upper) and U2 (lower, shifted right) lying flat, pins 1-8 facing up; J10 on the top edge above them (U2 B0-B3 drop straight up right of U3); R301/R302/C302 above U3, R303/C301 between U3 and U2 |
+| Logic, ADC and CH-R2 | 110 to 141 | 8 to 36 | JM1 as a standing column (module body over the low SMD parts to its right: check with the real module); CH-R2 caps and resistors in rows aligned with JM1 pins 7 to 9; R210/C204/C205 at JM1 pin 1; NT1; PR3/PR4 with R206 to R209 and R320/R321 at the right; JC1 below PR4 |
+| Logic, J6 and J7 | 138 to 149 | 31 to 56 | J6 (DUT, resistance) directly above J7 (pickup) on the right edge |
+| Logic, CH-PU | 15 to 138 | 36 to 56 | Right to left: D401, R407, R408, R409 and PR1/PR2 with R402/R405 next to J7; R410 to R413, JC2, U402, U401 and the V_BIAS divider in the middle; DAC U404 and comparator U403 with both peak detectors under the Pico. Expander pull-downs sit at their destination (TG and KILL ones above the LED resistors, LOAD ones at R403/R406, CAL ones at R206/R208, R318/R319 at J10) |
 | LED resistors | 64 to 130 | about 59 | R516, R518, R520, R523, R525, R527, R529, R531, C511 above the straddling parts |
 | Slot band | 5 to 145 | 57 to 79 (slot 67 to 69) | U101 to U104, U511 to U513, PR5 to PR9, U506 |
 | Power, CH-TG | 3 to 59 | 77 to 104 | U501 to U505, U507 to U510, JP1, J9, JP22 and the R500 / C500 parts |

@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19 22:40): J8 moved to the top edge above the Pico. Route J8 first (short drops from the Pico): HV_CMP, SP_IN, RIG_PWM, RIG_TACH, DRV_OUT, then GP1_SPARE, GP16_SPARE, VSYS, EXP_INT, SDA/SCL (continue the two dangling stubs at the top right of the Pico), 3V3, HV_RANGE0/1 (from U3). Then the AGND drops (U402.10-12, U403.4, R415.2, JC2.3, C404.2, C408.2), CH-PU signals, J10 spares, CH-R2, 3V3, 3V3A.**
+**RESUME HERE (2026-11-20 00:30): logic side re-placed (see Log); all logic routing was removed except the LED-resistor links to the optos. Start the logic routing again from the guided order: 1) J8 drops from the Pico, 2) J10 drops from U2/U3, 3) I2C bus, 4) CH-R2 rows at JM1, 5) CH-PU right to left, 6) AGND trunk to NT1, 3V3A, 3V3, 7) GND_L stitching (script) and DRC.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -17,7 +17,7 @@ default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (mileston
 | M5 | CH-TG (trigger generator) | open |
 | M6 | CH-R2 (resistance) | open |
 | M7 | CH-PU (pickup) | open |
-| M8 | I/O sheet: Pico, expanders, headers J8, J9, J10 | open |
+| M8 | I/O sheet: Pico, expanders, headers J8, J9, J10 | open (logic side re-placed 2026-11-19) |
 | M9 | Cleanup: DRC to zero, silkscreen, Gerbers | open |
 
 Tasks of later milestones are written when we reach them (the part positions may still change).
@@ -46,6 +46,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 Not written yet.
 
 ## Log
+
+- 2026-11-20 00:30: user asked for a cleaner logic side (J10 flat above U2/U3, J6 and J7 side by side, J8 not tight on the Pico). Claude re-placed the logic side: J8 and J10 on the top edge, Pico under J8 with a 5 mm gap, U3/U2 flat and stacked, JM1 plus CH-R2 top right, J6 above J7 on the right edge, CH-PU along the lower band from J7 leftwards to the Pico; pull-downs moved to the destination end of their nets. A trial router over all logic nets scored the old placement 4895 mm / 133 vias / 15 nets it could not finish (22 with power nets first); the new one 3640-4100 mm / 91-122 vias / 5-6. All logic-side tracks and stitching vias removed (power side untouched; LED-resistor to opto links kept). 60 nets routed, 92 open.
 
 - 2026-11-19 22:40: Claude moved J8 (2x8) from the top right to the top edge above the Pico (trial router: Pico to J8 signals 22-31 mm instead of 95-140 mm). Removed the old runs to J8 (GP1_SPARE, GP16_SPARE, VSYS, HV_RANGE0 beyond U3/R325, the half-done HV_CMP, the SDA/SCL top-edge runs) and one GND_L stitch via on the new J8.16; PU_PKP B.Cu run shifted to pass between J8 and the Pico. J10 stays. 100 nets routed, 52 open.
 
