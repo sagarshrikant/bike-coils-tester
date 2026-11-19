@@ -28,7 +28,7 @@ for (const fp of s.split("\n\t(footprint ").slice(1)) {
 // ---- tracks, vias
 const segs = [...s.matchAll(/\n\t\(segment\s+\(start ([\d.\-]+) ([\d.\-]+)\)\s+\(end ([\d.\-]+) ([\d.\-]+)\)\s+\(width [\d.]+\)\s+\(layer "([^"]+)"\)\s+\(net "([^"]*)"\)/g)]
   .map((m) => ({ a: [+m[1], +m[2]], b: [+m[3], +m[4]], layer: m[5], net: m[6] }));
-const vias = [...s.matchAll(/\n\t\(via\s+\(at ([\d.\-]+) ([\d.\-]+)\)[\s\S]*?\(net "([^"]*)"\)/g)].map((m) => ({ x: +m[1], y: +m[2], net: m[3] }));
+const vias = [...s.matchAll(/\n\t\(via\s+\(at ([\d.\-]+) ([\d.\-]+)\)\s+\(size ([\d.]+)\)[\s\S]*?\(net "([^"]*)"\)/g)].map((m) => ({ x: +m[1], y: +m[2], r: +m[3] / 2, net: m[4] }));
 // ---- filled zones
 const zones = [];
 for (const z of s.split("\n\t(zone").slice(1)) {
@@ -56,7 +56,7 @@ function check(net) {
   // a track end that lies on the body of another track (T-junction) is connected in KiCad as well
   const dseg = (px, py, a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], L = dx * dx + dy * dy; let t = L ? ((px - a[0]) * dx + (py - a[1]) * dy) / L : 0; t = Math.max(0, Math.min(1, t)); return Math.hypot(px - a[0] - t * dx, py - a[1] - t * dy); };
   sg.forEach((g, gi) => sg.forEach((h, hi) => { if (gi === hi || g.layer !== h.layer) return; for (const k of [0, 1]) { const q = k ? g.b : g.a; if (dseg(q[0], q[1], h.a, h.b) <= 0.05) uni(sn[gi][k], sn[hi][0]); } }));
-  const vn = vias.filter((v) => v.net === net).map((v) => add({ kind: "via", x: v.x, y: v.y }));
+  const vn = vias.filter((v) => v.net === net).map((v) => add({ kind: "via", x: v.x, y: v.y, r: v.r }));
   const zn = zones.filter((z) => z.net === net).map((z) => add({ kind: "zone", z }));
   for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
     const a = nodes[i], b = nodes[j];
@@ -71,7 +71,8 @@ function check(net) {
     const la = a.kind === "pad" ? a.p.layers : a.kind === "end" ? [a.layer] : ["F.Cu", "B.Cu"];
     const lb = b.kind === "pad" ? b.p.layers : b.kind === "end" ? [b.layer] : ["F.Cu", "B.Cu"];
     if (!la.some((l) => lb.includes(l))) continue;
-    const r = Math.max(a.kind === "pad" ? a.p.r : 0.05, b.kind === "pad" ? b.p.r : 0.05);
+    const rad = (o) => (o.kind === "pad" ? o.p.r : o.kind === "via" ? o.r : 0.05); // a track end anywhere on a pad or via counts
+    const r = Math.max(rad(a), rad(b));
     if (near(x1, y1, x2, y2, r)) uni(i, j);
   }
   const groups = {}; pn.forEach((n) => { (groups[find(n)] ||= []).push(nodes[n].p.ref + "." + nodes[n].p.num); });
