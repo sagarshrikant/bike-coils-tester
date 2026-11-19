@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19 19:05): AGND trunk (0.5 mm B.Cu, J7 to NT1 area) done; open AGND drops: U402.10-12, U403.4, R415.2, JC2.3, C404.2, C408.2 (J10.9 later). Then CH-PU signals, CH-R2 long runs to JM1 / Pico, 3V3 backbone, 3V3A, VSYS.**
+**RESUME HERE (2026-11-19 22:40): J8 moved to the top edge above the Pico. Route J8 first (short drops from the Pico): HV_CMP, SP_IN, RIG_PWM, RIG_TACH, DRV_OUT, then GP1_SPARE, GP16_SPARE, VSYS, EXP_INT, SDA/SCL (continue the two dangling stubs at the top right of the Pico), 3V3, HV_RANGE0/1 (from U3). Then the AGND drops (U402.10-12, U403.4, R415.2, JC2.3, C404.2, C408.2), CH-PU signals, J10 spares, CH-R2, 3V3, 3V3A.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -46,6 +46,8 @@ Tasks of later milestones are written when we reach them (the part positions may
 Not written yet.
 
 ## Log
+
+- 2026-11-19 22:40: Claude moved J8 (2x8) from the top right to the top edge above the Pico (trial router: Pico to J8 signals 22-31 mm instead of 95-140 mm). Removed the old runs to J8 (GP1_SPARE, GP16_SPARE, VSYS, HV_RANGE0 beyond U3/R325, the half-done HV_CMP, the SDA/SCL top-edge runs) and one GND_L stitch via on the new J8.16; PU_PKP B.Cu run shifted to pass between J8 and the Pico. J10 stays. 100 nets routed, 52 open.
 
 - 2026-11-19 19:05: user consolidated AGND into one 0.5 mm B.Cu trunk (JM1 keeps its own short run to the star). Claude: R314 beside U2 pin 5, R312 with R313, negative peak parts R420/C408/R419 above D403; removed 4 dangling AGND stubs and a one-layer via near NT1. 69 nets routed.
 
