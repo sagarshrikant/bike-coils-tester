@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19 17:45): logic side, CH-R2. AGND star done for CH-R2 (12 pads to NT1). Open: GND_L track NT1 pad 2 to a GND_L via (starved thermal), R2_NODE PR3 pin 3 not joined. Then long runs to Pico/JM1/U3, 3V3 backbone, 3V3A, VSYS, CH-PU.**
+**RESUME HERE (2026-11-19 17:45): logic side, CH-R2. AGND star done for CH-R2 (12 pads to NT1). Open: delete the GND_L via too close to the J6-D201 R2_NODE track. Then long runs to Pico/JM1/U3, 3V3 backbone, 3V3A, VSYS, CH-PU.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -47,6 +47,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-19 17:56: NT1 pad 2 tied to GND_L via by track (starved thermal gone); R2_NODE fully routed (PR3.3 joined). DRC: 1 clearance (new GND_L via at abs 33.15,69.30 vs R2_NODE track, 0.13 mm), 180 unconnected. 67 nets routed.
 - 2026-11-19 17:45: CH-R2 placed and partly routed; AGND star (12 pads incl. R209, Pico pin 33) reaches NT1. DRC: 1 error (NT1 pad 2 starved thermal, one spoke), 181 unconnected. R2_NODE: PR3.3 open. 66 nets routed.
 
 - 2026-11-19 10:40: power side complete: last GND_P island joined, DRC shows only 2 dangling logic-side vias (VSYS, PU_NEG). 53 nets routed.
