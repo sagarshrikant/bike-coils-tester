@@ -64,7 +64,7 @@ function check(net) {
     if (a.kind === "zone" || b.kind === "zone") {
       const [zn_, o] = a.kind === "zone" ? [a, b] : [b, a]; if (o.kind === "zone") continue;
       const [x, y] = pos(o); const lay = o.kind === "pad" ? o.p.layers : o.kind === "end" ? [o.layer] : ["F.Cu", "B.Cu"];
-      if (lay.includes(zn_.z.layer) && (inPoly(x, y, zn_.z.pts) || (o.kind === "pad" && o.p.th && zn_.z.pts.some(([px, py]) => Math.hypot(px - x, py - y) <= o.p.r + 1.0)))) uni(i, j); // thermal-relief pads sit in a hole of the fill, so a nearby fill vertex counts
+      if (lay.includes(zn_.z.layer) && (inPoly(x, y, zn_.z.pts) || (o.kind === "pad" && zn_.z.pts.some(([px, py]) => Math.hypot(px - x, py - y) <= o.p.r + 1.0)))) uni(i, j); // thermal-relief pads (THT or SMD) sit in a hole of the fill, so a nearby fill vertex counts
       continue;
     }
     const [x1, y1] = pos(a), [x2, y2] = pos(b);
