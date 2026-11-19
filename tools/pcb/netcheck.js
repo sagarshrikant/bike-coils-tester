@@ -26,8 +26,8 @@ for (const fp of s.split("\n\t(footprint ").slice(1)) {
   }
 }
 // ---- tracks, vias
-const segs = [...s.matchAll(/\n\t\(segment\s+\(start ([\d.\-]+) ([\d.\-]+)\)\s+\(end ([\d.\-]+) ([\d.\-]+)\)\s+\(width [\d.]+\)\s+\(layer "([^"]+)"\)\s+\(net "([^"]*)"\)/g)]
-  .map((m) => ({ a: [+m[1], +m[2]], b: [+m[3], +m[4]], layer: m[5], net: m[6] }));
+const segs = [...s.matchAll(/\n\t\(segment\s+\(start ([\d.\-]+) ([\d.\-]+)\)\s+\(end ([\d.\-]+) ([\d.\-]+)\)\s+\(width ([\d.]+)\)\s+\(layer "([^"]+)"\)\s+\(net "([^"]*)"\)/g)]
+  .map((m) => ({ a: [+m[1], +m[2]], b: [+m[3], +m[4]], w: +m[5], layer: m[6], net: m[7] }));
 const vias = [...s.matchAll(/\n\t\(via\s+\(at ([\d.\-]+) ([\d.\-]+)\)\s+\(size ([\d.]+)\)[\s\S]*?\(net "([^"]*)"\)/g)].map((m) => ({ x: +m[1], y: +m[2], r: +m[3] / 2, net: m[4] }));
 // ---- filled zones
 const zones = [];
@@ -53,9 +53,9 @@ function check(net) {
   const sg = segs.filter((g) => g.net === net);
   const sn = sg.map((g) => [add({ kind: "end", x: g.a[0], y: g.a[1], layer: g.layer }), add({ kind: "end", x: g.b[0], y: g.b[1], layer: g.layer })]);
   sn.forEach(([a, b]) => uni(a, b));
-  // a track end that lies on the body of another track (T-junction) is connected in KiCad as well
+  // a track end that lies on the copper of another track (T-junction, slightly offset end) is connected in KiCad as well
   const dseg = (px, py, a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], L = dx * dx + dy * dy; let t = L ? ((px - a[0]) * dx + (py - a[1]) * dy) / L : 0; t = Math.max(0, Math.min(1, t)); return Math.hypot(px - a[0] - t * dx, py - a[1] - t * dy); };
-  sg.forEach((g, gi) => sg.forEach((h, hi) => { if (gi === hi || g.layer !== h.layer) return; for (const k of [0, 1]) { const q = k ? g.b : g.a; if (dseg(q[0], q[1], h.a, h.b) <= 0.05) uni(sn[gi][k], sn[hi][0]); } }));
+  sg.forEach((g, gi) => sg.forEach((h, hi) => { if (gi === hi || g.layer !== h.layer) return; for (const k of [0, 1]) { const q = k ? g.b : g.a; if (dseg(q[0], q[1], h.a, h.b) <= h.w / 2) uni(sn[gi][k], sn[hi][0]); } }));
   const vn = vias.filter((v) => v.net === net).map((v) => add({ kind: "via", x: v.x, y: v.y, r: v.r }));
   const zn = zones.filter((z) => z.net === net).map((z) => add({ kind: "zone", z }));
   for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
