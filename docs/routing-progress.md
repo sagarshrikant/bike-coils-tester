@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19): refill (B) + DRC to confirm the GND_P islands are joined. Power side is fully routed. Next: logic side: 3V3, 3V3A, VSYS, then CH-R2 / CH-PU / I/O.**
+**RESUME HERE (2026-11-19): power side DONE (DRC clean there). Set F.Cu GND_L / GND_P zones to thermal reliefs for all pads (hand soldering), refill, DRC. Then logic side: 3V3 (6 steps in chat), 3V3A, VSYS.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -12,8 +12,8 @@ default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (mileston
 | M0 | Preparation: DRC run, router settings | done |
 | M1 | 12 V power path (J1 to the outputs) | done (DRC clean) |
 | M2 | Ground pours GND_P, GND_L; AGND star | pours done, AGND star open |
-| M3 | Supply rails (3V3, 3V3A, 3V3_P, VSYS, ±5 V, 9 V, MUX_VDD) | open |
-| M4 | ARM stage signals (gate chain, relay, senses) | open |
+| M3 | Supply rails (3V3, 3V3A, 3V3_P, VSYS, ±5 V, 9 V, MUX_VDD) | power-side rails done; 3V3, 3V3A, VSYS open |
+| M4 | ARM stage signals (gate chain, relay, senses) | done |
 | M5 | CH-TG (trigger generator) | open |
 | M6 | CH-R2 (resistance) | open |
 | M7 | CH-PU (pickup) | open |
@@ -47,6 +47,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-19 10:40: power side complete: last GND_P island joined, DRC shows only 2 dangling logic-side vias (VSYS, PU_NEG). 53 nets routed.
 - 2026-11-19 10:35: U1 had been dragged 48 mm off the board; restored to its original place (22.93, 42.78, 90). Stray R2_DRIVE_1K via removed. 4 GND_P vias + short tracks added for islands (R511.2, U504.3, U101.3, U511.3). Load path widened by user (12V_MID 2 mm, OUT1/OUT2 1.5 mm, 12V_ARMED trunk 1.5-3 mm). netcheck: track end on another track copper counts as connected.
 - 2026-11-19 09:41: Q3_G routed; user narrowed signal nets (SHUT, TG_S, PR5_B..PR9_B, Q2_G, MUX_A, MUX_INH, TG_FB*, V_AMP*) from 0.5 to 0.25 mm: fine (all under 100 mA). DRC 5: 3 starved thermals (GND_P islands), 2 dangling vias. 52 nets routed.
 - 2026-11-19 08:21: Q2_G, DAC_P, DAC_N, V_AMPN_M, V_ARM_M routed. Open on power side: V_OUT_M (R503/R504 to R505/JM2.7), V_AMPP_M (JM2.8). DRC 17: 6 vias 0.5/0.3 (DAC_N, V_AMPN_M, V_AMPP_M x2 each), GND_P pours split into islands (starved thermals U505.2, U504.3, U101.3; R511.2 isolated).
