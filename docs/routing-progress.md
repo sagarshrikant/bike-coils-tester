@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-20): routing + silkscreen done, board named SPARKBENCH Rev A (D27). Gerbers plotted to hardware/kicad/mainboard/gerbers/ (8 layers + job file); DRILL FILE MISSING. Next: user generates drill file, re-runs DRC after the silk fixes; Claude checks the set, zips it, JLCPCB order settings, tag hw-mainboard-revA.**
+**RESUME HERE (2026-11-20): order files ready: hardware/kicad/mainboard/SPARKBENCH-mainboard-RevA-gerbers.zip (8 Gerbers + drill + job; 913 holes checked against the board). Next: user uploads to JLCPCB and orders; then git tag hw-mainboard-revA.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
