@@ -58,14 +58,15 @@ Codes: T top (F.Cu), B bottom (B.Cu), V vertical, H horizontal, ↗↖↘↙ 45�
 - [x] L3.7 EXP_RESET  R303.2 → U2.18   T H→ short, via (left of the HV_RANGE lines), B H→ ↘, V↓ between U2.12/U2.11 under the U2 body, ↘ into U2.18
 - [x] L3.8 SDA  U2.13 → JM1.4    T ↘ into the U2 body, H→ (above EXP_INT), V↑ out between top pins, ↗, via, B H→ under the EXP1 lines, via, T H→ into JM1.4
 - [x] L3.9 SCL  U2.12 → JM1.3    T ↗, H→ above U2, ↗ V↑, H→, via, B H→ under the EXP1 lines (above SDA), via, T ↗ into JM1.3
-- [ ] L3.10 SDA JM1.4 → U506.2   T ↘ out, V↓ long just right of the JM1 pins, ↘ steps right past PR2, V↓, ↘ to U506.2
-- [ ] L3.11 SCL JM1.3 → U506.3   T parallel on the right of SDA; near U506 via, B V↓ short (crosses SDA), via, T ↘ into U506.3
+- [ ] L3.10 SDA JM1.4 → U506.2   T ↘ out, V↓ in the narrow strip hugging the JM1 pins (left of the C201-C205/NT1 column), below C202: via, B ↘ short (hop under the AGND trunk), via, T V↓ between R405.2 and the PR2 HV pins, ↘ right of R408/R409, ↘ to U506.2. Keep ≥1.5 mm from PU_IN/PU_MID/PR1_B/PR2_B pads
+- [ ] L3.11 SCL JM1.3 → U506.3   T same path, always on the right of SDA, same B hop under the AGND trunk; near U506: via, B V↓ short (crosses SDA), via, T ↘ into U506.3
+  Why: the bus J8 → U3 → U2 → JM1 → U506 runs from the top edge to the slot, so AGND parts sit on both sides of it; one AGND crossing is unavoidable. Do it as a short I2C hop on B, so AGND stays unbroken on T. GND_L is the B fill: JM1.5 is a THT pin, NT1.2 gets its own via (in or right below the pad), so the I2C on T cannot cut it off.
 
 ### Later (details when we get there)
 - L4 CH-R2 rows at JM1, R2_DRIVE from Pico, R2_CAL, R2_NODE
 - L5 CH-PU right to left (PU_IN 0.3 mm class), U2 controls, peak detectors, Pico lines
 - L6 TG/KILL lines to the LED resistors, ARM/MID/PWR/RLY lines
-- L7 AGND trunk to NT1, 3V3A, 3V3, GND_L stitching (script), DRC
+- L7 AGND trunk to NT1 (right side: JM1.2 H→ C204.2, column C205.2-C204.2-NT1.1-C203.2-C201.2-C202.2 on T right of the I2C strip, then down across the I2C hop to R405.2 and on to CH-PU; NT1.2 via to the B fill), 3V3A, 3V3, GND_L stitching (script), DRC
 
 ## M0 Preparation
 
@@ -94,6 +95,7 @@ Not written yet.
 
 - 2026-11-20: L1 and L2 checked. All 26 nets routed, closest gap 0.22 mm (EXP_INT to J8.11). User variations, all fine: VSYS on B.Cu at 0.5 mm; HV_RANGE0/1 run H← through the U3 body and out of its left end; R4_EN/INS_EN enter U3 from above through the body; EXP_INT runs under the U2 body then B ↖ to U1.27; R301/R302 sit right above U3.13/U3.12. 86 nets routed, 66 open. L3 steps written (trial-routed).
 - 2026-11-20 (2): L3.3-L3.9 checked: SDA/SCL U3 to U2 to JM1 and EXP_RESET routed, closest gap 0.29 mm. User variations: SDA/SCL run under the U2 body on T, then via and B V↑ between U2 and JM1; EXP_RESET is almost all B (U1.26 up, B H→ above the Pico top row, via into U3.18, B ↘ to U2.18), about 49 mm of B; check the B ground fill around it at L7. 92 nets routed, 60 open.
+- 2026-11-20 (3): user spotted that the first L3.10/L3.11 path ran down the AGND column next to NT1 and close to the CH-PU HV parts. Re-planned with the AGND trunk and the HV pads as keep-outs: I2C stays in the strip next to JM1, hops the AGND trunk once on B below C202, keeps ≥1.5 mm from the PU HV pads.
 - 2026-11-19 23:05: user asked for a cleaner logic side (J10 flat above U2/U3, J6 and J7 side by side, J8 not tight on the Pico). Claude re-placed the logic side: J8 and J10 on the top edge, Pico under J8 with a 5 mm gap, U3/U2 flat and stacked, JM1 plus CH-R2 top right, J6 above J7 on the right edge, CH-PU along the lower band from J7 leftwards to the Pico; pull-downs moved to the destination end of their nets. A trial router over all logic nets scored the old placement 4895 mm / 133 vias / 15 nets it could not finish (22 with power nets first); the new one 3640-4100 mm / 91-122 vias / 5-6. All logic-side tracks and stitching vias removed (power side untouched; LED-resistor to opto links kept). 60 nets routed, 92 open.
 
 - 2026-11-19 22:40: Claude moved J8 (2x8) from the top right to the top edge above the Pico (trial router: Pico to J8 signals 22-31 mm instead of 95-140 mm). Removed the old runs to J8 (GP1_SPARE, GP16_SPARE, VSYS, HV_RANGE0 beyond U3/R325, the half-done HV_CMP, the SDA/SCL top-edge runs) and one GND_L stitch via on the new J8.16; PU_PKP B.Cu run shifted to pass between J8 and the Pico. J10 stays. 100 nets routed, 52 open.
