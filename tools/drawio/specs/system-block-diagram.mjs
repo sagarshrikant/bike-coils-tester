@@ -19,7 +19,7 @@ const afe = [
 ].map(([id, label, st], i) => ({ id, label, x: 340, y: 90 + i * 64, w: 290, h: 50, ...st }));
 
 export default {
-  title: 'Bike Coils Tester - System Block Diagram',
+  title: 'SPARKBENCH - System Block Diagram',
   width: 1390, height: 780,
   groups: [
     { id: 'g_uut', label: 'Units under test', x: 20, y: 50, w: 250, h: 560, fill: '#fefce8', stroke: '#ca8a04' },
@@ -29,7 +29,7 @@ export default {
     { id: 'g_pwr', label: 'Power & isolation', x: 700, y: 590, w: 670, h: 160 },
   ],
   nodes: [
-    { id: 'title', label: 'Bike Coils Tester — System Block Diagram', x: 20, y: 8, w: 1350, h: 32,
+    { id: 'title', label: 'SPARKBENCH — System Block Diagram', x: 20, y: 8, w: 1350, h: 32,
       fill: '#ffffff', stroke: '#ffffff', bold: true, fontSize: 18 },
     { id: 'rig', label: 'Motor rig\nreluctor disc + optical RPM', x: 40, y: 85, w: 210, h: 56 },
     { id: 'pickup', label: 'Pickup / pulser coil', x: 40, y: 185, w: 210, h: 56, ...ph1 },

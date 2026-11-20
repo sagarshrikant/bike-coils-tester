@@ -1,4 +1,4 @@
-# CLAUDE.md — Bike Coils Tester
+# CLAUDE.md — SPARKBENCH (bike coils tester)
 
 A bench tool for testing motorcycle **pickup (pulser) coils**, **CDI units (AC and DC)** and
 **ignition coils**. Each one can be tested on its own, or the whole chain can be tested together

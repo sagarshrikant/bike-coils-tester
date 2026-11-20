@@ -1,4 +1,6 @@
-# Bike Coils Tester
+# SPARKBENCH
+
+**Pickup · CDI · coil tester for motorcycles.** (Repo name: bike-coils-tester.)
 
 A bench tester for motorcycle **pickup coils**, **AC/DC CDI units** and **ignition coils**. It tests
 each part on its own, or the whole chain from pickup to spark, and reports which part failed.
