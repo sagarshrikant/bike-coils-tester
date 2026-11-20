@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-20): SPARKBENCH mainboard Rev A ORDERED at JLCPCB, order Y30-2414780A (files: tag hw-mainboard-revA). Routing work finished. Next: wait for boards; prepare bring-up / assembly plan.**
+**RESUME HERE (2026-11-20): SPARKBENCH mainboard Rev A ORDERED at JLCPCB, order Y30-2414780A (files: tag hw-mainboard-revA). Routing work finished. Next: when the boards arrive, follow docs/bring-up-revA.md stage by stage.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
