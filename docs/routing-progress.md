@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-20): L3.3-L3.9 done; next tasks L3.1 and L3.2 (J8 to U3), then L3.10-L3.11.**
+**RESUME HERE (2026-11-20): L3 done (I2C bus and EXP_RESET complete); next is L4 (CH-R2), steps to be written.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -49,8 +49,8 @@ Codes: T top (F.Cu), B bottom (B.Cu), V vertical, H horizontal, ↗↖↘↙ 45�
 - [x] L2.7 EXP_INT  U2.20 → U1.27   T ↖ H← in the U3/U2 gap, ↖ to the Pico (via at the end if blocked)
 
 ### L3 I2C bus and EXP_RESET (T unless stated)
-- [ ] L3.1 SCL  J8.4 → U3.12     T V↑ out of J8.4, H→ hugging the top edge (outermost line), past R301, via, B ↘ V↓ into U3.12
-- [ ] L3.2 SDA  J8.3 → R301.2/U3.13   T ↗ up between J8.4 and J8.6, H→ just under SCL, V↓ left of R301, H→ into the R301.2–U3.13 line
+- [x] L3.1 SCL  J8.4 → U3.12     T V↑ out of J8.4, H→ hugging the top edge (outermost line), past R301, via, B ↘ V↓ into U3.12
+- [x] L3.2 SDA  J8.3 → R301.2/U3.13   T ↗ up between J8.4 and J8.6, H→ just under SCL, V↓ left of R301, H→ into the R301.2–U3.13 line
 - [x] L3.3 SDA  U3.13 → U2.13    B (no via): V↓ under U3, out between U3.16/U3.17, ↘ across the gap, into U2.13
 - [x] L3.4 SCL  U3.12 → U2.12    B (no via): parallel, out between U3.17/U3.18, ↘, into U2.12
 - [x] L3.5 EXP_RESET  U3.18 → R303.2   T V↓ short
@@ -58,8 +58,8 @@ Codes: T top (F.Cu), B bottom (B.Cu), V vertical, H horizontal, ↗↖↘↙ 45�
 - [x] L3.7 EXP_RESET  R303.2 → U2.18   T H→ short, via (left of the HV_RANGE lines), B H→ ↘, V↓ between U2.12/U2.11 under the U2 body, ↘ into U2.18
 - [x] L3.8 SDA  U2.13 → JM1.4    T ↘ into the U2 body, H→ (above EXP_INT), V↑ out between top pins, ↗, via, B H→ under the EXP1 lines, via, T H→ into JM1.4
 - [x] L3.9 SCL  U2.12 → JM1.3    T ↗, H→ above U2, ↗ V↑, H→, via, B H→ under the EXP1 lines (above SDA), via, T ↗ into JM1.3
-- [ ] L3.10 SDA JM1.4 → U506.2   T ↘ out, V↓ in the narrow strip hugging the JM1 pins (left of the C201-C205/NT1 column), below C202: via, B ↘ short (hop under the AGND trunk), via, T V↓ between R405.2 and the PR2 HV pins, ↘ right of R408/R409, ↘ to U506.2. Keep ≥1.5 mm from PU_IN/PU_MID/PR1_B/PR2_B pads
-- [ ] L3.11 SCL JM1.3 → U506.3   T same path, always on the right of SDA, same B hop under the AGND trunk; near U506: via, B V↓ short (crosses SDA), via, T ↘ into U506.3
+- [x] L3.10 SDA JM1.4 → U506.2   T ↘ out, V↓ in the narrow strip hugging the JM1 pins (left of the C201-C205/NT1 column), below C202: via, B ↘ short (hop under the AGND trunk), via, T V↓ between R405.2 and the PR2 HV pins, ↘ right of R408/R409, ↘ to U506.2. Keep ≥1.5 mm from PU_IN/PU_MID/PR1_B/PR2_B pads
+- [x] L3.11 SCL JM1.3 → U506.3   T same path, always on the right of SDA, same B hop under the AGND trunk; near U506: via, B V↓ short (crosses SDA), via, T ↘ into U506.3
   Why: the bus J8 → U3 → U2 → JM1 → U506 runs from the top edge to the slot, so AGND parts sit on both sides of it; one AGND crossing is unavoidable. Do it as a short I2C hop on B, so AGND stays unbroken on T. GND_L is the B fill: JM1.5 is a THT pin, NT1.2 gets its own via (in or right below the pad), so the I2C on T cannot cut it off.
 
 ### Later (details when we get there)
@@ -96,6 +96,7 @@ Not written yet.
 - 2026-11-20: L1 and L2 checked. All 26 nets routed, closest gap 0.22 mm (EXP_INT to J8.11). User variations, all fine: VSYS on B.Cu at 0.5 mm; HV_RANGE0/1 run H← through the U3 body and out of its left end; R4_EN/INS_EN enter U3 from above through the body; EXP_INT runs under the U2 body then B ↖ to U1.27; R301/R302 sit right above U3.13/U3.12. 86 nets routed, 66 open. L3 steps written (trial-routed).
 - 2026-11-20 (2): L3.3-L3.9 checked: SDA/SCL U3 to U2 to JM1 and EXP_RESET routed, closest gap 0.29 mm. User variations: SDA/SCL run under the U2 body on T, then via and B V↑ between U2 and JM1; EXP_RESET is almost all B (U1.26 up, B H→ above the Pico top row, via into U3.18, B ↘ to U2.18), about 49 mm of B; check the B ground fill around it at L7. 92 nets routed, 60 open.
 - 2026-11-20 (3): user spotted that the first L3.10/L3.11 path ran down the AGND column next to NT1 and close to the CH-PU HV parts. Re-planned with the AGND trunk and the HV pads as keep-outs: I2C stays in the strip next to JM1, hops the AGND trunk once on B below C202, keeps ≥1.5 mm from the PU HV pads.
+- 2026-11-20 (4): L3.1/L3.2 done by user (SCL on T along the top edge then B into U3.12; SDA on B along the top edge into U3.13). L3.10/L3.11 written into the board by Claude with KiCad closed: strip next to JM1 at x 113.2/113.9, B hop below C202, T down at x 117.3/118, diagonals to U506, SCL B hop near U506. Closest gap 0.225 mm (JM1 pins), ≥2.3 mm from PU HV pads. 94 nets routed, 58 open.
 - 2026-11-19 23:05: user asked for a cleaner logic side (J10 flat above U2/U3, J6 and J7 side by side, J8 not tight on the Pico). Claude re-placed the logic side: J8 and J10 on the top edge, Pico under J8 with a 5 mm gap, U3/U2 flat and stacked, JM1 plus CH-R2 top right, J6 above J7 on the right edge, CH-PU along the lower band from J7 leftwards to the Pico; pull-downs moved to the destination end of their nets. A trial router over all logic nets scored the old placement 4895 mm / 133 vias / 15 nets it could not finish (22 with power nets first); the new one 3640-4100 mm / 91-122 vias / 5-6. All logic-side tracks and stitching vias removed (power side untouched; LED-resistor to opto links kept). 60 nets routed, 92 open.
 
 - 2026-11-19 22:40: Claude moved J8 (2x8) from the top right to the top edge above the Pico (trial router: Pico to J8 signals 22-31 mm instead of 95-140 mm). Removed the old runs to J8 (GP1_SPARE, GP16_SPARE, VSYS, HV_RANGE0 beyond U3/R325, the half-done HV_CMP, the SDA/SCL top-edge runs) and one GND_L stitch via on the new J8.16; PU_PKP B.Cu run shifted to pass between J8 and the Pico. J10 stays. 100 nets routed, 52 open.
