@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-20): SPARKBENCH mainboard Rev A ORDERED at JLCPCB, order Y30-2414780A (files: tag hw-mainboard-revA). Routing work finished. Next: when the boards arrive, follow docs/bring-up-revA.md stage by stage.**
+**RESUME HERE (2026-11-20, end of session): PCB Rev A ordered (JLCPCB Y30-2414780A, tag hw-mainboard-revA); bring-up plan in docs/bring-up-revA.md. NEXT SESSION: ADS1115 module software (user receives the module 2026-11-21). Step 1: confirm the module pin order against JM1 (bring-up stage 2). Step 2: MicroPython ADS1115 driver (pure maths host-tested) + change resistance.py to read V_top / V_node from the ADS1115 (ch-r2-pcb.md, "Firmware change"); hw_pins.py updated, architecture.md pin table kept in sync. Step 3: user tests it on the perfboard (Phase 1 resistor table) before the PCB arrives.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
