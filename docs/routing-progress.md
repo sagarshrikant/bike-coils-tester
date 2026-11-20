@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-20): Claude applied the GND_L fix (12 short tracks + 10 vias at the starved/unconnected pads). Next: user refills (B) + DRC; then silkscreen, Gerbers.**
+**RESUME HERE (2026-11-20): DRC down to 1 (J8.14 starved thermal on F.Cu; no room for a 2nd spoke). Claude added mainboard.kicad_dru allowing 1 spoke for J8.14 only. Next: user re-runs DRC (expect 0); then silkscreen, Gerbers.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.

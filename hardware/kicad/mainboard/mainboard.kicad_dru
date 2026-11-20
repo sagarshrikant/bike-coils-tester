@@ -1,0 +1,8 @@
+(version 1)
+
+# J8.14 (GND_L) sits between SCL along the top edge, HV_RANGE1 and the other header pins:
+# the F.Cu pour can only reach it with one thermal spoke. It also has a B.Cu track to a
+# stitching via below J8, so one spoke on F.Cu is enough.
+(rule "J8.14 one spoke"
+	(condition "A.Type == 'Pad' && A.Parent.Reference == 'J8' && A.Pad_Number == '14'")
+	(constraint min_resolved_spokes 1))
