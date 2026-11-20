@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-20): user tidied, added ~140 GND_L stitching vias, filled, DRC = 0 clearance errors, 11 starved thermals + 5 unconnected (all GND_L). Claude has a checked fix ready (12 short GND_L tracks + 10 vias, scratchpad gndfix.js): apply when KiCad is closed, then user refills (B) + DRC again; then silkscreen, Gerbers.**
+**RESUME HERE (2026-11-20): Claude applied the GND_L fix (12 short tracks + 10 vias at the starved/unconnected pads). Next: user refills (B) + DRC; then silkscreen, Gerbers.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
