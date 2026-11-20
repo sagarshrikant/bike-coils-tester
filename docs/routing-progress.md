@@ -1,6 +1,6 @@
 # Routing progress (read this first when resuming)
 
-**RESUME HERE (2026-11-19 23:20): logic side re-placed; next task L1.1 in "Logic side, guided order" below.**
+**RESUME HERE (2026-11-20): L1 and L2 done; next task L3.1 in "Logic side, guided order" below.**
 
 Routing rules: F.Cu with the net-class width; long runs may use B.Cu with vias; nothing crosses the slot; vias 0.6 / 0.3 mm.
 default 0.25 mm); the bottom layer (B.Cu) is kept for the ground pours (milestone M2); nothing crosses the slot; vias 0.6 / 0.3 mm.
@@ -27,29 +27,41 @@ Tasks of later milestones are written when we reach them (the part positions may
 Codes: T top (F.Cu), B bottom (B.Cu), V vertical, H horizontal, ↗↖↘↙ 45°, "via" = press V while routing. Width 0.25 mm unless stated.
 
 ### L1 J8 (all T)
-- [ ] L1.1 HV_RANGE1  R326.1 → J8.16   T H←
-- [ ] L1.2 HV_RANGE0  R325.1 → J8.15   T H←
-- [ ] L1.3 DRV_OUT    U1.16 → J8.10    T V↑ under Pico, ↖ between top-row pins, ↖ in
-- [ ] L1.4 RIG_TACH   U1.15 → J8.9     T V↑, ↖ in
-- [ ] L1.5 RIG_PWM    U1.14 → J8.8     T V↑, ↖ in
-- [ ] L1.6 SP_IN      U1.12 → J8.7     T V↑ straight
-- [ ] L1.7 HV_CMP     U1.11 → J8.6     T V↑, ↗ in
-- [ ] L1.8 EXP_INT    U1.27 → J8.12    T V↑ short, via, B ↗ in
-- [ ] L1.9 GP16_SPARE U1.21 → J8.11    T ↖ H← ↖ (gap between J8 and Pico)
-- [ ] L1.10 VSYS      U1.39 → J8.13    T 0.5 mm: ↗ then H→ along the gap, ↘ in
-- [ ] L1.11 GP1_SPARE U1.2 → J8.5      T ↗ long under Pico, via, B ↗ in
+- [x] L1.1 HV_RANGE1  R326.1 → J8.16   T H←
+- [x] L1.2 HV_RANGE0  R325.1 → J8.15   T H←
+- [x] L1.3 DRV_OUT    U1.16 → J8.10    T V↑ under Pico, ↖ between top-row pins, ↖ in
+- [x] L1.4 RIG_TACH   U1.15 → J8.9     T V↑, ↖ in
+- [x] L1.5 RIG_PWM    U1.14 → J8.8     T V↑, ↖ in
+- [x] L1.6 SP_IN      U1.12 → J8.7     T V↑ straight
+- [x] L1.7 HV_CMP     U1.11 → J8.6     T V↑, ↗ in
+- [x] L1.8 EXP_INT    U1.27 → J8.12    T V↑ short, via, B ↗ in
+- [x] L1.9 GP16_SPARE U1.21 → J8.11    T ↖ H← ↖ (gap between J8 and Pico)
+- [x] L1.10 VSYS      U1.39 → J8.13    T 0.5 mm: ↗ then H→ along the gap, ↘ in
+- [x] L1.11 GP1_SPARE U1.2 → J8.5      T ↗ long under Pico, via, B ↗ in
 
 ### L2 J10 (T unless stated)
-- [ ] L2.1 EXP2_B2..B7  U3.3..8 → J10.15..20   T ↗ fan, B2 first, each next one outside the previous; B7 may need via + B H→ at the end
-- [ ] L2.2 EXP1_B0..B3  U2.1..4 → J10.11..14   T V↑ straight up the free strip right of U3, small ↖ at the end
-- [ ] L2.3 R318.1 → J10.3, R319.1 → J10.4      T short
-- [ ] L2.4 R4_EN, INS_EN, HV_PKRST  U3.21/22/25 → J10.3/4/5   T H→ in the U3/U2 gap, via, B H→ under the EXP1 lines, via, T ↗ V↑ in
-- [ ] L2.5 ADS1_ALRT JM1.6 → J10.6, ADS1_A3 JM1.10 → J10.8   T V↑ left of JM1 (via + B at the end if blocked)
-- [ ] L2.6 HV_RANGE0/1  U3.23/24 → R325.1/R326.1   T H← in the U3/U2 gap, ↖ up between Pico and U3, H← to R325/R326
-- [ ] L2.7 EXP_INT  U2.20 → U1.27   T ↖ H← in the U3/U2 gap, ↖ to the Pico (via at the end if blocked)
+- [x] L2.1 EXP2_B2..B7  U3.3..8 → J10.15..20   T ↗ fan, B2 first, each next one outside the previous; B7 may need via + B H→ at the end
+- [x] L2.2 EXP1_B0..B3  U2.1..4 → J10.11..14   T V↑ straight up the free strip right of U3, small ↖ at the end
+- [x] L2.3 R318.1 → J10.3, R319.1 → J10.4      T short
+- [x] L2.4 R4_EN, INS_EN, HV_PKRST  U3.21/22/25 → J10.3/4/5   T H→ in the U3/U2 gap, via, B H→ under the EXP1 lines, via, T ↗ V↑ in
+- [x] L2.5 ADS1_ALRT JM1.6 → J10.6, ADS1_A3 JM1.10 → J10.8   T V↑ left of JM1 (via + B at the end if blocked)
+- [x] L2.6 HV_RANGE0/1  U3.23/24 → R325.1/R326.1   T H← in the U3/U2 gap, ↖ up between Pico and U3, H← to R325/R326
+- [x] L2.7 EXP_INT  U2.20 → U1.27   T ↖ H← in the U3/U2 gap, ↖ to the Pico (via at the end if blocked)
+
+### L3 I2C bus and EXP_RESET (T unless stated)
+- [ ] L3.1 SCL  J8.4 → U3.12     T V↑ out of J8.4, H→ hugging the top edge (outermost line), past R301, via, B ↘ V↓ into U3.12
+- [ ] L3.2 SDA  J8.3 → R301.2/U3.13   T ↗ up between J8.4 and J8.6, H→ just under SCL, V↓ left of R301, H→ into the R301.2–U3.13 line
+- [ ] L3.3 SDA  U3.13 → U2.13    B (no via): V↓ under U3, out between U3.16/U3.17, ↘ across the gap, into U2.13
+- [ ] L3.4 SCL  U3.12 → U2.12    B (no via): parallel, out between U3.17/U3.18, ↘, into U2.12
+- [ ] L3.5 EXP_RESET  U3.18 → R303.2   T V↓ short
+- [ ] L3.6 EXP_RESET  U1.26 → R303.2   B ↘ short out of U1.26 (under DRV_OUT), via, T ↘ H→ just below the U3 bottom row, into R303.2 from the left
+- [ ] L3.7 EXP_RESET  R303.2 → U2.18   T H→ short, via (left of the HV_RANGE lines), B H→ ↘, V↓ between U2.12/U2.11 under the U2 body, ↘ into U2.18
+- [ ] L3.8 SDA  U2.13 → JM1.4    T ↘ into the U2 body, H→ (above EXP_INT), V↑ out between top pins, ↗, via, B H→ under the EXP1 lines, via, T H→ into JM1.4
+- [ ] L3.9 SCL  U2.12 → JM1.3    T ↗, H→ above U2, ↗ V↑, H→, via, B H→ under the EXP1 lines (above SDA), via, T ↗ into JM1.3
+- [ ] L3.10 SDA JM1.4 → U506.2   T ↘ out, V↓ long just right of the JM1 pins, ↘ steps right past PR2, V↓, ↘ to U506.2
+- [ ] L3.11 SCL JM1.3 → U506.3   T parallel on the right of SDA; near U506 via, B V↓ short (crosses SDA), via, T ↘ into U506.3
 
 ### Later (details when we get there)
-- L3 I2C bus SDA/SCL (Pico, R301/R302, U3, U2, J8, JM1, U506) and EXP_RESET
 - L4 CH-R2 rows at JM1, R2_DRIVE from Pico, R2_CAL, R2_NODE
 - L5 CH-PU right to left (PU_IN 0.3 mm class), U2 controls, peak detectors, Pico lines
 - L6 TG/KILL lines to the LED resistors, ARM/MID/PWR/RLY lines
@@ -80,6 +92,7 @@ Not written yet.
 
 ## Log
 
+- 2026-11-20: L1 and L2 checked. All 26 nets routed, closest gap 0.22 mm (EXP_INT to J8.11). User variations, all fine: VSYS on B.Cu at 0.5 mm; HV_RANGE0/1 run H← through the U3 body and out of its left end; R4_EN/INS_EN enter U3 from above through the body; EXP_INT runs under the U2 body then B ↖ to U1.27; R301/R302 sit right above U3.13/U3.12. 86 nets routed, 66 open. L3 steps written (trial-routed).
 - 2026-11-19 23:05: user asked for a cleaner logic side (J10 flat above U2/U3, J6 and J7 side by side, J8 not tight on the Pico). Claude re-placed the logic side: J8 and J10 on the top edge, Pico under J8 with a 5 mm gap, U3/U2 flat and stacked, JM1 plus CH-R2 top right, J6 above J7 on the right edge, CH-PU along the lower band from J7 leftwards to the Pico; pull-downs moved to the destination end of their nets. A trial router over all logic nets scored the old placement 4895 mm / 133 vias / 15 nets it could not finish (22 with power nets first); the new one 3640-4100 mm / 91-122 vias / 5-6. All logic-side tracks and stitching vias removed (power side untouched; LED-resistor to opto links kept). 60 nets routed, 92 open.
 
 - 2026-11-19 22:40: Claude moved J8 (2x8) from the top right to the top edge above the Pico (trial router: Pico to J8 signals 22-31 mm instead of 95-140 mm). Removed the old runs to J8 (GP1_SPARE, GP16_SPARE, VSYS, HV_RANGE0 beyond U3/R325, the half-done HV_CMP, the SDA/SCL top-edge runs) and one GND_L stitch via on the new J8.16; PU_PKP B.Cu run shifted to pass between J8 and the Pico. J10 stays. 100 nets routed, 52 open.
