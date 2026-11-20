@@ -1,12 +1,8 @@
 ** Drc report for mainboard.kicad_pcb **
-** Created on 2026-11-20T12:55:09 **
+** Created on 2026-11-20T13:03:35 **
 ** Report includes: Errors, Warnings **
 
-** Found 1 DRC violations **
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(60.3875 mm, 18.0175 mm): PTH pad 14 [GND_L] of J8
+** Found 0 DRC violations **
 
 ** Found 0 unconnected pads **
 
