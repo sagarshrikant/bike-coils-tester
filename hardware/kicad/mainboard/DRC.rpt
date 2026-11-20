@@ -1,74 +1,14 @@
 ** Drc report for mainboard.kicad_pcb **
-** Created on 2026-11-20T12:43:13 **
+** Created on 2026-11-20T12:55:09 **
 ** Report includes: Errors, Warnings **
 
-** Found 11 DRC violations **
-[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; 1 spokes connected to isolated island)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on B.Cu, priority 3
-    @(127.1475 mm, 35.6375 mm): PTH pad 5 [GND_L] of JM1
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(127.1475 mm, 35.6375 mm): PTH pad 5 [GND_L] of JM1
+** Found 1 DRC violations **
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
     @(60.3875 mm, 18.0175 mm): PTH pad 14 [GND_L] of J8
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(147.0000 mm, 76.5500 mm): Pad 2 [GND_L] of C511 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; 1 spokes connected to isolated island)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(130.6475 mm, 59.3175 mm): PTH pad 2 [GND_L] of PR2
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(99.7600 mm, 72.4775 mm): Pad 2 [GND_L] of R317 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; 1 spokes connected to isolated island)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on B.Cu, priority 3
-    @(121.9875 mm, 20.5575 mm): PTH pad 10 [GND_L] of J10
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(53.4275 mm, 47.9775 mm): PTH pad 13 [GND_L] of U1
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(99.9000 mm, 39.6000 mm): Pad 2 [GND_L] of C301 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(132.1475 mm, 20.5575 mm): PTH pad 2 [GND_L] of J10
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(128.1000 mm, 62.9900 mm): Pad 2 [GND_L] of R313 on F.Cu
 
-** Found 5 unconnected pads **
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on B.Cu, priority 3
-    @(60.3875 mm, 18.0175 mm): PTH pad 14 [GND_L] of J8
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(128.1000 mm, 62.9900 mm): Pad 2 [GND_L] of R313 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(130.4475 mm, 35.6375 mm): Pad 2 [GND_L] of NT1 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(132.1475 mm, 20.5575 mm): PTH pad 2 [GND_L] of J10
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
-    @(15.2500 mm, 82.5000 mm): Zone [GND_L] on F.Cu, priority 2
+** Found 0 unconnected pads **
 
 ** Found 0 Footprint errors **
 
