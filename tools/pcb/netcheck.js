@@ -15,14 +15,17 @@ for (const fp of s.split("\n\t(footprint ").slice(1)) {
   const fx = +at[1], fy = +at[2], rot = +(at[3] || 0);
   const flipped = /^\(?"[^"]*"\s*\n\t\t\(layer "B\.Cu"\)/.test(fp);
   const c = Math.cos((rot * Math.PI) / 180), sn = Math.sin((rot * Math.PI) / 180);
-  for (const m of fp.matchAll(/\(pad "([^"]*)" (\w+) (\w+)\s+\(at ([\d.\-]+) ([\d.\-]+)(?: [\d.\-]+)?\)\s+\(size ([\d.]+) ([\d.]+)\)([\s\S]*?)\n\t\t\)/g)) {
-    const net = /\(net "([^"]*)"\)/.exec(m[8]);
+  for (const m of fp.matchAll(/\(pad "([^"]*)" (\w+) (\w+)\s+\(at ([\d.\-]+) ([\d.\-]+)(?: ([\d.\-]+))?\)\s+\(size ([\d.]+) ([\d.]+)\)([\s\S]*?)\n\t\t\)/g)) {
+    const net = /\(net "([^"]*)"\)/.exec(m[9]);
     if (!net) continue;
     const px = +m[4], py = +m[5];
     // KiCad: positive rotation is counter-clockwise on screen, y points down
     const x = fx + px * c + py * sn, y = fy - px * sn + py * c;
+    // the pad angle in the file already includes the footprint rotation; 90/270 swaps width and height
+    let w = +m[7], h = +m[8];
+    if (Math.round(((((+(m[6] || 0)) % 180) + 180) % 180) / 90) === 1) [w, h] = [h, w];
     const layers = m[2] === "thru_hole" || m[2] === "np_thru_hole" ? ["F.Cu", "B.Cu"] : [flipped ? "B.Cu" : "F.Cu"];
-    pads.push({ ref, num: m[1], net: net[1], x, y, r: Math.max(+m[6], +m[7]) / 2, layers, th: m[2] === "thru_hole" });
+    pads.push({ ref, num: m[1], net: net[1], x, y, r: Math.max(w, h) / 2, w, h, circ: m[3] === "circle", layers, th: m[2] === "thru_hole" });
   }
 }
 // ---- tracks, vias
@@ -71,7 +74,11 @@ function check(net) {
     const la = a.kind === "pad" ? a.p.layers : a.kind === "end" ? [a.layer] : ["F.Cu", "B.Cu"];
     const lb = b.kind === "pad" ? b.p.layers : b.kind === "end" ? [b.layer] : ["F.Cu", "B.Cu"];
     if (!la.some((l) => lb.includes(l))) continue;
-    const rad = (o) => (o.kind === "pad" ? o.p.r : o.kind === "via" ? o.r : 0.05); // a track end anywhere on a pad or via counts
+    // a track end anywhere on a pad (its real rectangle or circle) or on a via counts
+    const onPad = (p, x, y) => (p.circ ? Math.hypot(x - p.x, y - p.y) <= p.w / 2 + 0.05 : Math.abs(x - p.x) <= p.w / 2 + 0.05 && Math.abs(y - p.y) <= p.h / 2 + 0.05);
+    if (a.kind === "pad" && b.kind === "pad") { if (near(x1, y1, x2, y2, Math.max(a.p.r, b.p.r))) uni(i, j); continue; }
+    if (a.kind === "pad" || b.kind === "pad") { const [pd, o] = a.kind === "pad" ? [a, b] : [b, a]; const [ox, oy] = pos(o); if (onPad(pd.p, ox, oy) || (o.kind === "via" && near(pd.p.x, pd.p.y, ox, oy, o.r))) uni(i, j); continue; }
+    const rad = (o) => (o.kind === "via" ? o.r : 0.05);
     const r = Math.max(rad(a), rad(b));
     if (near(x1, y1, x2, y2, r)) uni(i, j);
   }
